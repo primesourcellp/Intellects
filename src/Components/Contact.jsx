@@ -144,10 +144,7 @@ export default function Contact() {
                         <h2 className="text-3xl font-bold text-slate-900 mb-6">
                             Send Us a Message
                         </h2>
-                        <p className="text-md text-slate-600 mb-6">
-                            We value your time and inquiries. Please fill out the form below — our team will get back to you within 24 hours.
-                        </p>
-
+                     
                         {message && (
                             <div className={`p-4 mb-4 rounded-lg font-medium ${message.includes('Thank you') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                                 {message}
