@@ -15,13 +15,13 @@ export default function MobileAppDevelopment() {
 
       {/* Hero Section */}
       <motion.section
-        className="py-20 text-center bg-gradient-to-b from-blue-50 to-white"
+        className="py-20 text-center bg-gradient-to-b from-primary-lightest to-white"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <FaMobileAlt className="mx-auto text-blue-600 text-5xl mb-4 animate-bounce" />
+          <FaMobileAlt className="mx-auto text-primary-medium text-5xl mb-4 animate-bounce" />
           <h1 className="text-4xl font-bold mb-4">
             Mobile Application Development
           </h1>
@@ -46,22 +46,22 @@ export default function MobileAppDevelopment() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
             {[
               {
-                icon: <FaUsers className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaUsers className="text-primary-medium text-4xl mb-4" />,
                 title: "Enhancing User Engagement",
                 desc: "Apps designed to delight users and boost interaction.",
               },
               {
-                icon: <FaCogs className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaCogs className="text-primary-medium text-4xl mb-4" />,
                 title: "Optimizing Operations",
                 desc: "Streamlining workflows and automating repetitive tasks.",
               },
               {
-                icon: <FaMobileAlt className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaMobileAlt className="text-primary-medium text-4xl mb-4" />,
                 title: "Driving Revenue Growth",
                 desc: "E-commerce and service apps that increase conversions.",
               },
               {
-                icon: <FaServer className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaServer className="text-primary-medium text-4xl mb-4" />,
                 title: "Ensuring Scalability",
                 desc: "Flexible solutions that evolve as your business grows.",
               },
@@ -139,7 +139,7 @@ export default function MobileAppDevelopment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: i * 0.2 }}
               >
-                <div className="text-4xl font-bold text-blue-600 mb-2">{i + 1}</div>
+                <div className="text-4xl font-bold text-primary-medium mb-2">{i + 1}</div>
                 <p className="font-medium text-slate-700">{step}</p>
               </motion.div>
             ))}

@@ -76,7 +76,7 @@ export default function ContactUsPage() {
 
     const ContactDetailItem = ({ icon: Icon, title, content }) => (
         <div className="flex items-start space-x-4">
-            <Icon className="h-6 w-6 text-blue-500 flex-shrink-0 mt-1" />
+            <Icon className="h-6 w-6 text-primary-medium flex-shrink-0 mt-1" />
             <div>
                 <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
                 <p className="text-slate-600">{content}</p>
@@ -93,7 +93,7 @@ export default function ContactUsPage() {
                     <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-3 tracking-tight">
                         Contact Us
                     </h1>
-                    <p className="text-xl text-blue-600 font-medium">
+                    <p className="text-xl text-primary-medium font-medium">
                         Let’s Connect. Let’s Build the Future Together.
                     </p>
                 </div>
@@ -202,7 +202,7 @@ export default function ContactUsPage() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-blue-600 hover:bg-blue-700 transition duration-300 disabled:bg-blue-400 disabled:cursor-not-allowed mt-4"
+                                className="w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-primary-medium hover:bg-primary-dark transition duration-300 disabled:bg-blue-400 disabled:cursor-not-allowed mt-4"
                             >
                                 {isSubmitting ? (
                                     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

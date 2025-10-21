@@ -14,13 +14,13 @@ export default function WebAppDevelopment() {
     <div className="bg-white text-slate-800 overflow-hidden">
       {/* Hero Section */}
       <motion.section
-        className="py-20 text-center bg-gradient-to-b from-blue-50 to-white"
+        className="py-20 text-center bg-gradient-to-b from-primary-lightest to-white"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <FaLaptopCode className="mx-auto text-blue-600 text-5xl mb-4 animate-bounce" />
+          <FaLaptopCode className="mx-auto text-primary-medium text-5xl mb-4 animate-bounce" />
           <h1 className="text-4xl font-bold mb-4">
             Web Application Development
           </h1>
@@ -47,27 +47,27 @@ export default function WebAppDevelopment() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: <FaLaptopCode className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaLaptopCode className="text-primary-medium text-4xl mb-4" />,
                 title: "Custom Web Applications",
                 desc: "Built from scratch to match your specific workflows.",
               },
               {
-                icon: <FaServer className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaServer className="text-primary-medium text-4xl mb-4" />,
                 title: "Enterprise Portals",
                 desc: "Streamlined access to data, analytics, and collaboration tools.",
               },
               {
-                icon: <FaCloud className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaCloud className="text-primary-medium text-4xl mb-4" />,
                 title: "SaaS Applications",
                 desc: "Scalable cloud-based software for modern business models.",
               },
               {
-                icon: <FaLaptopCode className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaLaptopCode className="text-primary-medium text-4xl mb-4" />,
                 title: "Progressive Web Apps (PWA)",
                 desc: "Fast, reliable, and installable web experiences.",
               },
               {
-                icon: <FaServer className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaServer className="text-primary-medium text-4xl mb-4" />,
                 title: "E-commerce Web Apps",
                 desc: "Secure platforms to drive online sales and engagement.",
               },
@@ -102,27 +102,27 @@ export default function WebAppDevelopment() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: <FaUsers className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaUsers className="text-primary-medium text-4xl mb-4" />,
                 title: "Seamless UX & Design",
                 desc: "Consistent user experience with intuitive interfaces.",
               },
               {
-                icon: <FaServer className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaServer className="text-primary-medium text-4xl mb-4" />,
                 title: "Robust Backend",
                 desc: "Reliable, scalable systems for high performance.",
               },
               {
-                icon: <FaCloud className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaCloud className="text-primary-medium text-4xl mb-4" />,
                 title: "API & DB Integration",
                 desc: "Connect seamlessly with third-party tools and databases.",
               },
               {
-                icon: <FaShieldAlt className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaShieldAlt className="text-primary-medium text-4xl mb-4" />,
                 title: "Cloud Deployment",
                 desc: "Flexible cloud-based systems for scalability.",
               },
               {
-                icon: <FaTasks className="text-blue-500 text-4xl mb-4" />,
+                icon: <FaTasks className="text-primary-medium text-4xl mb-4" />,
                 title: "Cybersecurity",
                 desc: "Strong protocols to protect sensitive business data.",
               },
@@ -169,7 +169,7 @@ export default function WebAppDevelopment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: i * 0.2 }}
               >
-                <div className="text-4xl font-bold text-blue-600 mb-2">
+                <div className="text-4xl font-bold text-primary-medium mb-2">
                   {i + 1}
                 </div>
                 <p className="font-medium text-slate-700">{step}</p>
