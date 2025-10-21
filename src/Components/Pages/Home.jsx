@@ -1,11 +1,51 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { theme } from "../../theme";
 
 export default function Home() {
-  // Using centralized theme colors
-  const { colors, shadows, gradients } = theme;
+  // Inline Color Palette - From Logo
+  const colors = {
+    primary: {
+      main: '#1E3A8A',
+      light: '#3B82F6',
+      lighter: '#60A5FA',
+      lightest: '#DBEAFE',
+    },
+    secondary: {
+      main: '#0EA5E9',
+      light: '#22D3EE',
+      lighter: '#67E8F9',
+    },
+    accent: {
+      main: '#EC4899',
+      light: '#F472B6',
+    },
+    neutral: {
+      white: '#FFFFFF',
+      gray50: '#F9FAFB',
+      gray100: '#F3F4F6',
+      gray200: '#E5E7EB',
+      gray500: '#6B7280',
+      gray600: '#4B5563',
+      gray700: '#374151',
+      gray800: '#1F2937',
+    },
+  };
+
+  const gradients = {
+    primary: 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+    secondary: 'linear-gradient(135deg, #0EA5E9 0%, #22D3EE 100%)',
+    accent: 'linear-gradient(135deg, #DB2777 0%, #EC4899 100%)',
+    hero: 'linear-gradient(135deg, #1E3A8A 0%, #0EA5E9 50%, #EC4899 100%)',
+  };
+
+  const shadows = {
+    base: '0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06)',
+    md: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)',
+    lg: '0 20px 25px -5px rgba(30, 58, 138, 0.15), 0 10px 10px -5px rgba(30, 58, 138, 0.04)',
+    xl: '0 25px 50px -12px rgba(30, 58, 138, 0.25)',
+    glow: '0 0 20px rgba(30, 58, 138, 0.3)',
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
