@@ -1,6 +1,49 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaSearch, FaChartLine, FaLink, FaUsers } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaSearch, FaChartLine, FaLink, FaUsers, FaPlus, FaMinus } from "react-icons/fa";
+
+// FAQ Item Component with Toggle
+const FAQItem = ({ faq, index }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      key={index}
+      className="rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer overflow-hidden bg-white border border-green-200"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <div 
+        className="p-6 flex justify-between items-center bg-green-50 hover:bg-green-100 transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h4 className="font-semibold text-lg text-slate-800">{faq.q}</h4>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {isOpen ? <FaMinus className="text-green-600" /> : <FaPlus className="text-green-600" />}
+        </motion.div>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="px-6 pb-6 pt-0"
+          >
+            <p className="text-slate-700 border-t border-green-200 pt-3">{faq.a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
 export default function SEO() {
   return (
@@ -132,9 +175,10 @@ export default function SEO() {
       {/* FAQs Section */}
       <motion.section
         className="py-16 bg-white border-t border-slate-200"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-semibold text-center mb-10">Frequently Asked Questions</h2>
@@ -157,7 +201,7 @@ export default function SEO() {
                 a: "No professional SEO company can guarantee #1 ranking due to algorithm changes. We use proven strategies to improve visibility and organic traffic."
               },
               {
-                q: "Do I need SEO if I’m already running paid ads?",
+                q: "Do I need SEO if I'm already running paid ads?",
                 a: "Yes. SEO complements paid ads by generating organic traffic and providing long-term brand credibility."
               },
               {
@@ -165,16 +209,7 @@ export default function SEO() {
                 a: "Absolutely. Local SEO targets location-specific searches, helping businesses appear in local listings and maps."
               }
             ].map((faq, i) => (
-              <motion.div
-                key={i}
-                className="p-6 bg-green-50 rounded-xl shadow-md hover:shadow-lg transition-all"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-              >
-                <h4 className="font-semibold mb-1">{faq.q}</h4>
-                <p className="text-slate-700">{faq.a}</p>
-              </motion.div>
+              <FAQItem key={i} faq={faq} index={i} />
             ))}
           </div>
         </div>

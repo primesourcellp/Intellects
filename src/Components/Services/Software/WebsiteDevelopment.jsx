@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FaGlobe,
   FaLaptopCode,
@@ -9,7 +9,52 @@ import {
   FaClipboardCheck,
   FaHandshake,
   FaQuestionCircle,
+  FaPlus,
+  FaMinus,
 } from "react-icons/fa";
+
+// FAQ Item Component with Toggle
+const FAQItem = ({ faq, index, sectionVariant }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      key={index}
+      className="rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer overflow-hidden bg-white border border-blue-200"
+      variants={sectionVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <div 
+        className="p-6 flex justify-between items-center bg-blue-50 hover:bg-blue-100 transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h3 className="font-semibold text-blue-700 text-lg">{faq.q}</h3>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {isOpen ? <FaMinus className="text-blue-600" /> : <FaPlus className="text-blue-600" />}
+        </motion.div>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="px-6 pb-6 pt-0"
+          >
+            <p className="text-slate-600 border-t border-blue-200 pt-3">{faq.a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
 export default function WebsiteDevelopment() {
   return (
@@ -248,16 +293,17 @@ export default function WebsiteDevelopment() {
       {/* ❓ FAQ Section */}
       <motion.section
         className="py-20 bg-blue-50 border-t border-slate-200"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
         <div className="max-w-6xl mx-auto px-4">
           <FaQuestionCircle className="text-blue-600 text-4xl mb-6 mx-auto" />
           <h2 className="text-3xl font-semibold text-center mb-10">
             Frequently Asked Questions
           </h2>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               {
                 q: "How long does it take to develop a website?",
@@ -280,18 +326,7 @@ export default function WebsiteDevelopment() {
                 a: "Yes, we offer post-launch maintenance, security updates, and ongoing support.",
               },
             ].map((faq, i) => (
-              <motion.div
-                key={i}
-                className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition-all"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-              >
-                <h3 className="font-semibold text-blue-700 text-lg mb-2">
-                  {faq.q}
-                </h3>
-                <p className="text-slate-600">{faq.a}</p>
-              </motion.div>
+              <FAQItem key={i} faq={faq} index={i} sectionVariant={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }} />
             ))}
           </div>
         </div>

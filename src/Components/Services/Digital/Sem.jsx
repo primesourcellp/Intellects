@@ -1,6 +1,49 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaBullhorn, FaChartBar,FaPenFancy, FaSyncAlt } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaBullhorn, FaChartBar, FaPenFancy, FaSyncAlt, FaPlus, FaMinus } from "react-icons/fa";
+
+// FAQ Item Component with Toggle
+const FAQItem = ({ faq, index, sectionVariant }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      key={index}
+      className="rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer overflow-hidden bg-white border border-blue-200"
+      variants={sectionVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <div 
+        className="p-6 flex justify-between items-center bg-blue-50 hover:bg-blue-100 transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h4 className="font-semibold text-lg text-slate-800">{faq.q}</h4>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {isOpen ? <FaMinus className="text-blue-600" /> : <FaPlus className="text-blue-600" />}
+        </motion.div>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="px-6 pb-6 pt-0"
+          >
+            <p className="text-slate-700 border-t border-blue-200 pt-3">{faq.a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
 export default function SEM() {
   const semProcess = [
@@ -173,19 +216,18 @@ export default function SEM() {
       </motion.section>
 
       {/* FAQs */}
-      <motion.section className="py-16" initial="hidden" whileInView="visible">
+      <motion.section 
+        className="py-16" 
+        initial="hidden" 
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+      >
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-semibold text-center mb-10">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <motion.div
-                key={idx}
-                className="p-6 bg-blue-50 rounded-xl shadow-md hover:shadow-lg transition-all"
-                variants={sectionVariant}
-              >
-                <h4 className="font-semibold mb-2">{faq.q}</h4>
-                <p className="text-slate-700">{faq.a}</p>
-              </motion.div>
+              <FAQItem key={idx} faq={faq} index={idx} sectionVariant={sectionVariant} />
             ))}
           </div>
         </div>
