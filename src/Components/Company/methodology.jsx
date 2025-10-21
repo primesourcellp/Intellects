@@ -20,6 +20,13 @@ const Link = ({ to, children, className }) => (
 
 
 export default function App() {
+  // ===== Color Palette (Using Tailwind-compatible RGB values) =====
+  const COLOR_NAVY = "rgb(30 58 138)"; // Blue-900 equivalent
+  const COLOR_ACCENT = "rgb(59 130 246)"; // Blue-500 equivalent
+  const COLOR_BG = "#FFFFFF"; // White
+  const COLOR_SECTION = "rgb(249 250 251)"; // Gray-50 equivalent
+  const COLOR_TEXT = "rgb(31 41 55)"; // Gray-800 equivalent
+  const COLOR_MUTED = "rgb(107 114 128)"; // Gray-500 equivalent
 
   // ===== Animation Presets =====
   const fadeInUp = {
@@ -36,21 +43,21 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen font-sans" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
+    <div className="min-h-screen font-sans" style={{ backgroundColor: COLOR_BG, color: COLOR_TEXT }}>
       
       {/* ======================================================
           HERO SECTION
       ====================================================== */}
       <section
         className="py-24 sm:py-32 px-6 md:px-16 lg:px-28 text-center"
-        style={{ backgroundColor: '#F9FAFB' }}
+        style={{ backgroundColor: COLOR_SECTION }}
       >
         <motion.h1
           initial="hidden"
           animate="show"
           variants={fadeInUp}
           className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight"
-          style={{ color: '#1E3A8A' }}
+          style={{ color: COLOR_NAVY }}
         >
           Empowering Businesses Through Intelligence and Innovation
         </motion.h1>
@@ -60,9 +67,9 @@ export default function App() {
           animate="show"
           variants={fadeIn}
           className="text-lg md:text-xl max-w-5xl mx-auto leading-relaxed text-gray-600"
-          style={{ color: '#6B7280' }}
+          style={{ color: COLOR_MUTED }}
         >
-          At <span className="font-semibold" style={{ color: '#1E3A8A' }}>Intellects</span>, we
+          At <span className="font-semibold" style={{ color: COLOR_NAVY }}>Intellects</span>, we
           bridge technology, creativity, and human insight to help organizations grow smarter,
           faster, and stronger in a digital world. We believe innovation begins with intellect —
           the power to think differently, solve challenges, and create progress. At Intellects, we
@@ -80,12 +87,12 @@ export default function App() {
         viewport={{ once: true, amount: 0.4 }}
         variants={fadeInUp}
         className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center border-t border-gray-100"
-        style={{ backgroundColor: '#FFFFFF' }}
+        style={{ backgroundColor: COLOR_BG }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#1E3A8A' }}>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: COLOR_NAVY }}>
           Our Development & Methodology
         </h2>
-        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed text-gray-600 mb-0" style={{ color: '#6B7280' }}>
+        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed text-gray-600 mb-0" style={{ color: COLOR_MUTED }}>
           <strong>Building with Purpose, Delivering with Precision</strong> — Our approach to
           development is rooted in agility, collaboration, and continuous improvement. We understand
           that every client’s journey is unique — that’s why Intellects tailors its methodology to
@@ -105,12 +112,12 @@ export default function App() {
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
         className="py-20 sm:py-24 px-6 md:px-16 lg:px-28" // Removed grid classes from the section
-        style={{ backgroundColor: '#F9FAFB' }}
+        style={{ backgroundColor: COLOR_SECTION }}
       >
         <motion.h2 
           variants={fadeInUp}
           className="text-3xl sm:text-4xl font-bold mb-12 text-center" 
-          style={{ color: '#1E3A8A' }}
+          style={{ color: COLOR_NAVY }}
         >
           Our Proven Methodology
         </motion.h2>
@@ -146,12 +153,12 @@ export default function App() {
               key={i}
               variants={fadeInUp}
               className="p-8 rounded-xl shadow-lg border-l-4 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-              style={{ borderColor: '#3B82F6', backgroundColor: '#FFFFFF' }}
+              style={{ borderColor: COLOR_ACCENT, backgroundColor: COLOR_BG }}
             >
-              <h3 className="text-xl sm:text-2xl font-bold mb-3" style={{ color: '#1E3A8A' }}>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3" style={{ color: COLOR_NAVY }}>
                 {item.title}
               </h3>
-              <p className="text-gray-600" style={{ color: '#6B7280' }}>{item.text}</p>
+              <p className="text-gray-600" style={{ color: COLOR_MUTED }}>{item.text}</p>
             </motion.div>
           ))}
         </div>
@@ -166,9 +173,9 @@ export default function App() {
         viewport={{ once: true, amount: 0.4 }}
         variants={fadeInUp}
         className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center"
-        style={{ backgroundColor: '#FFFFFF' }}
+        style={{ backgroundColor: COLOR_BG }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold mb-8" style={{ color: '#1E3A8A' }}>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8" style={{ color: COLOR_NAVY }}>
           Why It Works
         </h2>
         <ul className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-base sm:text-lg">
@@ -182,7 +189,7 @@ export default function App() {
               key={i}
               variants={fadeIn}
               className="p-6 rounded-lg border shadow-sm hover:shadow-lg transition-all text-left font-medium"
-              style={{ backgroundColor: '#F9FAFB', borderColor: '#1E3A8A', color: '#1F2937' }}
+              style={{ backgroundColor: COLOR_SECTION, borderColor: COLOR_NAVY, color: COLOR_TEXT }}
             >
               {point}
             </motion.li>
@@ -199,18 +206,18 @@ export default function App() {
         viewport={{ once: true, amount: 0.5 }}
         variants={fadeInUp}
         className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center border-t border-gray-100"
-        style={{ backgroundColor: '#F9FAFB' }}
+        style={{ backgroundColor: COLOR_SECTION }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: '#1E3A8A' }}>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: COLOR_NAVY }}>
           Our Key Clients
         </h2>
-        <p className="max-w-4xl mx-auto text-base sm:text-lg text-gray-600 mb-8" style={{ color: '#6B7280' }}>
+        <p className="max-w-4xl mx-auto text-base sm:text-lg text-gray-600 mb-8" style={{ color: COLOR_MUTED }}>
           Over the years, Intellects has had the privilege of working with a diverse range of
           clients — from emerging startups to established enterprises across industries like
           technology, healthcare, retail, and finance. Our clients choose us not just for our
           skills — but for our commitment to helping them achieve lasting success.
         </p>
-        <blockquote className="italic text-xl font-semibold mb-10" style={{ color: '#3B82F6' }}>
+        <blockquote className="italic text-xl font-semibold mb-10" style={{ color: COLOR_ACCENT }}>
           “Trusted by forward-thinking brands who believe in innovation and excellence.”
         </blockquote>
       </motion.section>
@@ -224,12 +231,12 @@ export default function App() {
         viewport={{ once: true, amount: 0.5 }}
         variants={fadeInUp}
         className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center border-t border-gray-100"
-        style={{ backgroundColor: '#FFFFFF' }}
+        style={{ backgroundColor: COLOR_BG }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#1E3A8A' }}>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: COLOR_NAVY }}>
           Partnerships
         </h2>
-        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed text-gray-600 mb-10" style={{ color: '#6B7280' }}>
+        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed text-gray-600 mb-10" style={{ color: COLOR_MUTED }}>
           Intellects partners with leading technology providers and platforms to ensure we deliver
           world-class solutions. Our alliances help us access the best tools, frameworks, and
           expertise — so our clients always stay ahead in an ever-evolving digital ecosystem.
@@ -239,7 +246,7 @@ export default function App() {
           whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
           whileTap={{ scale: 0.95 }}
           className="inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold shadow-2xl cursor-pointer transition-transform duration-200"
-          style={{ backgroundColor: '#1E3A8A', color: "#fff" }}
+          style={{ backgroundColor: COLOR_NAVY, color: "#fff" }}
         >
           {/* Using the locally defined Link component */}
           <Link to="/testimonials" className="flex items-center gap-3 text-lg">
@@ -257,12 +264,12 @@ export default function App() {
         viewport={{ once: true }}
         variants={fadeInUp}
         className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center border-t border-gray-100"
-        style={{ backgroundColor: '#F9FAFB' }}
+        style={{ backgroundColor: COLOR_SECTION }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: '#1E3A8A' }}>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: COLOR_NAVY }}>
           Ready to Grow? Let’s Connect.
         </h2>
-        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed text-gray-600" style={{ color: '#6B7280' }}>
+        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed text-gray-600" style={{ color: COLOR_MUTED }}>
           Intellects is more than a consulting firm — we’re a growth partner that combines
           technology, creativity, and strategy to shape the future of business. Reach out today to start your transformation journey.
         </p>

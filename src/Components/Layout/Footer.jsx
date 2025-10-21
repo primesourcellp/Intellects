@@ -12,7 +12,7 @@ const FooterLink = ({ to, children }) => (
             to={to}
             className="text-sm transition-colors"
             style={{ color: '#D1D5DB' }}
-            onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+            onMouseEnter={e => e.currentTarget.style.color = '#7C3AED'}
             onMouseLeave={e => e.currentTarget.style.color = '#D1D5DB'}
         >
             {children}
@@ -56,8 +56,8 @@ export default function Footer() {
             // Apply the Navy Blue background and ensure text is white/light
             className="border-t text-white"
             style={{
-                backgroundColor: '#1E3A8A',
-                borderColor: '#3B82F6' // Use the brighter blue for a top border highlight
+                background: 'linear-gradient(135deg, #4C1D95, #7C3AED)',
+                borderColor: '#F59E0B'
             }}
         >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -66,8 +66,8 @@ export default function Footer() {
                     {/* Logo + Info */}
                     <motion.div variants={fadeInUp} className="col-span-2 md:col-span-1 lg:col-span-2 flex flex-col gap-4">
                         <Link to="/" className="text-2xl font-bold" style={{ color: '#F9FAFB' }}>
-                            {/* Accent part of the logo is the brighter blue */}
-                            <span style={{ color: '#3B82F6' }}>Intellects</span>
+                            {/* Accent part of the logo is gold */}
+                            <span style={{ color: '#F59E0B' }}>Intellects</span>
                         </Link>
                         <p className="text-sm pr-8" style={{ color: '#D1D5DB' }}>
                             Driving innovation through expert software, marketing, and HR consulting services worldwide.
