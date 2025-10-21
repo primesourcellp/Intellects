@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import logo from '../../assets/logo.png'
 
 export default function Navbar() {
   // Mobile main menus
@@ -45,7 +46,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur shadow-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="text-xl font-bold text-slate-900">Intellects</Link>
+        <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src={logo} alt="Intellects Logo" className="h-12 w-auto" />
+          {/* <span className="text-2xl font-bold text-slate-900">Intellects</span> */}
+        </Link>
 
         {/* Desktop navigation */}
         <nav className="hidden items-center gap-6 md:flex">
