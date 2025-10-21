@@ -74,11 +74,11 @@ export default function SEM() {
 
       {/* Hero */}
       <motion.section
-        className="text-center py-20 bg-gradient-to-b from-blue-50 to-white"
+        className="text-center py-20 bg-gradient-to-b from-primary-lightest to-white"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
       >
-        <FaBullhorn className="mx-auto text-blue-600 text-5xl mb-4 animate-bounce" />
+        <FaBullhorn className="mx-auto text-primary-medium text-5xl mb-4 animate-bounce" />
         <h1 className="text-4xl font-bold mb-4">Search Engine Marketing (SEM)</h1>
         <p className="text-lg max-w-3xl mx-auto text-slate-700">
           Reach the right audience instantly with smart paid campaigns. We craft high-performing SEM campaigns that deliver qualified traffic, stronger conversions, and visible growth.
@@ -100,7 +100,7 @@ export default function SEM() {
               variants={sectionVariant}
               custom={idx}
             >
-              <FaChartBar className="text-blue-500 text-4xl mb-4" />
+              <FaChartBar className="text-primary-medium text-4xl mb-4" />
               <p>{item}</p>
             </motion.div>
           ))}

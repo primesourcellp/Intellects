@@ -77,11 +77,11 @@ export default function StaffingServices() {
 
       {/* Hero Section */}
       <motion.section
-        className="text-center py-20 bg-gradient-to-b from-green-50 to-white"
+        className="text-center py-20 bg-gradient-to-b from-primary-lightest to-white"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
       >
-        <FaBriefcase className="mx-auto text-green-600 text-5xl mb-4 animate-bounce" />
+        <FaBriefcase className="mx-auto text-primary-medium text-5xl mb-4 animate-bounce" />
         <h1 className="text-4xl font-bold mb-4">Staffing Services</h1>
         <p className="text-lg max-w-3xl mx-auto text-slate-700">
           Empowering businesses with the right people at the right time. Customized workforce solutions for permanent, contract, and project-based hiring.
@@ -98,7 +98,7 @@ export default function StaffingServices() {
               className="p-6 bg-green-50 rounded-2xl shadow-md hover:shadow-xl transition-all"
               variants={sectionVariant}
             >
-              <FaUsers className="text-green-500 text-4xl mb-4" />
+              <FaUsers className="text-primary-medium text-4xl mb-4" />
               <p>{item}</p>
             </motion.div>
           ))}
