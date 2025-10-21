@@ -5,7 +5,7 @@ import { theme } from "../../theme";
 
 export default function Home() {
   // Using centralized theme colors
-  const { colors, shadows, gradients, animations } = theme;
+  const { colors, shadows, gradients } = theme;
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
