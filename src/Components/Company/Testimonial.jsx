@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaHandshake } from "react-icons/fa"; // imported properly
 
 // 🔹 Replace with your actual image imports
 import client1 from "../../assets/clients/about.jpg";
@@ -50,13 +51,10 @@ const ClientsTestimonials = () => {
 
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white text-gray-800 py-20 px-6 md:px-20 overflow-hidden">
-      {/* HEADER SECTION */}
-      <motion.div
-        className="text-center mb-16"
-    <div className="bg-white text-slate-800 overflow-hidden">
-      {/* 🌟 Hero Section */}
+
+      {/* HEADER / HERO SECTION */}
       <motion.section
-        className="text-center py-20 bg-gradient-to-b from-primary-lightest to-white"
+        className="text-center mb-16"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -86,23 +84,24 @@ const ClientsTestimonials = () => {
           At Intellects, every partnership is built on trust, innovation, and shared
           success. We don’t just deliver projects — we build relationships that last.
         </motion.p>
-      </motion.div>
-        <motion.div
-          className="max-w-3xl mx-auto px-4"
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <FaHandshake className="mx-auto text-primary-medium text-5xl mb-4 animate-bounce" />
-          <h1 className="text-4xl font-bold mb-4">Clients & Testimonials</h1>
-          <p className="text-lg text-slate-600">
-            Our Clients, Our Pride. <br />
-            At Intellects, every partnership is built on trust, innovation, and
-            shared success. We don’t just deliver projects — we build
-            relationships that last.
-          </p>
-        </motion.div>
       </motion.section>
+
+      {/* SECOND HERO SECTION WITH ICON */}
+      <motion.div
+        className="max-w-3xl mx-auto px-4 text-center mb-20"
+        initial={{ scale: 0.8 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <FaHandshake className="mx-auto text-primary-medium text-5xl mb-4 animate-bounce" />
+        <h1 className="text-4xl font-bold mb-4">Clients & Testimonials</h1>
+        <p className="text-lg text-slate-600">
+          Our Clients, Our Pride. <br />
+          At Intellects, every partnership is built on trust, innovation, and
+          shared success. We don’t just deliver projects — we build
+          relationships that last.
+        </p>
+      </motion.div>
 
       {/* OUR VALUED CLIENTS */}
       <motion.div
@@ -117,8 +116,7 @@ const ClientsTestimonials = () => {
         </h2>
         <p className="max-w-4xl mx-auto text-gray-700 text-lg leading-relaxed">
           We’re proud to have partnered with leading organizations and ambitious
-          startups around the world. Our clients come from diverse industries —
-          technology, retail, healthcare, education, and finance — but they all share
+          startups around the world. Our clients come from diverse industries — technology, retail, healthcare, education, and finance — but they all share
           one thing in common: a commitment to growth through innovation.
         </p>
       </motion.div>
@@ -145,8 +143,6 @@ const ClientsTestimonials = () => {
             />
             <motion.div
               className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-center pb-6 transition-opacity duration-500"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
             >
               <p className="text-white text-lg font-semibold">
                 Intellects Team Member {index + 1}
@@ -158,7 +154,7 @@ const ClientsTestimonials = () => {
 
       {/* CLIENT TESTIMONIALS */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-10"
+        className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-24"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -184,52 +180,47 @@ const ClientsTestimonials = () => {
                 whileHover={{ rotate: 5, scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 150 }}
               />
-              <h3 className="text-xl font-bold text-blue-600 mb-3">
-                {client.name}
-              </h3>
-              <p className="text-gray-600 italic leading-relaxed">
-                “{client.feedback}”
-              </p>
+              <h3 className="text-xl font-bold text-blue-600 mb-3">{client.name}</h3>
+              <p className="text-gray-600 italic leading-relaxed">{client.feedback}</p>
             </motion.div>
           </motion.div>
         ))}
       </motion.div>
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.h2
-            className="text-3xl font-semibold text-center mb-12"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            What Our Clients Say
-          </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {clients.map((client, index) => (
-              <motion.div
-                key={client.id}
-                className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-2xl transition-all"
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.3 }}
-              >
-                {/* <FaQuoteLeft className="text-primary-medium text-2xl mb-4 mx-auto" /> */}
-                <motion.img
-                  src={client.clientImage}
-                  alt={client.name}
-                  className="mx-auto rounded-full w-20 h-20 mb-4 object-cover border-4 border-blue-100"
-                  whileHover={{ rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <h3 className="font-semibold text-lg mb-2">{client.name}</h3>
-                <p className="text-slate-600 text-sm mb-4">{client.feedback}</p>
-                {/* <FaQuoteRight className="text-primary-medium text-2xl mx-auto mt-2" /> */}
-              </motion.div>
-            ))}
-          </div>
+      {/* ADDITIONAL CLIENTS SECTION */}
+      <div className="max-w-6xl mx-auto px-4">
+        <motion.h2
+          className="text-3xl font-semibold text-center mb-12"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          What Our Clients Say
+        </motion.h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {clients.map((client, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-2xl transition-all"
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.3 }}
+            >
+              <motion.img
+                src={client.image}
+                alt={client.name}
+                className="mx-auto rounded-full w-20 h-20 mb-4 object-cover border-4 border-blue-100"
+                whileHover={{ rotate: 5 }}
+                transition={{ duration: 0.3 }}
+              />
+              <h3 className="font-semibold text-lg mb-2">{client.name}</h3>
+              <p className="text-slate-600 text-sm mb-4">{client.feedback}</p>
+            </motion.div>
+          ))}
         </div>
-      </motion.section>
+      </div>
     </div>
   );
 };
