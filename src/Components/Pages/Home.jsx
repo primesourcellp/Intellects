@@ -3,49 +3,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-  // Inline Color Palette - From Logo
-  const colors = {
-    primary: {
-      main: '#1E3A8A',
-      light: '#3B82F6',
-      lighter: '#60A5FA',
-      lightest: '#DBEAFE',
-    },
-    secondary: {
-      main: '#0EA5E9',
-      light: '#22D3EE',
-      lighter: '#67E8F9',
-    },
-    accent: {
-      main: '#EC4899',
-      light: '#F472B6',
-    },
-    neutral: {
-      white: '#FFFFFF',
-      gray50: '#F9FAFB',
-      gray100: '#F3F4F6',
-      gray200: '#E5E7EB',
-      gray500: '#6B7280',
-      gray600: '#4B5563',
-      gray700: '#374151',
-      gray800: '#1F2937',
-    },
-  };
-
-  const gradients = {
-    primary: 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
-    secondary: 'linear-gradient(135deg, #0EA5E9 0%, #22D3EE 100%)',
-    accent: 'linear-gradient(135deg, #DB2777 0%, #EC4899 100%)',
-    hero: 'linear-gradient(135deg, #1E3A8A 0%, #0EA5E9 50%, #EC4899 100%)',
-  };
-
-  const shadows = {
-    base: '0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06)',
-    md: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)',
-    lg: '0 20px 25px -5px rgba(30, 58, 138, 0.15), 0 10px 10px -5px rgba(30, 58, 138, 0.04)',
-    xl: '0 25px 50px -12px rgba(30, 58, 138, 0.25)',
-    glow: '0 0 20px rgba(30, 58, 138, 0.3)',
-  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -72,7 +29,7 @@ export default function Home() {
   const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <div className="overflow-x-hidden" style={{ backgroundColor: colors.neutral.white, color: colors.neutral.gray800 }}>
+    <div className="overflow-x-hidden" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
       {/* Animated Background Particles */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -83,7 +40,7 @@ export default function Home() {
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: `radial-gradient(circle, ${colors.primary.lighter}40, ${colors.secondary.lighter}20)` }}
+          style={{ background: 'radial-gradient(circle, #60A5FA40, #67E8F920)' }}
         />
         <motion.div
           animate={{ 
@@ -93,7 +50,7 @@ export default function Home() {
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/4 right-0 w-80 h-80 rounded-full blur-3xl"
-          style={{ background: `radial-gradient(circle, ${colors.secondary.lighter}40, ${colors.accent.lighter}20)` }}
+          style={{ background: 'radial-gradient(circle, #67E8F940, #F472B620)' }}
         />
         <motion.div
           animate={{ 
@@ -102,7 +59,7 @@ export default function Home() {
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-20 left-1/4 w-72 h-72 rounded-full blur-3xl"
-          style={{ background: `radial-gradient(circle, ${colors.accent.lighter}40, ${colors.primary.lighter}20)` }}
+          style={{ background: 'radial-gradient(circle, #F472B640, #60A5FA20)' }}
         />
       </div>
 
@@ -111,7 +68,7 @@ export default function Home() {
       ======================================== */}
       <section
         className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
-        style={{ backgroundColor: colors.neutral.white, boxShadow: shadows.md }}
+        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
         <motion.div
@@ -124,7 +81,7 @@ export default function Home() {
         >
           <div 
             className="w-20 h-20 rounded-2xl transform rotate-12" 
-            style={{ background: `linear-gradient(135deg, ${colors.primary.main}, ${colors.secondary.main})` }}
+            style={{ background: `linear-gradient(135deg, ${'#1E3A8A'}, ${'#0EA5E9'})` }}
           />
         </motion.div>
         
@@ -138,7 +95,7 @@ export default function Home() {
         >
           <div 
             className="w-16 h-16 rounded-full" 
-            style={{ background: `linear-gradient(135deg, ${colors.secondary.main}, ${colors.accent.main})` }}
+            style={{ background: `linear-gradient(135deg, ${'#0EA5E9'}, ${'#EC4899'})` }}
           />
         </motion.div>
 
@@ -152,7 +109,7 @@ export default function Home() {
         >
           <div 
             className="w-12 h-12 rounded-lg transform -rotate-12" 
-            style={{ background: `linear-gradient(135deg, ${colors.accent.main}, ${colors.primary.light})` }}
+            style={{ background: `linear-gradient(135deg, ${'#EC4899'}, ${'#3B82F6'})` }}
           />
         </motion.div>
 
@@ -177,12 +134,12 @@ export default function Home() {
         >
           Turning Ambitious Ideas into{" "}
           <motion.span 
-            style={{ color: colors.primary.main }}
+            style={{ color: '#1E3A8A' }}
             animate={{ 
               textShadow: [
-                `0 0 20px ${colors.primary.main}00`,
-                `0 0 20px ${colors.primary.main}50`,
-                `0 0 20px ${colors.primary.main}00`
+                `0 0 20px ${'#1E3A8A'}00`,
+                `0 0 20px ${'#1E3A8A'}50`,
+                `0 0 20px ${'#1E3A8A'}00`
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
@@ -203,9 +160,9 @@ export default function Home() {
             }
           }}
           className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto font-light relative z-10" 
-          style={{ color: colors.neutral.gray600 }}
+          style={{ color: '#4B5563' }}
         >
-          Welcome to <span className="font-semibold" style={{ color: colors.primary.main }}>Intellects</span>, where technology, creativity, and strategy come together to move
+          Welcome to <span className="font-semibold" style={{ color: '#1E3A8A' }}>Intellects</span>, where technology, creativity, and strategy come together to move
           your business forward.
         </motion.p>
         
@@ -229,7 +186,7 @@ export default function Home() {
             <Link
               to="/contact"
               className="font-bold px-10 py-4 rounded-full shadow-xl transition inline-flex items-center gap-3"
-              style={{ background: gradients.primary, color: colors.neutral.white, boxShadow: shadows.xl }}
+              style={{ background: 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)', color: '#FFFFFF', boxShadow: '0 25px 50px -12px rgba(30, 58, 138, 0.25)' }}
             >
               <span>Schedule Your Free Consultation</span>
               <motion.span
@@ -262,17 +219,17 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
               whileHover={{ scale: 1.1, y: -5 }}
               className="p-4 rounded-xl bg-white/80 backdrop-blur shadow-lg border-2"
-              style={{ borderColor: colors.primary.main }}
+              style={{ borderColor: '#1E3A8A' }}
             >
               <motion.h3 
                 className="text-3xl md:text-4xl font-bold mb-1"
-                style={{ color: colors.primary.main }}
+                style={{ color: '#1E3A8A' }}
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 {stat.value}
               </motion.h3>
-              <p className="text-sm" style={{ color: colors.neutral.gray600 }}>{stat.label}</p>
+              <p className="text-sm" style={{ color: '#4B5563' }}>{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -287,10 +244,10 @@ export default function Home() {
         viewport={{ once: true, amount: 0.5 }}
         variants={scaleIn}
         className="py-24 px-6 md:px-12 lg:px-24 text-center border-b"
-        style={{ backgroundColor: colors.neutral.gray50, borderColor: colors.neutral.gray200 }}
+        style={{ backgroundColor: '#F9FAFB', borderColor: '#E5E7EB' }}
       >
-        <h2 className="text-4xl font-bold mb-4" style={{ color: colors.primary.main }}>About Intellects</h2>
-        <p className="max-w-3xl mx-auto text-lg leading-relaxed" style={{ color: colors.neutral.gray600 }}>
+        <h2 className="text-4xl font-bold mb-4" style={{ color: '#1E3A8A' }}>About Intellects</h2>
+        <p className="max-w-3xl mx-auto text-lg leading-relaxed" style={{ color: '#4B5563' }}>
           Every successful company starts with a simple idea — and the right
           partner to make it happen. At Intellects, we're that partner.
         </p>
@@ -299,11 +256,11 @@ export default function Home() {
       {/* ========================================
         SERVICES SECTION 
       ======================================== */}
-      <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: colors.neutral.white }}>
+      <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFFFF' }}>
         <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl font-bold text-center mb-6">
           Our Services
         </motion.h2>
-        <motion.p initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeIn} className="text-center max-w-3xl mx-auto mb-16 text-lg" style={{ color: colors.neutral.gray600 }}>
+        <motion.p initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeIn} className="text-center max-w-3xl mx-auto mb-16 text-lg" style={{ color: '#4B5563' }}>
           At Intellects, every service is designed around one simple belief:
           when your technology, marketing, and people work together, growth becomes natural.
         </motion.p>
@@ -320,10 +277,10 @@ export default function Home() {
   
             }
             ].map((service, i) => (
-            <motion.div key={i} variants={fadeInUp} whileHover={{ y: -5, boxShadow: shadows.glow }} className="p-8 rounded-xl shadow-lg border-t-4 transition cursor-pointer"
-              style={{ backgroundColor: colors.neutral.white, borderColor: colors.primary.main }}>
-              <h3 className="text-2xl font-semibold mb-3" style={{ color: colors.primary.main }}>{service.title}</h3>
-              <p style={{ color: colors.neutral.gray600 }}>{service.desc}</p>
+            <motion.div key={i} variants={fadeInUp} whileHover={{ y: -5, boxShadow: '0 0 20px rgba(30, 58, 138, 0.3)' }} className="p-8 rounded-xl shadow-lg border-t-4 transition cursor-pointer"
+              style={{ backgroundColor: '#FFFFFF', borderColor: '#1E3A8A' }}>
+              <h3 className="text-2xl font-semibold mb-3" style={{ color: '#1E3A8A' }}>{service.title}</h3>
+              <p style={{ color: '#4B5563' }}>{service.desc}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -332,8 +289,8 @@ export default function Home() {
       {/* ========================================
         WHY CHOOSE SECTION
       ======================================== */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 border-t" style={{ backgroundColor: colors.neutral.gray50, borderColor: colors.neutral.gray200 }}>
-        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl font-bold text-center mb-12" style={{ color: colors.primary.main }}>
+      <section className="py-24 px-6 md:px-12 lg:px-24 border-t" style={{ backgroundColor: '#F9FAFB', borderColor: '#E5E7EB' }}>
+        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl font-bold text-center mb-12" style={{ color: '#1E3A8A' }}>
           Why Choose Intellects
         </motion.h2>
         <motion.ul initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.5 }} variants={container} className="max-w-4xl mx-auto space-y-5">
@@ -348,18 +305,18 @@ export default function Home() {
             <motion.li
               key={i}
               variants={fadeIn}
-              whileHover={{ x: 15, color: colors.accent.main }}
+              whileHover={{ x: 15, color: '#EC4899' }}
               className="flex items-start gap-3 p-4 rounded-lg transition-colors cursor-pointer border-l-4 shadow-sm"
               style={{
-                backgroundColor: colors.neutral.white,
-                borderColor: colors.neutral.gray50,
-                borderLeftColor: colors.neutral.gray500,
-                color: colors.neutral.gray600
+                backgroundColor: '#FFFFFF',
+                borderColor: '#F9FAFB',
+                borderLeftColor: '#F9FAFB',
+                color: '#4B5563'
               }}
-              onMouseEnter={e => e.currentTarget.style.borderLeftColor = colors.primary.main}
-              onMouseLeave={e => e.currentTarget.style.borderLeftColor = colors.neutral.gray500}
+              onMouseEnter={e => e.currentTarget.style.borderLeftColor = '#1E3A8A'}
+              onMouseLeave={e => e.currentTarget.style.borderLeftColor = '#F9FAFB'}
             >
-              <span className="font-bold text-xl" style={{ color: colors.primary.main }}>→</span> {point}
+              <span className="font-bold text-xl" style={{ color: '#1E3A8A' }}>→</span> {point}
             </motion.li>
           ))}
         </motion.ul>
@@ -374,10 +331,10 @@ export default function Home() {
         viewport={{ once: true, amount: 0.5 }}
         variants={fadeInUp}
         className="py-24 px-6 md:px-12 lg:px-24 text-center"
-        style={{ backgroundColor: colors.neutral.white }}
+        style={{ backgroundColor: '#FFFFFF' }}
       >
-        <h2 className="text-4xl font-bold mb-4" style={{ color: colors.primary.main }}>Careers at Intellects</h2>
-        <p className="max-w-3xl mx-auto leading-relaxed mb-8 text-lg" style={{ color: colors.neutral.gray600 }}>
+        <h2 className="text-4xl font-bold mb-4" style={{ color: '#1E3A8A' }}>Careers at Intellects</h2>
+        <p className="max-w-3xl mx-auto leading-relaxed mb-8 text-lg" style={{ color: '#4B5563' }}>
           Grow Your Future with a Team That Values You. We're always searching for curious minds — developers, strategists, creatives, and
           consultants — who want to shape the future of IT consulting.
         </p>
@@ -385,12 +342,12 @@ export default function Home() {
           to="/career"
           className="inline-block border-2 font-bold px-8 py-3 rounded-full shadow-md transition transform hover:scale-105"
           style={{
-            borderColor: colors.primary.main,
-            color: colors.primary.main,
-            boxShadow: shadows.base,
+            borderColor: '#1E3A8A',
+            color: '#1E3A8A',
+            boxShadow: '0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06)',
           }}
-          onMouseEnter={e => { e.currentTarget.style.backgroundColor = colors.primary.main; e.currentTarget.style.color = colors.neutral.white; }}
-          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = colors.primary.main; }}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#1E3A8A'; e.currentTarget.style.color = '#FFFFFF'; }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#1E3A8A'; }}
         >
           Join Our Team
         </Link>
@@ -405,12 +362,12 @@ export default function Home() {
         viewport={{ once: true, amount: 0.5 }}
         variants={fadeInUp}
         className="py-24 px-6 md:px-12 lg:px-24 text-center border-t"
-        style={{ backgroundColor: colors.neutral.gray50, borderColor: colors.neutral.gray200 }}
+        style={{ backgroundColor: '#F9FAFB', borderColor: '#E5E7EB' }}
       >
-        <h2 className="text-4xl font-bold mb-4" style={{ color: colors.primary.main }}>
+        <h2 className="text-4xl font-bold mb-4" style={{ color: '#1E3A8A' }}>
           Your Vision, Our Engineering Expertise
         </h2>
-        <p className="max-w-3xl mx-auto leading-relaxed text-lg" style={{ color: colors.neutral.gray600 }}>
+        <p className="max-w-3xl mx-auto leading-relaxed text-lg" style={{ color: '#4B5563' }}>
           Our team combines creativity with technical excellence to
           turn your ideas into scalable, high-performing solutions. Your vision
           is our blueprint — and innovation is our craft.
@@ -420,14 +377,14 @@ export default function Home() {
       {/* ========================================
         FAQ SECTION (+ / - toggle)
       ======================================== */}
-      <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: colors.neutral.white }}>
+      <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFFFF' }}>
         <motion.h2
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeInUp}
           className="text-4xl font-bold text-center mb-12"
-          style={{ color: colors.neutral.gray800 }}
+          style={{ color: '#1F2937' }}
         >
           Frequently Asked Questions 🤔
         </motion.h2>
@@ -449,19 +406,19 @@ export default function Home() {
             <motion.div
               key={i}
               variants={fadeInUp}
-              whileHover={{ scale: 1.01, boxShadow: shadows.glow }}
+              whileHover={{ scale: 1.01, boxShadow: '0 0 20px rgba(30, 58, 138, 0.3)' }}
               className="p-6 rounded-lg shadow-md border-l-4 cursor-pointer"
-              style={{ backgroundColor: colors.neutral.gray50, borderColor: colors.accent.main }}
+              style={{ backgroundColor: '#F9FAFB', borderColor: '#EC4899' }}
               onClick={() => toggleFAQ(i)}
             >
               <div className="flex justify-between items-center">
-                <h3 className="font-semibold text-xl" style={{ color: colors.primary.main }}>{item.q}</h3>
+                <h3 className="font-semibold text-xl" style={{ color: '#1E3A8A' }}>{item.q}</h3>
                 <motion.span
                   initial={false}
                   animate={{ rotate: openIndex === i ? 45 : 0 }}
                   transition={{ duration: 0.3 }}
                   className="text-3xl font-bold select-none"
-                  style={{ color: colors.primary.main }}
+                  style={{ color: '#1E3A8A' }}
                 >
                   {openIndex === i ? "−" : "+"}
                 </motion.span>
@@ -476,7 +433,7 @@ export default function Home() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden mt-3"
               >
-                <p style={{ color: colors.neutral.gray600 }}>{item.a}</p>
+                <p style={{ color: '#4B5563' }}>{item.a}</p>
               </motion.div>
             </motion.div>
           ))}
@@ -493,7 +450,7 @@ export default function Home() {
         variants={fadeIn}
         className="text-white text-center pt-16 pb-8 px-6 shadow-inner"
       >
-        <p className="text-2xl md:text-3xl italic max-w-4xl mx-auto font-serif" style={{ color: colors.accent.main }}>
+        <p className="text-2xl md:text-3xl italic max-w-4xl mx-auto font-serif" style={{ color: '#EC4899' }}>
           "Intellects turns technology into possibility — and possibility into progress."
         </p>
       </motion.section>
