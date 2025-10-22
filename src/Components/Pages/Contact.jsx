@@ -83,21 +83,21 @@ const Contact = () => {
               <MapPin className="text-pink-500 mt-1" />
               <p>
                 <strong>Head Office:</strong>
-                <br /> 123 Intellect Tower, Innovation Hub, Madurai, Tamil Nadu
+                <br /> 123 Intellect Tower, Innovation Hub, New York, NY 10001
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <Phone className="text-pink-500 mt-1" />
               <p>
                 <strong>Phone:</strong>
-                <br /> +91 98765 43210
+                <br /> +1 (555) 123-4567
               </p>
             </div>
             <div className="flex items-start space-x-3">
               <Mail className="text-pink-500 mt-1" />
               <p>
                 <strong>Email:</strong>
-                <br /> dharshinism11@gmail.com
+                <br /> hello@intellects.com
               </p>
             </div>
             <div className="flex items-start space-x-3">
@@ -111,7 +111,7 @@ const Contact = () => {
               <Clock className="text-pink-500 mt-1" />
               <p>
                 <strong>Business Hours:</strong>
-                <br /> Mon–Fri: 9:00 AM – 6:00 PM
+                <br />Monday - Friday: 9:00 AM - 5:00 PM EST
               </p>
             </div>
           </div>
