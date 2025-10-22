@@ -1,6 +1,92 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import sky8Image from "../../assets/sky8.jpg";
+import aboutImage from "../../assets/clients/about.jpg";
+import logoImage from "../../assets/logo.png";
+
+// FlipCard Component for Services Section
+const FlipCard = ({ service, index }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, delay: index * 0.2 }
+    }
+  };
+
+  return (
+    <motion.div
+      variants={fadeInUp}
+      className="relative w-full h-[400px] max-w-[450px] mx-auto"
+      style={{ perspective: '1200px' }}
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full cursor-pointer"
+        style={{ transformStyle: 'preserve-3d' }}
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+      >
+        {/* Front Side - Image */}
+        <div
+          className="absolute w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-gray-200"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          <div className="relative w-full h-full" style={{ background: service.bgColor || '#F5F7FA' }}>
+            {/* Background Image */}
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-full object-cover block"
+              onLoad={() => console.log(`Image loaded: ${service.title}`)}
+              onError={(e) => {
+                console.error(`Failed to load image for ${service.title}:`, e);
+                e.target.style.display = 'none';
+              }}
+            />
+            {/* Gradient Overlay */}
+            <div
+              className="absolute inset-0 opacity-85"
+              style={{ background: service.gradient }}
+            />
+            {/* Title on Front */}
+            <div
+              className="absolute bottom-0 left-0 right-0 p-10 text-white"
+              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3))' }}
+            >
+              <h3 className="text-3xl font-semibold m-0 leading-tight">
+                {service.title}
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        {/* Back Side - Content */}
+        <div
+          className="absolute w-full h-full rounded-2xl bg-white border-2 shadow-2xl p-12 flex flex-col justify-center items-center text-center"
+          style={{ 
+            backfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
+            borderColor: '#6CB28E',
+            boxShadow: '0 10px 30px rgba(108, 178, 142, 0.25)'
+          }}
+        >
+          <h3 className="text-3xl font-semibold mb-5 leading-tight" style={{ color: '#6CB28E' }}>
+            {service.title}
+          </h3>
+          <p className="text-gray-600 text-base leading-relaxed m-0">
+            {service.desc}
+          </p>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 export default function Home() {
 
@@ -199,40 +285,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
-        >
-          {[
-            { value: "500+", label: "Projects Delivered" },
-            { value: "98%", label: "Client Satisfaction" },
-            { value: "50+", label: "Expert Team" },
-            { value: "15+", label: "Years Experience" }
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="p-4 rounded-xl bg-white/80 backdrop-blur shadow-lg border-2"
-              style={{ borderColor: '#4C1D95' }}
-            >
-              <motion.h3 
-                className="text-3xl md:text-4xl font-bold mb-1"
-                style={{ color: '#4C1D95' }}
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                {stat.value}
-              </motion.h3>
-              <p className="text-sm" style={{ color: '#6B7280' }}>{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </section>
 
       {/* ========================================
@@ -241,16 +293,62 @@ export default function Home() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={scaleIn}
-        className="py-24 px-6 md:px-12 lg:px-24 text-center border-b"
+        className="py-24 px-6 md:px-12 lg:px-24 border-b"
         style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB' }}
       >
-        <h2 className="text-4xl font-bold mb-4" style={{ color: '#4C1D95' }}>About Intellects</h2>
-        <p className="max-w-3xl mx-auto text-lg leading-relaxed" style={{ color: '#6B7280' }}>
-          Every successful company starts with a simple idea — and the right
-          partner to make it happen. At Intellects, we're that partner.
-        </p>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              About Intellects
+            </h2>
+            <p className="text-lg md:text-xl leading-relaxed mb-4" style={{ color: '#6B7280' }}>
+              Every successful company starts with a simple idea — and the right
+              partner to make it happen. At Intellects, we're that partner.
+            </p>
+            <p className="text-lg leading-relaxed" style={{ color: '#6B7280' }}>
+              We combine technology, creativity, and strategy to help businesses
+              transform their vision into reality. With years of experience and a
+              dedicated team, we deliver solutions that drive real results.
+            </p>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={sky8Image} 
+                alt="About Intellects" 
+                className="w-full h-auto object-cover"
+                style={{ 
+                  borderRadius: '1rem',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                }}
+              />
+              {/* Decorative overlay */}
+              <div 
+                className="absolute inset-0 rounded-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+                  pointerEvents: 'none'
+                }}
+              />
+            </div>
+          </motion.div>
+        </div>
       </motion.section>
 
       {/* ========================================
@@ -267,21 +365,31 @@ export default function Home() {
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className="grid md:grid-cols-3 gap-10">
           {[
             {
-              title: '💻 Software Development',
-              desc: 'We build secure, scalable, and future-ready software that transforms ideas into powerful digital solutions. From web and mobile applications to enterprise systems, Intellects develops custom solutions tailored to your needs — ensuring seamless performance and real business impact.  '
+              title: 'Software Development',
+              icon: '💻',
+              desc: 'We build secure, scalable, and future-ready software that transforms ideas into powerful digital solutions. From web and mobile applications to enterprise systems, Intellects develops custom solutions tailored to your needs — ensuring seamless performance and real business impact.',
+              image: aboutImage,
+              bgColor: '#E8F4F0',
+              gradient: 'linear-gradient(135deg, #6CB28E 0%, #7BA9E1 100%)'
             },
-            { title: '📈 Digital Marketing',
-               desc: 'Our marketing team at Intellects helps brands connect, convert, and grow through smart digital strategy. In the rapidly evolving digital landscape, standing out is crucial for success. Our digital marketing experts at Intellects create data-driven strategies that boost brand presence, engage your audience, and generate measurable results across all platforms — SEO, PPC, social media, and beyond.  ' },
-            { title: '👥 HR Consulting', 
-              desc: 'People are the foundation of every great business. With Intellects, you gain strategic HR solutions that help you attract top talent, strengthen your workforce, and build a culture that drives performance and growth.'
-  
+            { 
+              title: 'Digital Marketing',
+              icon: '📈',
+              desc: 'Our marketing team at Intellects helps brands connect, convert, and grow through smart digital strategy. In the rapidly evolving digital landscape, standing out is crucial for success. Our digital marketing experts at Intellects create data-driven strategies that boost brand presence, engage your audience, and generate measurable results across all platforms — SEO, PPC, social media, and beyond.',
+              image: sky8Image,
+              bgColor: '#FFF4E6',
+              gradient: 'linear-gradient(135deg, #F7B267 0%, #6CB28E 100%)'
+            },
+            { 
+              title: 'HR Consulting', 
+              icon: '👥',
+              desc: 'People are the foundation of every great business. With Intellects, you gain strategic HR solutions that help you attract top talent, strengthen your workforce, and build a culture that drives performance and growth.',
+              image: aboutImage,
+              bgColor: '#E8F3FB',
+              gradient: 'linear-gradient(135deg, #7BA9E1 0%, #A8D5BA 100%)'
             }
-            ].map((service, i) => (
-            <motion.div key={i} variants={fadeInUp} whileHover={{ y: -5, boxShadow: '0 0 20px rgba(30, 58, 138, 0.3)' }} className="p-8 rounded-xl shadow-lg border-t-4 transition cursor-pointer"
-              style={{ backgroundColor: '#FFFFFF', borderColor: '#4C1D95' }}>
-              <h3 className="text-2xl font-semibold mb-3" style={{ color: '#4C1D95' }}>{service.title}</h3>
-              <p style={{ color: '#6B7280' }}>{service.desc}</p>
-            </motion.div>
+          ].map((service, i) => (
+            <FlipCard key={i} service={service} index={i} />
           ))}
         </motion.div>
       </section>
