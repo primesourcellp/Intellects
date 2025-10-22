@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './Components/Layout/Navbar.jsx' 
 import Home from './Components/Pages/Home.jsx'
 import MethodologyPage from './Components/Company/methodology.jsx'
@@ -22,7 +22,7 @@ import ContractStaffing from './Components/Services/Hiring/Staffing.jsx'
 import StaffingServices from './Components/Services/Hiring/StaffServices.jsx'
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -43,16 +43,9 @@ export default function App() {
         <Route path='/services/global-recruitments' element={<GlobalRecruitments />} />
         <Route path='/services/contract-staffing' element={<ContractStaffing />} />
         <Route path='/services/staffing-services' element={<StaffingServices />} />
-        
-
-
-
-
-
-
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
