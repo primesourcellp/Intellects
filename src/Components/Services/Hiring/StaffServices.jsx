@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUsers, 
@@ -23,18 +23,44 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
+// Typing Animation Component
+const TypingText = ({ text, className = "", delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (started && currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 70);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, started]);
+
+  return <span className={className}>{displayedText}</span>;
+};
+
 // FAQ Item Component
-const FAQItem = ({ faq, index, itemVariant }) => {
+const FAQItem = ({ faq, index }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div
       key={index}
-      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-2"
+      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-l-4"
       style={{ borderColor: '#4C1D95' }}
-      variants={itemVariant}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true, amount: 0.1 }}
     >
       <div 
@@ -45,10 +71,10 @@ const FAQItem = ({ faq, index, itemVariant }) => {
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="p-2 rounded-full"
+          className="w-8 h-8 rounded-full flex items-center justify-center"
           style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
         >
-          {isOpen ? <FaMinus className="text-white text-sm" /> : <FaPlus className="text-white text-sm" />}
+          {isOpen ? <FaMinus className="text-white text-xs" /> : <FaPlus className="text-white text-xs" />}
         </motion.div>
       </div>
 
@@ -147,7 +173,7 @@ export default function StaffingServices() {
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-100"
+            className="absolute inset-0 bg-cover bg-center opacity-50"
             style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920)' }}
           ></div>
         </div>
@@ -197,7 +223,7 @@ export default function StaffingServices() {
           }}
           className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
         >
-          Staffing{" "}
+          <TypingText text="Staffing " delay={0} />
           <motion.span 
             style={{ color: '#4C1D95' }}
             animate={{ 
@@ -209,7 +235,7 @@ export default function StaffingServices() {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Services
+            <TypingText text="Services" delay={630} />
           </motion.span>
         </motion.h1>
         
@@ -418,20 +444,9 @@ export default function StaffingServices() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
-        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
-              FAQ
-            </span>
-          </motion.div>
-          
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
             Frequently Asked{" "}
             <motion.span 
@@ -452,7 +467,7 @@ export default function StaffingServices() {
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <FAQItem key={idx} faq={faq} index={idx} itemVariant={cardVariant} />
+            <FAQItem key={idx} faq={faq} index={idx} />
           ))}
         </div>
       </motion.section>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaSearch, 
@@ -13,6 +13,35 @@ import {
   FaRocket,
   FaArrowRight,
 } from "react-icons/fa";
+import sky8Image from "../../../assets/sky8.jpg";
+import aboutImage from "../../../assets/about.jpg";
+import soft9Image from "../../../assets/soft9.png";
+
+// Typing Animation Component
+const TypingText = ({ text, className = "", delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (started && currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 70);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, started]);
+
+  return <span className={className}>{displayedText}</span>;
+};
 
 // FAQ Item Component with Toggle
 const FAQItem = ({ faq, index }) => {
@@ -21,7 +50,7 @@ const FAQItem = ({ faq, index }) => {
   return (
     <motion.div
       key={index}
-      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-2"
+      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-l-4"
       style={{ borderColor: '#4C1D95' }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -36,10 +65,10 @@ const FAQItem = ({ faq, index }) => {
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="p-2 rounded-full"
+          className="w-8 h-8 rounded-full flex items-center justify-center"
           style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
         >
-          {isOpen ? <FaMinus className="text-white text-sm" /> : <FaPlus className="text-white text-sm" />}
+          {isOpen ? <FaMinus className="text-white text-xs" /> : <FaPlus className="text-white text-xs" />}
         </motion.div>
       </div>
 
@@ -77,7 +106,7 @@ export default function SEO() {
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-100"
+            className="absolute inset-0 bg-cover bg-center opacity-50"
             style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=1920)' }}
           ></div>
         </div>
@@ -127,7 +156,7 @@ export default function SEO() {
           }}
           className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
         >
-          SEO{" "}
+          <TypingText text="Search Engine" delay={0} />
           <motion.span 
             style={{ color: '#4C1D95' }}
             animate={{ 
@@ -139,7 +168,7 @@ export default function SEO() {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Services
+            <TypingText text=" Optimization" delay={280} />
           </motion.span>
         </motion.h1>
         
@@ -188,95 +217,112 @@ export default function SEO() {
         </motion.div>
       </section>
 
-      {/* Keyword Strategy Section */}
-      <motion.section
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gradient-to-r from-purple-500 to-emerald-500 text-white text-sm font-bold rounded-full shadow-lg">
-              STRATEGIC APPROACH
-            </span>
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-            Comprehensive Keyword{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Strategy
-            </motion.span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Services We Offer - Keyword Strategy Section */}
+      <div className="pt-16 px-6 md:px-12 lg:px-24 relative z-10" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Services We{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Offer
+              </motion.span>
+            </h3>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Comprehensive SEO strategies to boost your search rankings and drive targeted traffic.
+            </p>
+          </div>
+          
           {[
             {
-              icon: <FaSearch className="text-white text-5xl" />,
-              title: "Keyword Research & Analysis",
-              desc: "Discover valuable opportunities to attract targeted traffic.",
-              gradient: "from-purple-500 to-emerald-600",
+                title: "Keyword Research & Analysis",
+              desc: "Discover valuable keyword opportunities to attract targeted traffic and improve your search visibility.",
+              img: sky8Image,
+              },
+              {
+                title: "Competitor Analysis",
+              desc: "Understand market trends and outperform competitors with data-driven insights.",
+              img: aboutImage,
+              },
+              {
+                title: "Long-Tail & Local Keywords",
+              desc: "Target specific search queries for better engagement and higher conversion rates.",
+              img: soft9Image,
+              },
+              {
+                title: "Continuous Monitoring",
+              desc: "Refine keywords based on analytics and results to maintain optimal performance.",
+              img: sky8Image,
             },
-            {
-              icon: <FaChartLine className="text-white text-5xl" />,
-              title: "Competitor Analysis",
-              desc: "Understand market trends and outperform competitors.",
-              gradient: "from-emerald-500 to-teal-600",
-            },
-            {
-              icon: <FaUsers className="text-white text-5xl" />,
-              title: "Long-Tail & Local Keywords",
-              desc: "Target specific search queries for better engagement.",
-              gradient: "from-teal-500 to-purple-600",
-            },
-            {
-              icon: <FaLink className="text-white text-5xl" />,
-              title: "Continuous Monitoring",
-              desc: "Refine keywords based on analytics and results.",
-              gradient: "from-lime-500 to-emerald-600",
-            },
-          ].map((item, i) => (
-            <motion.div
+          ].map((s, i) => (
+            <motion.section
               key={i}
-              className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border-2 border-purple-100"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              className="py-8 border-b"
+              style={{ borderColor: '#E5E7EB' }}
             >
-              <div className="relative h-48 overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                  <div className="bg-white/20 backdrop-blur-sm p-5 rounded-2xl border-2 border-white/40">
-                    {item.icon}
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                {/* Text Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={i % 2 === 1 ? 'lg:col-start-2' : ''}
+                >
+                  <h4 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+                    {s.title}
+                  </h4>
+                  <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+                    {s.desc}
+                  </p>
+                </motion.div>
+
+                {/* Image Column */}
+              <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
+                >
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96">
+                    <img 
+                      src={s.img} 
+                      alt={s.title} 
+                      className="w-full h-full object-cover"
+                      style={{ 
+                        borderRadius: '1rem',
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                        maxHeight: '384px'
+                      }}
+                    />
+                    {/* Decorative overlay */}
+                    <div 
+                      className="absolute inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+                        pointerEvents: 'none'
+                      }}
+                    />
                   </div>
-                </div>
+              </motion.div>
               </div>
-
-              <div className="p-6 text-center">
-                <h3 className="font-bold text-lg mb-2 text-gray-800 group-hover:text-gray-600 transition-colors">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-              </div>
-
-              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
-            </motion.div>
-          ))}
+            </motion.section>
+            ))}
+          </div>
         </div>
-      </motion.section>
 
       {/* SEO Optimization Sections */}
       <motion.section
@@ -304,7 +350,7 @@ export default function SEO() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             {
               title: "On-Page SEO",
@@ -338,9 +384,9 @@ export default function SEO() {
               <div className="flex items-center gap-3 mb-6">
                 <div className={`w-12 h-12 bg-gradient-to-br from-${section.color}-500 to-${section.color}-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                   <FaLeaf className="w-6 h-6 text-white" />
-                </div>
+            </div>
                 <h3 className="font-black text-2xl text-gray-800 group-hover:text-gray-600 transition-colors">{section.title}</h3>
-              </div>
+            </div>
               <ul className="space-y-3">
                 {section.items.map((item, j) => (
                   <li key={j} className="flex items-start gap-3">
@@ -363,17 +409,6 @@ export default function SEO() {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
-              FAQ
-            </span>
-          </motion.div>
-          
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
             Frequently Asked{" "}
             <motion.span 
@@ -393,34 +428,34 @@ export default function SEO() {
         </div>
 
         <div className="space-y-4">
-          {[
-            {
-              q: "What is SEO and why is it important for my business?",
-              a: "SEO is the process of optimizing your website to rank higher in search engine results. It helps attract organic traffic, increase visibility, and convert visitors into customers."
-            },
-            {
-              q: "In what timeframe can SEO improvements become visible?",
-              a: "SEO is a long-term strategy. Typically, measurable improvements are seen within 3–6 months, depending on competition and website condition."
-            },
-            {
-              q: "What is the difference between on-page and off-page SEO?",
-              a: "On-page SEO optimizes website elements like content, headings, meta tags, and links. Off-page SEO builds authority through backlinks, social signals, and mentions."
-            },
-            {
-              q: "Can Intellects guarantee #1 ranking on Google?",
-              a: "No professional SEO company can guarantee #1 ranking due to algorithm changes. We use proven strategies to improve visibility and organic traffic."
-            },
-            {
-              q: "Do I need SEO if I'm already running paid ads?",
-              a: "Yes. SEO complements paid ads by generating organic traffic and providing long-term brand credibility."
-            },
-            {
-              q: "Will SEO work for local businesses?",
-              a: "Absolutely. Local SEO targets location-specific searches, helping businesses appear in local listings and maps."
-            }
-          ].map((faq, i) => (
-            <FAQItem key={i} faq={faq} index={i} />
-          ))}
+            {[
+              {
+                q: "What is SEO and why is it important for my business?",
+                a: "SEO is the process of optimizing your website to rank higher in search engine results. It helps attract organic traffic, increase visibility, and convert visitors into customers."
+              },
+              {
+                q: "In what timeframe can SEO improvements become visible?",
+                a: "SEO is a long-term strategy. Typically, measurable improvements are seen within 3–6 months, depending on competition and website condition."
+              },
+              {
+                q: "What is the difference between on-page and off-page SEO?",
+                a: "On-page SEO optimizes website elements like content, headings, meta tags, and links. Off-page SEO builds authority through backlinks, social signals, and mentions."
+              },
+              {
+                q: "Can Intellects guarantee #1 ranking on Google?",
+                a: "No professional SEO company can guarantee #1 ranking due to algorithm changes. We use proven strategies to improve visibility and organic traffic."
+              },
+              {
+                q: "Do I need SEO if I'm already running paid ads?",
+                a: "Yes. SEO complements paid ads by generating organic traffic and providing long-term brand credibility."
+              },
+              {
+                q: "Will SEO work for local businesses?",
+                a: "Absolutely. Local SEO targets location-specific searches, helping businesses appear in local listings and maps."
+              }
+            ].map((faq, i) => (
+              <FAQItem key={i} faq={faq} index={i} />
+            ))}
         </div>
       </motion.section>
 

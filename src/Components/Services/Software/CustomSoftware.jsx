@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Code,
@@ -15,6 +15,35 @@ import {
   CheckCircle2,
   Sparkles,
 } from "lucide-react";
+import sky8Image from "../../../assets/sky8.jpg";
+import aboutImage from "../../../assets/about.jpg";
+import soft9Image from "../../../assets/soft9.png";
+
+// Typing Animation Component
+const TypingText = ({ text, className = "", delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (started && currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 70);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, started]);
+
+  return <span className={className}>{displayedText}</span>;
+};
 
 const CustomSoftwareDevelopment = () => {
   const services = [
@@ -22,29 +51,29 @@ const CustomSoftwareDevelopment = () => {
       title: "Business-Specific Applications",
       desc: "Software designed to meet your unique challenges.",
       icon: <Workflow className="w-12 h-12 text-white" />,
-      img: "https://cdn.pixabay.com/photo/2018/01/19/07/41/software-3091579_1280.jpg",
-              gradient: "from-purple-800 to-gray-900",
+      img: sky8Image,
+      gradient: "from-purple-800 to-gray-900",
     },
     {
       title: "Enterprise-Level Systems",
       desc: "Integrated solutions that streamline processes across departments.",
       icon: <Layers className="w-12 h-12 text-white" />,
-      img: "https://cdn.pixabay.com/photo/2016/06/29/10/07/computer-1481889_1280.jpg",
-              gradient: "from-purple-800 to-gray-900",
+      img: sky8Image,
+      gradient: "from-purple-800 to-gray-900",
     },
     {
       title: "Automation Platforms",
       desc: "Tools that reduce manual work and increase accuracy.",
       icon: <Zap className="w-12 h-12 text-white" />,
-      img: "https://cdn.pixabay.com/photo/2021/07/28/13/58/automation-6503219_1280.jpg",
-              gradient: "from-purple-800 to-gray-900",
+      img: sky8Image,
+      gradient: "from-purple-800 to-gray-900",
     },
     {
       title: "Maintenance & Upgrades",
       desc: "Continuous improvements to keep your software running efficiently.",
       icon: <Settings className="w-12 h-12 text-white" />,
-      img: "https://cdn.pixabay.com/photo/2017/01/06/19/15/laptop-1954295_1280.jpg",
-              gradient: "from-purple-800 to-gray-900",
+      img: sky8Image,
+      gradient: "from-purple-800 to-gray-900",
     },
   ];
 
@@ -110,15 +139,15 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Header Section - Home Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden mb-24"
+        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden mb-8"
         style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-100"
+            className="absolute inset-0 bg-cover bg-center opacity-30"
             style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920)' }}
-          ></div>
+        ></div>
         </div>
 
         {/* Floating Decorative Elements */}
@@ -166,7 +195,7 @@ const CustomSoftwareDevelopment = () => {
           }}
           className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
         >
-          Custom Software Development{" "}
+          <TypingText text="Custom Software Development " delay={0} />
           <motion.span 
             style={{ color: '#4C1D95' }}
             animate={{ 
@@ -178,7 +207,7 @@ const CustomSoftwareDevelopment = () => {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Services
+            <TypingText text="Services" delay={2400} />
           </motion.span>
         </motion.h1>
         
@@ -214,7 +243,7 @@ const CustomSoftwareDevelopment = () => {
                 <ArrowRight className="w-5 h-5" />
               </motion.span>
             </button>
-          </motion.div>
+      </motion.div>
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <button
@@ -228,101 +257,99 @@ const CustomSoftwareDevelopment = () => {
       </section>
 
       {/* Services Section */}
-      <motion.div
-        className="mb-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
-              OUR EXPERTISE
-            </span>
-          </motion.div>
-          <h3 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-            Services We{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Offer
-            </motion.span>
-          </h3>
-          <p className="text-gray-600 text-lg mb-4 max-w-3xl mx-auto leading-relaxed">
-            Our custom software development services help organizations simplify operations, enhance productivity, and deliver value through smart technology.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="pt-16 px-6 md:px-12 lg:px-24 relative z-10" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Services We{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Offer
+              </motion.span>
+            </h3>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Our custom software development services help organizations simplify operations, enhance productivity, and deliver value through smart technology.
+            </p>
+          </div>
+          
           {services.map((s, i) => (
-            <motion.div
+            <motion.section
               key={i}
-              className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border border-gray-100"
-              whileHover={{ y: -10, scale: 1.02 }}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.15, duration: 0.5 }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              className="py-8 border-b"
+              style={{ borderColor: '#E5E7EB' }}
             >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={s.img} 
-                  alt={s.title} 
-                  className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                />
-                <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} opacity-60 group-hover:opacity-80 transition-opacity duration-300`}></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl border border-white/40 group-hover:scale-110 transition-transform duration-300">
-                    {s.icon}
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                {/* Text Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={i % 2 === 1 ? 'lg:col-start-2' : ''}
+                >
+                  <h4 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+                    {s.title}
+                  </h4>
+                  <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+                    {s.desc}
+                  </p>
+                </motion.div>
+
+                {/* Image Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
+                >
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96">
+                    <img 
+                      src={s.img} 
+                      alt={s.title} 
+                      className="w-full h-full object-cover"
+                      style={{ 
+                        borderRadius: '1rem',
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                        maxHeight: '384px'
+                      }}
+                    />
+                    {/* Decorative overlay */}
+                    <div 
+                      className="absolute inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+                        pointerEvents: 'none'
+                      }}
+                    />
                   </div>
-                </div>
+                </motion.div>
               </div>
-              
-              <div className="p-6 text-center">
-                <h4 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
-                  {s.title}
-                </h4>
-                <p className="text-gray-600 leading-relaxed text-sm">
-                  {s.desc}
-                </p>
-              </div>
-              
-              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${s.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
-            </motion.div>
+            </motion.section>
           ))}
         </div>
-      </motion.div>
+      </div>
 
       {/* Technologies Section */}
       <motion.div
-        className="mb-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
+        className="py-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
-              TECH STACK
-            </span>
-          </motion.div>
+        <div className="text-center mb-12">
           <h3 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
             Technologies We{" "}
             <motion.span 
@@ -373,7 +400,7 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Technology Stacks */}
       <motion.div
-        className="mb-32 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
+        className="py-16 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -436,7 +463,7 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Tailored Tech */}
       <motion.div
-        className="mb-32 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
+        className="py-16 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
@@ -483,24 +510,13 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Why Clients Choose Intellects */}
       <motion.div
-        className="mb-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
+        className="py-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         {/* Centered Heading */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
-              WHY CHOOSE US
-            </span>
-          </motion.div>
-          
+        <div className="text-center mb-12">
           <h3 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
             Why Clients Choose{" "}
             <motion.span 
@@ -524,7 +540,7 @@ const CustomSoftwareDevelopment = () => {
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative h-full min-h-[400px] overflow-hidden">
               <img
-                src="https://cdn.pixabay.com/photo/2019/04/29/09/23/teamwork-4168591_1280.jpg"
+                src={sky8Image}
                 alt="Why Clients Choose Intellects"
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -563,12 +579,12 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Software Development Process */}
       <motion.div
-        className="mb-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
+        className="py-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

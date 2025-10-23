@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaGlobe,
@@ -16,6 +16,35 @@ import {
   FaWater,
   FaRocket,
 } from "react-icons/fa";
+import sky8Image from "../../../assets/sky8.jpg";
+import aboutImage from "../../../assets/about.jpg";
+import soft9Image from "../../../assets/soft9.png";
+
+// Typing Animation Component
+const TypingText = ({ text, className = "", delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (started && currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 70);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, started]);
+
+  return <span className={className}>{displayedText}</span>;
+};
 
 // FAQ Item Component with Toggle
 const FAQItem = ({ faq, index, sectionVariant }) => {
@@ -78,7 +107,7 @@ export default function WebsiteDevelopment() {
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-100"
+            className="absolute inset-0 bg-cover bg-center opacity-50"
             style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920)' }}
           ></div>
         </div>
@@ -128,7 +157,7 @@ export default function WebsiteDevelopment() {
           }}
           className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
         >
-          Website Development{" "}
+          <TypingText text="Website Development " delay={0} />
           <motion.span 
             style={{ color: '#4C1D95' }}
             animate={{ 
@@ -140,7 +169,7 @@ export default function WebsiteDevelopment() {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Services
+            <TypingText text="Services" delay={1540} />
           </motion.span>
         </motion.h1>
         
@@ -157,7 +186,7 @@ export default function WebsiteDevelopment() {
           At <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, we design and develop modern, responsive, and business-driven websites that make a lasting digital impression — from corporate sites to e-commerce platforms.
         </motion.p>
         
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: 1, 
@@ -190,107 +219,111 @@ export default function WebsiteDevelopment() {
       </section>
 
       {/* Services Section */}
-      <motion.section
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
-              OUR SERVICES
-            </span>
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-            Services We{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Offer
-            </motion.span>
-          </h2>
-          <p className="text-gray-700 text-lg mb-4 max-w-3xl mx-auto leading-relaxed">
-            Build trust with sleek, professional designs and cutting-edge technology solutions.
-          </p>
-        </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-              icon: <FaUsers className="text-white text-5xl" />,
-                title: "Corporate & Business Websites",
-                desc: "Build trust with sleek, professional designs.",
-              gradient: "from-cyan-500 to-blue-600",
-              },
-              {
-              icon: <FaStore className="text-white text-5xl" />,
-                title: "E-commerce Platforms",
-                desc: "Secure, scalable, and conversion-focused online stores.",
-              gradient: "from-purple-800 to-gray-900",
-              },
-              {
-              icon: <FaClipboardCheck className="text-white text-5xl" />,
-                title: "CMS Development",
-                desc: "Empower your team with easy content management.",
-              gradient: "from-purple-800 to-gray-900",
-              },
-              {
-              icon: <FaLaptopCode className="text-white text-5xl" />,
-                title: "Landing Pages",
-                desc: "Optimize campaigns with high-impact designs.",
-              gradient: "from-cyan-500 to-violet-600",
-              },
-              {
-              icon: <FaCogs className="text-white text-5xl" />,
-                title: "Custom Web Portals",
-                desc: "Designed to improve internal operations and user experience.",
-              gradient: "from-purple-800 to-gray-900",
-              },
-            ].map((service, i) => (
-              <motion.div
-                key={i}
-              className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden border-2 border-violet-100"
-              initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              whileHover={{ y: -10, scale: 1.02 }}
+      <div className="pt-16 px-6 md:px-12 lg:px-24 relative z-10" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Services We{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
               >
-              <div className="relative h-56 overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                  <div className="bg-white/20 backdrop-blur-sm p-6 rounded-2xl border-2 border-white/40">
-                {service.icon}
+                Offer
+              </motion.span>
+            </h3>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Build trust with sleek, professional designs and cutting-edge technology solutions.
+            </p>
+          </div>
+          
+          {[
+            {
+              title: "Corporate & Business Websites",
+              desc: "Build trust with sleek, professional designs that represent your brand and engage your audience.",
+              img: sky8Image,
+            },
+            {
+              title: "E-commerce Platforms",
+              desc: "Secure, scalable, and conversion-focused online stores that drive sales and growth.",
+              img: aboutImage,
+            },
+            {
+              title: "CMS Development",
+              desc: "Empower your team with easy content management systems that give you full control.",
+              img: soft9Image,
+            },
+            {
+              title: "Landing Pages",
+              desc: "Optimize campaigns with high-impact designs that convert visitors into customers.",
+              img: sky8Image,
+            },
+          ].map((s, i) => (
+            <motion.section
+              key={i}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              className="py-8 border-b"
+              style={{ borderColor: '#E5E7EB' }}
+            >
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                {/* Text Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={i % 2 === 1 ? 'lg:col-start-2' : ''}
+                >
+                  <h4 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+                    {s.title}
+                  </h4>
+                  <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+                    {s.desc}
+                  </p>
+                </motion.div>
+
+                {/* Image Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
+                >
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96">
+                    <img 
+                      src={s.img} 
+                      alt={s.title} 
+                      className="w-full h-full object-cover"
+                      style={{ 
+                        borderRadius: '1rem',
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                        maxHeight: '384px'
+                      }}
+                    />
+                    {/* Decorative overlay */}
+                    <div 
+                      className="absolute inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+                        pointerEvents: 'none'
+                      }}
+                    />
                   </div>
-                </div>
+                </motion.div>
               </div>
-
-              <div className="p-6 text-center">
-                <h3 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-gray-600 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {service.desc}
-                </p>
-              </div>
-
-              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
-              </motion.div>
-            ))}
+            </motion.section>
+          ))}
         </div>
-      </motion.section>
+      </div>
 
       {/* Success Formula */}
       <motion.section

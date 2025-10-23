@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaMobileAlt,
@@ -13,6 +13,35 @@ import {
   FaCheckCircle,
   FaArrowRight,
 } from "react-icons/fa";
+import sky8Image from "../../../assets/sky8.jpg";
+import aboutImage from "../../../assets/about.jpg";
+import soft9Image from "../../../assets/soft9.png";
+
+// Typing Animation Component
+const TypingText = ({ text, className = "", delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (started && currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 70);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, started]);
+
+  return <span className={className}>{displayedText}</span>;
+};
 
 export default function MobileAppDevelopment() {
   return (
@@ -31,7 +60,7 @@ export default function MobileAppDevelopment() {
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-100"
+            className="absolute inset-0 bg-cover bg-center opacity-50"
             style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920)' }}
           ></div>
         </div>
@@ -81,7 +110,7 @@ export default function MobileAppDevelopment() {
           }}
           className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
         >
-          Mobile Application{" "}
+          <TypingText text="Mobile Application " delay={0} />
           <motion.span 
             style={{ color: '#4C1D95' }}
             animate={{ 
@@ -93,7 +122,7 @@ export default function MobileAppDevelopment() {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Development
+            <TypingText text="Development" delay={1330} />
           </motion.span>
         </motion.h1>
         
@@ -233,59 +262,111 @@ export default function MobileAppDevelopment() {
       </motion.section>
 
       {/* Services Offered */}
-      <motion.section
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-            Services We{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
+      <div className="pt-16 px-6 md:px-12 lg:px-24 relative z-10" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Services We{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Offer
+              </motion.span>
+            </h3>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              High-performance mobile applications for iOS and Android platforms.
+            </p>
+          </div>
+          
+          {[
+            {
+              title: "Native Apps",
+              desc: "High-performance apps for iOS and Android platforms with native capabilities and optimal user experience.",
+              img: sky8Image,
+            },
+            {
+              title: "Cross-Platform Apps",
+              desc: "Built with Flutter or React Native for multiple devices, reducing development time and costs.",
+              img: aboutImage,
+            },
+            {
+              title: "Enterprise Mobility Solutions",
+              desc: "Secure apps to manage operations efficiently and empower your workforce.",
+              img: soft9Image,
+            },
+            {
+              title: "E-commerce & Service Apps",
+              desc: "Engaging platforms for customers and clients that drive sales and loyalty.",
+              img: sky8Image,
+            },
+          ].map((s, i) => (
+            <motion.section
+              key={i}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              className="py-8 border-b"
+              style={{ borderColor: '#E5E7EB' }}
             >
-              Offer
-            </motion.span>
-          </h2>
-        </div>
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                {/* Text Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={i % 2 === 1 ? 'lg:col-start-2' : ''}
+                >
+                  <h4 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+                    {s.title}
+                  </h4>
+                  <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+                    {s.desc}
+                  </p>
+                </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "Native Apps – High-performance apps for iOS and Android platforms.",
-              "Cross-Platform Apps – Built with Flutter or React Native for multiple devices.",
-              "Enterprise Mobility Solutions – Secure apps to manage operations efficiently.",
-              "E-commerce & Service Apps – Engaging platforms for customers and clients.",
-              "App Maintenance & Support – Ongoing updates, monitoring, and optimization.",
-            ].map((service, i) => (
-              <motion.div
-                key={i}
-              className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl border-l-4 border-purple-500 transition-all relative overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-              whileHover={{ x: 5 }}
-            >
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-100 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500"></div>
-              
-              <div className="relative z-10 flex items-start gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <FaCheckCircle className="w-5 h-5 text-white" />
-                </div>
-                <p className="text-gray-700 font-medium leading-relaxed group-hover:text-gray-900 transition-colors">{service}</p>
+                {/* Image Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
+                >
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96">
+                    <img 
+                      src={s.img} 
+                      alt={s.title} 
+                      className="w-full h-full object-cover"
+                      style={{ 
+                        borderRadius: '1rem',
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                        maxHeight: '384px'
+                      }}
+                    />
+                    {/* Decorative overlay */}
+                    <div 
+                      className="absolute inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+                        pointerEvents: 'none'
+                      }}
+                    />
+                  </div>
+                </motion.div>
               </div>
-              </motion.div>
-            ))}
+            </motion.section>
+          ))}
         </div>
-      </motion.section>
+      </div>
 
       {/* Mobile App Development Process */}
       <motion.section

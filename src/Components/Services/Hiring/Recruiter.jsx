@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaGlobe, 
@@ -17,18 +17,44 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
+// Typing Animation Component
+const TypingText = ({ text, className = "", delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (started && currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 70);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, started]);
+
+  return <span className={className}>{displayedText}</span>;
+};
+
 // FAQItem component
-const FAQItem = ({ faq, index, itemVariant }) => {
+const FAQItem = ({ faq, index }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div
       key={index}
-      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-2"
+      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-l-4"
       style={{ borderColor: '#4C1D95' }}
-      variants={itemVariant}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true, amount: 0.1 }}
     >
       <div 
@@ -39,10 +65,10 @@ const FAQItem = ({ faq, index, itemVariant }) => {
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="p-2 rounded-full"
+          className="w-8 h-8 rounded-full flex items-center justify-center"
           style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
         >
-          {isOpen ? <FaMinus className="text-white text-sm" /> : <FaPlus className="text-white text-sm" />}
+          {isOpen ? <FaMinus className="text-white text-xs" /> : <FaPlus className="text-white text-xs" />}
         </motion.div>
       </div>
 
@@ -155,7 +181,7 @@ export default function GlobalRecruitments() {
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-100"
+            className="absolute inset-0 bg-cover bg-center opacity-50"
             style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920)' }}
           ></div>
         </div>
@@ -205,7 +231,7 @@ export default function GlobalRecruitments() {
           }}
           className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
         >
-          Global{" "}
+          <TypingText text="Global " delay={0} />
           <motion.span 
             style={{ color: '#4C1D95' }}
             animate={{ 
@@ -217,7 +243,7 @@ export default function GlobalRecruitments() {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Recruitments
+            <TypingText text="Recruitments" delay={490} />
           </motion.span>
         </motion.h1>
         
@@ -280,15 +306,15 @@ export default function GlobalRecruitments() {
         }}
       >
         <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
-          <motion.button
+        <motion.button
             className="px-10 py-4 bg-white text-gray-600 font-bold rounded-full text-lg shadow-2xl hover:bg-purple-50 transition-colors animate-pulse hover:animate-none"
             style={{ boxShadow: '0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(16, 185, 129, 0.3)' }}
-            whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(0,0,0,0.3)" }}
-            whileTap={{ scale: 0.95 }}
-            variants={itemVariant}
-          >
-            Start Your Global Search
-          </motion.button>
+          whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(0,0,0,0.3)" }}
+          whileTap={{ scale: 0.95 }}
+          variants={itemVariant}
+        >
+          Start Your Global Search
+        </motion.button>
         </div>
       </motion.section>
 
@@ -372,41 +398,30 @@ export default function GlobalRecruitments() {
           <div className="space-y-4">
             {benefits.map((item, idx) => (
               <motion.div
-                key={idx}
+                key={idx} 
                 className="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all group"
                 variants={itemVariant}
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                   <FaHandsHelping className="w-6 h-6 text-white" />
-                </div>
+        </div>
                 <span className="text-gray-700 font-semibold text-lg group-hover:text-gray-600 transition-colors">{item}</span>
               </motion.div>
             ))}
-          </div>
+        </div>
         </div>
       </motion.section>
 
       {/* FAQs */}
-      <motion.section
+      <motion.section 
         className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
-        initial="hidden"
+        initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
-        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
-              FAQ
-            </span>
-          </motion.div>
-          
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
             Frequently Asked{" "}
             <motion.span 
@@ -427,7 +442,7 @@ export default function GlobalRecruitments() {
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <FAQItem key={idx} faq={faq} index={idx} itemVariant={cardVariant} />
+            <FAQItem key={idx} faq={faq} index={idx} />
           ))}
         </div>
       </motion.section>
@@ -443,7 +458,7 @@ export default function GlobalRecruitments() {
           <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
             <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          </div>
+        </div>
 
           <div className="relative z-10">
             <motion.div

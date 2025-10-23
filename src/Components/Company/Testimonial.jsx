@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaHandshake } from "react-icons/fa"; // imported properly
+import { FaHandshake } from "react-icons/fa";
 
 // 🔹 Replace with your actual image imports
 import client1 from "../../assets/about.jpg";
@@ -50,7 +50,7 @@ const ClientsTestimonials = () => {
   const teamImages = [team1, team2, team3];
 
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white text-gray-800 py-20 px-6 md:px-20 overflow-hidden">
+    <div className="text-gray-800 py-20 px-6 md:px-20 overflow-hidden" style={{ background: 'linear-gradient(to bottom, #F9FAFB, #FFFFFF)' }}>
 
       {/* HEADER / HERO SECTION */}
       <motion.section
@@ -60,14 +60,29 @@ const ClientsTestimonials = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-5xl md:text-6xl font-bold text-blue-700 mb-6 tracking-tight"
+          className="text-5xl md:text-6xl font-bold mb-6 tracking-tight"
+          style={{ color: '#000000' }}
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 200 }}
         >
-          Clients & Testimonials
+          Clients &{" "}
+          <motion.span
+            style={{ color: '#4C1D95' }}
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Testimonials
+          </motion.span>
         </motion.h1>
         <motion.p
-          className="text-2xl font-semibold text-gray-600 mb-4"
+          className="text-2xl font-semibold mb-4"
+          style={{ color: '#6B7280' }}
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
@@ -75,14 +90,15 @@ const ClientsTestimonials = () => {
           Our Clients, Our Pride.
         </motion.p>
         <motion.p
-          className="max-w-3xl mx-auto text-gray-700 leading-relaxed"
+          className="max-w-3xl mx-auto leading-relaxed"
+          style={{ color: '#6B7280' }}
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           custom={2}
         >
           At Intellects, every partnership is built on trust, innovation, and shared
-          success. We don’t just deliver projects — we build relationships that last.
+          success. We don't just deliver projects — we build relationships that last.
         </motion.p>
       </motion.section>
 
@@ -93,12 +109,35 @@ const ClientsTestimonials = () => {
         animate={{ scale: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <FaHandshake className="mx-auto text-primary-medium text-5xl mb-4 animate-bounce" />
-        <h1 className="text-4xl font-bold mb-4">Clients & Testimonials</h1>
-        <p className="text-lg text-slate-600">
+        <motion.div
+          animate={{ 
+            y: [0, -10, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <FaHandshake className="mx-auto text-5xl mb-4" style={{ color: '#4C1D95' }} />
+        </motion.div>
+        <h1 className="text-4xl font-bold mb-4" style={{ color: '#4C1D95' }}>
+          Clients &{" "}
+          <motion.span
+            style={{ color: '#000000' }}
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Testimonials
+          </motion.span>
+        </h1>
+        <p className="text-lg" style={{ color: '#6B7280' }}>
           Our Clients, Our Pride. <br />
           At Intellects, every partnership is built on trust, innovation, and
-          shared success. We don’t just deliver projects — we build
+          shared success. We don't just deliver projects — we build
           relationships that last.
         </p>
       </motion.div>
@@ -111,11 +150,24 @@ const ClientsTestimonials = () => {
         viewport={{ once: true }}
         variants={fadeInUp}
       >
-        <h2 className="text-4xl font-bold text-blue-600 mb-6">
-          Our Valued Clients
+        <h2 className="text-4xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+          Our Valued{" "}
+          <motion.span
+            style={{ color: '#000000' }}
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Clients
+          </motion.span>
         </h2>
-        <p className="max-w-4xl mx-auto text-gray-700 text-lg leading-relaxed">
-          We’re proud to have partnered with leading organizations and ambitious
+        <p className="max-w-4xl mx-auto text-lg leading-relaxed" style={{ color: '#6B7280' }}>
+          We're proud to have partnered with leading organizations and ambitious
           startups around the world. Our clients come from diverse industries — technology, retail, healthcare, education, and finance — but they all share
           one thing in common: a commitment to growth through innovation.
         </p>
@@ -142,7 +194,12 @@ const ClientsTestimonials = () => {
               className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <motion.div
-              className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-center pb-6 transition-opacity duration-500"
+              className="absolute inset-0 flex items-end justify-center pb-6 transition-opacity duration-500"
+              style={{ 
+                background: 'linear-gradient(to top, rgba(76, 29, 149, 0.8), transparent)',
+                opacity: 0
+              }}
+              whileHover={{ opacity: 1 }}
             >
               <p className="text-white text-lg font-semibold">
                 Intellects Team Member {index + 1}
@@ -162,10 +219,15 @@ const ClientsTestimonials = () => {
         {clients.map((client, index) => (
           <motion.div
             key={index}
-            className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-2xl transform transition duration-500 hover:-translate-y-2"
+            className="bg-white p-8 rounded-3xl shadow-lg border-2 hover:shadow-2xl transform transition duration-500 hover:-translate-y-2"
+            style={{ borderColor: '#E5E7EB' }}
             variants={fadeInUp}
             custom={index}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ 
+              scale: 1.05,
+              borderColor: '#4C1D95',
+              boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)'
+            }}
           >
             <motion.div
               className="flex flex-col items-center text-center"
@@ -176,12 +238,13 @@ const ClientsTestimonials = () => {
               <motion.img
                 src={client.image}
                 alt={client.name}
-                className="w-24 h-24 rounded-full border-4 border-blue-500 mb-4 object-cover shadow-lg"
+                className="w-24 h-24 rounded-full border-4 mb-4 object-cover shadow-lg"
+                style={{ borderColor: '#4C1D95' }}
                 whileHover={{ rotate: 5, scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 150 }}
               />
-              <h3 className="text-xl font-bold text-blue-600 mb-3">{client.name}</h3>
-              <p className="text-gray-600 italic leading-relaxed">{client.feedback}</p>
+              <h3 className="text-xl font-bold mb-3" style={{ color: '#4C1D95' }}>{client.name}</h3>
+              <p className="italic leading-relaxed" style={{ color: '#6B7280' }}>{client.feedback}</p>
             </motion.div>
           </motion.div>
         ))}
@@ -191,19 +254,38 @@ const ClientsTestimonials = () => {
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2
           className="text-3xl font-semibold text-center mb-12"
+          style={{ color: '#4C1D95' }}
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          What Our Clients Say
+          What Our{" "}
+          <motion.span
+            style={{ color: '#000000' }}
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Clients Say
+          </motion.span>
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {clients.map((client, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-2xl transition-all"
-              whileHover={{ scale: 1.05 }}
+              className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-2xl transition-all border-2"
+              style={{ borderColor: '#E5E7EB' }}
+              whileHover={{ 
+                scale: 1.05,
+                borderColor: '#4C1D95',
+                boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)'
+              }}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.3 }}
@@ -211,12 +293,13 @@ const ClientsTestimonials = () => {
               <motion.img
                 src={client.image}
                 alt={client.name}
-                className="mx-auto rounded-full w-20 h-20 mb-4 object-cover border-4 border-blue-100"
+                className="mx-auto rounded-full w-20 h-20 mb-4 object-cover border-4"
+                style={{ borderColor: '#4C1D95' }}
                 whileHover={{ rotate: 5 }}
                 transition={{ duration: 0.3 }}
               />
-              <h3 className="font-semibold text-lg mb-2">{client.name}</h3>
-              <p className="text-slate-600 text-sm mb-4">{client.feedback}</p>
+              <h3 className="font-semibold text-lg mb-2" style={{ color: '#4C1D95' }}>{client.name}</h3>
+              <p className="text-sm mb-4" style={{ color: '#6B7280' }}>{client.feedback}</p>
             </motion.div>
           ))}
         </div>

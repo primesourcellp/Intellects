@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import sky8Image from "../../assets/sky8.jpg";
 import aboutImage from "../../assets/about.jpg";
 import logoImage from "../../assets/logo.png";
@@ -110,9 +111,51 @@ export default function Home() {
     show: { opacity: 1, scale: 1, transition: { duration: 1.0, ease: "easeOut" } },
   };
 
-  // FAQ toggle state
-  const [openIndex, setOpenIndex] = useState(null);
-  const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
+  // FAQ Item Component with Toggle
+  const FAQItem = ({ faq, index }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+      <motion.div
+        key={index}
+        className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-l-4"
+        style={{ borderColor: '#4C1D95' }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        <div 
+          className="p-6 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <h4 className="font-bold text-lg text-gray-900">{faq.q}</h4>
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-8 h-8 rounded-full flex items-center justify-center"
+            style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+          >
+            {isOpen ? <FaMinus className="text-white text-xs" /> : <FaPlus className="text-white text-xs" />}
+          </motion.div>
+        </div>
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="px-6 pb-6 pt-2"
+            >
+              <p className="text-gray-700 border-t-2 pt-4 leading-relaxed" style={{ borderColor: '#4C1D95' }}>{faq.a}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    );
+  };
 
   return (
     <div className="overflow-x-hidden" style={{ backgroundColor: '#F9FAFB', color: '#1F2937' }}>
@@ -355,8 +398,21 @@ export default function Home() {
         SERVICES SECTION 
       ======================================== */}
       <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFFFF' }}>
-        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl font-bold text-center mb-6">
-          Our Services
+        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-center mb-6" style={{ color: '#000000' }}>
+          Our{" "}
+          <motion.span
+            style={{ color: '#4C1D95' }}
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Services
+          </motion.span>
         </motion.h2>
         <motion.p initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeIn} className="text-center max-w-3xl mx-auto mb-16 text-lg" style={{ color: '#6B7280' }}>
           At Intellects, every service is designed around one simple belief:
@@ -398,8 +454,21 @@ export default function Home() {
         WHY CHOOSE SECTION
       ======================================== */}
       <section className="py-24 px-6 md:px-12 lg:px-24 border-t" style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB' }}>
-        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl font-bold text-center mb-12" style={{ color: '#4C1D95' }}>
-          Why Choose Intellects
+        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-center mb-12" style={{ color: '#000000' }}>
+          Why Choose{" "}
+          <motion.span
+            style={{ color: '#4C1D95' }}
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Intellects
+          </motion.span>
         </motion.h2>
         <motion.ul initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.5 }} variants={container} className="max-w-4xl mx-auto space-y-5">
           {[
@@ -441,7 +510,22 @@ export default function Home() {
         className="py-24 px-6 md:px-12 lg:px-24 text-center"
         style={{ backgroundColor: '#FFFFFF' }}
       >
-        <h2 className="text-4xl font-bold mb-4" style={{ color: '#4C1D95' }}>Careers at Intellects</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
+          Careers at{" "}
+          <motion.span
+            style={{ color: '#4C1D95' }}
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Intellects
+          </motion.span>
+        </h2>
         <p className="max-w-3xl mx-auto leading-relaxed mb-8 text-lg" style={{ color: '#6B7280' }}>
           Grow Your Future with a Team That Values You. We're always searching for curious minds — developers, strategists, creatives, and
           consultants — who want to shape the future of IT consulting.
@@ -472,8 +556,21 @@ export default function Home() {
         className="py-24 px-6 md:px-12 lg:px-24 text-center border-t"
         style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB' }}
       >
-        <h2 className="text-4xl font-bold mb-4" style={{ color: '#4C1D95' }}>
-          Your Vision, Our Engineering Expertise
+        <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
+          Your Vision, Our{" "}
+          <motion.span
+            style={{ color: '#4C1D95' }}
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Engineering Expertise
+          </motion.span>
         </h2>
         <p className="max-w-3xl mx-auto leading-relaxed text-lg" style={{ color: '#6B7280' }}>
           Our team combines creativity with technical excellence to
@@ -485,68 +582,44 @@ export default function Home() {
       {/* ========================================
         FAQ SECTION (+ / - toggle)
       ======================================== */}
-      <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFFFF' }}>
-        <motion.h2
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="text-4xl font-bold text-center mb-12"
-          style={{ color: '#F8FAFC' }}
-        >
-          Frequently Asked Questions 🤔
-        </motion.h2>
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-4xl mx-auto space-y-6"
-        >
-          {[
-            { q: "1. What services does Intellects provide?", a: "Intellects offers IT consulting services including Software Development, Digital Marketing, and HR Consulting — helping businesses grow smarter and perform better." },
-            { q: "2. How does Intellects ensure quality in its projects?", a: "Every project follows our agile development methodology, with continuous testing, clear communication, and client feedback loops to maintain the highest quality standards. " },
-            { q: "3. Which industries does Intellects work with?", a: "We work across technology, retail, healthcare, education, and finance industries — customizing every solution to fit each client’s unique needs. " },
-            { q: "4. Why should I choose Intellects for my business?", a: "We combine technical excellence, creative strategy, and transparent collaboration to deliver long-term results. At Intellects, we measure success by your satisfaction and growth. " },
-            { q: "5. How can I start working with Intellects?", a: "Simply reach out to us through our contact form or email. Our consulting team will connect with you to understand your goals and craft a solution tailored to your business vision." },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeInUp}
-              whileHover={{ scale: 1.01, boxShadow: '0 0 20px rgba(30, 58, 138, 0.3)' }}
-              className="p-6 rounded-lg shadow-md border-l-4 cursor-pointer"
-              style={{ backgroundColor: '#FFFFFF', borderColor: '#7C3AED' }}
-              onClick={() => toggleFAQ(i)}
+      <motion.section
+        className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+      >
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            Frequently Asked{" "}
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
             >
-              <div className="flex justify-between items-center">
-                <h3 className="font-semibold text-xl" style={{ color: '#4C1D95' }}>{item.q}</h3>
-                <motion.span
-                  initial={false}
-                  animate={{ rotate: openIndex === i ? 45 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-3xl font-bold select-none"
-                  style={{ color: '#4C1D95' }}
-                >
-                  {openIndex === i ? "−" : "+"}
-                </motion.span>
-              </div>
+              Questions
+            </motion.span>
+          </h2>
+        </div>
 
-              <motion.div
-                initial={false}
-                animate={{
-                  height: openIndex === i ? "auto" : 0,
-                  opacity: openIndex === i ? 1 : 0,
-                }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="overflow-hidden mt-3"
-              >
-                <p style={{ color: '#6B7280' }}>{item.a}</p>
-              </motion.div>
-            </motion.div>
+        <div className="space-y-4">
+          {[
+            { q: "What services does Intellects provide?", a: "Intellects offers IT consulting services including Software Development, Digital Marketing, and HR Consulting — helping businesses grow smarter and perform better." },
+            { q: "How does Intellects ensure quality in its projects?", a: "Every project follows our agile development methodology, with continuous testing, clear communication, and client feedback loops to maintain the highest quality standards." },
+            { q: "Which industries does Intellects work with?", a: "We work across technology, retail, healthcare, education, and finance industries — customizing every solution to fit each client's unique needs." },
+            { q: "Why should I choose Intellects for my business?", a: "We combine technical excellence, creative strategy, and transparent collaboration to deliver long-term results. At Intellects, we measure success by your satisfaction and growth." },
+            { q: "How can I start working with Intellects?", a: "Simply reach out to us through our contact form or email. Our consulting team will connect with you to understand your goals and craft a solution tailored to your business vision." },
+          ].map((item, i) => (
+            <FAQItem key={i} faq={item} index={i} />
           ))}
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
 
       {/* ========================================
         QUOTE SECTION

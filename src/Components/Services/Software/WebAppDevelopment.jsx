@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaLaptopCode,
@@ -12,6 +12,35 @@ import {
   FaCube,
   FaArrowRight,
 } from "react-icons/fa";
+import sky8Image from "../../../assets/sky8.jpg";
+import aboutImage from "../../../assets/about.jpg";
+import soft9Image from "../../../assets/soft9.png";
+
+// Typing Animation Component
+const TypingText = ({ text, className = "", delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (started && currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 70);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, started]);
+
+  return <span className={className}>{displayedText}</span>;
+};
 
 export default function WebAppDevelopment() {
   return (
@@ -30,7 +59,7 @@ export default function WebAppDevelopment() {
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-100"
+            className="absolute inset-0 bg-cover bg-center opacity-50"
             style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920)' }}
           ></div>
         </div>
@@ -80,7 +109,7 @@ export default function WebAppDevelopment() {
           }}
           className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
         >
-          Web Application{" "}
+          <TypingText text="Web Application " delay={0} />
           <motion.span 
             style={{ color: '#4C1D95' }}
             animate={{ 
@@ -92,7 +121,7 @@ export default function WebAppDevelopment() {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Development
+            <TypingText text="Development" delay={1120} />
           </motion.span>
         </motion.h1>
         
@@ -142,92 +171,111 @@ export default function WebAppDevelopment() {
       </section>
 
       {/* Services We Offer */}
-      <motion.section
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
-              WHAT WE BUILD
-            </span>
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-            Services We{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Offer
-            </motion.span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="pt-16 px-6 md:px-12 lg:px-24 relative z-10" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Services We{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Offer
+              </motion.span>
+            </h3>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              We build powerful, scalable web applications tailored to your business needs.
+            </p>
+          </div>
+          
           {[
             {
-              icon: <FaLaptopCode className="text-gray-900 text-5xl" />,
               title: "Custom Web Applications",
-              desc: "Built from scratch to match your specific workflows.",
+              desc: "Built from scratch to match your specific workflows and business requirements.",
+              img: sky8Image,
             },
             {
-              icon: <FaServer className="text-emerald-600 text-5xl" />,
               title: "Enterprise Portals",
-              desc: "Streamlined access to data, analytics, and collaboration tools.",
+              desc: "Streamlined access to data, analytics, and collaboration tools for your organization.",
+              img: aboutImage,
             },
             {
-              icon: <FaCloud className="text-cyan-600 text-5xl" />,
               title: "SaaS Applications",
-              desc: "Scalable cloud-based software for modern business models.",
+              desc: "Scalable cloud-based software solutions for modern business models.",
+              img: soft9Image,
             },
             {
-              icon: <FaRocket className="text-gray-900 text-5xl" />,
               title: "Progressive Web Apps (PWA)",
-              desc: "Fast, reliable, and installable web experiences.",
+              desc: "Fast, reliable, and installable web experiences that work offline.",
+              img: sky8Image,
             },
-            {
-              icon: <FaServer className="text-emerald-600 text-5xl" />,
-              title: "E-commerce Web Apps",
-              desc: "Secure platforms to drive online sales and engagement.",
-            },
-          ].map((service, i) => (
-            <motion.div
+          ].map((s, i) => (
+            <motion.section
               key={i}
-              className="group bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all border-2 border-purple-100 hover:border-purple-300 text-center relative overflow-hidden"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              whileHover={{ y: -10 }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              className="py-8 border-b"
+              style={{ borderColor: '#E5E7EB' }}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-emerald-100 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 opacity-50"></div>
-              
-              <div className="relative z-10">
-                <div className="mb-6 inline-flex p-5 bg-gradient-to-br from-purple-50 to-emerald-50 rounded-2xl group-hover:scale-110 transition-transform">
-                  {service.icon}
-                </div>
-                <h3 className="font-bold text-xl mb-3 text-gray-800 group-hover:text-gray-900 transition-colors">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
-              </div>
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                {/* Text Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={i % 2 === 1 ? 'lg:col-start-2' : ''}
+                >
+                  <h4 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+                    {s.title}
+                  </h4>
+                  <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+                    {s.desc}
+                  </p>
+                </motion.div>
 
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            </motion.div>
+                {/* Image Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
+                >
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96">
+                    <img 
+                      src={s.img} 
+                      alt={s.title} 
+                      className="w-full h-full object-cover"
+                      style={{ 
+                        borderRadius: '1rem',
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                        maxHeight: '384px'
+                      }}
+                    />
+                    {/* Decorative overlay */}
+                    <div 
+                      className="absolute inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+                        pointerEvents: 'none'
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              </div>
+            </motion.section>
           ))}
         </div>
-      </motion.section>
+      </div>
 
       {/* Expertise Section */}
       <motion.section
