@@ -77,7 +77,7 @@ export default function SEO() {
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-30"
+            className="absolute inset-0 bg-cover bg-center opacity-100"
             style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=1920)' }}
           ></div>
         </div>
