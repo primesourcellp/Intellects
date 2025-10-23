@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Clock, Globe } from "lucide-react";
-import toast, { Toaster } from "react-hot-toast";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
+export default function Contact() {
+  const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
@@ -12,211 +11,202 @@ const Contact = () => {
     message: "",
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { name, email, phone, company, message } = form;
 
-    toast.success("Message sent successfully!", {
-      style: {
-        border: "1px solid #FF4F8B",
-        padding: "12px",
-        color: "#333",
-      },
-      iconTheme: {
-        primary: "#FF4F8B",
-        secondary: "#fff",
-      },
-    });
+    if (!name || !email || !message) {
+      alert("Please fill in all required fields (Name, Email, Message).");
+      return;
+    }
 
-    setTimeout(() => {
-      const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
-      );
-      window.open(
-        `https://mail.google.com/mail/?view=cm&fs=1&to=dharshinism11@gmail.com&su=${subject}&body=${body}`
-      );
-    }, 1500);
+    // ✅ Gmail Compose URL format
+    const subject = encodeURIComponent(`Contact from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nMessage:\n${message}`
+    );
+
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=dharshinism11@gmail.com&su=${subject}&body=${body}`;
+
+    // ✅ Open Gmail Compose in new tab
+    window.open(gmailLink, "_blank");
+
+    // ✅ Reset form and show success message
+    setForm({ name: "", email: "", phone: "", company: "", message: "" });
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 4000);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-gray-100 flex flex-col items-center text-gray-800 px-6 py-16">
-      <Toaster position="top-center" reverseOrder={false} />
-
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-12"
-      >
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-600 via-rose-500 to-pink-700 bg-clip-text text-transparent mb-4">
-          Contact Us
-        </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Let’s Connect. Let’s Build the Future Together.
-        </p>
-      </motion.div>
-
-      {/* Contact Info + Form Section */}
-      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10">
-        {/* Left Side - Contact Info */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-800">
+      {/* Hero Section */}
+      <section className="text-center py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-white rounded-2xl shadow-xl p-8 border border-pink-100"
+          className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6"
         >
-          <h2 className="text-2xl font-semibold bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent mb-6">
-            Get In Touch
-          </h2>
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            We make it easy to connect with us. You can reach our team through
-            phone, email, or by filling out the quick contact form below.
-          </p>
+          Let’s Connect. Let’s Build the{" "}
+          <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+            Future Together
+          </span>
+        </motion.h1>
+      </section>
 
-          <div className="space-y-5">
-            <div className="flex items-start space-x-3">
-              <MapPin className="text-pink-500 mt-1" />
-              <p>
-                <strong>Head Office:</strong>
-                <br /> 123 Intellect Tower, Innovation Hub, New York, NY 10001
-              </p>
-            </div>
-            <div className="flex items-start space-x-3">
-              <Phone className="text-pink-500 mt-1" />
-              <p>
-                <strong>Phone:</strong>
-                <br /> +1 (555) 123-4567
-              </p>
-            </div>
-            <div className="flex items-start space-x-3">
-              <Mail className="text-pink-500 mt-1" />
-              <p>
-                <strong>Email:</strong>
-                <br /> hello@intellects.com
-              </p>
-            </div>
-            <div className="flex items-start space-x-3">
-              <Globe className="text-pink-500 mt-1" />
-              <p>
-                <strong>Website:</strong>
-                <br /> www.intellects.in
-              </p>
-            </div>
-            <div className="flex items-start space-x-3">
-              <Clock className="text-pink-500 mt-1" />
-              <p>
-                <strong>Business Hours:</strong>
-                <br />Monday - Friday: 9:00 AM - 5:00 PM EST
-              </p>
-            </div>
+      {/* Get In Touch Section */}
+      <section className="px-6 py-20 md:px-12 lg:px-24">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Get In <span className="text-purple-700">Touch</span>
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            We make it easy to connect with us. You can reach our team through phone, email,
+            or by filling out the quick contact form below.
+          </p>
+        </div>
+
+        {/* Contact Information */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 text-center">
+          <div className="p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all">
+            <MapPin className="w-10 h-10 text-purple-700 mx-auto mb-4" />
+            <h3 className="font-semibold text-lg mb-2">Head Office</h3>
+            <p className="text-gray-600">Madurai, Tamil Nadu, India</p>
           </div>
-        </motion.div>
 
-        {/* Right Side - Contact Form */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="bg-white rounded-2xl shadow-xl p-8 border border-pink-100"
-        >
-          <h2 className="text-2xl font-semibold bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent mb-4">
-            Send Us a Message
+          <div className="p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all">
+            <Phone className="w-10 h-10 text-purple-700 mx-auto mb-4" />
+            <h3 className="font-semibold text-lg mb-2">Phone</h3>
+            <p className="text-gray-600">+91 98765 43210</p>
+          </div>
+
+          <div className="p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all">
+            <Mail className="w-10 h-10 text-purple-700 mx-auto mb-4" />
+            <h3 className="font-semibold text-lg mb-2">Email</h3>
+            <p className="text-gray-600">dharshinism11@gmail.com</p>
+          </div>
+
+          <div className="p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all">
+            <Globe className="w-10 h-10 text-purple-700 mx-auto mb-4" />
+            <h3 className="font-semibold text-lg mb-2">Website</h3>
+            <p className="text-gray-600">www.intellects.com</p>
+          </div>
+
+          <div className="p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all">
+            <Clock className="w-10 h-10 text-purple-700 mx-auto mb-4" />
+            <h3 className="font-semibold text-lg mb-2">Business Hours</h3>
+            <p className="text-gray-600">Mon–Fri: 9:00 AM – 6:00 PM</p>
+          </div>
+        </div>
+
+        {/* Send Message Section */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-gray-800 mb-3">
+            Send Us a{" "}
+            <span className="bg-gradient-to-r from-purple-700 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+              Message
+            </span>
           </h2>
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            We value your time and inquiries. Please fill out the form below — our team will get back to you within 24 hours.
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            We value your time and inquiries. Please fill out the form below — our team will
+            get back to you within 24 hours.
           </p>
+        </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Contact Form */}
+        <motion.form
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="max-w-3xl mx-auto bg-white p-10 rounded-3xl shadow-lg border border-gray-200"
+        >
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-gray-600">
-                Full Name
-              </label>
+              <label className="block text-gray-700 mb-2 font-medium">Full Name</label>
               <input
                 type="text"
                 name="name"
-                required
-                value={formData.name}
+                value={form.name}
                 onChange={handleChange}
-                className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
-                placeholder="Enter your full name"
+                required
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-700 outline-none"
               />
             </div>
-
             <div>
-              <label className="block text-sm font-medium text-gray-600">
-                Email Address
-              </label>
+              <label className="block text-gray-700 mb-2 font-medium">Email Address</label>
               <input
                 type="email"
                 name="email"
-                required
-                value={formData.email}
+                value={form.email}
                 onChange={handleChange}
-                className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
-                placeholder="Enter your email"
+                required
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-700 outline-none"
               />
             </div>
+          </div>
 
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-gray-600">
+              <label className="block text-gray-700 mb-2 font-medium">
                 Phone Number (optional)
               </label>
               <input
-                type="tel"
+                type="text"
                 name="phone"
-                value={formData.phone}
+                value={form.phone}
                 onChange={handleChange}
-                className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
-                placeholder="Enter your phone number"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-700 outline-none"
               />
             </div>
-
             <div>
-              <label className="block text-sm font-medium text-gray-600">
-                Company Name
-              </label>
+              <label className="block text-gray-700 mb-2 font-medium">Company Name</label>
               <input
                 type="text"
                 name="company"
-                value={formData.company}
+                value={form.company}
                 onChange={handleChange}
-                className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 outline-none"
-                placeholder="Enter your company name"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-700 outline-none"
               />
             </div>
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-600">
-                Message / Project Details
-              </label>
-              <textarea
-                name="message"
-                required
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 outline-none h-28"
-                placeholder="Write your message..."
-              ></textarea>
-            </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 mb-2 font-medium">
+              Message / Project Details
+            </label>
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              required
+              rows="5"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-700 outline-none"
+            />
+          </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              type="submit"
-              className="w-full bg-gradient-to-r from-pink-500 via-rose-400 to-pink-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
-            >
-              Send Message
-            </motion.button>
-          </form>
-        </motion.div>
-      </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            type="submit"
+            className="w-full py-3 bg-gradient-to-r from-purple-700 via-pink-500 to-orange-400 text-white font-semibold rounded-full shadow-lg transition duration-300"
+          >
+            Send Message
+          </motion.button>
+
+          {submitted && (
+            <p className="text-green-600 font-medium text-center mt-4">
+              ✅ Gmail compose window opened — you can send your message now!
+            </p>
+          )}
+        </motion.form>
+      </section>
     </div>
   );
-};
-
-export default Contact;
+}
