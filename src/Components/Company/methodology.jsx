@@ -125,39 +125,6 @@ export default function App() {
             faster, and stronger in a digital world. We believe innovation begins with intellect —
             the power to think differently, solve challenges, and create progress.
           </motion.p>
-
-          {/* Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-wrap gap-4 justify-center mt-8"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  '0 0 20px rgba(76, 29, 149, 0)',
-                  '0 0 30px rgba(76, 29, 149, 0.4)',
-                  '0 0 20px rgba(76, 29, 149, 0)'
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="px-8 py-3 rounded-full font-semibold text-white shadow-lg"
-              style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
-            >
-              Learn More
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05, borderColor: '#4C1D95', color: '#4C1D95' }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 rounded-full font-semibold border-2 bg-white"
-              style={{ borderColor: '#E5E7EB', color: '#000000' }}
-            >
-              Contact Us
-            </motion.button>
-          </motion.div>
         </div>
       </div>
 

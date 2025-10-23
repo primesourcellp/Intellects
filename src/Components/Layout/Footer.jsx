@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { motion } from "framer-motion";
+import { FaLinkedin, FaTwitter, FaFacebook, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 
 // Footer Link Component with hover animation
 const FooterLink = ({ to, children }) => (
@@ -11,9 +12,9 @@ const FooterLink = ({ to, children }) => (
         <Link
             to={to}
             className="text-sm transition-colors"
-            style={{ color: '#D1D5DB' }}
-            onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-            onMouseLeave={e => e.currentTarget.style.color = '#D1D5DB'}
+            style={{ color: '#9CA3AF' }}
+            onMouseEnter={e => e.currentTarget.style.color = '#4C1D95'}
+            onMouseLeave={e => e.currentTarget.style.color = '#9CA3AF'}
         >
             {children}
         </Link>
@@ -24,119 +25,194 @@ export default function Footer() {
     // Animation variants
     const fadeInUp = {
         hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+        show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
     };
 
-    const socialIcons = [
-        {
-            label: "LinkedIn",
-            href: "#",
-            svgPath:
-                "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.518-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z",
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
         },
-        {
-            label: "Twitter",
-            href: "#",
-            svgPath:
-                "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.795-1.574 2.164-2.722-.951.555-2.005.959-3.127 1.184-.897-.957-2.178-1.555-3.594-1.555-3.594 0-5.188 3.011-4.743 5.437-4.102-.207-7.733-2.179-10.169-5.174-.423.72-.66 1.564-.66 2.46 0 1.696.865 3.2 2.18 4.086-.807-.025-1.565-.247-2.23-.615v.075c0 3.267 2.31 5.99 5.347 6.643-.574.15-1.178.225-1.794.225-.44 0-.87-.043-1.288-.125.857 2.661 3.315 4.606 6.257 4.665-2.298 1.8-5.18 2.573-8.243 2.573-.538 0-1.066-.031-1.583-.092 3.09 1.902 6.772 2.992 10.71 2.992 12.853 0 19.95-10.598 19.95-19.96 0-.306-.007-.611-.019-.915.823-.593 1.535-1.33 2.1-2.172z",
-        },
-        {
-            label: "Facebook",
-            href: "#",
-            svgPath:
-                "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.046v-3.469h3.046v-2.625c0-3.003 1.792-4.66 4.532-4.66 1.313 0 2.686.234 2.686.234v2.953h-1.516c-1.493 0-1.956.925-1.956 1.874v2.245h3.329l-.532 3.469h-2.797v8.385c5.736-.9 10.124-5.864 10.124-11.854z",
-        },
-    ];
+    };
 
     return (
         <motion.footer
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            // Apply the Navy Blue background and ensure text is white/light
-            className="border-t text-white"
+            variants={container}
+            className="relative border-t"
             style={{
-                backgroundColor: '#1E3A8A',
-                borderColor: '#3B82F6' // Use the brighter blue for a top border highlight
+                background: 'linear-gradient(135deg, #1F2937 0%, #111827 100%)',
+                borderColor: '#374151'
             }}
         >
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-                <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-12">
+            {/* Decorative Top Border */}
+            <div className="absolute top-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(90deg, #4C1D95, #7C3AED, #4C1D95)' }} />
 
-                    {/* Logo + Info */}
-                    <motion.div variants={fadeInUp} className="col-span-2 md:col-span-1 lg:col-span-2 flex flex-col gap-4">
-                        <Link to="/" className="text-2xl font-bold" style={{ color: '#F9FAFB' }}>
-                            {/* Accent part of the logo is the brighter blue */}
-                            <span style={{ color: '#3B82F6' }}>Intellects</span>
+            <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24 py-16 md:py-20">
+                {/* Main Footer Content */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+                    {/* Company Info */}
+                    <motion.div variants={fadeInUp} className="lg:col-span-1">
+                        <Link to="/" className="inline-block mb-6">
+                            <motion.h3 
+                                className="text-3xl font-bold"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: "spring", stiffness: 300 }}
+                            >
+                                <span style={{ color: '#FFFFFF' }}>Intell</span>
+                                <span style={{ color: '#4C1D95' }}>ects</span>
+                            </motion.h3>
                         </Link>
-                        <p className="text-sm pr-8" style={{ color: '#D1D5DB' }}>
+                        <p className="text-sm mb-6 leading-relaxed" style={{ color: '#9CA3AF' }}>
                             Driving innovation through expert software, marketing, and HR consulting services worldwide.
                         </p>
 
-                        {/* Social Icons - base color DIM, hover ACCENT */}
-                        <div className="flex space-x-4 mt-2">
-                            {socialIcons.map((icon, i) => (
-                                <motion.a
-                                    key={i}
-                                    href={icon.href}
-                                    aria-label={icon.label}
-                                    whileHover={{ scale: 1.2 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="transition-colors"
-                                    style={{ color: '#9CA3AF' }} // Base color is a muted gray
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#9CA3AF'}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d={icon.svgPath} />
-                                    </svg>
-                                </motion.a>
-                            ))}
+                        {/* Contact Info */}
+                        <div className="space-y-3">
+                            <div className="flex items-center gap-3">
+                                <FaEnvelope style={{ color: '#4C1D95' }} />
+                                <span className="text-sm" style={{ color: '#9CA3AF' }}>hello@intellects.com</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <FaPhone style={{ color: '#4C1D95' }} />
+                                <span className="text-sm" style={{ color: '#9CA3AF' }}>+1 (555) 123-4567</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <FaMapMarkerAlt className="mt-1" style={{ color: '#4C1D95' }} />
+                                <span className="text-sm" style={{ color: '#9CA3AF' }}>123 Intellect Tower, NY</span>
+                            </div>
                         </div>
                     </motion.div>
 
                     {/* Company Links */}
-                    <motion.div variants={fadeInUp} className="flex flex-col gap-3">
-                        <h4 className="text-base font-semibold mb-1" style={{ color: '#3B82F6' }}>Company</h4>
-                        <div className="flex flex-col space-y-2">
+                    <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                        <h4 className="text-lg font-bold mb-2" style={{ color: '#FFFFFF' }}>
+                            Company
+                        </h4>
+                        <div className="flex flex-col space-y-3">
                             <FooterLink to="/company">About Us</FooterLink>
                             <FooterLink to="/methodology">Methodology</FooterLink>
                             <FooterLink to="/career">Careers</FooterLink>
-                            <FooterLink to="/contact">Contact</FooterLink>
+                            <FooterLink to="/testimonials">Testimonials</FooterLink>
+                            <FooterLink to="/contact">Contact Us</FooterLink>
                         </div>
                     </motion.div>
 
                     {/* Services Links */}
-                    <motion.div variants={fadeInUp} className="flex flex-col gap-3">
-                        <h4 className="text-base font-semibold mb-1" style={{ color: '#3B82F6' }}>Services</h4>
-                        <div className="flex flex-col space-y-2">
+                    <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                        <h4 className="text-lg font-bold mb-2" style={{ color: '#FFFFFF' }}>
+                            Services
+                        </h4>
+                        <div className="flex flex-col space-y-3">
                             <FooterLink to="/services/custom-software-development">Custom Software</FooterLink>
+                            <FooterLink to="/services/website-development">Website Development</FooterLink>
                             <FooterLink to="/services/mobile-application">Mobile Apps</FooterLink>
-                            <FooterLink to="/services/seo">SEO & Marketing</FooterLink>
-                            <FooterLink to="/services/hr-consulting">HR Consulting</FooterLink>
+                            <FooterLink to="/services/seo">SEO Services</FooterLink>
+                            <FooterLink to="/services/smm">Social Media Marketing</FooterLink>
+                            <FooterLink to="/services/recruiter">HR Consulting</FooterLink>
                         </div>
                     </motion.div>
 
-                    {/* Resources Links */}
-                    <motion.div variants={fadeInUp} className="flex flex-col gap-3">
-                        <h4 className="text-base font-semibold mb-1" style={{ color: '#3B82F6' }}>Resources</h4>
-                        <div className="flex flex-col space-y-2">
-                            <FooterLink to="/blog">Blog & Insights</FooterLink>
-                            <FooterLink to="/testimonials">Testimonials</FooterLink>
-                            <FooterLink to="/privacy">Privacy Policy</FooterLink>
-                            <FooterLink to="/terms">Terms of Service</FooterLink>
+                    {/* Newsletter & Social */}
+                    <motion.div variants={fadeInUp} className="flex flex-col gap-4">
+                        <h4 className="text-lg font-bold mb-2" style={{ color: '#FFFFFF' }}>
+                            Stay Connected
+                        </h4>
+                        <p className="text-sm mb-4" style={{ color: '#9CA3AF' }}>
+                            Subscribe to our newsletter for updates and insights.
+                        </p>
+                        
+                        {/* Newsletter Input */}
+                        <div className="flex gap-2">
+                            <input
+                                type="email"
+                                placeholder="Your email"
+                                className="flex-1 px-4 py-2 rounded-lg text-sm border-2 focus:outline-none transition-colors"
+                                style={{ 
+                                    backgroundColor: '#374151', 
+                                    borderColor: '#4B5563',
+                                    color: '#FFFFFF'
+                                }}
+                                onFocus={e => e.target.style.borderColor = '#4C1D95'}
+                                onBlur={e => e.target.style.borderColor = '#4B5563'}
+                            />
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="px-4 py-2 rounded-lg font-semibold text-sm text-white"
+                                style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                            >
+                                Subscribe
+                            </motion.button>
+                        </div>
+
+                        {/* Social Icons */}
+                        <div className="flex gap-4 mt-4">
+                            {[
+                                { Icon: FaLinkedin, href: "#", label: "LinkedIn" },
+                                { Icon: FaTwitter, href: "#", label: "Twitter" },
+                                { Icon: FaFacebook, href: "#", label: "Facebook" },
+                                { Icon: FaInstagram, href: "#", label: "Instagram" },
+                            ].map((social, i) => (
+                                <motion.a
+                                    key={i}
+                                    href={social.href}
+                                    aria-label={social.label}
+                                    whileHover={{ scale: 1.2, y: -3 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                                    style={{ backgroundColor: '#374151', color: '#9CA3AF' }}
+                                    onMouseEnter={e => {
+                                        e.currentTarget.style.background = 'linear-gradient(135deg, #4C1D95, #7C3AED)';
+                                        e.currentTarget.style.color = '#FFFFFF';
+                                    }}
+                                    onMouseLeave={e => {
+                                        e.currentTarget.style.backgroundColor = '#374151';
+                                        e.currentTarget.style.color = '#9CA3AF';
+                                    }}
+                                >
+                                    <social.Icon size={18} />
+                                </motion.a>
+                            ))}
                         </div>
                     </motion.div>
                 </div>
 
-                {/* Divider + Copyright */}
+                {/* Bottom Bar */}
                 <motion.div
                     variants={fadeInUp}
-                    // Use a subtle gray border for the divider
-                    className="mt-12 pt-8 border-t text-center"
-                    style={{ borderColor: 'rgb(55 65 81)' }} // Tailwind gray-700 equivalent
+                    className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4"
+                    style={{ borderColor: '#374151' }}
                 >
-                    <p className="text-sm" style={{ color: '#9CA3AF' }}>&copy; {new Date().getFullYear()} Intellects. All rights reserved.</p>
+                    <p className="text-sm" style={{ color: '#6B7280' }}>
+                        &copy; {new Date().getFullYear()} Intellects. All rights reserved.
+                    </p>
+                    <div className="flex gap-6">
+                        <Link 
+                            to="/privacy" 
+                            className="text-sm transition-colors"
+                            style={{ color: '#6B7280' }}
+                            onMouseEnter={e => e.currentTarget.style.color = '#4C1D95'}
+                            onMouseLeave={e => e.currentTarget.style.color = '#6B7280'}
+                        >
+                            Privacy Policy
+                        </Link>
+                        <Link 
+                            to="/terms" 
+                            className="text-sm transition-colors"
+                            style={{ color: '#6B7280' }}
+                            onMouseEnter={e => e.currentTarget.style.color = '#4C1D95'}
+                            onMouseLeave={e => e.currentTarget.style.color = '#6B7280'}
+                        >
+                            Terms of Service
+                        </Link>
+                    </div>
                 </motion.div>
             </div>
         </motion.footer>
