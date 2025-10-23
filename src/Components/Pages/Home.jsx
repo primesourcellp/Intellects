@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import sky8Image from "../../assets/sky8.jpg";
-import aboutImage from "../../assets/clients/about.jpg";
+import aboutImage from "../../assets/about.jpg";
 import logoImage from "../../assets/logo.png";
 
 // FlipCard Component for Services Section

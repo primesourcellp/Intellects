@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { FaHandshake } from "react-icons/fa"; // imported properly
 
 // 🔹 Replace with your actual image imports
-import client1 from "../../assets/clients/about.jpg";
-import client2 from "../../assets/clients/about.jpg";
-import client3 from "../../assets/clients/about.jpg";
-import team1 from "../../assets/clients/about.jpg";
-import team2 from "../../assets/clients/about.jpg";
-import team3 from "../../assets/clients/about.jpg";
+import client1 from "../../assets/about.jpg";
+import client2 from "../../assets/about.jpg";
+import client3 from "../../assets/about.jpg";
+import team1 from "../../assets/about.jpg";
+import team2 from "../../assets/about.jpg";
+import team3 from "../../assets/about.jpg";
 
 // Animation Variants
 const fadeInUp = {

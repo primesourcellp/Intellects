@@ -1,35 +1,48 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  FaGlobe, FaUserTie, FaIndustry, FaHandsHelping, FaChartBar, 
-  FaPlus, FaMinus, FaSearch, FaRocket, FaExchangeAlt, FaBalanceScale 
+  FaGlobe, 
+  FaUserTie, 
+  FaIndustry, 
+  FaHandsHelping, 
+  FaChartBar, 
+  FaPlus, 
+  FaMinus, 
+  FaSearch, 
+  FaRocket, 
+  FaExchangeAlt, 
+  FaBalanceScale,
+  FaCheckCircle,
+  FaUsers,
+  FaArrowRight,
 } from "react-icons/fa";
 
-// ===============================================
-// ✅ FIX: Defined the FAQItem component here 
-// ===============================================
+// FAQItem component
 const FAQItem = ({ faq, index, itemVariant }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div
       key={index}
-      className="rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer overflow-hidden bg-white border border-green-200"
+      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-2"
+      style={{ borderColor: '#4C1D95' }}
       variants={itemVariant}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
     >
       <div 
-        className="p-5 flex justify-between items-center bg-green-50 hover:bg-green-100 transition-colors"
+        className="p-6 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h4 className="font-semibold text-lg text-slate-800">{faq.q}</h4>
+        <h4 className="font-bold text-lg text-gray-900">{faq.q}</h4>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
+          className="p-2 rounded-full"
+          style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
         >
-          {isOpen ? <FaMinus className="text-green-600" /> : <FaPlus className="text-green-600" />}
+          {isOpen ? <FaMinus className="text-white text-sm" /> : <FaPlus className="text-white text-sm" />}
         </motion.div>
       </div>
 
@@ -40,9 +53,9 @@ const FAQItem = ({ faq, index, itemVariant }) => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="px-5 pb-5 pt-0"
+            className="px-6 pb-6 pt-2"
           >
-            <p className="text-slate-700 border-t border-green-200 pt-3">{faq.a}</p>
+            <p className="text-gray-700 border-t-2 pt-4 leading-relaxed" style={{ borderColor: '#4C1D95' }}>{faq.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -115,22 +128,11 @@ export default function GlobalRecruitments() {
     }
   ];
 
-  // Map for dynamic icons in the Industry Expertise section
-  const industryIconMap = {
-    "IT & Software Development": FaRocket,
-    "Engineering & Manufacturing": FaIndustry,
-    "Healthcare & Life Sciences": FaHandsHelping,
-    "Finance, Sales & Marketing": FaChartBar,
-    "HR & Administration": FaUserTie,
-  };
-
-  // Framer Motion Variants
   const itemVariant = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
   };
   
-  // Variant for the main list items to use a staggered grid layout 
   const cardVariant = {
     hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
@@ -138,11 +140,134 @@ export default function GlobalRecruitments() {
 
 
   return (
-    <div className="bg-white text-slate-800">
+    <div className="min-h-screen text-gray-800" style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)' }}>
+      {/* Animated Background Particles */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-96 h-96 rounded-full blur-3xl -top-48 -left-48 animate-pulse" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
+        <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
+      </div>
 
-      {/* Hero Section */}
+      {/* Header Section - Home Page Style */}
+      <section
+        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden mb-24"
+        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
+      >
+        {/* Background Image */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-30"
+            style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920)' }}
+          ></div>
+        </div>
+
+        {/* Floating Decorative Elements */}
+        <motion.div
+          animate={{ 
+            y: [0, -20, 0],
+            rotate: [0, 10, 0]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 left-10 md:left-20 opacity-20"
+        >
+          <div 
+            className="w-20 h-20 rounded-2xl transform rotate-12" 
+            style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+          />
+        </motion.div>
+        
+        <motion.div
+          animate={{ 
+            y: [0, 15, 0],
+            rotate: [0, -10, 0]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="absolute top-40 right-10 md:right-32 opacity-20"
+        >
+          <div 
+            className="w-16 h-16 rounded-full" 
+            style={{ background: 'linear-gradient(135deg, #7C3AED, #4C1D95)' }}
+          />
+        </motion.div>
+
+        {/* Content */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          animate={{ 
+            opacity: 1, 
+            y: 0, 
+            scale: 1,
+            transition: { 
+              duration: 0.8, 
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 100
+            }
+          }}
+          className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
+        >
+          Global{" "}
+          <motion.span 
+            style={{ color: '#4C1D95' }}
+            animate={{ 
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Recruitments
+          </motion.span>
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ 
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 0.8, delay: 0.2 }
+          }}
+          className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto font-light relative z-10" 
+          style={{ color: '#6B7280' }}
+        >
+          At <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, we connect global talent with the right opportunities. Find skilled professionals worldwide to fit your business needs.
+        </motion.p>
+        
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ 
+            opacity: 1, 
+            scale: 1,
+            transition: { duration: 0.6, delay: 0.4 }
+          }}
+          className="flex justify-center gap-4 flex-wrap relative z-10"
+        >
+          <motion.div whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.95 }}>
+            <button
+              className="font-bold px-10 py-4 rounded-full shadow-xl transition inline-flex items-center gap-3"
+              style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)', color: '#FFFFFF', boxShadow: '0 25px 50px -12px rgba(76, 29, 149, 0.25)' }}
+            >
+              <span>Find Talent</span>
+              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                <FaArrowRight className="w-5 h-5" />
+              </motion.span>
+            </button>
+          </motion.div>
+
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <button
+              className="font-bold px-10 py-4 rounded-full shadow-lg transition inline-flex items-center gap-3 border-2"
+              style={{ backgroundColor: '#FFFFFF', color: '#4C1D95', borderColor: '#4C1D95' }}
+            >
+              View Portfolio
+            </button>
+          </motion.div>
+        </motion.div>
+      </section>
+
       <motion.section
-        className="text-center py-24 bg-gradient-to-br from-green-50 to-white overflow-hidden"
+        className="relative py-24 text-center overflow-hidden hidden"
         initial="hidden"
         animate="visible"
         variants={{
@@ -154,226 +279,201 @@ export default function GlobalRecruitments() {
           }
         }}
       >
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, scale: 0.5 },
-            visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } }
-          }}
-        >
-          {/* Animated Globe Icon */}
-          <FaGlobe className="mx-auto text-green-600 text-7xl mb-4 p-3 rounded-full bg-white shadow-xl" />
-        </motion.div>
-        <motion.h1 
-          className="text-5xl font-extrabold mb-4 text-slate-900"
-          variants={itemVariant}
-        >
-          Global Recruitments
-        </motion.h1>
-        <motion.p 
-          className="text-xl max-w-3xl mx-auto text-slate-700"
-          variants={itemVariant}
-        >
-          Connecting **global talent** with the right opportunities. Find skilled professionals worldwide to fit your business needs.
-        </motion.p>
-        <motion.button
-          className="mt-8 px-10 py-4 bg-green-600 text-white font-bold rounded-full text-lg shadow-xl hover:bg-green-700 transition-colors"
-          whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(0,0,0,0.3)" }}
-          whileTap={{ scale: 0.95 }}
-          variants={itemVariant}
-        >
-          Start Your Global Search
-        </motion.button>
+        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+          <motion.button
+            className="px-10 py-4 bg-white text-gray-600 font-bold rounded-full text-lg shadow-2xl hover:bg-purple-50 transition-colors animate-pulse hover:animate-none"
+            style={{ boxShadow: '0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(16, 185, 129, 0.3)' }}
+            whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(0,0,0,0.3)" }}
+            whileTap={{ scale: 0.95 }}
+            variants={itemVariant}
+          >
+            Start Your Global Search
+          </motion.button>
+        </div>
       </motion.section>
 
-      {/* --- */}
-
-      {/* Strategy Points (Grid with Cards) */}
+      {/* Strategy Points */}
       <motion.section 
-        className="py-16 max-w-6xl mx-auto px-4" 
+        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
-        <h2 className="text-4xl font-bold mb-10 text-center text-slate-800">Strategic Talent Acquisition Pipeline</h2>
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block mb-4"
+          >
+            <span className="px-6 py-2 bg-gradient-to-r from-purple-500 to-teal-500 text-white text-sm font-bold rounded-full shadow-lg">
+              OUR PROCESS
+            </span>
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900">
+            Strategic Talent Acquisition{" "}
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Pipeline
+            </motion.span>
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
           {strategyPoints.map((item, idx) => (
             <motion.div
               key={idx}
-              className="p-6 bg-white rounded-xl shadow-lg border-b-4 border-green-500 hover:shadow-2xl transition-all flex items-start space-x-4 cursor-pointer"
+              className="group p-8 bg-white rounded-3xl shadow-xl border-2 border-purple-100 hover:shadow-2xl transition-all flex items-start space-x-4"
               variants={cardVariant}
-              whileHover={{ y: -5 }} // Subtle lift
+              whileHover={{ y: -5 }}
             >
-              <FaSearch className="text-green-500 text-3xl flex-shrink-0 mt-1" />
-              <p className="text-lg font-medium">{item}</p>
+              <FaSearch className="text-gray-500 text-3xl flex-shrink-0 mt-1" />
+              <p className="text-lg font-medium text-gray-700 group-hover:text-gray-600 transition-colors">{item}</p>
             </motion.div>
           ))}
         </div>
       </motion.section>
 
-      {/* --- */}
-
       {/* Benefits */}
       <motion.section 
-        className="py-16 bg-green-50" 
+        className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Key Benefits of Global Partnership</h2>
-          <motion.ul className="list-none text-slate-700 space-y-3">
-            {benefits.map((item, idx) => (
-              <motion.li 
-                key={idx} 
-                className="p-4 bg-white rounded-lg shadow-sm font-medium border-l-4 border-green-400 flex items-center justify-center space-x-2"
-                variants={itemVariant}
-                whileHover={{ scale: 1.02 }}
-              >
-                <FaHandsHelping className="text-xl text-green-600" />
-                <span>{item}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </div>
-      </motion.section>
-
-      {/* --- */}
-
-      {/* Industry Expertise */}
-      <motion.section 
-        className="py-16" 
-        initial="hidden" 
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      >
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Industry-Specific Recruitment Expertise</h2>
-          <motion.ul className="list-none text-slate-700 space-y-3">
-            {industryExpertise.map((item, idx) => {
-              const IconComponent = industryIconMap[item] || FaIndustry;
-              return (
-                <motion.li 
-                  key={idx} 
-                  className="p-4 bg-gray-50 rounded-lg shadow-sm font-medium border-l-4 border-blue-400 flex items-center justify-center space-x-2"
-                  variants={itemVariant}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <IconComponent className="text-xl text-blue-600" />
-                  <span>{item}</span>
-                </motion.li>
-              );
-            })}
-          </motion.ul>
-        </div>
-      </motion.section>
-
-      {/* --- */}
-
-      {/* Recruitment Process */}
-      <motion.section 
-        className="py-16 bg-green-50" 
-        initial="hidden" 
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      >
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">End-to-End Recruitment Support</h2>
-          <motion.ul className="list-none text-slate-700 space-y-3">
-            {recruitmentProcess.map((item, idx) => (
-              <motion.li 
-                key={idx} 
-                className="p-4 bg-white rounded-lg shadow-sm font-medium border-l-4 border-red-400 flex items-center justify-center space-x-2"
-                variants={itemVariant}
-                whileHover={{ scale: 1.02 }}
-              >
-                <FaExchangeAlt className="text-xl text-red-600" />
-                <span>{item}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </div>
-      </motion.section>
-
-      {/* --- */}
-
-      {/* Data-Driven */}
-      <motion.section 
-        className="py-16" 
-        initial="hidden" 
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      >
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Data-Driven Hiring Decisions</h2>
-          <motion.ul className="list-none text-slate-700 space-y-3">
-            {dataDriven.map((item, idx) => (
-              <motion.li 
-                key={idx} 
-                className="p-4 bg-gray-50 rounded-lg shadow-sm font-medium border-l-4 border-purple-400 flex items-center justify-center space-x-2"
-                variants={itemVariant}
-                whileHover={{ scale: 1.02 }}
-              >
-                <FaChartBar className="text-xl text-purple-600" />
-                <span>{item}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </div>
-      </motion.section>
-
-      {/* --- */}
-
-      {/* Continuous Support */}
-      <motion.section 
-        className="py-16 bg-green-50" 
-        initial="hidden" 
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      >
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Continuous Support & Global Compliance</h2>
-          <motion.ul className="list-none text-slate-700 space-y-3">
-            {continuousSupport.map((item, idx) => (
-              <motion.li 
-                key={idx} 
-                className="p-4 bg-white rounded-lg shadow-sm font-medium border-l-4 border-yellow-400 flex items-center justify-center space-x-2"
-                variants={itemVariant}
-                whileHover={{ scale: 1.02 }}
-              >
-                <FaBalanceScale className="text-xl text-yellow-600" />
-                <span>{item}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </div>
-      </motion.section>
-
-      {/* --- */}
-
-      {/* FAQs (Toggle Implementation) */}
-      <motion.section
-        className="py-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-      >
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+        <div className="bg-gradient-to-br from-purple-50 to-teal-50 rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-100 p-12">
+          <h2 className="text-3xl md:text-4xl font-black mb-8 text-center text-gray-900">
+            Key Benefits of Global{" "}
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Partnership
+            </motion.span>
+          </h2>
           <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <FAQItem key={idx} faq={faq} index={idx} itemVariant={cardVariant} />
+            {benefits.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all group"
+                variants={itemVariant}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <FaHandsHelping className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-gray-700 font-semibold text-lg group-hover:text-gray-600 transition-colors">{item}</span>
+              </motion.div>
             ))}
           </div>
         </div>
       </motion.section>
 
+      {/* FAQs */}
+      <motion.section
+        className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+      >
+        <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block mb-4"
+          >
+            <span className="px-6 py-2 bg-gray-900 text-white text-sm font-bold rounded-full shadow-lg">
+              FAQ
+            </span>
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            Frequently Asked{" "}
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Questions
+            </motion.span>
+          </h2>
+        </div>
+
+        <div className="space-y-4">
+          {faqs.map((faq, idx) => (
+            <FAQItem key={idx} faq={faq} index={idx} itemVariant={cardVariant} />
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Final CTA */}
+      <motion.div
+        className="px-6 md:px-12 max-w-6xl mx-auto pb-20 relative z-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 1 }}
+      >
+        <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          <div className="absolute inset-0">
+            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          </div>
+
+          <div className="relative z-10">
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
+            >
+              <FaRocket className="w-10 h-10 text-white" />
+            </motion.div>
+
+            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
+              Ready to find world-class talent to drive your business forward?
+            </h3>
+
+            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+              Let's connect you with the perfect candidates to drive your business forward.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
+                Start Your Project <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
+                Schedule a Call
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }

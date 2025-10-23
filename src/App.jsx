@@ -1,5 +1,6 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import Navbar from './Components/Layout/Navbar.jsx' 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './Components/Layout/Navbar.jsx'
+import ScrollToTop from './Components/Layout/ScrollToTop.jsx'
 import Home from './Components/Pages/Home.jsx'
 import MethodologyPage from './Components/Company/methodology.jsx'
 import CareerCulturePage from './Components/Company/CareerCulture.jsx'
@@ -22,7 +23,8 @@ import ContractStaffing from './Components/Services/Hiring/Staffing.jsx'
 import StaffingServices from './Components/Services/Hiring/StaffServices.jsx'
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename="/Intellects">
+      <ScrollToTop />
       <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -46,6 +48,6 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-    </HashRouter>
+    </BrowserRouter>
   )
 }
