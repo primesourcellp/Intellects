@@ -170,12 +170,23 @@ export default function App() {
         viewport={{ once: true, amount: 0.4 }}
         variants={fadeInUp}
         className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center border-t"
-        style={{ backgroundColor: COLOR_SECTION, borderColor: COLOR_PINK_LIGHT }}
+        style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB' }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: '#4C1D95' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="inline-block mb-4"
+        >
+          <span className="px-6 py-2 rounded-full font-bold text-sm shadow-lg" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)', color: '#FFFFFF' }}>
+            OUR APPROACH
+          </span>
+        </motion.div>
+
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
           Our Development &{" "}
           <motion.span
-            style={{ color: '#000000' }}
+            style={{ color: '#4C1D95' }}
             animate={{
               textShadow: [
                 `0 0 20px ${'#4C1D95'}00`,
@@ -188,15 +199,18 @@ export default function App() {
             Methodology
           </motion.span>
         </h2>
-        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed mb-0" style={{ color: COLOR_TEXT }}>
-          <strong>Building with Purpose, Delivering with Precision</strong> — Our approach to
-          development is rooted in agility, collaboration, and continuous improvement. We understand
-          that every client’s journey is unique — that’s why Intellects tailors its methodology to
-          fit your goals, timelines, and business model. We combine deep technical knowledge with a
-          human-centered mindset to ensure every solution we build is innovative, reliable, and
-          scalable.
+        
+        <p className="max-w-3xl mx-auto text-xl font-semibold mb-6" style={{ color: '#4C1D95' }}>
+          Building with Purpose, Delivering with Precision
         </p>
-        {/* The 'Our Proven Methodology' heading has been moved below to be directly above the steps grid. */}
+        
+        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed" style={{ color: '#6B7280' }}>
+          Our approach to development is rooted in agility, collaboration, and continuous improvement. 
+          We understand that every client's journey is unique — that's why Intellects tailors its 
+          methodology to fit your goals, timelines, and business model. We combine deep technical 
+          knowledge with a human-centered mindset to ensure every solution we build is innovative, 
+          reliable, and scalable.
+        </p>
       </motion.section>
 
       {/* ======================================================
@@ -206,18 +220,18 @@ export default function App() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-20 sm:py-24 px-6 md:px-16 lg:px-28" // Removed grid classes from the section
-        style={{ backgroundColor: COLOR_SECTION }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20 sm:py-24 px-6 md:px-16 lg:px-28"
+        style={{ backgroundColor: '#F9FAFB' }}
       >
         <motion.h2 
           variants={fadeInUp}
-          className="text-3xl sm:text-4xl font-bold mb-12 text-center" 
-          style={{ color: '#4C1D95' }}
+          className="text-4xl sm:text-5xl font-bold mb-6 text-center" 
+          style={{ color: '#000000' }}
         >
           Our Proven{" "}
           <motion.span
-            style={{ color: '#000000' }}
+            style={{ color: '#4C1D95' }}
             animate={{
               textShadow: [
                 `0 0 20px ${'#4C1D95'}00`,
@@ -231,62 +245,89 @@ export default function App() {
           </motion.span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.p
+          variants={fadeInUp}
+          className="text-center text-lg max-w-3xl mx-auto mb-16"
+          style={{ color: '#6B7280' }}
+        >
+          A systematic approach that ensures success at every stage of your project.
+        </motion.p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {[
             {
-              title: "1. Discovery & Strategy",
+              number: "01",
+              title: "Discovery & Strategy",
               text: "We start with understanding — diving deep into your business, audience, and goals to build a solid strategic foundation.",
+              icon: "🔍"
             },
             {
-              title: "2. Planning & Design",
+              number: "02",
+              title: "Planning & Design",
               text: "Our experts design intelligent systems and user-friendly interfaces that balance creativity with functionality.",
+              icon: "📐"
             },
             {
-              title: "3. Agile Development",
+              number: "03",
+              title: "Agile Development",
               text: "Using an agile framework, we develop in focused sprints, ensuring rapid progress, flexibility, and transparency throughout the process.",
+              icon: "⚡"
             },
             {
-              title: "4. Testing & Quality Assurance",
+              number: "04",
+              title: "Testing & Quality Assurance",
               text: "Every product undergoes thorough testing to guarantee stability, security, and performance at every level.",
+              icon: "✅"
             },
             {
-              title: "5. Deployment & Support",
+              number: "05",
+              title: "Deployment & Support",
               text: "We ensure seamless deployment and provide long-term support so your solutions continue performing as your business scales.",
+              icon: "🚀"
             },
             {
-              title: "6. Continuous Improvement",
+              number: "06",
+              title: "Continuous Improvement",
               text: "We don't stop at launch. We monitor performance and iterate, ensuring your solution evolves with market needs.",
+              icon: "🔄"
             },
           ].map((item, i) => (
             <motion.div
               key={i}
               variants={fadeInUp}
               whileHover={{ 
-                scale: 1.04,
                 y: -8,
-                borderColor: '#4C1D95',
-                boxShadow: '0 20px 40px rgba(76, 29, 149, 0.3)'
+                boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)',
+                borderColor: '#4C1D95'
               }}
-              whileTap={{ scale: 0.98 }}
-              className="p-8 rounded-xl shadow-lg border-l-4 transition-all cursor-pointer relative overflow-hidden group"
-              style={{ borderColor: COLOR_PRIMARY, backgroundColor: COLOR_BG }}
+              className="p-8 rounded-2xl shadow-lg border-2 transition-all cursor-pointer relative overflow-hidden group bg-white"
+              style={{ borderColor: '#E5E7EB' }}
             >
-              <motion.div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ 
-                  background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.1), rgba(124, 58, 237, 0.05))',
-                  pointerEvents: 'none' 
-                }}
-              />
-              <motion.h3 
-                className="text-xl sm:text-2xl font-bold mb-3 relative z-10" 
+              {/* Number Badge */}
+              <div className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg opacity-20 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)', color: '#FFFFFF' }}>
+                {item.number}
+              </div>
+
+              {/* Icon */}
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                {item.icon}
+              </div>
+
+              {/* Title */}
+              <h3 
+                className="text-xl sm:text-2xl font-bold mb-3" 
                 style={{ color: '#4C1D95' }}
-                whileHover={{ scale: 1.05, x: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
               >
                 {item.title}
-              </motion.h3>
-              <p className="relative z-10" style={{ color: COLOR_TEXT }}>{item.text}</p>
+              </h3>
+
+              {/* Description */}
+              <p className="leading-relaxed" style={{ color: '#6B7280' }}>
+                {item.text}
+              </p>
+
+              {/* Bottom Accent Line */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" style={{ background: 'linear-gradient(90deg, #4C1D95, #7C3AED)' }} />
             </motion.div>
           ))}
         </div>

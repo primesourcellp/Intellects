@@ -453,8 +453,15 @@ export default function Home() {
       {/* ========================================
         WHY CHOOSE SECTION
       ======================================== */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 border-t" style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB' }}>
-        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-center mb-12" style={{ color: '#000000' }}>
+      <section className="py-24 px-6 md:px-12 lg:px-24 border-t" style={{ backgroundColor: '#F9FAFB', borderColor: '#E5E7EB' }}>
+        <motion.h2 
+          initial="hidden" 
+          whileInView="show" 
+          viewport={{ once: true }} 
+          variants={fadeInUp} 
+          className="text-4xl md:text-5xl font-bold text-center mb-6" 
+          style={{ color: '#000000' }}
+        >
           Why Choose{" "}
           <motion.span
             style={{ color: '#4C1D95' }}
@@ -470,33 +477,83 @@ export default function Home() {
             Intellects
           </motion.span>
         </motion.h2>
-        <motion.ul initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.5 }} variants={container} className="max-w-4xl mx-auto space-y-5">
+        
+        <motion.p
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="text-center text-lg max-w-3xl mx-auto mb-16"
+          style={{ color: '#6B7280' }}
+        >
+          We don't just deliver projects — we deliver results. Here's what sets Intellects apart.
+        </motion.p>
+
+        <motion.div 
+          initial="hidden" 
+          whileInView="show" 
+          viewport={{ once: true, amount: 0.2 }} 
+          variants={container} 
+          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {[
-            "All-in-One Expertise — Technology, marketing, and HR under one roof.",
-            "Tailored Solutions — Every plan starts with your unique challenges.",
-            "Collaborative Approach — We work with you, not around you.",
-            "Transparent Communication — Honest timelines and clear progress.",
-            "Long-Term Focus — We're invested in your success, not just your launch.",
-            "Proven Results — Our clients see measurable improvements in efficiency, growth, and team morale.",
-          ].map((point, i) => (
-            <motion.li
+            {
+              title: "All-in-One Expertise",
+              description: "Technology, marketing, and HR under one roof.",
+              icon: "🎯"
+            },
+            {
+              title: "Tailored Solutions",
+              description: "Every plan starts with your unique challenges.",
+              icon: "✨"
+            },
+            {
+              title: "Collaborative Approach",
+              description: "We work with you, not around you.",
+              icon: "🤝"
+            },
+            {
+              title: "Transparent Communication",
+              description: "Honest timelines and clear progress.",
+              icon: "💬"
+            },
+            {
+              title: "Long-Term Focus",
+              description: "We're invested in your success, not just your launch.",
+              icon: "🚀"
+            },
+            {
+              title: "Proven Results",
+              description: "Our clients see measurable improvements in efficiency, growth, and team morale.",
+              icon: "📈"
+            },
+          ].map((item, i) => (
+            <motion.div
               key={i}
-              variants={fadeIn}
-              whileHover={{ x: 15, color: '#7C3AED' }}
-              className="flex items-start gap-3 p-4 rounded-lg transition-colors cursor-pointer border-l-4 shadow-sm"
+              variants={fadeInUp}
+              whileHover={{ 
+                y: -8, 
+                boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)',
+                borderColor: '#4C1D95'
+              }}
+              className="p-8 rounded-2xl shadow-lg border-2 transition-all cursor-pointer group"
               style={{
                 backgroundColor: '#FFFFFF',
-                borderColor: '#FFFFFF',
-                borderLeftColor: '#FFFFFF',
-                color: '#6B7280'
+                borderColor: '#E5E7EB'
               }}
-              onMouseEnter={e => e.currentTarget.style.borderLeftColor = '#4C1D95'}
-              onMouseLeave={e => e.currentTarget.style.borderLeftColor = '#FFFFFF'}
             >
-              <span className="font-bold text-xl" style={{ color: '#4C1D95' }}>→</span> {point}
-            </motion.li>
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                {item.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-3" style={{ color: '#4C1D95' }}>
+                {item.title}
+              </h3>
+              <p className="leading-relaxed" style={{ color: '#6B7280' }}>
+                {item.description}
+              </p>
+            </motion.div>
           ))}
-        </motion.ul>
+        </motion.div>
       </section>
 
       {/* ========================================
