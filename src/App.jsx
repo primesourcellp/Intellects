@@ -23,7 +23,7 @@ import ContractStaffing from './Components/Services/Hiring/Staffing.jsx'
 import StaffingServices from './Components/Services/Hiring/StaffServices.jsx'
 export default function App() {
   return (
-    <BrowserRouter basename="/Intellects">
+    <BrowserRouter basename="/">
       <ScrollToTop />
       <Navbar /> 
       <Routes>
