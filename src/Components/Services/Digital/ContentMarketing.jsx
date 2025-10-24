@@ -248,37 +248,6 @@ export default function ContentMarketing() {
         >
           At <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, we craft words that inspire, inform, and convert. Build trust, authority, and engagement through powerful content.
         </motion.p>
-        
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ 
-            opacity: 1, 
-            scale: 1,
-            transition: { duration: 0.6, delay: 0.4 }
-          }}
-          className="flex justify-center gap-4 flex-wrap relative z-10"
-        >
-          <motion.div whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.95 }}>
-            <button
-              className="font-bold px-10 py-4 rounded-full shadow-xl transition inline-flex items-center gap-3"
-              style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)', color: '#FFFFFF', boxShadow: '0 25px 50px -12px rgba(76, 29, 149, 0.25)' }}
-            >
-              <span>Create Content</span>
-              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                <FaArrowRight className="w-5 h-5" />
-              </motion.span>
-            </button>
-          </motion.div>
-
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <button
-              className="font-bold px-10 py-4 rounded-full shadow-lg transition inline-flex items-center gap-3 border-2"
-              style={{ backgroundColor: '#FFFFFF', color: '#4C1D95', borderColor: '#4C1D95' }}
-            >
-              View Portfolio
-            </button>
-          </motion.div>
-        </motion.div>
       </section>
 
       {/* Strategy */}

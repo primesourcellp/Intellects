@@ -1,10 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import sky8Image from "../../assets/sky8.jpg";
 import aboutImage from "../../assets/about.jpg";
 import logoImage from "../../assets/logo.png";
+
+// Typing Animation Component
+const TypingText = ({ text, className = "" }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setStarted(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, started]);
+
+  return <span className={className}>{displayedText}</span>;
+};
 
 // FlipCard Component for Services Section
 const FlipCard = ({ service, index }) => {
@@ -199,6 +224,22 @@ export default function Home() {
         className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
         style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
+        {/* Background Image */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={sky8Image}
+            alt="Hero Background"
+            className="w-full h-full object-cover"
+            style={{ opacity: 1 }}
+          />
+          <div 
+            className="absolute inset-0" 
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
+            }}
+          />
+        </div>
+
         {/* Floating Icons */}
         <motion.div
           animate={{ 
@@ -243,70 +284,43 @@ export default function Home() {
         </motion.div>
 
         <motion.h1 
-          initial="hidden" 
-          animate="show" 
-          variants={{
-            hidden: { opacity: 0, y: 50, scale: 0.9 },
-            show: { 
-              opacity: 1, 
-              y: 0, 
-              scale: 1,
-              transition: { 
-                duration: 0.8, 
-                ease: "easeOut",
-                type: "spring",
-                stiffness: 100
-              } 
-            }
-          }} 
-          className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight relative z-10"
+          style={{ color: '#000000' }}
         >
-          Turning Ambitious Ideas into{" "}
-          <motion.span 
+          <TypingText text="Turning Ambitious Ideas into " />
+          <motion.span
             style={{ color: '#4C1D95' }}
-            animate={{ 
+            animate={{
               textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
+                `0 0 20px rgba(76, 29, 149, 0)`,
+                `0 0 20px rgba(76, 29, 149, 0.5)`,
+                `0 0 20px rgba(76, 29, 149, 0)`
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            Real-World Impact
+            <TypingText text="Real-World Impact" />
           </motion.span>
         </motion.h1>
         
         <motion.p 
-          initial="hidden" 
-          animate="show" 
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            show: { 
-              opacity: 1, 
-              y: 0,
-              transition: { duration: 0.8, delay: 0.2 }
-            }
-          }}
-          className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto font-light relative z-10" 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10" 
           style={{ color: '#6B7280' }}
         >
-          Welcome to <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, where technology, creativity, and strategy come together to move
-          your business forward.
+          Building with Purpose. Delivering with Precision.
         </motion.p>
         
         <motion.div 
-          initial="hidden" 
-          animate="show" 
-          variants={{
-            hidden: { opacity: 0, scale: 0.8 },
-            show: { 
-              opacity: 1, 
-              scale: 1,
-              transition: { duration: 0.6, delay: 0.4 }
-            }
-          }}
-          className="flex justify-center relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="flex justify-center gap-4 relative z-10 mt-10"
         >
           <motion.div
             whileHover={{ scale: 1.1, y: -5 }}
@@ -349,7 +363,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
               About Intellects
             </h2>
             <p className="text-lg md:text-xl leading-relaxed mb-4" style={{ color: '#6B7280' }}>
@@ -398,7 +412,7 @@ export default function Home() {
         SERVICES SECTION 
       ======================================== */}
       <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFFFF' }}>
-        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-center mb-6" style={{ color: '#000000' }}>
+        <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-3xl md:text-5xl font-bold text-center mb-6" style={{ color: '#000000' }}>
           Our{" "}
           <motion.span
             style={{ color: '#4C1D95' }}
@@ -459,7 +473,7 @@ export default function Home() {
           whileInView="show" 
           viewport={{ once: true }} 
           variants={fadeInUp} 
-          className="text-4xl md:text-5xl font-bold text-center mb-6" 
+          className="text-3xl md:text-5xl font-bold text-center mb-6" 
           style={{ color: '#000000' }}
         >
           Why Choose{" "}
@@ -567,7 +581,7 @@ export default function Home() {
         className="py-24 px-6 md:px-12 lg:px-24 text-center"
         style={{ backgroundColor: '#FFFFFF' }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
+        <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
           Careers at{" "}
           <motion.span
             style={{ color: '#4C1D95' }}
@@ -613,7 +627,7 @@ export default function Home() {
         className="py-24 px-6 md:px-12 lg:px-24 text-center border-t"
         style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB' }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
+        <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
           Your Vision, Our{" "}
           <motion.span
             style={{ color: '#4C1D95' }}
@@ -647,7 +661,7 @@ export default function Home() {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Frequently Asked{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -679,19 +693,76 @@ export default function Home() {
       </motion.section>
 
       {/* ========================================
-        QUOTE SECTION
+        CALL TO ACTION SECTION
       ======================================== */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.8 }}
-        variants={fadeIn}
-        className="text-white text-center pt-16 pb-8 px-6 shadow-inner"
+      <motion.div
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 1 }}
+        viewport={{ once: true }}
       >
-        <p className="text-2xl md:text-3xl italic max-w-4xl mx-auto font-serif" style={{ color: '#7C3AED' }}>
-          "Intellects turns technology into possibility — and possibility into progress."
-        </p>
-      </motion.section>
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          </div>
+
+          <div className="relative z-10">
+            {/* Main Heading */}
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight"
+            >
+              Ready to Transform Your Business?
+            </motion.h3>
+
+            {/* Description */}
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
+            >
+              Let's create something extraordinary together. We're here to make it happen.
+            </motion.p>
+
+            {/* Action Buttons */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="flex flex-wrap items-center justify-center gap-4"
+            >
+              <Link
+                to="/contact"
+                className="group px-8 py-3 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                style={{ color: '#4C1D95' }}
+              >
+                Start Your Project
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              
+              <Link
+                to="/contact"
+                className="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white transition-all duration-300 hover:scale-105"
+                onMouseEnter={e => { e.currentTarget.style.color = '#4C1D95'; e.currentTarget.style.backgroundColor = '#FFFFFF'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.backgroundColor = 'transparent'; }}
+              >
+                Schedule a Call
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
