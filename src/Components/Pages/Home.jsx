@@ -271,7 +271,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight relative z-10"
+          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
           style={{ color: '#000000' }}
         >
           <TypingText text="Turning Ambitious Ideas into " />
