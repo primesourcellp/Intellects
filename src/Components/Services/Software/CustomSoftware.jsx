@@ -205,10 +205,10 @@ const CustomSoftwareDevelopment = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight relative z-10"
+          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
           style={{ color: '#000000' }}
         >
-          <TypingText text="Turning Software Ideas into " />
+          <TypingText text="Custom Software Development " />
           <motion.span
             style={{ color: '#4C1D95' }}
             animate={{
@@ -220,18 +220,28 @@ const CustomSoftwareDevelopment = () => {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <TypingText text="Real Solutions" />
+            <TypingText text="Services" />
           </motion.span>
         </motion.h1>
+        
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-2xl md:text-3xl font-bold max-w-4xl mx-auto mb-4 relative z-10"
+          style={{ color: '#4C1D95' }}
+        >
+          Custom Software, Crafted Around Your Vision
+        </motion.h2>
         
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
           style={{ color: '#6B7280' }}
         >
-          Building with Purpose. Delivering with Precision.
+          At Intellects, we create fully customized software solutions built to match your business goals, workflow, and growth plans. Our team transforms your ideas into intelligent, scalable, and high-performing systems that drive results.
         </motion.p>
       </section>
 
@@ -263,8 +273,11 @@ const CustomSoftwareDevelopment = () => {
                 Offer
               </motion.span>
             </h2>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
               Our custom software development services help organizations simplify operations, enhance productivity, and deliver value through smart technology.
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed font-semibold" style={{ color: '#4C1D95' }}>
+              We specialize in:
             </p>
           </div>
           
@@ -273,7 +286,7 @@ const CustomSoftwareDevelopment = () => {
               key={i}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               className="py-8 border-b"
               style={{ borderColor: '#E5E7EB' }}
             >
@@ -282,7 +295,7 @@ const CustomSoftwareDevelopment = () => {
                 <motion.div
                   initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.8 }}
                   className={i % 2 === 1 ? 'lg:col-start-2' : ''}
                 >
@@ -298,7 +311,7 @@ const CustomSoftwareDevelopment = () => {
                 <motion.div
                   initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.8 }}
                   className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
                 >
@@ -357,6 +370,9 @@ const CustomSoftwareDevelopment = () => {
               Rely On
             </motion.span>
           </h3>
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+            We rely on robust and proven technologies to ensure your software is future-ready and reliable.
+          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -417,6 +433,9 @@ const CustomSoftwareDevelopment = () => {
               Stacks
             </motion.span>
           </h3>
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+            Every business requires the right tech foundation. Intellects uses modern, adaptive stacks to ensure performance and longevity:
+          </p>
         </div>
         
         <div className="space-y-6 mb-8">
@@ -618,6 +637,9 @@ const CustomSoftwareDevelopment = () => {
               Process
             </motion.span>
           </h3>
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+            Our step-by-step approach ensures quality, clarity, and speed.
+          </p>
         </div>
         
         <div className="grid md:grid-cols-5 gap-6">
