@@ -6,8 +6,6 @@ import MethodologyPage from './Components/Company/methodology.jsx'
 import CareerCulturePage from './Components/Company/CareerCulture.jsx'
 import ContactUsPage from './Components/Company/CompanyContact.jsx' 
 import CustomSoftware from './Components/Services/Software/CustomSoftware.jsx'
- 
-import Contact from './Components/Pages/Contact.jsx'
 import Footer from './Components/Layout/Footer.jsx'
 import ClientsTestimonialsPage from './Components/Company/Testimonial.jsx'
 import WebsiteDevelopment from './Components/Services/Software/WebsiteDevelopment.jsx'
@@ -30,7 +28,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/methodology" element={<MethodologyPage/>} />
          <Route path='/career' element={<CareerCulturePage/>}/>
-        <Route path='/companycontact' element={<ContactUsPage/>} />
         <Route path="/testimonials" element={<ClientsTestimonialsPage />} />
         <Route path='/services/softwaredevelopment' element={< CustomSoftware/>} />
         <Route path='/services/websitedevelopment' element={< WebsiteDevelopment/>} />
@@ -45,7 +42,7 @@ export default function App() {
         <Route path='/services/global-recruitments' element={<GlobalRecruitments />} />
         <Route path='/services/contract-staffing' element={<ContractStaffing />} />
         <Route path='/services/staffing-services' element={<StaffingServices />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<ContactUsPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

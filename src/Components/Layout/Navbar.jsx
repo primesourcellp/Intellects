@@ -19,6 +19,7 @@ export default function Navbar() {
     <NavLink
       to={to}
       end={to === '/'}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
       className={({ isActive }) =>
         `relative px-1 pb-1 text-base font-medium transition-colors hover:text-blue-600 ${
           isActive ? 'text-blue-600' : 'text-slate-700'
@@ -32,7 +33,10 @@ export default function Navbar() {
   const dropdownItem = (to, label) => (
     <NavLink
       to={to}
-      onClick={() => setOpen(false)}
+      onClick={() => {
+        setOpen(false);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }}
       className={({ isActive }) =>
         `block rounded px-3 py-2 text-sm transition-colors hover:bg-slate-100 ${
           isActive ? 'text-blue-600' : 'text-slate-700'
@@ -46,7 +50,11 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur shadow-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <Link 
+          to="/" 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+        >
           <img src={logo} alt="Intellects Logo" className="h-12 w-auto" />
           {/* <span className="text-2xl font-bold text-slate-900">Intellects</span> */}
         </Link>
@@ -70,7 +78,7 @@ export default function Navbar() {
                   <div className="flex flex-col">
                     {dropdownItem('/methodology', 'Our Development & Methodology')}
                     {dropdownItem('/career', 'Career & Company Culture')}
-                    {dropdownItem('/companycontact', 'Contact Us')}
+                    {dropdownItem('/contact', 'Contact Us')}
                   </div>
                 </div>
                 <div>
@@ -177,7 +185,7 @@ export default function Navbar() {
                   >
                     {dropdownItem('/methodology', 'Our Development & Methodology')}
                     {dropdownItem('/career', 'Career & Company Culture')}
-                    {dropdownItem('/companycontact', 'Contact Us')}
+                    {dropdownItem('/contact', 'Contact Us')}
 
                     {/* Resources */}
                     <button

@@ -5,6 +5,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import sky8Image from "../../assets/sky8.jpg";
 import aboutImage from "../../assets/about.jpg";
 import logoImage from "../../assets/logo.png";
+import gifHeader from "../../assets/gif_header.gif";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "" }) => {
@@ -221,7 +222,7 @@ export default function Home() {
         HERO SECTION - ENHANCED
       ======================================== */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
+        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-24 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -231,7 +232,7 @@ export default function Home() {
             rotate: [0, 10, 0]
           }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 md:left-20 opacity-20"
+          className="absolute top-20 left-10 md:left-20 opacity-20 z-0"
         >
           <div 
             className="w-20 h-20 rounded-2xl transform rotate-12" 
@@ -245,7 +246,7 @@ export default function Home() {
             rotate: [0, -10, 0]
           }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute top-40 right-10 md:right-32 opacity-20"
+          className="absolute top-40 right-10 md:right-32 opacity-20 z-0"
         >
           <div 
             className="w-16 h-16 rounded-full" 
@@ -259,7 +260,7 @@ export default function Home() {
             x: [0, 10, 0]
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-20 right-20 opacity-20"
+          className="absolute bottom-20 right-20 opacity-20 z-0"
         >
           <div 
             className="w-12 h-12 rounded-lg transform -rotate-12" 
@@ -267,64 +268,92 @@ export default function Home() {
           />
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
-          style={{ color: '#000000' }}
-        >
-          <TypingText text="Turning Ambitious Ideas into " />
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px rgba(76, 29, 149, 0)`,
-                `0 0 20px rgba(76, 29, 149, 0.5)`,
-                `0 0 20px rgba(76, 29, 149, 0)`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            <TypingText text="Real-World Impact" />
-          </motion.span>
-        </motion.h1>
-        
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10" 
-          style={{ color: '#6B7280' }}
-        >
-          Welcome to Intellects, where technology, creativity, and strategy come together to move your business forward.
-        </motion.p>
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex justify-center gap-4 relative z-10 mt-10"
-        >
+        {/* Two Column Layout */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          
+          {/* Left Column - Content */}
           <motion.div
-            whileHover={{ scale: 1.1, y: -5 }}
-            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <Link
-              to="/contact"
-              className="font-bold px-10 py-4 rounded-full shadow-xl transition inline-flex items-center gap-3"
-              style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)', color: '#FFFFFF', boxShadow: '0 25px 50px -12px rgba(30, 58, 138, 0.25)' }}
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight"
+              style={{ color: '#000000' }}
             >
-              <span>Schedule Your Free Consultation</span>
+              <TypingText text="Turning Ambitious Ideas into " />
               <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+                style={{ color: '#4C1D95' }}
+                animate={{
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
               >
-                →
+                <TypingText text="Real-World Impact" />
               </motion.span>
-            </Link>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg md:text-xl font-light leading-relaxed mb-8" 
+              style={{ color: '#6B7280' }}
+            >
+              Welcome to <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, where technology, creativity, and strategy come together to move your business forward.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex gap-4"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  to="/contact"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                  className="font-bold px-8 py-4 rounded-full shadow-xl transition inline-flex items-center gap-3"
+                  style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)', color: '#FFFFFF', boxShadow: '0 25px 50px -12px rgba(30, 58, 138, 0.25)' }}
+                >
+                  <span>Schedule Your Free Consultation</span>
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.span>
+                </Link>
+              </motion.div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+
+          {/* Right Column - GIF */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <img 
+              src={gifHeader} 
+              alt="Header Animation" 
+              className="w-full h-auto"
+            />
+          </motion.div>
+
+        </div>
 
       </section>
 
@@ -723,6 +752,7 @@ export default function Home() {
             >
               <Link
                 to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="group px-8 py-3 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2"
                 style={{ color: '#4C1D95' }}
               >
@@ -734,6 +764,7 @@ export default function Home() {
               
               <Link
                 to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white transition-all duration-300 hover:scale-105"
                 onMouseEnter={e => { e.currentTarget.style.color = '#4C1D95'; e.currentTarget.style.backgroundColor = '#FFFFFF'; }}
                 onMouseLeave={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.backgroundColor = 'transparent'; }}
