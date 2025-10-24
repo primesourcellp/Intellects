@@ -65,7 +65,7 @@ export default function App() {
       {/* ======================================================
           HERO SECTION WITH BACKGROUND IMAGE
       ====================================================== */}
-      <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+      <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
         {/* Background Image with Overlay */}
         <motion.div 
           className="absolute inset-0"

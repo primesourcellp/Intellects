@@ -224,22 +224,6 @@ export default function Home() {
         className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
         style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={sky8Image}
-            alt="Hero Background"
-            className="w-full h-full object-cover"
-            style={{ opacity: 1 }}
-          />
-          <div 
-            className="absolute inset-0" 
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
-            }}
-          />
-        </div>
-
         {/* Floating Icons */}
         <motion.div
           animate={{ 
@@ -313,7 +297,7 @@ export default function Home() {
           className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10" 
           style={{ color: '#6B7280' }}
         >
-          Building with Purpose. Delivering with Precision.
+          Welcome to Intellects, where technology, creativity, and strategy come together to move your business forward.
         </motion.p>
         
         <motion.div 
@@ -367,13 +351,10 @@ export default function Home() {
               About Intellects
             </h2>
             <p className="text-lg md:text-xl leading-relaxed mb-4" style={{ color: '#6B7280' }}>
-              Every successful company starts with a simple idea — and the right
-              partner to make it happen. At Intellects, we're that partner.
+              Every successful company starts with a simple idea — and the right partner to make it happen.
             </p>
-            <p className="text-lg leading-relaxed" style={{ color: '#6B7280' }}>
-              We combine technology, creativity, and strategy to help businesses
-              transform their vision into reality. With years of experience and a
-              dedicated team, we deliver solutions that drive real results.
+            <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+              At Intellects, we're that partner.
             </p>
           </motion.div>
 

@@ -164,8 +164,8 @@ export default function ContentMarketing() {
 
       {/* Header Section - Home Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden mb-24"
-        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
+        className="relative min-h-[80vh] flex items-center justify-center px-6 md:px-12 lg:px-24 text-center overflow-hidden mb-24"
+        style={{ backgroundColor: '#FFFFFF' }}
       >
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
@@ -205,20 +205,13 @@ export default function ContentMarketing() {
         </motion.div>
 
         {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto">
         <motion.h1 
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          animate={{ 
-            opacity: 1, 
-            y: 0, 
-            scale: 1,
-            transition: { 
-              duration: 0.8, 
-              ease: "easeOut",
-              type: "spring",
-              stiffness: 100
-            }
-          }}
-          className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
+          style={{ color: '#000000' }}
         >
           <TypingText text="Content " delay={0} />
           <motion.span 
@@ -236,18 +229,16 @@ export default function ContentMarketing() {
           </motion.span>
         </motion.h1>
         
-        <motion.p 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ 
-            opacity: 1, 
-            y: 0,
-            transition: { duration: 0.8, delay: 0.2 }
-          }}
-          className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto font-light relative z-10" 
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed"
           style={{ color: '#6B7280' }}
         >
-          At <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, we craft words that inspire, inform, and convert. Build trust, authority, and engagement through powerful content.
+          Craft words that inspire, inform, and convert. Build trust, authority, and engagement.
         </motion.p>
+        </div>
       </section>
 
       {/* Strategy */}
@@ -263,7 +254,7 @@ export default function ContentMarketing() {
               CREATIVE STRATEGY
             </span>
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Strategy-Driven Content{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -353,7 +344,7 @@ export default function ContentMarketing() {
       {/* Deliverables */}
       <motion.section className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" initial="hidden" whileInView="visible">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Engaging and SEO-Optimized{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -397,7 +388,7 @@ export default function ContentMarketing() {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Frequently Asked{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}

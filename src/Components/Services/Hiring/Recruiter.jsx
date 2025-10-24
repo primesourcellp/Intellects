@@ -16,6 +16,7 @@ import {
   FaUsers,
   FaArrowRight,
 } from "react-icons/fa";
+import sky8Image from '../../../assets/sky8.jpg';
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -175,18 +176,26 @@ export default function GlobalRecruitments() {
 
       {/* Header Section - Home Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden mb-24"
+        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
         style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={sky8Image}
+            alt="Hero Background"
+            className="w-full h-full object-cover"
+            style={{ opacity: 1 }}
+          />
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-50"
-            style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920)' }}
-          ></div>
+            className="absolute inset-0" 
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
+            }}
+          />
         </div>
 
-        {/* Floating Decorative Elements */}
+        {/* Floating Icons */}
         <motion.div
           animate={{ 
             y: [0, -20, 0],
@@ -211,53 +220,55 @@ export default function GlobalRecruitments() {
         >
           <div 
             className="w-16 h-16 rounded-full" 
-            style={{ background: 'linear-gradient(135deg, #7C3AED, #4C1D95)' }}
+            style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
           />
         </motion.div>
 
-        {/* Content */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+        <motion.div
           animate={{ 
-            opacity: 1, 
-            y: 0, 
-            scale: 1,
-            transition: { 
-              duration: 0.8, 
-              ease: "easeOut",
-              type: "spring",
-              stiffness: 100
-            }
+            y: [0, -15, 0],
+            x: [0, 10, 0]
           }}
-          className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-20 right-20 opacity-20"
         >
-          <TypingText text="Global " delay={0} />
-          <motion.span 
+          <div 
+            className="w-12 h-12 rounded-lg transform -rotate-12" 
+            style={{ background: 'linear-gradient(135deg, #F59E0B, #4C1D95)' }}
+          />
+        </motion.div>
+
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight relative z-10"
+          style={{ color: '#000000' }}
+        >
+          <TypingText text="Finding Top Talent " />
+          <motion.span
             style={{ color: '#4C1D95' }}
-            animate={{ 
+            animate={{
               textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
+                `0 0 20px rgba(76, 29, 149, 0)`,
+                `0 0 20px rgba(76, 29, 149, 0.5)`,
+                `0 0 20px rgba(76, 29, 149, 0)`
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <TypingText text="Recruitments" delay={490} />
+            <TypingText text="Globally" />
           </motion.span>
         </motion.h1>
         
-        <motion.p 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ 
-            opacity: 1, 
-            y: 0,
-            transition: { duration: 0.8, delay: 0.2 }
-          }}
-          className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto font-light relative z-10" 
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
           style={{ color: '#6B7280' }}
         >
-          At <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, we connect global talent with the right opportunities. Find skilled professionals worldwide to fit your business needs.
+          Building with Purpose. Delivering with Precision.
         </motion.p>
       </section>
 
@@ -306,7 +317,7 @@ export default function GlobalRecruitments() {
               OUR PROCESS
             </span>
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900">
+          <h2 className="text-3xl md:text-5xl font-bold" style={{ color: '#000000' }}>
             Strategic Talent Acquisition{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -348,7 +359,7 @@ export default function GlobalRecruitments() {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="bg-gradient-to-br from-purple-50 to-teal-50 rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-100 p-12">
-          <h2 className="text-3xl md:text-4xl font-black mb-8 text-center text-gray-900">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center" style={{ color: '#000000' }}>
             Key Benefits of Global{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -391,7 +402,7 @@ export default function GlobalRecruitments() {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Frequently Asked{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}

@@ -330,7 +330,7 @@ export default function CareerCulture() {
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
       {/* Header Section */}
-      <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+      <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img

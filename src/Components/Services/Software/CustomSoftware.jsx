@@ -139,18 +139,26 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Header Section - Home Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden mb-8"
+        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
         style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={sky8Image}
+            alt="Hero Background"
+            className="w-full h-full object-cover"
+            style={{ opacity: 1 }}
+          />
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920)' }}
-        ></div>
+            className="absolute inset-0" 
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
+            }}
+          />
         </div>
 
-        {/* Floating Decorative Elements */}
+        {/* Floating Icons */}
         <motion.div
           animate={{ 
             y: [0, -20, 0],
@@ -175,64 +183,74 @@ const CustomSoftwareDevelopment = () => {
         >
           <div 
             className="w-16 h-16 rounded-full" 
-            style={{ background: 'linear-gradient(135deg, #7C3AED, #4C1D95)' }}
+            style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
           />
         </motion.div>
 
-        {/* Content */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+        <motion.div
           animate={{ 
-            opacity: 1, 
-            y: 0, 
-            scale: 1,
-            transition: { 
-              duration: 0.8, 
-              ease: "easeOut",
-              type: "spring",
-              stiffness: 100
-            }
+            y: [0, -15, 0],
+            x: [0, 10, 0]
           }}
-          className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight relative z-10"
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-20 right-20 opacity-20"
         >
-          <TypingText text="Custom Software Development " delay={0} />
-          <motion.span 
+          <div 
+            className="w-12 h-12 rounded-lg transform -rotate-12" 
+            style={{ background: 'linear-gradient(135deg, #F59E0B, #4C1D95)' }}
+          />
+        </motion.div>
+
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight relative z-10"
+          style={{ color: '#000000' }}
+        >
+          <TypingText text="Turning Software Ideas into " />
+          <motion.span
             style={{ color: '#4C1D95' }}
-            animate={{ 
+            animate={{
               textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
+                `0 0 20px rgba(76, 29, 149, 0)`,
+                `0 0 20px rgba(76, 29, 149, 0.5)`,
+                `0 0 20px rgba(76, 29, 149, 0)`
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <TypingText text="Services" delay={2400} />
+            <TypingText text="Real Solutions" />
           </motion.span>
         </motion.h1>
         
-        <motion.p 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ 
-            opacity: 1, 
-            y: 0,
-            transition: { duration: 0.8, delay: 0.2 }
-          }}
-          className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto font-light relative z-10" 
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
           style={{ color: '#6B7280' }}
         >
-          At <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, we create fully customized software solutions built to match your business goals, workflow, and growth plans. Our team transforms your ideas into intelligent, scalable, and high-performing systems that drive results.
+          Building with Purpose. Delivering with Precision.
         </motion.p>
       </section>
 
       {/* Services Section */}
-      <div className="pt-16 px-6 md:px-12 lg:px-24 relative z-10" style={{ backgroundColor: '#FFFFFF' }}>
+      <motion.section 
+        className="py-20 px-6 md:px-12 relative z-10" 
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+      <div className="max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
               Services We{" "}
               <motion.span 
-                style={{ color: '#000000' }}
+                style={{ color: '#4C1D95' }}
                 animate={{ 
                   textShadow: [
                     `0 0 20px ${'#4C1D95'}00`,
@@ -244,7 +262,7 @@ const CustomSoftwareDevelopment = () => {
               >
                 Offer
               </motion.span>
-            </h3>
+            </h2>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
               Our custom software development services help organizations simplify operations, enhance productivity, and deliver value through smart technology.
             </p>
@@ -309,17 +327,21 @@ const CustomSoftwareDevelopment = () => {
             </motion.section>
           ))}
         </div>
-      </div>
+        </div>
+      </motion.section>
 
       {/* Technologies Section */}
-      <motion.div
-        className="py-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
+      <motion.section
+        className="py-20 px-6 md:px-12 relative z-10"
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
       >
+        <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h3 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h3 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Technologies We{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -365,17 +387,21 @@ const CustomSoftwareDevelopment = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
+        </div>
+      </motion.section>
 
       {/* Technology Stacks */}
-      <motion.div
-        className="py-16 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
-        initial={{ opacity: 0, y: 50 }}
+      <motion.section
+        className="py-20 px-6 md:px-12 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
       >
+        <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h3 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h3 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Technology{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -428,15 +454,19 @@ const CustomSoftwareDevelopment = () => {
             We match technology with your business strategy to ensure seamless performance.
           </p>
         </motion.div>
-      </motion.div>
+        </div>
+      </motion.section>
 
       {/* Tailored Tech */}
-      <motion.div
-        className="py-16 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
+      <motion.section
+        className="py-20 px-6 md:px-12 relative z-10"
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
       >
+        <div className="max-w-6xl mx-auto">
         <div className="bg-gradient-to-br from-purple-50 via-gray-50 to-white rounded-3xl p-12 shadow-2xl border border-purple-100 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-800/20 to-gray-900/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-purple-800/20 to-gray-900/20 rounded-full blur-3xl"></div>
@@ -453,7 +483,7 @@ const CustomSoftwareDevelopment = () => {
               </span>
             </motion.div>
             
-            <h3 className="text-4xl md:text-5xl font-black mb-8 text-gray-900">
+            <h3 className="text-3xl md:text-5xl font-bold mb-8" style={{ color: '#000000' }}>
               Tailored Tech for All{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
@@ -475,18 +505,22 @@ const CustomSoftwareDevelopment = () => {
             </p>
           </div>
         </div>
-      </motion.div>
+        </div>
+      </motion.section>
 
       {/* Why Clients Choose Intellects */}
-      <motion.div
-        className="py-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
-        initial={{ opacity: 0, y: 50 }}
+      <motion.section
+        className="py-20 px-6 md:px-12 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
       >
+        <div className="max-w-7xl mx-auto">
         {/* Centered Heading */}
         <div className="text-center mb-12">
-          <h3 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h3 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Why Clients Choose{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -544,15 +578,19 @@ const CustomSoftwareDevelopment = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+        </div>
+      </motion.section>
 
       {/* Software Development Process */}
-      <motion.div
-        className="py-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
+      <motion.section
+        className="py-20 px-6 md:px-12 relative z-10"
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
       >
+        <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -564,7 +602,7 @@ const CustomSoftwareDevelopment = () => {
               OUR PROCESS
             </span>
           </motion.div>
-          <h3 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+          <h3 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Software Development{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -609,18 +647,22 @@ const CustomSoftwareDevelopment = () => {
               </p>
               
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-900 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            </motion.div>
+              </motion.div>
           ))}
         </div>
-      </motion.div>
+        </div>
+      </motion.section>
 
       {/* Final CTA Section */}
-      <motion.div
-        className="px-6 md:px-12 max-w-6xl mx-auto pb-20 relative z-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 1 }}
+      <motion.section
+        className="py-20 px-6 md:px-12 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
       >
+        <div className="max-w-6xl mx-auto">
         <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
@@ -655,7 +697,8 @@ const CustomSoftwareDevelopment = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+        </div>
+      </motion.section>
     </div>
   );
 };

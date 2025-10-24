@@ -86,7 +86,7 @@ const ClientsTestimonials = () => {
     <div className="overflow-hidden" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
       
       {/* HERO SECTION WITH BACKGROUND IMAGE */}
-      <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+      <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
         {/* Background Image with Overlay */}
         <motion.div 
           className="absolute inset-0"
@@ -161,55 +161,55 @@ const ClientsTestimonials = () => {
             style={{ color: '#000000' }}
           >
             <TypingText text="Clients & " />
-            <motion.span
-              style={{ color: '#4C1D95' }}
-              animate={{
-                textShadow: [
+          <motion.span
+            style={{ color: '#4C1D95' }}
+            animate={{
+              textShadow: [
                   `0 0 20px rgba(76, 29, 149, 0)`,
                   `0 0 20px rgba(76, 29, 149, 0.5)`,
                   `0 0 20px rgba(76, 29, 149, 0)`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
               <TypingText text="Testimonials" />
-            </motion.span>
-          </motion.h1>
+          </motion.span>
+        </motion.h1>
           
-          <motion.p
+        <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed"
-            style={{ color: '#6B7280' }}
-          >
-            Our Clients, Our Pride.
-          </motion.p>
+          style={{ color: '#6B7280' }}
+        >
+          Our Clients, Our Pride.
+        </motion.p>
         </div>
       </div>
 
       {/* INTRODUCTION SECTION */}
       <AnimatedSection backgroundColor="#F9FAFB">
         <div className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center">
-          <motion.div
+      <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.8 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
             viewport={{ once: true }}
             className="inline-block mb-6"
-          >
-            <motion.div
-              animate={{ 
-                y: [0, -10, 0],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
+      >
+        <motion.div
+          animate={{ 
+            y: [0, -10, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 2, repeat: Infinity }}
               className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4"
               style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
-            >
+        >
               <FaHandshake className="text-4xl text-white" />
             </motion.div>
-          </motion.div>
+        </motion.div>
 
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
@@ -222,17 +222,17 @@ const ClientsTestimonials = () => {
             Built on Trust,{" "}
             <motion.span
               style={{ color: '#4C1D95' }}
-              animate={{
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
               Driven by Results
-            </motion.span>
+          </motion.span>
           </motion.h2>
           
           <motion.p 
@@ -265,23 +265,23 @@ const ClientsTestimonials = () => {
             Meet Our{" "}
             <motion.span
               style={{ color: '#4C1D95' }}
-              animate={{
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
               Expert Teams
-            </motion.span>
+          </motion.span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
             {teamImages.map((item, index) => (
-              <motion.div
-                key={index}
+          <motion.div
+            key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50, y: 20 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
@@ -294,20 +294,20 @@ const ClientsTestimonials = () => {
                     src={item.img}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <motion.div
+            />
+            <motion.div
                     className="absolute inset-0 flex items-end justify-center pb-8 transition-opacity duration-500"
-                    style={{ 
+              style={{ 
                       background: 'linear-gradient(to top, rgba(76, 29, 149, 0.9), transparent)',
-                    }}
-                  >
+              }}
+            >
                     <p className="text-white text-xl font-bold">
                       {item.title}
-                    </p>
-                  </motion.div>
+              </p>
+            </motion.div>
                 </div>
-              </motion.div>
-            ))}
+          </motion.div>
+        ))}
           </div>
         </div>
       </AnimatedSection>
@@ -317,27 +317,27 @@ const ClientsTestimonials = () => {
         <div className="py-20 sm:py-24 px-6 md:px-16 lg:px-28">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 0.7 }}
+              transition={{ duration: 0.7 }}
             className="text-3xl md:text-5xl font-bold mb-6 text-center" 
             style={{ color: '#000000' }}
           >
             What Our{" "}
             <motion.span
               style={{ color: '#4C1D95' }}
-              animate={{
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Clients Say
-            </motion.span>
-          </motion.h2>
+            animate={{
+              textShadow: [
+                `0 0 20px ${'#4C1D95'}00`,
+                `0 0 20px ${'#4C1D95'}50`,
+                `0 0 20px ${'#4C1D95'}00`
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Clients Say
+          </motion.span>
+        </motion.h2>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -351,19 +351,19 @@ const ClientsTestimonials = () => {
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {clients.map((client, index) => (
-              <motion.div
-                key={index}
+          {clients.map((client, index) => (
+            <motion.div
+              key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: false, amount: 0.2 }}
                 className="bg-white p-8 rounded-2xl shadow-lg border-2 relative overflow-hidden group"
-                style={{ borderColor: '#E5E7EB' }}
-                whileHover={{ 
+              style={{ borderColor: '#E5E7EB' }}
+              whileHover={{ 
                   y: -8,
                   scale: 1.02,
-                  borderColor: '#4C1D95',
+                borderColor: '#4C1D95',
                   boxShadow: '0 25px 50px rgba(76, 29, 149, 0.25)',
                   transition: { duration: 0.3 }
                 }}
@@ -378,11 +378,11 @@ const ClientsTestimonials = () => {
                 </motion.div>
 
                 <div className="flex flex-col items-center text-center relative z-10">
-                  <motion.img
-                    src={client.image}
-                    alt={client.name}
+              <motion.img
+                src={client.image}
+                alt={client.name}
                     className="w-20 h-20 rounded-full border-4 mb-4 object-cover shadow-lg"
-                    style={{ borderColor: '#4C1D95' }}
+                style={{ borderColor: '#4C1D95' }}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 150 }}
                   />
@@ -413,10 +413,10 @@ const ClientsTestimonials = () => {
                     viewport={{ once: true }}
                   />
                 </div>
-              </motion.div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
+      </div>
       </AnimatedSection>
 
       {/* STATISTICS SECTION */}

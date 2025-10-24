@@ -157,9 +157,9 @@ export default function ContactUsPage() {
 
     return (
         <div className="overflow-hidden" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
-            
+                
             {/* HERO SECTION WITH BACKGROUND IMAGE */}
-            <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+            <div className="relative min-h-[80vh] flex items-center justify-center px-6 md:px-12 lg:px-24 text-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
                 {/* Background Image with Overlay */}
                 <motion.div 
                     className="absolute inset-0"
@@ -211,14 +211,14 @@ export default function ContactUsPage() {
                 </motion.div>
 
                 {/* Hero Content */}
-                <div className="relative z-10 text-center px-6 md:px-12 max-w-5xl mx-auto">
+                <div className="relative z-10 max-w-5xl mx-auto">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
                         className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
                         style={{ color: '#000000' }}
-                    >
+                >
                         <TypingText text="Get in " />
                         <motion.span
                             style={{ color: '#4C1D95' }}
@@ -265,17 +265,17 @@ export default function ContactUsPage() {
                                 We're Here to{" "}
                                 <motion.span
                                     style={{ color: '#4C1D95' }}
-                                    animate={{
-                                        textShadow: [
-                                            `0 0 20px ${'#4C1D95'}00`,
-                                            `0 0 20px ${'#4C1D95'}50`,
-                                            `0 0 20px ${'#4C1D95'}00`
-                                        ]
-                                    }}
-                                    transition={{ duration: 3, repeat: Infinity }}
-                                >
+                                animate={{
+                                    textShadow: [
+                                        `0 0 20px ${'#4C1D95'}00`,
+                                        `0 0 20px ${'#4C1D95'}50`,
+                                        `0 0 20px ${'#4C1D95'}00`
+                                    ]
+                                }}
+                                transition={{ duration: 3, repeat: Infinity }}
+                            >
                                     Help
-                                </motion.span>
+                            </motion.span>
                             </motion.h2>
                             
                             <motion.p 
@@ -311,32 +311,32 @@ export default function ContactUsPage() {
                                 </p>
 
                                 <div className="space-y-2">
-                                    <ContactDetailItem
-                                        icon={MapPin}
-                                        title="Head Office"
-                                        content="123 Intellect Tower, Innovation Hub, New York, NY 10001"
-                                    />
-                                    <ContactDetailItem
-                                        icon={Phone}
-                                        title="Phone"
-                                        content="+1 (555) 123-4567"
-                                    />
-                                    <ContactDetailItem
-                                        icon={Mail}
-                                        title="Email"
-                                        content="hello@intellects.com"
-                                    />
-                                    <ContactDetailItem
-                                        icon={Globe}
-                                        title="Website"
-                                        content="www.intellects.com"
-                                    />
-                                    <ContactDetailItem
-                                        icon={Clock}
-                                        title="Business Hours"
-                                        content="Monday - Friday: 9:00 AM - 5:00 PM EST"
-                                    />
-                                </div>
+                            <ContactDetailItem
+                                icon={MapPin}
+                                title="Head Office"
+                                content="123 Intellect Tower, Innovation Hub, New York, NY 10001"
+                            />
+                            <ContactDetailItem
+                                icon={Phone}
+                                title="Phone"
+                                content="+1 (555) 123-4567"
+                            />
+                            <ContactDetailItem
+                                icon={Mail}
+                                title="Email"
+                                content="hello@intellects.com"
+                            />
+                            <ContactDetailItem
+                                icon={Globe}
+                                title="Website"
+                                content="www.intellects.com"
+                            />
+                            <ContactDetailItem
+                                icon={Clock}
+                                title="Business Hours"
+                                content="Monday - Friday: 9:00 AM - 5:00 PM EST"
+                            />
+                        </div>
 
                                 {/* Decorative Element */}
                                 <motion.div 
@@ -353,14 +353,14 @@ export default function ContactUsPage() {
                                         We value your time. Expect a response within 24 hours on business days.
                                     </p>
                                 </motion.div>
-                            </motion.div>
-                            
-                            {/* Right Column: Send Us a Message Form */}
-                            <motion.div 
-                                initial={{ opacity: 0, x: 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8 }}
+                    </motion.div>
+                    
+                    {/* Right Column: Send Us a Message Form */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
                                 className="bg-white p-8 md:p-10 rounded-2xl shadow-2xl border-2"
                                 style={{ borderColor: '#E5E7EB' }}
                             >
@@ -369,12 +369,12 @@ export default function ContactUsPage() {
                                 </h3>
                                 <p className="text-base mb-8 leading-relaxed" style={{ color: '#6B7280' }}>
                                     Fill out the form below and we'll get back to you shortly.
-                                </p>
+                        </p>
 
-                                {message && (
-                                    <motion.div 
-                                        initial={{ opacity: 0, y: -10 }}
-                                        animate={{ opacity: 1, y: 0 }}
+                        {message && (
+                            <motion.div 
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
                                         className="p-4 mb-6 rounded-xl font-medium flex items-start gap-3"
                                         style={{ 
                                           backgroundColor: message.includes('Thank you') ? '#D1FAE5' : '#FEE2E2',
@@ -383,59 +383,59 @@ export default function ContactUsPage() {
                                     >
                                         {message.includes('Thank you') && <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />}
                                         <span>{message}</span>
-                                    </motion.div>
-                                )}
+                            </motion.div>
+                        )}
 
-                                <form onSubmit={handleSubmit}>
-                                    <InputField
-                                        label="Full Name"
-                                        id="fullName"
-                                        name="fullName"
+                        <form onSubmit={handleSubmit}>
+                            <InputField
+                                label="Full Name"
+                                id="fullName"
+                                name="fullName"
                                         placeholder="Enter your full name"
-                                        value={formData.fullName}
-                                        onChange={handleChange}
-                                    />
-                                    <InputField
-                                        label="Email Address"
-                                        id="email"
-                                        name="email"
-                                        type="email"
+                                value={formData.fullName}
+                                onChange={handleChange}
+                            />
+                            <InputField
+                                label="Email Address"
+                                id="email"
+                                name="email"
+                                type="email"
                                         placeholder="Enter your email address"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                    />
-                                    <InputField
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
+                            <InputField
                                         label="Phone Number"
-                                        id="phone"
-                                        name="phone"
-                                        required={false}
+                                id="phone"
+                                name="phone"
+                                required={false}
                                         placeholder="Enter your phone number (optional)"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                    />
-                                    <InputField
-                                        label="Company Name"
-                                        id="company"
-                                        name="company"
-                                        required={false}
+                                value={formData.phone}
+                                onChange={handleChange}
+                            />
+                            <InputField
+                                label="Company Name"
+                                id="company"
+                                name="company"
+                                required={false}
                                         placeholder="Enter your company name (optional)"
-                                        value={formData.company}
-                                        onChange={handleChange}
-                                    />
-                                    <TextAreaField
+                                value={formData.company}
+                                onChange={handleChange}
+                            />
+                            <TextAreaField
                                         label="Message"
-                                        id="message"
-                                        name="message"
+                                id="message"
+                                name="message"
                                         placeholder="Tell us about your project, inquiry, or how we can help you..."
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                    />
+                                value={formData.message}
+                                onChange={handleChange}
+                            />
 
-                                    <motion.button
-                                        type="submit"
-                                        disabled={isSubmitting}
+                            <motion.button
+                                type="submit"
+                                disabled={isSubmitting}
                                         whileHover={{ scale: 1.02, y: -2 }}
-                                        whileTap={{ scale: 0.98 }}
+                                whileTap={{ scale: 0.98 }}
                                         className="w-full flex justify-center items-center gap-3 px-8 py-4 border border-transparent text-lg font-bold rounded-full shadow-xl text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                                         style={{ 
                                           background: isSubmitting ? '#9CA3AF' : 'linear-gradient(135deg, #4C1D95, #7C3AED)',
@@ -529,10 +529,10 @@ export default function ContactUsPage() {
                                     </p>
                                 </div>
                             </div>
-                        </motion.div>
+                    </motion.div>
                     </div>
                 </div>
             </AnimatedSection>
-        </div>
+            </div>
     );
 }
