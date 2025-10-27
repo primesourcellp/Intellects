@@ -333,35 +333,35 @@ export default function App() {
     {
       number: "01",
       title: "Discovery & Strategy",
-      text: "We dive deep into your goals, market and audience to create a roadmap for success.",
+      text: "We start with understanding — diving deep into your business, audience, and goals to build a solid strategic foundation.",
       icon: "🧭",
       bg: "bg-gradient-to-br from-purple-100 via-white to-purple-200"
     },
     {
       number: "02",
       title: "Planning & Design",
-      text: "Crafting smart UX + UI that blends aesthetics with usability and innovation.",
+      text: "Our experts design intelligent systems and user-friendly interfaces that balance creativity with functionality.",
       icon: "🎨",
       bg: "bg-gradient-to-br from-indigo-100 via-white to-indigo-200"
     },
     {
       number: "03",
       title: "Agile Development",
-      text: "Rapid iteration + transparency with continuous delivery and improvements.",
+      text: "Using an agile framework, we develop in focused sprints, ensuring rapid progress, flexibility,and transparency throughout the process.",
       icon: "⚙️",
       bg: "bg-gradient-to-br from-blue-100 via-white to-blue-200"
     },
     {
       number: "04",
-      title: "Testing & QA",
-      text: "Performance, security and reliability tested to perfection before launch.",
+      title: "Testing & Quality Assurance",
+      text: "Every product undergoes thorough testing to guarantee stability, security, and performance at every level.",
       icon: "✅",
       bg: "bg-gradient-to-br from-emerald-100 via-white to-emerald-200"
     },
     {
       number: "05",
       title: "Deployment & Support",
-      text: "We launch, monitor, optimize — and stay with you as your business grows.",
+      text: "We ensure seamless deployment and provide long-term support so your solutions continue performing as your business scales.",
       icon: "📡",
       bg: "bg-gradient-to-br from-rose-100 via-white to-rose-200"
     }
