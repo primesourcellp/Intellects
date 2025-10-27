@@ -151,24 +151,8 @@ export default function Smm() {
       {/* Header Section */}
       <section
         className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
-        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
+        style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={sky8Image}
-            alt="Hero Background"
-            className="w-full h-full object-cover"
-            style={{ opacity: 1 }}
-          />
-          <div 
-            className="absolute inset-0" 
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
-            }}
-          />
-        </div>
-
         {/* Floating Icons */}
         <motion.div
           animate={{ 
@@ -777,7 +761,7 @@ export default function Smm() {
 
       {/* Final CTA */}
       <motion.div
-        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
+        className="px-6 md:px-12 max-w-7xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}

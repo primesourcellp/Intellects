@@ -49,8 +49,27 @@ const TypingText = ({ text, className = "", delay = 0 }) => {
 };
 
 export default function Mobileapplication() {
+  // Add smooth scroll behavior and optimize for mobile
+  React.useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    // Add momentum scrolling for iOS
+    document.body.style.webkitOverflowScrolling = 'touch';
+    // Improve scroll performance
+    document.body.style.overflowY = 'auto';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
   return (
-    <div className="overflow-x-hidden" style={{ backgroundColor: '#F9FAFB', color: '#1F2937' }}>
+    <motion.div 
+      className="overflow-x-hidden" 
+      style={{ backgroundColor: '#F9FAFB', color: '#1F2937', WebkitOverflowScrolling: 'touch' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+    >
       {/* Luxury Elegant Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -87,24 +106,8 @@ export default function Mobileapplication() {
       {/* Header Section */}
       <section
         className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
-        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
+        style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={sky8Image}
-            alt="Hero Background"
-            className="w-full h-full object-cover"
-            style={{ opacity: 1 }}
-          />
-          <div 
-            className="absolute inset-0" 
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
-            }}
-          />
-        </div>
-
         {/* Floating Icons */}
         <motion.div
           animate={{ 
@@ -151,7 +154,7 @@ export default function Mobileapplication() {
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
           className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
           style={{ color: '#000000' }}
         >
@@ -174,7 +177,7 @@ export default function Mobileapplication() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 100, damping: 20 }}
           className="text-2xl md:text-3xl font-bold max-w-4xl mx-auto mb-4 relative z-10"
           style={{ color: '#4C1D95' }}
         >
@@ -184,7 +187,7 @@ export default function Mobileapplication() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 100, damping: 20 }}
           className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
           style={{ color: '#6B7280' }}
         >
@@ -290,8 +293,8 @@ export default function Mobileapplication() {
                 type: "spring",
                 stiffness: 100
               }}
-              viewport={{ once: false, amount: 0.3 }}
-              whileHover={{ y: -8 }}
+              viewport={{ once: false, amount: 0.2, margin: "-50px" }}
+              whileHover={{ y: -8, scale: 1.02 }}
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative z-10">
@@ -394,7 +397,7 @@ export default function Mobileapplication() {
               key={i}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.2, margin: "-60px" }}
               className="py-8 border-b"
               style={{ borderColor: '#E5E7EB' }}
             >
@@ -537,8 +540,8 @@ export default function Mobileapplication() {
                 }`}
                 initial={{ opacity: 0, x: step.align === 'left' ? -80 : step.align === 'right' ? 80 : 0, y: 40 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.7, delay: i * 0.12, type: "spring", stiffness: 90 }}
-                viewport={{ once: false, amount: 0.4 }}
+                transition={{ duration: 0.7, delay: i * 0.12, type: "spring", stiffness: 100, damping: 15 }}
+                viewport={{ once: false, amount: 0.3, margin: "-80px" }}
               >
                 {/* Step Content */}
                 <motion.div
@@ -950,7 +953,7 @@ export default function Mobileapplication() {
 
       {/* Final CTA */}
       <motion.div
-        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
+        className="px-6 md:px-12 max-w-7xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
@@ -982,6 +985,6 @@ export default function Mobileapplication() {
           </div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
