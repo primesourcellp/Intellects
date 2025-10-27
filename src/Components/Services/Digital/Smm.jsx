@@ -58,29 +58,58 @@ const TypingText = ({ text, className = "", delay = 0 }) => {
 };
 
 // FAQ Item Component with Toggle
-const FAQItem = ({ faq, index, sectionVariant }) => {
+const FAQItem = ({ faq, index }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div
-      key={index}
-      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-2 border-violet-100"
-      variants={sectionVariant}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, amount: 0.1 }}
+      className="rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer overflow-hidden border-2 group"
+      style={{ 
+        borderColor: isOpen ? '#4C1D95' : '#E5E7EB',
+        backgroundColor: '#FFFFFF'
+      }}
+      whileHover={{ scale: 1.01 }}
+      transition={{ duration: 0.2 }}
     >
       <div 
-        className="p-6 flex justify-between items-center bg-gradient-to-r from-cyan-50 to-blue-50 hover:from-purple-100 hover:to-violet-100 transition-colors"
+        className="p-6 flex items-start gap-4 transition-colors"
+        style={{ backgroundColor: '#FFFFFF' }}
         onClick={() => setIsOpen(!isOpen)}
+        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F3EFF9'}
+        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
       >
-        <h3 className="font-bold text-lg text-gray-900">{faq.q}</h3>
+        {/* Icon */}
+        <motion.div 
+          className="text-3xl flex-shrink-0"
+          animate={{ rotate: isOpen ? 360 : 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {faq.icon}
+        </motion.div>
+
+        {/* Question */}
+        <div className="flex-1">
+          <h4 className="font-bold text-lg text-gray-900 group-hover:text-purple-700 transition-colors">
+            {faq.q}
+          </h4>
+        </div>
+
+        {/* Toggle Button */}
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-violet-500 p-2 rounded-full"
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+          style={{ 
+            background: isOpen 
+              ? 'linear-gradient(135deg, #4C1D95, #7C3AED)' 
+              : '#F3F4F6'
+          }}
         >
-          {isOpen ? <FaMinus className="text-white text-sm" /> : <FaPlus className="text-white text-sm" />}
+          {isOpen ? (
+            <FaMinus className="text-white text-sm" />
+          ) : (
+            <FaPlus className="text-gray-600 text-sm" />
+          )}
         </motion.div>
       </div>
 
@@ -91,9 +120,18 @@ const FAQItem = ({ faq, index, sectionVariant }) => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="px-6 pb-6 pt-2"
+            className="overflow-hidden"
           >
-            <p className="text-slate-700 border-t-2 border-violet-200 pt-4 leading-relaxed">{faq.a}</p>
+            <div className="px-6 pb-6 pt-2 pl-20">
+              <div 
+                className="pt-4 border-t-2" 
+                style={{ borderColor: '#E5E7EB' }}
+              >
+                <p className="text-gray-700 leading-relaxed">
+                  {faq.a}
+                </p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -242,20 +280,7 @@ export default function Smm() {
             </motion.div>
 
             <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-              Strategic Social Media{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Management
-              </motion.span>
+              Strategic Social Media <span style={{ color: '#4C1D95' }}>Management</span>
             </h2>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
               Engage. Inspire. Convert.
@@ -351,21 +376,8 @@ export default function Smm() {
               </span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
-              Targeted Advertising{" "}
-              <motion.span 
-                style={{ color: '#000000' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Campaigns
-              </motion.span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+              Targeted Advertising <span style={{ color: '#4C1D95' }}>Campaigns</span>
             </h2>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
               Reach Your Ideal Audience with Precision
@@ -461,20 +473,7 @@ export default function Smm() {
             </motion.div>
 
             <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-              Creative Content &{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Visual Storytelling
-              </motion.span>
+              Creative Content & <span style={{ color: '#4C1D95' }}>Visual Storytelling</span>
             </h2>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
               Your Brand. Your Story. Perfectly Told.
@@ -553,21 +552,8 @@ export default function Smm() {
               </span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
-              Performance Analytics &{" "}
-              <motion.span 
-                style={{ color: '#000000' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Reporting
-              </motion.span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+              Performance Analytics & <span style={{ color: '#4C1D95' }}>Reporting</span>
             </h2>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
               Every Action Measured, Every Result Improved.
@@ -656,21 +642,8 @@ export default function Smm() {
               </span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
-              Continuous Optimization &{" "}
-              <motion.span 
-                style={{ color: '#000000' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Support
-              </motion.span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+              Continuous Optimization & <span style={{ color: '#4C1D95' }}>Support</span>
             </h2>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
               Your Social Growth Partner — Every Step of the Way
@@ -771,47 +744,48 @@ export default function Smm() {
             </motion.div>
 
             <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-              Frequently Asked{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Questions
-              </motion.span>
+              Frequently Asked <span style={{ color: '#4C1D95' }}>Questions</span>
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {[
               {
                 q: "Which social platforms do you manage?",
-                a: "We handle Facebook, Instagram, LinkedIn, YouTube, and X (Twitter), among others."
+                a: "We handle Facebook, Instagram, LinkedIn, YouTube, and X (Twitter), among others.",
+                icon: "📱"
               },
               {
                 q: "Can I run both organic and paid campaigns together?",
-                a: "Yes, we recommend combining organic growth with targeted paid campaigns for maximum impact."
+                a: "Yes, we recommend combining organic growth with targeted paid campaigns for maximum impact.",
+                icon: "🚀"
               },
               {
                 q: "How often will you post on my social accounts?",
-                a: "Posting frequency depends on your business goals, but we generally maintain 3–5 high-quality posts per week per platform."
+                a: "Posting frequency depends on your business goals, but we generally maintain 3–5 high-quality posts per week per platform.",
+                icon: "📅"
               },
               {
                 q: "How do you measure SMM success?",
-                a: "We track KPIs like engagement rate, reach, follower growth, and conversions through detailed analytics reports."
+                a: "We track KPIs like engagement rate, reach, follower growth, and conversions through detailed analytics reports.",
+                icon: "📊"
               },
               {
                 q: "Is SMM suitable for B2B businesses?",
-                a: "Absolutely. Platforms like LinkedIn and YouTube work exceptionally well for B2B marketing, lead generation, and brand authority."
+                a: "Absolutely. Platforms like LinkedIn and YouTube work exceptionally well for B2B marketing, lead generation, and brand authority.",
+                icon: "💼"
               },
             ].map((faq, i) => (
-              <FAQItem key={i} faq={faq} index={i} sectionVariant={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }} />
+              <motion.div
+                key={i}
+                className={i === 4 ? "lg:col-span-2" : ""}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: false }}
+              >
+                <FAQItem faq={faq} index={i} />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -819,7 +793,7 @@ export default function Smm() {
 
       {/* Final CTA */}
       <motion.section
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        className="py-12 px-6 md:px-12 lg:px-24 relative z-10"
         style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -827,7 +801,7 @@ export default function Smm() {
         viewport={{ once: false }}
       >
         <div className="max-w-6xl mx-auto">
-          <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          <div className="rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
             <div className="absolute top-0 left-0 w-full h-full">
               <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
               <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
