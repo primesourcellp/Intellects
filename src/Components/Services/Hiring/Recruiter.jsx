@@ -113,7 +113,7 @@ const FAQItem = ({ faq, index }) => {
                 className="pt-4 border-t-2" 
                 style={{ borderColor: '#E5E7EB' }}
               >
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-800 leading-relaxed">
                   {faq.a}
                 </p>
               </div>
@@ -216,7 +216,7 @@ export default function GlobalRecruitments() {
 
       {/* Header Section - Home Page Style */}
       <section
-        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-24 shadow-lg overflow-hidden"
+        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -263,7 +263,7 @@ export default function GlobalRecruitments() {
         </motion.div>
 
         {/* Two Column Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
           
           {/* Left Column - Content */}
           <motion.div
@@ -297,7 +297,7 @@ export default function GlobalRecruitments() {
           animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl leading-relaxed mb-8"
-          style={{ color: '#6B7280' }}
+          style={{ color: '#374151' }}
         >
               At Intellects, we bridge the gap between businesses and world-class talent. Our Global Recruitment services are designed to help organizations source, screen, and onboard skilled professionals from across the globe — ensuring the perfect fit for every role.
         </motion.p>
@@ -348,19 +348,19 @@ export default function GlobalRecruitments() {
 
       {/* Strategy Points */}
       <motion.section 
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        className="py-20 relative z-10 overflow-hidden" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-49 items-center">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-20 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
           
           {/* Left Column - Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            className="lg:w-1/2 w-full"
+            initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
           <motion.div
@@ -395,19 +395,20 @@ export default function GlobalRecruitments() {
               Finding the Right Talent, Not Just Any Talent
             </p>
             
-            <p className="text-base md:text-lg leading-relaxed" style={{ color: '#6B7280' }}>
+            <p className="text-base md:text-lg leading-relaxed" style={{ color: '#374151' }}>
               We believe recruitment is more than just filling positions — it's about building teams that drive success. Our global recruitment strategy focuses on understanding your needs, company culture, and role requirements to find the most qualified professionals.
             </p>
           </motion.div>
 
           {/* Right Column - Points List */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            className="lg:w-1/2 w-full"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
             viewport={{ once: true }}
-            className="space-y-6"
           >
+            <div className="space-y-6">
           {strategyPoints.map((item, idx) => (
             <motion.div
               key={idx}
@@ -423,6 +424,7 @@ export default function GlobalRecruitments() {
                 <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
             </motion.div>
           ))}
+            </div>
           </motion.div>
 
         </div>
@@ -430,7 +432,7 @@ export default function GlobalRecruitments() {
 
       {/* Benefits */}
       <motion.section 
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        className="py-20 relative z-10 overflow-hidden" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -441,13 +443,13 @@ export default function GlobalRecruitments() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-2xl md:text-3xl font-bold mb-8 text-center"
+          className="text-2xl md:text-3xl font-bold mb-8 text-center max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20"
           style={{ color: '#4C1D95' }}
         >
           Key Benefits:
         </motion.h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
           {benefits.map((item, idx) => (
             <motion.div
               key={idx}
@@ -468,19 +470,33 @@ export default function GlobalRecruitments() {
 
       {/* Industry-Specific Recruitment Expertise */}
       <motion.section 
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        className="py-20 relative z-10 overflow-hidden" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-20 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
+          {/* Mobile - Image First */}
+          <motion.div
+            className="lg:w-1/2 w-full flex justify-center lg:hidden"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <img 
+              src={gif2} 
+              alt="Industry Expertise" 
+              className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
+            />
+          </motion.div>
           
           {/* Left Column - Content and Points */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            className="lg:w-1/2 w-full"
+            initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <motion.div
@@ -515,7 +531,7 @@ export default function GlobalRecruitments() {
               Specialized Hiring Across Diverse Sectors
             </p>
             
-            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#374151' }}>
               Our recruitment experts have extensive experience in multiple industries, allowing us to match the right professionals to the right roles.
             </p>
 
@@ -539,18 +555,18 @@ export default function GlobalRecruitments() {
             </div>
           </motion.div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Image - Desktop Only */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:w-1/2 w-full hidden lg:flex justify-center"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
             viewport={{ once: true }}
-            className="relative"
           >
             <img 
               src={gif2} 
               alt="Industry Expertise" 
-              className="w-full h-auto rounded-2xl shadow-xl"
+              className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
           </motion.div>
 
@@ -559,34 +575,34 @@ export default function GlobalRecruitments() {
 
       {/* End-to-End Recruitment Support */}
       <motion.section 
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        className="py-20 relative z-10 overflow-hidden" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-20 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
           
           {/* Left Column - Image */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            className="lg:w-1/2 w-full flex justify-center"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
             viewport={{ once: true }}
-            className="relative"
           >
             <img 
               src={gif2} 
               alt="End-to-End Recruitment Support" 
-              className="w-full h-auto rounded-2xl shadow-xl"
+              className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
           </motion.div>
 
           {/* Right Column - Content and Points */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            className="lg:w-1/2 w-full"
+            initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <motion.div
@@ -621,7 +637,7 @@ export default function GlobalRecruitments() {
               From Candidate Search to Final Selection
             </p>
             
-            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#374151' }}>
               We manage the entire recruitment cycle, ensuring a smooth and transparent hiring process for both clients and candidates.
             </p>
 
@@ -650,19 +666,33 @@ export default function GlobalRecruitments() {
 
       {/* Data-Driven Hiring Decisions */}
       <motion.section 
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        className="py-20 relative z-10 overflow-hidden" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-20 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
+          {/* Mobile - Image First */}
+          <motion.div
+            className="lg:w-1/2 w-full flex justify-center lg:hidden"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <img 
+              src={gif2} 
+              alt="Data-Driven Hiring" 
+              className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
+            />
+          </motion.div>
           
           {/* Left Column - Content and Points */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            className="lg:w-1/2 w-full"
+            initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <motion.div
@@ -697,7 +727,7 @@ export default function GlobalRecruitments() {
               Recruitment Backed by Insights and Analytics
             </p>
             
-            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#374151' }}>
               We use advanced tools and analytics to improve hiring accuracy and efficiency. Every recruitment decision is supported by measurable data and performance tracking.
             </p>
 
@@ -721,18 +751,18 @@ export default function GlobalRecruitments() {
             </div>
           </motion.div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Image - Desktop Only */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:w-1/2 w-full hidden lg:flex justify-center"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
             viewport={{ once: true }}
-            className="relative"
           >
             <img 
               src={gif2} 
               alt="Data-Driven Hiring" 
-              className="w-full h-auto rounded-2xl shadow-xl"
+              className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
           </motion.div>
 
@@ -741,34 +771,34 @@ export default function GlobalRecruitments() {
 
       {/* Continuous Support & Global Compliance */}
       <motion.section 
-        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        className="py-20 relative z-10 overflow-hidden" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-20 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
           
           {/* Left Column - Image */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            className="lg:w-1/2 w-full flex justify-center"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
             viewport={{ once: true }}
-            className="relative"
           >
             <img 
               src={gif2} 
               alt="Continuous Support & Global Compliance" 
-              className="w-full h-auto rounded-2xl shadow-xl"
+              className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
           </motion.div>
 
           {/* Right Column - Content and Points */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            className="lg:w-1/2 w-full"
+            initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <motion.div
@@ -803,7 +833,7 @@ export default function GlobalRecruitments() {
               Your Long-Term Recruitment Partner
             </p>
             
-            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#374151' }}>
               Intellects stays committed beyond placement. We ensure compliance with international employment regulations and provide ongoing consultation to support your global workforce strategy.
             </p>
 
