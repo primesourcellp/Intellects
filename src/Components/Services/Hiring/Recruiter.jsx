@@ -369,12 +369,12 @@ export default function GlobalRecruitments() {
               transition={{ duration: 0.6 }}
               className="inline-block mb-4"
             >
-              <span className="px-7 py-2 bg-gradient-to-r from-purple-500 to-teal-500 text-white text-sm font-bold rounded-full shadow-lg">
+              <span className="px-7 py-2 bg-gradient-to-r  from-purple-500 to-teal-500 text-white text-sm font-bold rounded-full shadow-lg">
                 OUR APPROACH
               </span>
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               Strategic Talent{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
@@ -494,7 +494,7 @@ export default function GlobalRecruitments() {
               </span>
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               Industry-Specific{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
@@ -600,7 +600,7 @@ export default function GlobalRecruitments() {
               </span>
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               End-to-End{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
@@ -676,7 +676,7 @@ export default function GlobalRecruitments() {
               </span>
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               Data-Driven{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
@@ -782,7 +782,7 @@ export default function GlobalRecruitments() {
               </span>
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               Continuous Support &{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
