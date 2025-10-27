@@ -3,17 +3,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaEnvelope, 
   FaChartLine, 
-  FaBullhorn, 
-  FaRegLightbulb, 
   FaSyncAlt, 
   FaPlus, 
   FaMinus,
   FaPaperPlane,
-  FaInbox,
   FaCheckCircle,
-  FaBell,
   FaArrowRight,
+  FaUsers,
+  FaBullseye,
+  FaRocket,
+  FaBell,
+  FaChartBar,
+  FaLightbulb,
+  FaCog,
+  FaPen,
+  FaEye,
 } from "react-icons/fa";
+import sky8Image from "../../../assets/sky8.jpg";
+import aboutImage from "../../../assets/about.jpg";
+import soft9Image from "../../../assets/soft9.png";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -48,25 +56,23 @@ const FAQItem = ({ faq, index }) => {
   return (
     <motion.div
       key={index}
-      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-l-4"
-      style={{ borderColor: '#4C1D95' }}
+      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-2 border-violet-100"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: false, amount: 0.1 }}
     >
       <div 
-        className="p-6 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
+        className="p-6 flex justify-between items-center bg-gradient-to-r from-gray-50 to-gray-100 hover:from-purple-100 hover:to-violet-100 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h4 className="font-bold text-lg text-gray-900">{faq.q}</h4>
+        <h3 className="font-bold text-lg text-gray-900">{faq.q}</h3>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="w-8 h-8 rounded-full flex items-center justify-center"
-          style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+          className="bg-violet-500 p-2 rounded-full"
         >
-          {isOpen ? <FaMinus className="text-white text-xs" /> : <FaPlus className="text-white text-xs" />}
+          {isOpen ? <FaMinus className="text-white text-sm" /> : <FaPlus className="text-white text-sm" />}
         </motion.div>
       </div>
 
@@ -79,7 +85,7 @@ const FAQItem = ({ faq, index }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="px-6 pb-6 pt-2"
           >
-            <p className="text-gray-700 border-t-2 pt-4 leading-relaxed" style={{ borderColor: '#4C1D95' }}>{faq.a}</p>
+            <p className="text-slate-700 border-t-2 border-violet-200 pt-4 leading-relaxed">{faq.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -88,45 +94,6 @@ const FAQItem = ({ faq, index }) => {
 };
 
 export default function EmailMarketing() {
-  const strategyPoints = [
-    "Audience segmentation and profiling",
-    "Campaign goal setting and automation setup",
-    "A/B testing for subject lines and content",
-    "Scheduling for optimal delivery times"
-  ];
-
-  const benefits = [
-    "Higher open and click-through rates",
-    "Improved lead nurturing and conversions",
-    "Enhanced customer retention"
-  ];
-
-  const creative = [
-    "Eye-catching templates and responsive layouts",
-    "Compelling subject lines and call-to-actions",
-    "Personalized email sequences for better engagement"
-  ];
-
-  const automation = [
-    "Welcome and onboarding sequences",
-    "Abandoned cart reminders",
-    "Lead nurturing and follow-up emails",
-    "Re-engagement campaigns"
-  ];
-
-  const performance = [
-    "Open and click rates",
-    "Conversion metrics",
-    "Unsubscribe and bounce rates",
-    "Campaign ROI reports"
-  ];
-
-  const ongoingSupport = [
-    "Regular performance reviews",
-    "Content updates and automation tuning",
-    "Strategy consultation for future campaigns"
-  ];
-
   const faqs = [
     {
       q: "What types of email campaigns do you manage?",
@@ -147,36 +114,39 @@ export default function EmailMarketing() {
     {
       q: "Can you help design email templates?",
       a: "Absolutely. We design mobile-responsive templates that match your brand identity and marketing goals."
-    }
+    },
   ];
-
-  const sectionVariant = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
 
   return (
     <div className="min-h-screen text-gray-800" style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)' }}>
       {/* Animated Background Particles */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-96 h-96 rounded-full blur-3xl -top-48 -left-48 animate-pulse" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
-        <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
+        <div className="absolute w-96 h-96 rounded-full blur-3xl -top-48 -left-48 animate-pulse" style={{ background: 'radial-gradient(circle, #4C1D9520, #00000015)' }}></div>
+        <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #00000020, #4C1D9515)' }}></div>
       </div>
 
-      {/* Header Section - Home Page Style */}
+      {/* Header Section */}
       <section
-        className="relative min-h-[80vh] flex items-center justify-center px-6 md:px-12 lg:px-24 text-center overflow-hidden mb-24"
-        style={{ backgroundColor: '#FFFFFF' }}
+        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
+        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={sky8Image}
+            alt="Hero Background"
+            className="w-full h-full object-cover"
+            style={{ opacity: 1 }}
+          />
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-50"
-            style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=1920)' }}
-          ></div>
+            className="absolute inset-0" 
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
+            }}
+          />
         </div>
 
-        {/* Floating Decorative Elements */}
+        {/* Floating Icons */}
         <motion.div
           animate={{ 
             y: [0, -20, 0],
@@ -187,7 +157,7 @@ export default function EmailMarketing() {
         >
           <div 
             className="w-20 h-20 rounded-2xl transform rotate-12" 
-            style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+            style={{ background: 'linear-gradient(135deg, #4C1D95, #000000)' }}
           />
         </motion.div>
         
@@ -201,115 +171,521 @@ export default function EmailMarketing() {
         >
           <div 
             className="w-16 h-16 rounded-full" 
-            style={{ background: 'linear-gradient(135deg, #7C3AED, #4C1D95)' }}
+            style={{ background: 'linear-gradient(135deg, #000000, #4C1D95)' }}
           />
         </motion.div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
           style={{ color: '#000000' }}
         >
-          <TypingText text="Email " delay={0} />
-          <motion.span 
+          <TypingText text="Email " />
+          <motion.span
             style={{ color: '#4C1D95' }}
-            animate={{ 
+            animate={{
               textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
+                `0 0 20px rgba(76, 29, 149, 0)`,
+                `0 0 20px rgba(76, 29, 149, 0.5)`,
+                `0 0 20px rgba(76, 29, 149, 0)`
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <TypingText text="Marketing" delay={420} />
+            <TypingText text="Marketing" />
           </motion.span>
         </motion.h1>
+        
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-2xl md:text-3xl font-bold max-w-4xl mx-auto mb-4 relative z-10"
+          style={{ color: '#000000' }}
+        >
+          Connect, Nurture, and Convert with Precision Communication
+        </motion.h2>
         
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
           style={{ color: '#6B7280' }}
         >
-          Connect, nurture, and convert with precision communication. Reach the right audience at the right time.
+          At Intellects, we turn emails into powerful marketing tools that drive engagement and sales. Our Email Marketing services are crafted to help you connect directly with your audience — delivering the right message, at the right time, to the right inbox.
         </motion.p>
-        </div>
       </section>
 
-      {/* Strategy */}
-      <motion.section className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" initial="hidden" whileInView="visible">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-6 py-2 bg-gradient-to-r from-purple-500 to-violet-500 text-white text-sm font-bold rounded-full shadow-lg">
-              STRATEGIC APPROACH
-            </span>
-          </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-            Targeted Email Campaign{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Strategy
-            </motion.span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-          {strategyPoints.map((item, idx) => (
+      {/* Targeted Email Campaign Strategy Section */}
+      <motion.section 
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10" 
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
             <motion.div
-              key={idx}
-              className="group p-8 bg-white rounded-3xl shadow-xl hover:shadow-2xl border-2 border-purple-100 transition-all relative overflow-hidden"
-              variants={sectionVariant}
-              whileHover={{ y: -8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100 to-violet-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
-              
-              <div className="relative z-10 flex items-start gap-4">
-                <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <FaChartLine className="text-white text-2xl" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-gray-700 font-medium leading-relaxed group-hover:text-gray-600 transition-colors">{item}</p>
-                </div>
-              </div>
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #000000)' }}>
+                📧 STRATEGIC PLANNING
+              </span>
             </motion.div>
-          ))}
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Targeted Email Campaign Strategy
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#000000' }}>
+              Plan, Personalize, and Perform
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Our email marketing begins with understanding your audience and objectives. We design strategic campaigns that deliver measurable results and align with your overall marketing goals.
+            </p>
+          </div>
+
+          {/* Strategic Process */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: '#4C1D95' }}>
+              Our strategic process includes:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { icon: <FaUsers className="w-6 h-6" />, title: "Audience segmentation and profiling", color: "from-purple-500 to-purple-600" },
+                { icon: <FaBullseye className="w-6 h-6" />, title: "Campaign goal setting and automation setup", color: "from-purple-600 to-purple-700" },
+                { icon: <FaChartLine className="w-6 h-6" />, title: "A/B testing for subject lines and content", color: "from-gray-700 to-gray-900" },
+                { icon: <FaCog className="w-6 h-6" />, title: "Scheduling for optimal delivery times", color: "from-gray-800 to-black" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: false }}
+                  className="group flex items-center gap-4 p-6 rounded-2xl border-2 border-gray-100 hover:border-violet-300 transition-all duration-300 hover:shadow-lg bg-white"
+                >
+                  <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br ${item.color} text-white`}>
+                    {item.icon}
+                  </div>
+                  <p className="text-gray-700 font-medium text-lg leading-relaxed flex-1">
+                    {item.title}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Key Benefits */}
+          <div className="bg-gradient-to-br from-purple-50 to-gray-100 rounded-3xl p-12 border-2 border-purple-100">
+            <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: '#4C1D95' }}>
+              Key Benefits:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { icon: <FaChartBar className="w-6 h-6" />, title: "Higher open and click-through rates", color: "from-purple-500 to-purple-600" },
+                { icon: <FaRocket className="w-6 h-6" />, title: "Improved lead nurturing and conversions", color: "from-purple-600 to-black" },
+                { icon: <FaCheckCircle className="w-6 h-6" />, title: "Enhanced customer retention", color: "from-gray-700 to-black" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: false }}
+                  className="flex items-center gap-3 p-5 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className={`flex-shrink-0 w-10 h-10 bg-gradient-to-br ${item.color} rounded-lg flex items-center justify-center text-white`}>
+                    {item.icon}
+                  </div>
+                  <p className="text-gray-800 font-semibold">{item.title}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </motion.section>
 
-      {/* Benefits */}
-      <motion.section className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10" initial="hidden" whileInView="visible">
-        <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-100 p-12">
-          <div className="text-center mb-12">
+      {/* Creative Email Design & Copywriting Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
             <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl mb-6 shadow-xl"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
             >
-              <FaInbox className="w-8 h-8 text-white" />
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #000000)' }}>
+                🎨 CREATIVE DESIGN
+              </span>
             </motion.div>
-            <h2 className="text-3xl md:text-4xl font-black mb-6 text-gray-900">
-              Key{" "}
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Creative Email Design & Copywriting
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#000000' }}>
+              Emails That Look Good and Read Better
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Your audience's attention is precious — and we make every word and design element count. Our creative team ensures your emails are visually appealing, mobile-friendly, and aligned with your brand identity.
+            </p>
+          </div>
+
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: '#4C1D95' }}>
+              We deliver:
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {[
+                { title: "Eye-catching templates and responsive layouts", image: soft9Image, icon: <FaEye className="w-8 h-8" /> },
+                { title: "Compelling subject lines and call-to-actions", image: sky8Image, icon: <FaPen className="w-8 h-8" /> },
+                { title: "Personalized email sequences for better engagement", image: aboutImage, icon: <FaUsers className="w-8 h-8" /> },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all relative overflow-hidden"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: false }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+              >
+                {/* Image at top */}
+                <div className="relative h-48 overflow-hidden rounded-t-3xl">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  {/* Icon badge on image */}
+                  <div className="absolute top-4 left-4 w-14 h-14 bg-gradient-to-br from-purple-500 to-black text-white rounded-xl flex items-center justify-center shadow-lg">
+                    {item.icon}
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-6 text-center relative z-10">
+                  <h3 className="font-bold text-lg text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
+                    {item.title}
+                  </h3>
+                  <div className="h-1 w-12 rounded-full mx-auto bg-gradient-to-r from-purple-500 to-black group-hover:w-full transition-all duration-500"></div>
+                </div>
+                
+                {/* Bottom shine effect */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Automation & Workflow Optimization Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #000000)' }}>
+                ⚙️ AUTOMATION
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Automation & Workflow Optimization
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#000000' }}>
+              Reach Your Audience Automatically — and Intelligently
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Automation is the backbone of effective email marketing. At Intellects, we set up automated workflows that trigger based on user actions, ensuring timely and relevant communication.
+            </p>
+          </div>
+
+          <div className="text-center mb-8">
+            <p className="text-lg font-semibold" style={{ color: '#4C1D95' }}>Our automation covers:</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: <FaBell className="w-8 h-8" />, title: "Welcome and onboarding sequences", color: "from-purple-500 to-purple-600" },
+              { icon: <FaSyncAlt className="w-8 h-8" />, title: "Abandoned cart reminders", color: "from-purple-600 to-purple-700" },
+              { icon: <FaRocket className="w-8 h-8" />, title: "Lead nurturing and follow-up emails", color: "from-gray-700 to-gray-900" },
+              { icon: <FaLightbulb className="w-8 h-8" />, title: "Re-engagement campaigns", color: "from-gray-800 to-black" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className="group relative bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl border-2 border-gray-100 hover:border-violet-300 transition-all duration-500 overflow-hidden"
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                viewport={{ once: false }}
+                whileHover={{ y: -10, scale: 1.03 }}
+              >
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: 'linear-gradient(135deg, #4C1D9510, #00000010)' }}
+                />
+
+                <div className="absolute -top-2 -right-2 w-16 h-16 opacity-20">
+                  <div className={`w-full h-full rounded-full bg-gradient-to-br ${item.color}`}></div>
+                </div>
+
+                <div className="relative z-10 p-8 flex flex-col items-center text-center">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
+                    viewport={{ once: false }}
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300 bg-gradient-to-br ${item.color} text-white`}
+                  >
+                    {item.icon}
+                  </motion.div>
+
+                  <p className="text-gray-700 text-sm leading-relaxed font-medium">
+                    {item.title}
+                  </p>
+                </div>
+
+                <div className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${item.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Performance Tracking & Reporting Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #000000)' }}>
+                📊 ANALYTICS
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Performance Tracking & Reporting
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#000000' }}>
+              Measure What Matters, Improve What Works
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              We monitor campaign results in real-time to ensure maximum impact and ROI. Our reports provide clear insights into what's performing well and what needs improvement.
+            </p>
+          </div>
+
+          <div className="text-center mb-8">
+            <p className="text-lg font-semibold" style={{ color: '#4C1D95' }}>We track:</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: <FaChartBar className="w-6 h-6" />, title: "Open and click rates", color: "from-purple-500 to-purple-600" },
+              { icon: <FaRocket className="w-6 h-6" />, title: "Conversion metrics", color: "from-purple-600 to-purple-800" },
+              { icon: <FaSyncAlt className="w-6 h-6" />, title: "Unsubscribe and bounce rates", color: "from-gray-700 to-gray-900" },
+              { icon: <FaChartLine className="w-6 h-6" />, title: "Campaign ROI reports", color: "from-gray-800 to-black" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: false }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.02,
+                  boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)',
+                }}
+                className="relative p-8 rounded-3xl shadow-lg border-2 border-gray-100 transition-all cursor-pointer group overflow-hidden"
+                style={{ backgroundColor: '#FFFFFF' }}
+              >
+                <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${item.color}`}></div>
+                
+                <div className="relative z-10 text-center">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300 bg-gradient-to-br ${item.color} text-white`}>
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-bold mb-3 group-hover:text-purple-700 transition-colors" style={{ color: '#4C1D95' }}>
+                    {item.title}
+                  </h3>
+                </div>
+
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${item.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-3xl`}></div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Continuous Optimization & Support Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10 overflow-hidden"
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #000000)' }}>
+                🔄 CONTINUOUS SUPPORT
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Continuous Optimization & Support
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#000000' }}>
+              Your Campaigns, Always Getting Smarter
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              We don't just send emails — we build relationships. Our team continuously tests, refines, and evolves your campaigns for consistent improvement and better customer connection.
+            </p>
+          </div>
+
+          <div className="text-center mb-8">
+            <p className="text-lg font-semibold" style={{ color: '#4C1D95' }}>Our support includes:</p>
+          </div>
+
+          {/* Split Design */}
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Left Side - Gradient Panel */}
+              <div className="relative h-full min-h-[400px] overflow-hidden bg-gradient-to-br from-purple-600 via-violet-600 to-black p-12 flex items-center">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                
+                <div className="relative z-10 text-white">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: false }}
+                  >
+                    <FaEnvelope className="w-20 h-20 mb-6" />
+                    <h3 className="text-3xl font-black mb-4">Always Improving</h3>
+                    <p className="text-white/90 text-lg leading-relaxed">
+                      We continuously optimize your email campaigns to ensure maximum engagement and better customer relationships.
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Right Side - Feature List */}
+              <div className="p-12 flex flex-col justify-center">
+                <div className="space-y-6">
+                  {[
+                    { icon: <FaChartLine className="w-6 h-6" />, title: "Regular performance reviews", color: "from-purple-500 to-purple-600" },
+                    { icon: <FaCog className="w-6 h-6" />, title: "Content updates and automation tuning", color: "from-purple-600 to-purple-800" },
+                    { icon: <FaLightbulb className="w-6 h-6" />, title: "Strategy consultation for future campaigns", color: "from-gray-700 to-black" },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      viewport={{ once: false }}
+                      whileHover={{ x: 5 }}
+                      className="group flex items-start gap-4 p-5 rounded-2xl border-2 border-gray-100 hover:border-violet-300 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-white to-gray-50"
+                    >
+                      <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br ${item.color} text-white`}>
+                        {item.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-gray-800 group-hover:text-purple-700 transition-colors">
+                          {item.title}
+                        </h4>
+                      </div>
+                      <div className="flex-shrink-0 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <FaArrowRight className="w-5 h-5" />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* FAQ Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.1 }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #000000)' }}>
+                ❓ COMMON QUESTIONS
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+              Frequently Asked{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
                 animate={{ 
@@ -321,141 +697,67 @@ export default function EmailMarketing() {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                Benefits
-              </motion.span>
+                Questions
+              </motion.span>{" "}
+              (FAQs)
             </h2>
           </div>
+
           <div className="space-y-4">
-            {benefits.map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={sectionVariant}
-                className="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all group"
-              >
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <FaCheckCircle className="w-6 h-6 text-white" />
-                </div>
-                <p className="text-gray-700 font-semibold text-lg group-hover:text-gray-600 transition-colors">{item}</p>
-              </motion.div>
+            {faqs.map((faq, i) => (
+              <FAQItem key={i} faq={faq} index={i} />
             ))}
           </div>
-        </div>
-      </motion.section>
-
-      {/* Automation Section */}
-      <motion.section className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" initial="hidden" whileInView="visible">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-            Automation & Workflow{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Optimization
-            </motion.span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {automation.map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={sectionVariant}
-              className="group p-6 bg-white rounded-3xl shadow-lg hover:shadow-2xl border-l-4 border-purple-500 transition-all text-center"
-              whileHover={{ y: -8 }}
-            >
-              <div className="inline-flex p-4 bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl mb-4 group-hover:from-purple-100 group-hover:to-violet-100 transition-colors">
-                <FaSyncAlt className="w-8 h-8 text-gray-600 group-hover:rotate-180 transition-transform duration-500" />
-        </div>
-              <p className="text-gray-700 font-medium leading-relaxed group-hover:text-gray-600 transition-colors">{item}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* FAQs */}
-      <motion.section 
-        className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
-        initial="hidden" 
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-            Frequently Asked{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Questions
-            </motion.span>
-          </h2>
-        </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-            <FAQItem key={idx} faq={faq} index={idx} />
-            ))}
         </div>
       </motion.section>
 
       {/* Final CTA */}
-      <motion.div
-        className="px-6 md:px-12 max-w-6xl mx-auto pb-20 relative z-10"
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
+        viewport={{ once: false }}
       >
-        <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
-          <div className="absolute inset-0">
-            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+            <div className="absolute top-0 left-0 w-full h-full">
+              <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+              <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            </div>
 
-          <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
-            >
-              <FaPaperPlane className="w-10 h-10 text-white" />
-            </motion.div>
+            <div className="relative z-10">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: false }}
+                className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
+              >
+                <FaPaperPlane className="w-10 h-10 text-white" />
+              </motion.div>
 
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
-              Ready to transform your email marketing with personalized campaigns that convert?
-            </h3>
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
+                Ready to Transform Your Email Marketing?
+              </h3>
 
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Connect with your audience through powerful, personalized email campaigns that drive results.
-            </p>
+              <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+                Let's create powerful, personalized email campaigns that connect with your audience and drive measurable results.
+              </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
-                Start Your Project <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
-                Schedule a Call
-              </button>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
+                  Start Your Campaign <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
+                  Request Free Consultation
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </motion.div>
+      </motion.section>
     </div>
   );
 }

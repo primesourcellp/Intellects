@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaSearch,
-  FaChartLine,
+import { 
+  FaSearch, 
+  FaChartLine, 
   FaFileAlt,
   FaCogs,
-  FaLink,
+  FaLink, 
   FaRocket,
   FaCheck,
   FaArrowRight,
@@ -265,9 +265,9 @@ export default function Seo() {
           style={{ color: '#000000' }}
         >
           <TypingText text="SEO " />
-          <motion.span
+          <motion.span 
             style={{ color: '#4C1D95' }}
-            animate={{
+            animate={{ 
               textShadow: [
                 `0 0 20px rgba(76, 29, 149, 0)`,
                 `0 0 20px rgba(76, 29, 149, 0.5)`,
@@ -446,18 +446,18 @@ export default function Seo() {
               title: "Meta Tags & Headings",
               desc: "Optimized titles, descriptions, and headers for SEO and clarity.",
               img: sky8Image,
-            },
-            {
+              },
+              {
               title: "URL Structure",
               desc: "Clean, descriptive URLs that improve crawling and indexing.",
               img: aboutImage,
-            },
-            {
+              },
+              {
               title: "Content Optimization",
               desc: "Engaging, relevant, and SEO-friendly copy.",
               img: soft9Image,
-            },
-            {
+              },
+              {
               title: "Internal Linking",
               desc: "Structured links to guide visitors and search engines effectively.",
               img: sky8Image,
@@ -489,7 +489,7 @@ export default function Seo() {
                 </motion.div>
 
                 {/* Image Column */}
-                <motion.div
+              <motion.div
                   initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false }}
@@ -515,11 +515,11 @@ export default function Seo() {
                       }}
                     />
                   </div>
-                </motion.div>
+              </motion.div>
               </div>
             </motion.section>
-          ))}
-        </div>
+            ))}
+          </div>
       </motion.section>
 
       {/* Technical SEO Excellence Section */}
@@ -701,9 +701,9 @@ export default function Seo() {
                         pointerEvents: 'none'
                       }}
                     />
-                  </div>
+            </div>
                 </motion.div>
-              </div>
+            </div>
             </motion.section>
           ))}
         </div>
@@ -819,7 +819,7 @@ export default function Seo() {
           </h2>
         </div>
 
-          <div className="space-y-4">
+        <div className="space-y-4">
             {[
               {
                 q: "What is SEO and why is it important for my business?",

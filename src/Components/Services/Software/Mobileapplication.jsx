@@ -193,7 +193,7 @@ export default function Mobileapplication() {
       </section>
 
       {/* Transforming Businesses Section */}
-      <motion.section 
+      <motion.section
         className="pt-16 pb-20 px-6 md:px-12 lg:px-24 relative z-10" 
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
@@ -203,64 +203,94 @@ export default function Mobileapplication() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+            <motion.h3 
+              className="text-4xl md:text-5xl font-bold mb-6" 
+              style={{ color: '#000000' }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
+              viewport={{ once: false }}
+            >
               Transforming Businesses with{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
                 Custom Mobile Apps
-              </motion.span>
-            </h3>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
+            </motion.span>
+            </motion.h3>
+            <motion.p 
+              className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" 
+              style={{ color: '#6B7280' }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 80 }}
+              viewport={{ once: false }}
+            >
               At Intellects, we believe that mobile applications are more than just digital tools — they are powerful engines for business growth. Our custom apps are built to solve real-world challenges, improve customer experiences, and help businesses scale efficiently.
-            </p>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed font-semibold" style={{ color: '#4C1D95' }}>
+            </motion.p>
+            <motion.p 
+              className="text-lg max-w-3xl mx-auto leading-relaxed font-semibold" 
+              style={{ color: '#4C1D95' }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: false }}
+            >
               We focus on:
-            </p>
-          </div>
+            </motion.p>
+        </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { 
-              title: "Enhancing User Engagement", 
-              desc: "Apps designed to delight users and boost interaction.",
+            {[
+              {
+                title: "Enhancing User Engagement",
+                desc: "Apps designed to delight users and boost interaction.",
               icon: <FaUsers className="w-8 h-8" />,
               color: "from-blue-500 to-cyan-500"
-            },
-            { 
-              title: "Optimizing Operations", 
-              desc: "Streamlining workflows and automating repetitive tasks.",
+              },
+              {
+                title: "Optimizing Operations",
+                desc: "Streamlining workflows and automating repetitive tasks.",
               icon: <FaCogs className="w-8 h-8" />,
               color: "from-purple-500 to-violet-500"
-            },
-            { 
-              title: "Driving Revenue Growth", 
-              desc: "E-commerce and service apps that increase conversions.",
+              },
+              {
+                title: "Driving Revenue Growth",
+                desc: "E-commerce and service apps that increase conversions.",
               icon: <FaChartLine className="w-8 h-8" />,
               color: "from-green-500 to-emerald-500"
-            },
-            { 
-              title: "Ensuring Scalability", 
-              desc: "Flexible solutions that evolve as your business grows.",
+              },
+              {
+                title: "Ensuring Scalability",
+                desc: "Flexible solutions that evolve as your business grows.",
               icon: <FaRocket className="w-8 h-8" />,
               color: "from-orange-500 to-amber-500"
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
               className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all text-center relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              viewport={{ once: false }}
+              initial={{ 
+                opacity: 0, 
+                x: i % 2 === 0 ? -60 : 60,
+                y: 20
+              }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ 
+                duration: 0.7, 
+                delay: i * 0.15,
+                type: "spring",
+                stiffness: 100
+              }}
+              viewport={{ once: false, amount: 0.3 }}
               whileHover={{ y: -8 }}
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
@@ -273,7 +303,7 @@ export default function Mobileapplication() {
                   className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300 bg-gradient-to-br ${item.color}`}
                 >
                   <div className="text-white">
-                    {item.icon}
+                {item.icon}
                   </div>
                 </motion.div>
                 <h3 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
@@ -283,8 +313,8 @@ export default function Mobileapplication() {
                   {item.desc}
                 </p>
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
         </div>
         
         <motion.div
@@ -456,7 +486,7 @@ export default function Mobileapplication() {
 
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: false }}
             className="text-3xl md:text-5xl font-black mb-6" 
@@ -489,43 +519,116 @@ export default function Mobileapplication() {
           </motion.p>
         </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          {/* Vertical Stepped Path Design */}
+          <div className="relative max-w-5xl mx-auto space-y-16">
             {[
-              { title: "Requirement Analysis", desc: "Understanding business goals and user needs." },
-              { title: "UI/UX Design", desc: "Designing intuitive, interactive, and visually appealing interfaces." },
-              { title: "Development", desc: "Building secure, scalable, and feature-rich mobile apps." },
-              { title: "Testing & QA", desc: "Rigorous testing to ensure functionality, performance, and security." },
-              { title: "Deployment & Support", desc: "Launching your app with continuous improvements and maintenance." },
+              { title: "Requirement Analysis", desc: "Understanding business goals and user needs.", align: "left" },
+              { title: "UI/UX Design", desc: "Designing intuitive, interactive, and visually appealing interfaces.", align: "right" },
+              { title: "Development", desc: "Building secure, scalable, and feature-rich mobile apps.", align: "left" },
+              { title: "Testing & QA", desc: "Rigorous testing to ensure functionality, performance, and security.", align: "right" },
+              { title: "Deployment & Support", desc: "Launching your app with continuous improvements and maintenance.", align: "center" },
             ].map((step, i) => (
               <motion.div
                 key={i}
-                className="group relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl flex flex-col items-center text-center border-2 border-gray-100 hover:border-violet-300 transition-all duration-500 overflow-hidden"
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
-                viewport={{ once: false }}
-                whileHover={{ y: -15, scale: 1.05 }}
+                className={`relative flex items-center ${
+                  step.align === 'left' ? 'justify-start' : 
+                  step.align === 'right' ? 'md:justify-end' : 
+                  'justify-center'
+                }`}
+                initial={{ opacity: 0, x: step.align === 'left' ? -80 : step.align === 'right' ? 80 : 0, y: 40 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 0.7, delay: i * 0.12, type: "spring", stiffness: 90 }}
+                viewport={{ once: false, amount: 0.4 }}
               >
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Step Content */}
+                <motion.div
+                  className="group relative max-w-lg w-full md:w-auto"
+                  whileHover={{ scale: 1.05, y: -8 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Glowing Effect on Hover */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-purple-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+                  
+                  {/* Content Box */}
+                  <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-gray-100 group-hover:border-cyan-300 transition-all duration-300 overflow-hidden">
+                    {/* Animated Background Shimmer */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-cyan-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Step Number Badge */}
+                    <motion.div
+                      className="absolute -top-5 -left-5 w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl z-10"
+                      style={{ background: 'linear-gradient(135deg, #3B82F6, #06B6D4)' }}
+                      initial={{ scale: 0, rotate: -90 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.5, delay: i * 0.12 + 0.2, type: "spring", stiffness: 200 }}
+                      viewport={{ once: false }}
+                      whileHover={{ rotate: 360, scale: 1.1, transition: { duration: 0.5 } }}
+                    >
+                      <span className="text-white font-black text-xl">{i + 1}</span>
+                    </motion.div>
 
-              {i < 4 && (
-                <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-gray-300 to-transparent z-0"></div>
-              )}
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <motion.h4 
+                        className="text-2xl md:text-3xl font-black mb-4 text-gray-800 group-hover:text-cyan-600 transition-colors"
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.12 + 0.3, duration: 0.5 }}
+                        viewport={{ once: false }}
+                      >
+                        {step.title}
+                      </motion.h4>
+                      
+                      {/* Animated Progress Bar */}
+                      <motion.div
+                        className="h-1.5 rounded-full mb-5"
+                        style={{ background: 'linear-gradient(90deg, #3B82F6, #06B6D4, #8B5CF6)' }}
+                        initial={{ width: 60 }}
+                        whileInView={{ width: '100%' }}
+                        transition={{ delay: i * 0.12 + 0.4, duration: 0.6 }}
+                        viewport={{ once: false }}
+                      />
+                      
+                      <motion.p 
+                        className="text-gray-600 text-lg leading-relaxed"
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.12 + 0.5, duration: 0.5 }}
+                        viewport={{ once: false }}
+                      >
+                        {step.desc}
+                      </motion.p>
+                    </div>
 
-              <h4 className="relative z-10 font-black text-xl text-gray-800 mb-3 mt-4 group-hover:text-gray-900 transition-colors">
-                {step.title}
-              </h4>
-              
-              <div className={`relative z-10 h-1 w-12 rounded-full mb-4 bg-gradient-to-r from-blue-500 to-cyan-500 group-hover:w-full transition-all duration-500`}></div>
-              
-              <p className="relative z-10 text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors">
-                {step.desc}
-              </p>
+                    {/* Corner Decorative Element */}
+                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-cyan-200/30 to-blue-200/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
 
-              <div className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-3xl`}></div>
+                  {/* Connecting Line to Next Step */}
+                  {i < 4 && (
+                    <motion.div
+                      className={`hidden md:block absolute ${
+                        step.align === 'center' ? 'left-1/2 -translate-x-1/2' : 
+                        step.align === 'left' ? 'left-1/3' : 'right-1/3'
+                      } top-full w-0.5 h-16 z-0`}
+                      style={{ background: 'linear-gradient(180deg, #3B82F6, #06B6D4)' }}
+                      initial={{ scaleY: 0, opacity: 0 }}
+                      whileInView={{ scaleY: 1, opacity: 0.4 }}
+                      transition={{ delay: i * 0.12 + 0.6, duration: 0.4 }}
+                      viewport={{ once: false }}
+                    >
+                      {/* Animated Dot Traveling Down */}
+                      <motion.div
+                        className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-lg"
+                        animate={{ y: [0, 64, 0], opacity: [1, 0.3, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+                      />
+                    </motion.div>
+                  )}
+                </motion.div>
               </motion.div>
             ))}
-        </div>
+          </div>
         </div>
       </motion.section>
 
@@ -608,7 +711,7 @@ export default function Mobileapplication() {
           >
             We provide flexible engagement models to suit different project requirements.
           </motion.p>
-        </div>
+              </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {[
@@ -650,7 +753,7 @@ export default function Mobileapplication() {
                   {model.number}
                 </span>
               </div>
-              
+
               <div className="relative z-10">
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
@@ -714,7 +817,7 @@ export default function Mobileapplication() {
 
         <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
@@ -724,7 +827,7 @@ export default function Mobileapplication() {
             <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
               💻 CUTTING-EDGE TECHNOLOGY
             </span>
-          </motion.div>
+            </motion.div>
 
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -734,20 +837,20 @@ export default function Mobileapplication() {
             className="text-3xl md:text-5xl font-black mb-6" 
             style={{ color: '#000000' }}
           >
-            Technologies & Frameworks We{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
+              Technologies & Frameworks We{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
                   `0 0 20px rgba(76, 29, 149, 0)`,
                   `0 0 20px rgba(76, 29, 149, 0.5)`,
                   `0 0 20px rgba(76, 29, 149, 0)`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Use
-            </motion.span>
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Use
+              </motion.span>
           </motion.h2>
           
           <motion.p 
@@ -760,7 +863,7 @@ export default function Mobileapplication() {
           >
             Our mobile apps are built using modern and reliable technologies to ensure top-notch performance.
           </motion.p>
-        </div>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
@@ -801,8 +904,8 @@ export default function Mobileapplication() {
               color: "from-pink-500 to-rose-500"
             },
           ].map((item, i) => (
-            <motion.div
-              key={i}
+              <motion.div
+                key={i}
               className="group relative bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl border-2 border-gray-100 hover:border-violet-300 transition-all duration-500 overflow-hidden"
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -817,7 +920,7 @@ export default function Mobileapplication() {
 
               <div className="absolute -top-2 -right-2 w-16 h-16 opacity-20">
                 <div className={`w-full h-full rounded-full bg-gradient-to-br ${item.color}`}></div>
-              </div>
+                  </div>
 
               <div className="relative z-10 p-8">
                 <motion.div
@@ -829,7 +932,7 @@ export default function Mobileapplication() {
                 >
                   <div className="text-white">
                     {item.icon}
-                  </div>
+                </div>
                 </motion.div>
 
                 <h4 className="font-black text-2xl mb-4 text-gray-800 group-hover:text-gray-900 transition-colors">
@@ -852,9 +955,9 @@ export default function Mobileapplication() {
                       <span className="text-gray-700 text-sm group-hover/tech:text-gray-900 group-hover/tech:translate-x-1 transition-all">
                         {tech}
                       </span>
-                    </motion.div>
-                  ))}
-                </div>
+              </motion.div>
+            ))}
+          </div>
               </div>
 
               <div className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${item.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>

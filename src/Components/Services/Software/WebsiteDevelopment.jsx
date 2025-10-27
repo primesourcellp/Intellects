@@ -530,145 +530,366 @@ export default function WebsiteDevelopment() {
         </div>
       </motion.section>
 
-      {/* Development Process */}
+      {/* Development Process - Vertical Timeline Design */}
       <motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10 overflow-hidden"
         style={{ backgroundColor: '#FFFFFF' }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: false }}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
       >
-        {/* Animated Background */}
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
-            animate={{ 
-              y: [0, -50, 0],
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.2, 1],
               opacity: [0.03, 0.08, 0.03]
             }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 left-1/4 w-96 h-96 rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, #4C1D9520, transparent)' }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/4 right-10 w-96 h-96 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4C1D95, transparent)' }}
+          />
+          <motion.div
+            animate={{
+              rotate: [360, 0],
+              scale: [1, 1.3, 1],
+              opacity: [0.03, 0.06, 0.03]
+            }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-1/4 left-10 w-96 h-96 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, #7C3AED, transparent)' }}
           />
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: false }}
-            className="inline-block mb-6"
-          >
-            <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
-              🚀 PROVEN METHODOLOGY
-            </span>
-          </motion.div>
-
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: false }}
-            className="text-3xl md:text-5xl font-black mb-6" 
-            style={{ color: '#000000' }}
-          >
-            Our Web Development{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px rgba(76, 29, 149, 0)`,
-                  `0 0 20px rgba(76, 29, 149, 0.5)`,
-                  `0 0 20px rgba(76, 29, 149, 0)`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
+        <div className="max-w-6xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
             >
-              Process
-            </motion.span>
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: false }}
-            className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" 
-            style={{ color: '#6B7280' }}
-          >
-            Our step-by-step process ensures smooth collaboration and reliable results.
-          </motion.p>
-        </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {[
-              { 
-                title: "Discovery & Strategy", 
-                desc: "Understanding your business objectives.",
-                icon: <FaUsers className="w-10 h-10" />,
-                color: "from-blue-500 to-cyan-500"
-              },
-              { 
-                title: "Design & Prototyping", 
-                desc: "Visualizing your website's flow and style.",
-                icon: <FaLaptopCode className="w-10 h-10" />,
-                color: "from-purple-500 to-violet-500"
-              },
-              { 
-                title: "Development", 
-                desc: "Coding with performance, scalability, and security in mind.",
-                icon: <FaCogs className="w-10 h-10" />,
-                color: "from-green-500 to-emerald-500"
-              },
-              { 
-                title: "Testing & QA", 
-                desc: "Ensuring seamless user experience and speed.",
-                icon: <FaClipboardCheck className="w-10 h-10" />,
-                color: "from-orange-500 to-amber-500"
-              },
-              { 
-                title: "Deployment & Maintenance", 
-                desc: "Launching your site and providing ongoing support.",
-                icon: <FaRocket className="w-10 h-10" />,
-                color: "from-pink-500 to-rose-500"
-              },
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                className="group relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl hover:shadow-2xl flex flex-col items-center text-center border-2 border-gray-100 hover:border-violet-300 transition-all duration-500 overflow-hidden"
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
-                viewport={{ once: false }}
-                whileHover={{ y: -15, scale: 1.05 }}
+              <motion.span 
+                className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl inline-flex items-center gap-2" 
+                style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                whileHover={{ scale: 1.05 }}
+                animate={{
+                  boxShadow: [
+                    '0 10px 30px rgba(76, 29, 149, 0.3)',
+                    '0 15px 40px rgba(124, 58, 237, 0.4)',
+                    '0 10px 30px rgba(76, 29, 149, 0.3)'
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
               >
-              {/* Hover Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <FaCogs className="w-4 h-4" />
+                OUR PROCESS
+              </motion.span>
+            </motion.div>
 
-              {/* Connecting Line (except last) */}
-              {i < 4 && (
-                <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-gray-300 to-transparent z-0"></div>
-              )}
+            <motion.h2 
+              className="text-3xl md:text-5xl font-black mb-6" 
+              style={{ color: '#000000' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
+              Our Web Development{" "}
+              <motion.span 
+                style={{ 
+                  color: '#4C1D95',
+                  display: 'inline-block'
+                }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 30px rgba(76, 29, 149, 0.6)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Process
+              </motion.span>
+            </motion.h2>
 
-              {/* Title */}
-              <h4 className="relative z-10 font-black text-xl text-gray-800 mb-3 mt-4 group-hover:text-gray-900 transition-colors">
-                {step.title}
-              </h4>
+            <motion.p 
+              className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium" 
+              style={{ color: '#6B7280' }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: false }}
+            >
+              Our step-by-step process ensures{" "}
+              <span className="font-bold" style={{ color: '#4C1D95' }}>smooth collaboration</span>,{" "}
+              <span className="font-bold" style={{ color: '#4C1D95' }}>quality</span>, and{" "}
+              <span className="font-bold" style={{ color: '#4C1D95' }}>reliable results</span>.
+            </motion.p>
+          </div>
+
+          {/* Vertical Timeline Layout */}
+          <div className="relative">
+            {/* Central Animated Timeline */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 -ml-0.5">
+              <motion.div
+                className="h-full w-full rounded-full"
+                style={{ 
+                  background: 'linear-gradient(180deg, transparent 0%, #4C1D95 10%, #7C3AED 50%, #4C1D95 90%, transparent 100%)'
+                }}
+                initial={{ scaleY: 0, opacity: 0 }}
+                whileInView={{ scaleY: 1, opacity: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                viewport={{ once: false }}
+              />
               
-              {/* Animated Divider */}
-              <div className={`relative z-10 h-1 w-12 rounded-full mb-4 bg-gradient-to-r ${step.color} group-hover:w-full transition-all duration-500`}></div>
-              
-              {/* Description */}
-              <p className="relative z-10 text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors">
-                {step.desc}
-              </p>
+              {/* Animated Flowing Dots */}
+              <motion.div
+                className="absolute top-0 left-1/2 -ml-2 w-4 h-4 rounded-full"
+                style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                animate={{ 
+                  y: ['0%', '100%'],
+                  opacity: [0, 1, 1, 0]
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity, 
+                  ease: "easeInOut",
+                  repeatDelay: 0.5
+                }}
+              />
+            </div>
 
-              {/* Bottom Shine Effect */}
-              <div className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${step.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-3xl`}></div>
+            {/* Process Steps */}
+            <div className="space-y-20 md:space-y-32">
+              {[
+                {
+                  step: "Discovery & Strategy",
+                  desc: "Understanding your business objectives and target audience."
+                },
+                {
+                  step: "Design & Prototyping",
+                  desc: "Visualizing your website's flow and style."
+                },
+                {
+                  step: "Development",
+                  desc: "Coding with performance, scalability, and security in mind."
+                },
+                {
+                  step: "Testing & QA",
+                  desc: "Ensuring seamless user experience and speed."
+                },
+                {
+                  step: "Deployment & Maintenance",
+                  desc: "Launching your site and providing ongoing support."
+                }
+              ].map(({ step, desc }, i) => {
+                const isLeft = i % 2 === 0;
+                
+                return (
+                  <motion.div
+                    key={i}
+                    className="relative"
+                    initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: i * 0.1,
+                      type: "spring",
+                      stiffness: 80
+                    }}
+                    viewport={{ once: false, amount: 0.3 }}
+                  >
+                    {/* Timeline Node - Center Circle */}
+                    <motion.div
+                      className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full items-center justify-center z-20 shadow-2xl"
+                      style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: i * 0.1 + 0.3,
+                        type: "spring",
+                        stiffness: 150
+                      }}
+                      viewport={{ once: false }}
+                      whileHover={{ 
+                        scale: 1.2, 
+                        rotate: 360,
+                        transition: { duration: 0.6 }
+                      }}
+                    >
+                      <motion.span 
+                        className="text-white font-black text-2xl"
+                        animate={{
+                          textShadow: [
+                            '0 0 0px rgba(255,255,255,0)',
+                            '0 0 20px rgba(255,255,255,1)',
+                            '0 0 0px rgba(255,255,255,0)'
+                          ]
+                        }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+                      >
+                        {i + 1}
+                      </motion.span>
+                      
+                      {/* Pulse Rings */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-4 border-purple-300"
+                        animate={{
+                          scale: [1, 1.5, 1.5],
+                          opacity: [0.6, 0, 0]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeOut",
+                          delay: i * 0.3
+                        }}
+                      />
+                    </motion.div>
+
+                    {/* Content Container */}
+                    <div className={`flex flex-col md:flex-row items-center gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+                      {/* Spacer for desktop */}
+                      <div className="hidden md:block flex-1" />
+                      
+                      {/* Content Box */}
+                      <motion.div 
+                        className={`flex-1 relative group ${isLeft ? 'md:text-right' : 'md:text-left'}`}
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {/* Connection Line to Center */}
+                        <motion.div
+                          className={`hidden md:block absolute top-1/2 ${isLeft ? 'left-full' : 'right-full'} w-8 h-0.5`}
+                          style={{ background: 'linear-gradient(90deg, #4C1D95, #7C3AED)' }}
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          transition={{ duration: 0.5, delay: i * 0.1 + 0.5 }}
+                          viewport={{ once: false }}
+                        >
+                          <motion.div
+                            className={`absolute top-1/2 ${isLeft ? 'right-0' : 'left-0'} w-3 h-3 -mt-1.5 rounded-full bg-purple-500`}
+                            animate={{
+                              scale: [1, 1.5, 1],
+                              opacity: [1, 0.5, 1]
+                            }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          />
+                        </motion.div>
+
+                        {/* Content Card */}
+                        <motion.div
+                          className="relative p-8 rounded-3xl shadow-xl overflow-hidden"
+                          style={{ 
+                            background: 'linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)',
+                            border: '2px solid transparent',
+                            backgroundClip: 'padding-box'
+                          }}
+                          whileHover={{
+                            boxShadow: '0 25px 50px -12px rgba(76, 29, 149, 0.25)',
+                            borderColor: '#7C3AED'
+                          }}
+                        >
+                          {/* Animated Background Gradient */}
+                          <motion.div
+                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                            style={{
+                              background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.05), rgba(124, 58, 237, 0.05))'
+                            }}
+                          />
+
+                          {/* Mobile Number Badge */}
+                          <motion.div
+                            className="md:hidden absolute -top-4 left-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10"
+                            style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            transition={{ duration: 0.5, type: "spring" }}
+                            viewport={{ once: false }}
+                          >
+                            <span className="text-white font-black text-lg">{i + 1}</span>
+                          </motion.div>
+
+                          {/* Text Content */}
+                          <div className="relative z-10">
+                            <motion.h4 
+                              className="text-2xl md:text-3xl font-black mb-4 text-gray-800 group-hover:text-purple-700 transition-colors"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ delay: i * 0.1 + 0.4, duration: 0.5 }}
+                              viewport={{ once: false }}
+                            >
+                              {step}
+                            </motion.h4>
+                            
+                            <motion.p 
+                              className="text-gray-600 text-lg leading-relaxed"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ delay: i * 0.1 + 0.5, duration: 0.5 }}
+                              viewport={{ once: false }}
+                            >
+                              {desc}
+                            </motion.p>
+                          </div>
+
+                          {/* Decorative Corner Element */}
+                          <div className={`absolute ${isLeft ? 'bottom-0 left-0' : 'bottom-0 right-0'} w-32 h-32 opacity-10`}>
+                            <div 
+                              className="w-full h-full rounded-full blur-2xl"
+                              style={{ background: 'radial-gradient(circle, #7C3AED, transparent)' }}
+                            />
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Bottom Success Message */}
+          <motion.div
+            className="mt-24 text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: false }}
+          >
+            <motion.div
+              className="inline-flex items-center gap-4 bg-gradient-to-r from-purple-50 via-indigo-50 to-purple-50 px-10 py-6 rounded-2xl shadow-lg border border-purple-100"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              >
+                <FaCheck className="w-8 h-8 text-purple-600" />
               </motion.div>
-            ))}
-        </div>
+              <div className="text-left">
+                <p className="text-xl font-bold text-gray-800 mb-1">
+                  Seamless Journey, Outstanding Websites
+                </p>
+                <p className="text-gray-600">
+                  From concept to launch, we're with you every step of the way
+                </p>
+              </div>
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <FaRocket className="w-8 h-8 text-purple-600" />
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </motion.section>
 

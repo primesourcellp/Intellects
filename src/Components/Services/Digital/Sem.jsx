@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
+import { 
   FaSearch,
   FaChartLine,
   FaBullseye,
@@ -49,60 +49,60 @@ const TypingText = ({ text, className = "", delay = 0 }) => {
 
 // Flip Card Component
 const SEMFlipCard = ({ item, index }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-  
   return (
     <motion.div
-      className="relative w-full h-[350px]"
-      style={{ perspective: '1200px' }}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="relative w-full h-[240px] group"
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, delay: index * 0.2, ease: "easeOut" }}
       viewport={{ once: false }}
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
+      whileHover={{ y: -8, scale: 1.05 }}
     >
       <motion.div
-        className="relative w-full h-full cursor-pointer"
-        style={{ transformStyle: 'preserve-3d' }}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="w-full h-full rounded-2xl shadow-lg border-2 p-6 flex flex-col justify-center items-center text-center transition-all duration-300 group-hover:shadow-2xl group-hover:border-violet-300"
+        style={{
+          backgroundColor: '#FFFFFF',
+          borderColor: '#E5E7EB'
+        }}
       >
-        {/* Front Side */}
-        <div
-          className="absolute w-full h-full rounded-2xl shadow-lg border-2 p-8 flex flex-col justify-center items-center text-center"
-          style={{
-            backfaceVisibility: 'hidden',
-            backgroundColor: '#FFFFFF',
-            borderColor: '#E5E7EB'
-          }}
-        >
-          <div className="text-5xl mb-4">
-            {item.icon}
-          </div>
-          <h3 className="text-xl font-bold mb-3" style={{ color: '#4C1D95' }}>
+        {/* Background gradient on hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+        
+        <div className="relative z-10">
+          <motion.h3 
+            className="text-lg font-bold mb-3 group-hover:text-purple-700 transition-colors duration-300" 
+            style={{ color: '#4C1D95' }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 + 0.2 }}
+            viewport={{ once: false }}
+          >
             {item.title}
-          </h3>
-          <p className="leading-relaxed" style={{ color: '#6B7280' }}>
+          </motion.h3>
+          
+          {/* Animated divider */}
+          <motion.div 
+            className="h-0.5 w-12 bg-gradient-to-r from-purple-500 to-violet-500 mx-auto mb-3 group-hover:w-full transition-all duration-500"
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: 48, opacity: 1 }}
+            transition={{ duration: 0.7, delay: index * 0.2 + 0.4 }}
+            viewport={{ once: false }}
+          ></motion.div>
+          
+          <motion.p 
+            className="text-sm leading-relaxed" 
+            style={{ color: '#6B7280' }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
+            viewport={{ once: false }}
+          >
             {item.description}
-          </p>
+          </motion.p>
         </div>
-
-        {/* Back Side - Image */}
-        <div
-          className="absolute w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2"
-          style={{
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-            borderColor: '#4C1D95'
-          }}
-        >
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
+        
+        {/* Bottom shine effect */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-violet-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-2xl"></div>
       </motion.div>
     </motion.div>
   );
@@ -154,38 +154,11 @@ const FAQItem = ({ faq, index, sectionVariant }) => {
 
 export default function Sem() {
   return (
-    <div className="overflow-x-hidden" style={{ backgroundColor: '#F9FAFB', color: '#1F2937' }}>
-      {/* Luxury Elegant Background */}
+    <div className="min-h-screen text-gray-800" style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)' }}>
+      {/* Animated Background Particles */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ 
-            scale: [1, 1.15, 1],
-            rotate: [0, 180, 360],
-            opacity: [0.06, 0.12, 0.06]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(circle, #4C1D9520, #7C3AED15)' }}
-        />
-        <motion.div
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-            opacity: [0.08, 0.06, 0.08]
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 right-0 w-80 h-80 rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(circle, #7C3AED18, #F59E0B12)' }}
-        />
-        <motion.div
-          animate={{ 
-            y: [0, -100, 0],
-            opacity: [0.06, 0.15, 0.06]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 left-1/4 w-72 h-72 rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(circle, #F59E0B18, #4C1D9515)' }}
-        />
+        <div className="absolute w-96 h-96 rounded-full blur-3xl -top-48 -left-48 animate-pulse" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
+        <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
       </div>
 
       {/* Header Section */}
@@ -260,9 +233,9 @@ export default function Sem() {
           style={{ color: '#000000' }}
         >
           <TypingText text="Search Engine Marketing " />
-          <motion.span
+          <motion.span 
             style={{ color: '#4C1D95' }}
-            animate={{
+            animate={{ 
               textShadow: [
                 `0 0 20px rgba(76, 29, 149, 0)`,
                 `0 0 20px rgba(76, 29, 149, 0.5)`,
@@ -296,9 +269,372 @@ export default function Sem() {
         </motion.p>
       </section>
 
-      {/* Our SEM Process Section */}
+      {/* Our SEM Process Section - Vertical Timeline */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10 overflow-hidden"
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.2, 1],
+              opacity: [0.03, 0.08, 0.03]
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/4 right-10 w-96 h-96 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4C1D95, transparent)' }}
+          />
+          <motion.div
+            animate={{
+              rotate: [360, 0],
+              scale: [1, 1.3, 1],
+              opacity: [0.03, 0.06, 0.03]
+            }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-1/4 left-10 w-96 h-96 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, #7C3AED, transparent)' }}
+          />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <motion.span 
+                className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl inline-flex items-center gap-2" 
+                style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                whileHover={{ scale: 1.05 }}
+                animate={{
+                  boxShadow: [
+                    '0 10px 30px rgba(76, 29, 149, 0.3)',
+                    '0 15px 40px rgba(124, 58, 237, 0.4)',
+                    '0 10px 30px rgba(76, 29, 149, 0.3)'
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <FaRocket className="w-4 h-4" />
+                OUR PROCESS
+              </motion.span>
+            </motion.div>
+
+            <motion.h2 
+              className="text-3xl md:text-5xl font-black mb-6" 
+              style={{ color: '#000000' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
+              Our SEM Campaign{" "}
+              <motion.span 
+                style={{ 
+                  color: '#4C1D95',
+                  display: 'inline-block'
+                }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 30px rgba(76, 29, 149, 0.6)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Process
+              </motion.span>
+            </motion.h2>
+
+            <motion.p 
+              className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium" 
+              style={{ color: '#6B7280' }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: false }}
+            >
+              Our step-by-step approach ensures{" "}
+              <span className="font-bold" style={{ color: '#4C1D95' }}>maximum ROI</span>,{" "}
+              <span className="font-bold" style={{ color: '#4C1D95' }}>targeted reach</span>, and{" "}
+              <span className="font-bold" style={{ color: '#4C1D95' }}>measurable results</span>.
+            </motion.p>
+          </div>
+
+          {/* Vertical Timeline Layout */}
+          <div className="relative">
+            {/* Central Animated Timeline */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 -ml-0.5">
+              <motion.div
+                className="h-full w-full rounded-full"
+                style={{ 
+                  background: 'linear-gradient(180deg, transparent 0%, #4C1D95 10%, #7C3AED 50%, #4C1D95 90%, transparent 100%)'
+                }}
+                initial={{ scaleY: 0, opacity: 0 }}
+                whileInView={{ scaleY: 1, opacity: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                viewport={{ once: false }}
+              />
+              
+              {/* Animated Flowing Dots */}
+              <motion.div
+                className="absolute top-0 left-1/2 -ml-2 w-4 h-4 rounded-full"
+                style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                animate={{ 
+                  y: ['0%', '100%'],
+                  opacity: [0, 1, 1, 0]
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity, 
+                  ease: "easeInOut",
+                  repeatDelay: 0.5
+                }}
+              />
+            </div>
+
+            {/* Process Steps */}
+            <div className="space-y-20 md:space-y-32">
+              {[
+                {
+                  step: "Keyword Research & Targeting",
+                  desc: "In-depth keyword research and targeting strategy to reach your ideal customers."
+                },
+                {
+                  step: "Campaign Setup",
+                  desc: "Expert Google Ads and Bing Ads campaign setup with optimal settings."
+                },
+                {
+                  step: "Smart Bid Management",
+                  desc: "Strategic bid management to optimize your budget and maximize results."
+                },
+                {
+                  step: "A/B Testing",
+                  desc: "Continuous A/B testing for performance improvement and better conversions."
+                },
+                {
+                  step: "Custom Ad Copywriting",
+                  desc: "Persuasive ad copy that maximizes clicks and drives conversions."
+                }
+              ].map(({ step, desc }, i) => {
+                const isLeft = i % 2 === 0;
+                
+                return (
+                  <motion.div
+                    key={i}
+                    className="relative"
+                    initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: i * 0.1,
+                      type: "spring",
+                      stiffness: 80
+                    }}
+                    viewport={{ once: false, amount: 0.3 }}
+                  >
+                    {/* Timeline Node - Center Circle */}
+                    <motion.div
+                      className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full items-center justify-center z-20 shadow-2xl"
+                      style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: i * 0.1 + 0.3,
+                        type: "spring",
+                        stiffness: 150
+                      }}
+                      viewport={{ once: false }}
+                      whileHover={{ 
+                        scale: 1.2, 
+                        rotate: 360,
+                        transition: { duration: 0.6 }
+                      }}
+                    >
+                      <motion.span 
+                        className="text-white font-black text-2xl"
+                        animate={{
+                          textShadow: [
+                            '0 0 0px rgba(255,255,255,0)',
+                            '0 0 20px rgba(255,255,255,1)',
+                            '0 0 0px rgba(255,255,255,0)'
+                          ]
+                        }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+                      >
+                        {i + 1}
+                      </motion.span>
+                      
+                      {/* Pulse Rings */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-4 border-purple-300"
+                        animate={{
+                          scale: [1, 1.5, 1.5],
+                          opacity: [0.6, 0, 0]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeOut",
+                          delay: i * 0.3
+                        }}
+                      />
+                    </motion.div>
+
+                    {/* Content Container */}
+                    <div className={`flex flex-col md:flex-row items-center gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+                      {/* Spacer for desktop */}
+                      <div className="hidden md:block flex-1" />
+                      
+                      {/* Content Box */}
+                      <motion.div 
+                        className={`flex-1 relative group ${isLeft ? 'md:text-right' : 'md:text-left'}`}
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {/* Connection Line to Center */}
+                        <motion.div
+                          className={`hidden md:block absolute top-1/2 ${isLeft ? 'left-full' : 'right-full'} w-8 h-0.5`}
+                          style={{ background: 'linear-gradient(90deg, #4C1D95, #7C3AED)' }}
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          transition={{ duration: 0.5, delay: i * 0.1 + 0.5 }}
+                          viewport={{ once: false }}
+                        >
+                          <motion.div
+                            className={`absolute top-1/2 ${isLeft ? 'right-0' : 'left-0'} w-3 h-3 -mt-1.5 rounded-full bg-purple-500`}
+                            animate={{
+                              scale: [1, 1.5, 1],
+                              opacity: [1, 0.5, 1]
+                            }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          />
+                        </motion.div>
+
+                        {/* Content Card */}
+                        <motion.div
+                          className="relative p-8 rounded-3xl shadow-xl overflow-hidden"
+                          style={{ 
+                            background: 'linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)',
+                            border: '2px solid transparent',
+                            backgroundClip: 'padding-box'
+                          }}
+                          whileHover={{
+                            boxShadow: '0 25px 50px -12px rgba(76, 29, 149, 0.25)',
+                            borderColor: '#7C3AED'
+                          }}
+                        >
+                          {/* Animated Background Gradient */}
+                          <motion.div
+                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                            style={{
+                              background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.05), rgba(124, 58, 237, 0.05))'
+                            }}
+                          />
+
+                          {/* Mobile Number Badge */}
+                          <motion.div
+                            className="md:hidden absolute -top-4 left-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10"
+                            style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            transition={{ duration: 0.5, type: "spring" }}
+                            viewport={{ once: false }}
+                          >
+                            <span className="text-white font-black text-lg">{i + 1}</span>
+                          </motion.div>
+
+                          {/* Text Content */}
+                          <div className="relative z-10">
+                            <motion.h4 
+                              className="text-2xl md:text-3xl font-black mb-4 text-gray-800 group-hover:text-purple-700 transition-colors"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ delay: i * 0.1 + 0.4, duration: 0.5 }}
+                              viewport={{ once: false }}
+                            >
+                              {step}
+                            </motion.h4>
+                            
+                            <motion.p 
+                              className="text-gray-600 text-lg leading-relaxed"
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              transition={{ delay: i * 0.1 + 0.5, duration: 0.5 }}
+                              viewport={{ once: false }}
+                            >
+                              {desc}
+                            </motion.p>
+                          </div>
+
+                          {/* Decorative Corner Element */}
+                          <div className={`absolute ${isLeft ? 'bottom-0 left-0' : 'bottom-0 right-0'} w-32 h-32 opacity-10`}>
+                            <div 
+                              className="w-full h-full rounded-full blur-2xl"
+                              style={{ background: 'radial-gradient(circle, #7C3AED, transparent)' }}
+                            />
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Bottom Success Message */}
+          <motion.div
+            className="mt-24 text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: false }}
+          >
+            <motion.div
+              className="inline-flex items-center gap-4 bg-gradient-to-r from-purple-50 via-indigo-50 to-purple-50 px-10 py-6 rounded-2xl shadow-lg border border-purple-100"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              >
+                <FaCheck className="w-8 h-8 text-purple-600" />
+              </motion.div>
+              <div className="text-left">
+                <p className="text-xl font-bold text-gray-800 mb-1">
+                  Data-Driven, Results-Focused Campaigns
+                </p>
+                <p className="text-gray-600">
+                  From research to optimization, we maximize every dollar spent
+                </p>
+              </div>
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <FaChartLine className="w-8 h-8 text-purple-600" />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Key Benefits Section */}
       <motion.section 
-        className="pt-16 pb-20 px-6 md:px-12 lg:px-24 relative z-10" 
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10" 
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -306,107 +642,19 @@ export default function Sem() {
         viewport={{ once: false }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-              Our SEM{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Process
-              </motion.span>
-            </h3>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
-              Our SEM process includes:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { 
-              title: "Keyword Research & Targeting", 
-              description: "In-depth keyword research & targeting strategy.", 
-              icon: <FaSearch className="w-8 h-8" />,
-              color: "from-blue-500 to-cyan-500"
-            },
-            { 
-              title: "Campaign Setup", 
-              description: "Google Ads & Bing Ads campaign setup.", 
-              icon: <FaGoogle className="w-8 h-8" />,
-              color: "from-purple-500 to-violet-500"
-            },
-            { 
-              title: "Smart Bid Management", 
-              description: "Smart bid management to optimize budget.", 
-              icon: <FaDollarSign className="w-8 h-8" />,
-              color: "from-green-500 to-emerald-500"
-            },
-            { 
-              title: "A/B Testing", 
-              description: "A/B testing for continuous performance improvement.", 
-              icon: <FaCogs className="w-8 h-8" />,
-              color: "from-orange-500 to-amber-500"
-            },
-            { 
-              title: "Custom Ad Copywriting", 
-              description: "Custom ad copywriting to maximize clicks and conversions.", 
-              icon: <FaPaintBrush className="w-8 h-8" />,
-              color: "from-pink-500 to-rose-500"
-            },
-          ].map((item, i) => (
+          <div className="text-center mb-16">
             <motion.div
-              key={i}
-              className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: false }}
-              whileHover={{ y: -8 }}
+              className="inline-block mb-6"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <motion.div
-                  initial={{ scale: 0, rotate: -180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
-                  viewport={{ once: false }}
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300 bg-gradient-to-br ${item.color}`}
-                >
-                  <div className="text-white">
-                    {item.icon}
-                  </div>
-                </motion.div>
-                <h3 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                ⚡ KEY ADVANTAGES
+              </span>
             </motion.div>
-          ))}
-        </div>
-        </div>
-      </motion.section>
 
-      {/* Key Benefits Section */}
-      <motion.section 
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10" 
-        style={{ backgroundColor: '#FFFFFF' }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: false }}
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
             <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
               Key{" "}
               <motion.span 
@@ -443,7 +691,7 @@ export default function Sem() {
               icon: "💰"
             },
           ].map((item, i) => (
-            <motion.div
+              <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -462,23 +710,23 @@ export default function Sem() {
             >
               <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 {item.icon}
-              </div>
+                </div>
               <h3 className="text-xl font-bold mb-3" style={{ color: '#4C1D95' }}>
                 {item.title}
               </h3>
               <p className="leading-relaxed" style={{ color: '#6B7280' }}>
                 {item.description}
               </p>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </motion.section>
 
       {/* Data-Driven Marketing Strategy Section */}
       <motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#F9FAFB' }}
+        style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -486,6 +734,18 @@ export default function Sem() {
       >
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="inline-block mb-6"
+          >
+            <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+              📊 DATA-DRIVEN APPROACH
+            </span>
+          </motion.div>
+
           <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Data-Driven Marketing{" "}
             <motion.span 
@@ -540,7 +800,7 @@ export default function Sem() {
       {/* Precision Audience Targeting Section */}
       <motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#FFFFFF' }}
+        style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -548,6 +808,18 @@ export default function Sem() {
       >
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="inline-block mb-6"
+          >
+            <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+              🎯 PRECISION TARGETING
+            </span>
+          </motion.div>
+
           <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
             Precision Audience{" "}
             <motion.span 
@@ -572,33 +844,49 @@ export default function Sem() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { title: "Geo-Targeted Campaigns", desc: "Geo-targeted and device-based campaigns." },
-              { title: "Retargeting Strategies", desc: "Interest-based and retargeting strategies." },
-              { title: "Lead Generation", desc: "High-quality lead generation tactics." },
+              { title: "Geo-Targeted Campaigns", desc: "Geo-targeted and device-based campaigns.", image: sky8Image },
+              { title: "Retargeting Strategies", desc: "Interest-based and retargeting strategies.", image: aboutImage },
+              { title: "Lead Generation", desc: "High-quality lead generation tactics.", image: soft9Image },
             ].map((item, i) => (
               <motion.div
                 key={i}
-              className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all text-center relative overflow-hidden"
+                className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all relative overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: false }}
-              whileHover={{ y: -8 }}
+                whileHover={{ y: -8, scale: 1.02 }}
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
-              <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 text-white font-bold text-xl rounded-xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+              {/* Image at top */}
+              <div className="relative h-48 overflow-hidden rounded-t-3xl">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                {/* Number badge on image */}
+                <div className="absolute top-4 left-4 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 text-white font-bold text-xl rounded-xl flex items-center justify-center shadow-lg">
                   {i + 1}
                 </div>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6 text-center relative z-10">
                 <h3 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
                   {item.title}
                 </h3>
+                <div className="h-1 w-12 rounded-full mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-blue-600 group-hover:w-full transition-all duration-500"></div>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
+              
+              {/* Bottom shine effect */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
               </motion.div>
             ))}
         </div>
@@ -608,7 +896,7 @@ export default function Sem() {
       {/* Creative Ad Development Section */}
       <motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#F9FAFB' }}
+        style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -616,6 +904,18 @@ export default function Sem() {
       >
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="inline-block mb-6"
+          >
+            <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+              🎨 CREATIVE EXCELLENCE
+            </span>
+          </motion.div>
+
           <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Creative Ad{" "}
             <motion.span 
@@ -640,123 +940,244 @@ export default function Sem() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { title: "Engaging Visuals", desc: "Engaging visuals and clear CTAs." },
-              { title: "Optimized Copy", desc: "Ad copy optimized for relevance and conversions." },
-              { title: "Consistent Branding", desc: "Consistent branding across all platforms." },
+              { title: "Engaging Visuals", desc: "Engaging visuals and clear CTAs.", image: soft9Image },
+              { title: "Optimized Copy", desc: "Ad copy optimized for relevance and conversions.", image: sky8Image },
+              { title: "Consistent Branding", desc: "Consistent branding across all platforms.", image: aboutImage },
             ].map((item, i) => (
-              <motion.div
+            <motion.div
                 key={i}
-              className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all text-center relative overflow-hidden"
+                className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all relative overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: false }}
-              whileHover={{ y: -8 }}
+                whileHover={{ y: -8, scale: 1.02 }}
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
-              <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 text-white font-bold text-xl rounded-xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+              {/* Image at top */}
+              <div className="relative h-48 overflow-hidden rounded-t-3xl">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                {/* Number badge on image */}
+                <div className="absolute top-4 left-4 w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 text-white font-bold text-xl rounded-xl flex items-center justify-center shadow-lg">
                   {i + 1}
                 </div>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6 text-center relative z-10">
                 <h3 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
                   {item.title}
                 </h3>
+                <div className="h-1 w-12 rounded-full mx-auto mb-4 bg-gradient-to-r from-purple-500 to-violet-600 group-hover:w-full transition-all duration-500"></div>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
+              
+              {/* Bottom shine effect */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-violet-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
               </motion.div>
             ))}
         </div>
         </div>
       </motion.section>
 
-      {/* Continuous Optimization Section */}
+      {/* Continuous Optimization & Growth Section - New Design */}
       <motion.section
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#FFFFFF' }}
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10 overflow-hidden"
+        style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
-            Continuous Optimization &{" "}
-            <motion.span 
-              style={{ color: '#000000' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Growth
-            </motion.span>
-          </h2>
-          <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-2" style={{ color: '#6B7280' }}>
-            Your Campaign Never Stops Improving
-          </p>
-          <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
-            Digital marketing is a journey, not a one-time setup. We monitor and refine campaigns continuously to improve ROI, reduce ad waste, and strengthen performance over time.
-          </p>
+        {/* Background Decorations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+              opacity: [0.05, 0.1, 0.05]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-20 -right-20 w-96 h-96 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4C1D9530, #7C3AED20)' }}
+          />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: "Performance Analysis", desc: "Weekly performance analysis.", icon: "📊" },
-              { title: "Competitor Benchmarking", desc: "Competitor benchmarking.", icon: "🎯" },
-              { title: "Strategy Reviews", desc: "Strategy reviews and improvement plans.", icon: "🔄" },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                viewport={{ once: false }}
-                whileHover={{ 
-                  y: -8, 
-                  boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)',
-                  borderColor: '#4C1D95'
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                🔄 CONTINUOUS IMPROVEMENT
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Continuous Optimization &{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
                 }}
-                className="p-8 rounded-2xl shadow-lg border-2 transition-all cursor-pointer group"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderColor: '#E5E7EB'
-                }}
+                transition={{ duration: 3, repeat: Infinity }}
               >
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
+                Growth
+              </motion.span>
+            </h2>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-2" style={{ color: '#6B7280' }}>
+              Your Campaign Never Stops Improving
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Digital marketing is a journey, not a one-time setup. We monitor and refine campaigns continuously to improve ROI, reduce ad waste, and strengthen performance over time.
+            </p>
+          </div>
+
+          {/* Main Content - Split Design */}
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Left Side - Image/Gradient with Stats */}
+              <div className="relative h-full min-h-[500px] overflow-hidden bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600 p-12 flex items-center">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                
+                <div className="relative z-10 text-white">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: false }}
+                  >
+                    <FaChartLine className="w-20 h-20 mb-6" />
+                    <h3 className="text-3xl font-black mb-4">Never Stop Growing</h3>
+                    <p className="text-white/90 text-lg mb-8 leading-relaxed">
+                      We analyze, optimize, and improve your campaigns every week to ensure maximum performance and ROI.
+                    </p>
+                  </motion.div>
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-2 gap-6 mt-8">
+                    {[
+                      { label: "Weekly Reports", value: "52+" },
+                      { label: "Optimizations", value: "200+" },
+                      { label: "A/B Tests", value: "100+" },
+                      { label: "ROI Increase", value: "150%" }
+                    ].map((stat, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: i * 0.1 }}
+                        viewport={{ once: false }}
+                        className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20"
+                      >
+                        <div className="text-3xl font-black mb-1">{stat.value}</div>
+                        <div className="text-sm text-white/80">{stat.label}</div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#4C1D95' }}>
-                  {item.title}
-                </h3>
-                <p className="leading-relaxed" style={{ color: '#6B7280' }}>
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-        </div>
+              </div>
+
+              {/* Right Side - Feature Cards */}
+              <div className="p-12 flex flex-col justify-center">
+                <div className="space-y-6">
+                  {[
+                    { 
+                      title: "Performance Analysis", 
+                      desc: "Weekly performance analysis with detailed insights and actionable recommendations.",
+                      icon: <FaChartLine className="w-6 h-6" />,
+                      color: "from-blue-500 to-cyan-500"
+                    },
+                    { 
+                      title: "Competitor Benchmarking", 
+                      desc: "Stay ahead with regular competitor analysis and market positioning strategies.",
+                      icon: <FaBullseye className="w-6 h-6" />,
+                      color: "from-purple-500 to-violet-500"
+                    },
+                    { 
+                      title: "Strategy Reviews", 
+                      desc: "Monthly strategy reviews and improvement plans to maximize campaign effectiveness.",
+                      icon: <FaLightbulb className="w-6 h-6" />,
+                      color: "from-orange-500 to-amber-500"
+                    },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      viewport={{ once: false }}
+                      whileHover={{ x: 5 }}
+                      className="group flex items-start gap-4 p-5 rounded-2xl border-2 border-gray-100 hover:border-violet-300 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-white to-gray-50"
+                    >
+                      <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br ${item.color}`}>
+                        <div className="text-white">
+                          {item.icon}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-purple-700 transition-colors">
+                          {item.title}
+                        </h4>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                      <div className="flex-shrink-0 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <FaArrowRight className="w-5 h-5" />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.section>
 
       {/* FAQ Section */}
       <motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#F9FAFB' }}
+        style={{ backgroundColor: '#FFFFFF' }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.1 }}
         variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
         <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="inline-block mb-6"
+          >
+            <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+              ❓ COMMON QUESTIONS
+            </span>
+          </motion.div>
+
           <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
             Frequently Asked{" "}
             <motion.span 
@@ -775,7 +1196,7 @@ export default function Sem() {
           </h2>
         </div>
 
-          <div className="space-y-4">
+        <div className="space-y-4">
             {[
               {
                 q: "What makes SEM different from SEO?",
@@ -799,7 +1220,7 @@ export default function Sem() {
               },
             ].map((faq, i) => (
               <FAQItem key={i} faq={faq} index={i} sectionVariant={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }} />
-            ))}
+          ))}
         </div>
         </div>
       </motion.section>
@@ -807,7 +1228,7 @@ export default function Sem() {
       {/* Final CTA */}
       <motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#FFFFFF' }}
+        style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}

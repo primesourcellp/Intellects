@@ -5,6 +5,7 @@ import {
   FaInstagram, 
   FaLinkedinIn, 
   FaYoutube, 
+  FaTwitter,
   FaChartLine, 
   FaBullhorn, 
   FaPenFancy, 
@@ -17,7 +18,18 @@ import {
   FaUsers,
   FaArrowRight,
   FaRocket,
+  FaBullseye,
+  FaCheck,
+  FaCalendarAlt,
+  FaCog,
+  FaLightbulb,
+  FaPalette,
+  FaChartBar,
+  FaEye,
 } from "react-icons/fa";
+import sky8Image from "../../../assets/sky8.jpg";
+import aboutImage from "../../../assets/about.jpg";
+import soft9Image from "../../../assets/soft9.png";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -46,31 +58,29 @@ const TypingText = ({ text, className = "", delay = 0 }) => {
 };
 
 // FAQ Item Component with Toggle
-const FAQItem = ({ faq, index }) => {
+const FAQItem = ({ faq, index, sectionVariant }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div
       key={index}
-      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-l-4"
-      style={{ borderColor: '#4C1D95' }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, amount: 0.1 }}
+      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-2 border-violet-100"
+      variants={sectionVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.1 }}
     >
       <div 
-        className="p-6 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
+        className="p-6 flex justify-between items-center bg-gradient-to-r from-cyan-50 to-blue-50 hover:from-purple-100 hover:to-violet-100 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h4 className="font-bold text-lg text-gray-900">{faq.q}</h4>
+        <h3 className="font-bold text-lg text-gray-900">{faq.q}</h3>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="w-8 h-8 rounded-full flex items-center justify-center"
-          style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+          className="bg-violet-500 p-2 rounded-full"
         >
-          {isOpen ? <FaMinus className="text-white text-xs" /> : <FaPlus className="text-white text-xs" />}
+          {isOpen ? <FaMinus className="text-white text-sm" /> : <FaPlus className="text-white text-sm" />}
         </motion.div>
       </div>
 
@@ -83,7 +93,7 @@ const FAQItem = ({ faq, index }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="px-6 pb-6 pt-2"
           >
-            <p className="text-gray-700 border-t-2 pt-4 leading-relaxed" style={{ borderColor: '#4C1D95' }}>{faq.a}</p>
+            <p className="text-slate-700 border-t-2 border-violet-200 pt-4 leading-relaxed">{faq.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -91,80 +101,7 @@ const FAQItem = ({ faq, index }) => {
   );
 };
 
-export default function SMM() {
-  const managementPoints = [
-    "Social media strategy planning",
-    "Monthly content calendar & post scheduling",
-    "Page management and audience engagement",
-    "Hashtag research and trend optimization"
-  ];
-
-  const benefits = [
-    "Consistent brand visibility",
-    "Stronger customer relationships",
-    "Increased traffic and lead generation"
-  ];
-
-  const adServices = [
-    "Campaign setup and audience segmentation",
-    "Creative design and ad copywriting",
-    "A/B testing for performance improvement",
-    "Conversion tracking and reporting"
-  ];
-
-  const contentCreation = [
-    "Engaging post designs and reels",
-    "Platform-specific content strategies",
-    "Caption writing and storytelling tone"
-  ];
-
-  const analytics = [
-    "Monthly insights and performance reports",
-    "Engagement and follower growth tracking",
-    "Recommendations for improvement"
-  ];
-
-  const continuousSupport = [
-    "Regular content updates",
-    "Trend adaptation",
-    "24/7 monitoring and quick response strategy"
-  ];
-
-  const faqs = [
-    {
-      q: "Which social platforms do you manage?",
-      a: "We handle Facebook, Instagram, LinkedIn, YouTube, and X (Twitter), among others."
-    },
-    {
-      q: "Can I run both organic and paid campaigns together?",
-      a: "Yes, we recommend combining organic growth with targeted paid campaigns for maximum impact."
-    },
-    {
-      q: "How often will you post on my social accounts?",
-      a: "Posting frequency depends on your business goals, but we generally maintain 3–5 high-quality posts per week per platform."
-    },
-    {
-      q: "How do you measure SMM success?",
-      a: "We track KPIs like engagement rate, reach, follower growth, and conversions through detailed analytics reports."
-    },
-    {
-      q: "Is SMM suitable for B2B businesses?",
-      a: "Absolutely. Platforms like LinkedIn and YouTube work exceptionally well for B2B marketing, lead generation, and brand authority."
-    }
-  ];
-
-  const sectionVariant = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
-  const socialPlatforms = [
-    { name: "Facebook", icon: FaFacebookF, color: "from-blue-500 to-blue-600" },
-    { name: "Instagram", icon: FaInstagram, color: "from-purple-500 to-purple-600" },
-    { name: "LinkedIn", icon: FaLinkedinIn, color: "from-blue-600 to-cyan-600" },
-    { name: "YouTube", icon: FaYoutube, color: "from-red-500 to-red-600" },
-  ];
-
+export default function Smm() {
   return (
     <div className="min-h-screen text-gray-800" style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)' }}>
       {/* Animated Background Particles */}
@@ -173,20 +110,28 @@ export default function SMM() {
         <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
       </div>
 
-      {/* Header Section - Home Page Style */}
+      {/* Header Section */}
       <section
-        className="relative min-h-[80vh] flex items-center justify-center px-6 md:px-12 lg:px-24 text-center overflow-hidden mb-24"
-        style={{ backgroundColor: '#FFFFFF' }}
+        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
+        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Background Image */}
         <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={sky8Image}
+            alt="Hero Background"
+            className="w-full h-full object-cover"
+            style={{ opacity: 1 }}
+          />
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-50"
-            style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1920)' }}
-          ></div>
+            className="absolute inset-0" 
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
+            }}
+          />
         </div>
 
-        {/* Floating Decorative Elements */}
+        {/* Floating Icons */}
         <motion.div
           animate={{ 
             y: [0, -20, 0],
@@ -211,212 +156,714 @@ export default function SMM() {
         >
           <div 
             className="w-16 h-16 rounded-full" 
-            style={{ background: 'linear-gradient(135deg, #7C3AED, #4C1D95)' }}
+            style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
           />
         </motion.div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto">
+        <motion.div
+          animate={{ 
+            y: [0, -15, 0],
+            x: [0, 10, 0]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-20 right-20 opacity-20"
+        >
+          <div 
+            className="w-12 h-12 rounded-lg transform -rotate-12" 
+            style={{ background: 'linear-gradient(135deg, #F59E0B, #4C1D95)' }}
+          />
+        </motion.div>
+
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
           style={{ color: '#000000' }}
         >
-          <TypingText text="Social Media " delay={0} />
-          <motion.span 
+          <TypingText text="Social Media Marketing " />
+          <motion.span
             style={{ color: '#4C1D95' }}
-            animate={{ 
+            animate={{
               textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
+                `0 0 20px rgba(76, 29, 149, 0)`,
+                `0 0 20px rgba(76, 29, 149, 0.5)`,
+                `0 0 20px rgba(76, 29, 149, 0)`
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <TypingText text="Marketing" delay={910} />
+            <TypingText text="(SMM)" />
           </motion.span>
         </motion.h1>
+        
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-2xl md:text-3xl font-bold max-w-4xl mx-auto mb-4 relative z-10"
+          style={{ color: '#4C1D95' }}
+        >
+          Building Stronger Brands Through Social Engagement
+        </motion.h2>
         
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
           style={{ color: '#6B7280' }}
         >
-          Transform your social presence into a powerful growth engine. Connect, engage, and grow.
+          At Intellects, we transform your social presence into a powerful growth engine. Our Social Media Marketing (SMM) strategies help your brand connect, engage, and grow across all major platforms — from Facebook and Instagram to LinkedIn and X (Twitter).
         </motion.p>
-        </div>
       </section>
 
-      {/* Social Media Management */}
-      <motion.section className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" initial="hidden" whileInView="visible">
-        <div className="text-center mb-16">
+      {/* Strategic Social Media Management Section */}
+      <motion.section 
+        className="pt-20 pb-20 px-6 md:px-12 lg:px-24 relative z-10" 
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                📱 STRATEGIC MANAGEMENT
+              </span>
+            </motion.div>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+              Strategic Social Media{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Management
+              </motion.span>
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
+              Engage. Inspire. Convert.
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              A successful social media presence starts with a well-defined strategy. Our experts at Intellects plan, design, and execute content that aligns perfectly with your brand voice and business goals.
+            </p>
+          </div>
+
+          {/* Management Services Grid */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: '#4C1D95' }}>
+              Our SMM management includes:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { icon: <FaLightbulb className="w-6 h-6" />, title: "Social media strategy planning", color: "from-blue-500 to-cyan-500" },
+                { icon: <FaCalendarAlt className="w-6 h-6" />, title: "Monthly content calendar & post scheduling", color: "from-purple-500 to-violet-500" },
+                { icon: <FaUsers className="w-6 h-6" />, title: "Page management and audience engagement", color: "from-green-500 to-emerald-500" },
+                { icon: <FaHashtag className="w-6 h-6" />, title: "Hashtag research and trend optimization", color: "from-orange-500 to-amber-500" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: false }}
+                  className="group flex items-center gap-4 p-6 rounded-2xl border-2 border-gray-100 hover:border-violet-300 transition-all duration-300 hover:shadow-lg bg-white"
+                >
+                  <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br ${item.color}`}>
+                    <div className="text-white">
+                      {item.icon}
+                    </div>
+                  </div>
+                  <p className="text-gray-700 font-medium text-lg leading-relaxed flex-1">
+                    {item.title}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Key Benefits */}
+          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-12 border-2 border-purple-100">
+            <h3 className="text-2xl font-bold mb-8 text-center" style={{ color: '#4C1D95' }}>
+              Key Benefits:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { icon: <FaEye className="w-6 h-6" />, title: "Consistent brand visibility" },
+                { icon: <FaHeart className="w-6 h-6" />, title: "Stronger customer relationships" },
+                { icon: <FaChartLine className="w-6 h-6" />, title: "Increased traffic and lead generation" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: false }}
+                  className="flex items-center gap-3 p-5 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center">
+                    <div className="text-white">{item.icon}</div>
+                  </div>
+                  <p className="text-gray-800 font-semibold">{item.title}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Targeted Advertising Campaigns Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                🎯 TARGETED ADVERTISING
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Targeted Advertising{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Campaigns
+              </motion.span>
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
+              Reach Your Ideal Audience with Precision
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              We design and manage paid ad campaigns on platforms like Meta Ads (Facebook & Instagram), LinkedIn Ads, and YouTube to reach users who are most likely to convert.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {[
+              { icon: <FaBullseye className="w-8 h-8" />, title: "Campaign setup and audience segmentation", color: "from-blue-500 to-cyan-500" },
+              { icon: <FaPalette className="w-8 h-8" />, title: "Creative design and ad copywriting", color: "from-purple-500 to-violet-500" },
+              { icon: <FaCog className="w-8 h-8" />, title: "A/B testing for performance improvement", color: "from-green-500 to-emerald-500" },
+              { icon: <FaChartBar className="w-8 h-8" />, title: "Conversion tracking and reporting", color: "from-orange-500 to-amber-500" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className="group relative bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl border-2 border-gray-100 hover:border-violet-300 transition-all duration-500 overflow-hidden"
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                viewport={{ once: false }}
+                whileHover={{ y: -10, scale: 1.03 }}
+              >
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: 'linear-gradient(135deg, #4C1D9510, #7C3AED10)' }}
+                />
+
+                <div className="absolute -top-2 -right-2 w-16 h-16 opacity-20">
+                  <div className={`w-full h-full rounded-full bg-gradient-to-br ${item.color}`}></div>
+                </div>
+
+                <div className="relative z-10 p-8 flex flex-col items-center text-center">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
+                    viewport={{ once: false }}
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300 bg-gradient-to-br ${item.color}`}
+                  >
+                    <div className="text-white">
+                      {item.icon}
+                    </div>
+                  </motion.div>
+
+                  <p className="text-gray-700 text-sm leading-relaxed font-medium">
+                    {item.title}
+                  </p>
+                </div>
+
+                <div className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${item.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+              </motion.div>
+            ))}
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
+            viewport={{ once: false }}
+            className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl p-8 text-center shadow-2xl"
           >
-            <span className="px-6 py-2 bg-gradient-to-r from-purple-500 to-purple-500 text-white text-sm font-bold rounded-full shadow-lg">
-              OUR APPROACH
-            </span>
+            <p className="text-white text-xl font-bold">
+              Result: Maximum reach with minimal ad spend waste.
+            </p>
           </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-            Strategic Social Media{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Management
-            </motion.span>
-          </h2>
         </div>
+      </motion.section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-          {managementPoints.map((item, idx) => (
+      {/* Creative Content & Visual Storytelling Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
             <motion.div
-              key={idx}
-              className="group p-8 bg-white rounded-3xl shadow-xl hover:shadow-2xl border-2 border-purple-100 transition-all"
-              variants={sectionVariant}
-              whileHover={{ y: -8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <FaChartLine className="text-white text-2xl" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-gray-700 font-medium leading-relaxed group-hover:text-gray-600 transition-colors">{item}</p>
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                🎨 CREATIVE STORYTELLING
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+              Creative Content &{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Visual Storytelling
+              </motion.span>
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
+              Your Brand. Your Story. Perfectly Told.
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Our creative team crafts compelling visuals and copy that bring your brand's story to life. From static posts and carousels to videos and reels — we ensure every piece of content captures attention and builds trust.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {[
+              { title: "Engaging post designs and reels", image: soft9Image },
+              { title: "Platform-specific content strategies", image: sky8Image },
+              { title: "Caption writing and storytelling tone", image: aboutImage },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: false }}
+                whileHover={{ y: -8, scale: 1.02 }}
+            >
+              {/* Image at top */}
+              <div className="relative h-48 overflow-hidden rounded-t-3xl">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                {/* Number badge on image */}
+                <div className="absolute top-4 left-4 w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 text-white font-bold text-xl rounded-xl flex items-center justify-center shadow-lg">
+                  {i + 1}
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* Benefits */}
-      <motion.section className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10" initial="hidden" whileInView="visible">
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-100 p-12">
-          <h2 className="text-3xl md:text-4xl font-black mb-8 text-center text-gray-900">
-            Key{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Benefits
-            </motion.span>
-          </h2>
-          <div className="space-y-4">
-            {benefits.map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={sectionVariant}
-                className="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-50 rounded-2xl hover:from-purple-100 hover:to-purple-100 transition-colors"
-              >
-                <FaHeart className="w-6 h-6 text-gray-600 flex-shrink-0" />
-                <p className="text-gray-700 font-medium text-lg">{item}</p>
+              
+              {/* Content */}
+              <div className="p-6 text-center relative z-10">
+                <h3 className="font-bold text-lg text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
+                  {item.title}
+                </h3>
+                <div className="h-1 w-12 rounded-full mx-auto bg-gradient-to-r from-purple-500 to-violet-600 group-hover:w-full transition-all duration-500"></div>
+              </div>
+              
+              {/* Bottom shine effect */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-violet-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
               </motion.div>
             ))}
-        </div>
+          </div>
         </div>
       </motion.section>
 
-      {/* Additional sections would continue here with similar modern, social-media-themed styling... */}
-      {/* For brevity, I'll include the FAQ section and CTA */}
-
-      {/* FAQs */}
+      {/* Performance Analytics & Reporting Section */}
       <motion.section
-        className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
       >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-            Frequently Asked{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
             >
-              Questions
-            </motion.span>
-          </h2>
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                📊 ANALYTICS & REPORTING
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Performance Analytics &{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Reporting
+              </motion.span>
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
+              Every Action Measured, Every Result Improved.
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              We continuously track campaign performance, analyze user behavior, and refine strategies to ensure consistent growth.
+            </p>
+          </div>
+
+          <div className="text-center mb-8">
+            <p className="text-lg font-semibold" style={{ color: '#4C1D95' }}>We provide:</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { icon: <FaChartBar className="w-6 h-6" />, title: "Monthly insights and performance reports", color: "from-blue-500 to-cyan-500" },
+              { icon: <FaChartLine className="w-6 h-6" />, title: "Engagement and follower growth tracking", color: "from-purple-500 to-violet-500" },
+              { icon: <FaLightbulb className="w-6 h-6" />, title: "Recommendations for improvement", color: "from-orange-500 to-amber-500" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: false }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.02,
+                  boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)',
+                }}
+                className="relative p-8 rounded-3xl shadow-lg border-2 border-gray-100 transition-all cursor-pointer group overflow-hidden"
+                style={{ backgroundColor: '#FFFFFF' }}
+              >
+                <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${item.color}`}></div>
+                
+                <div className="relative z-10 text-center">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300 bg-gradient-to-br ${item.color}`}>
+                    <div className="text-white">{item.icon}</div>
+                  </div>
+                  <h3 className="text-lg font-bold mb-3 group-hover:text-purple-700 transition-colors" style={{ color: '#4C1D95' }}>
+                    {item.title}
+                  </h3>
+                </div>
+
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${item.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-3xl`}></div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Continuous Optimization & Support Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10 overflow-hidden"
+        style={{ backgroundColor: '#FFFFFF' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false }}
+      >
+        {/* Background Decorations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+              opacity: [0.05, 0.1, 0.05]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-20 -right-20 w-96 h-96 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, #4C1D9530, #7C3AED20)' }}
+          />
         </div>
 
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                🔄 CONTINUOUS SUPPORT
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              Continuous Optimization &{" "}
+              <motion.span 
+                style={{ color: '#000000' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Support
+              </motion.span>
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#4C1D95' }}>
+              Your Social Growth Partner — Every Step of the Way
+            </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              Social media is always evolving — and so are we. Intellects ensures your brand stays ahead of trends, algorithms, and competitors through continuous innovation and active community engagement.
+            </p>
+          </div>
+
+          <div className="text-center mb-8">
+            <p className="text-lg font-semibold" style={{ color: '#4C1D95' }}>Our support includes:</p>
+          </div>
+
+          {/* Split Design */}
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Left Side - Gradient Panel */}
+              <div className="relative h-full min-h-[400px] overflow-hidden bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600 p-12 flex items-center">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                
+                <div className="relative z-10 text-white">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: false }}
+                  >
+                    <FaRocket className="w-20 h-20 mb-6" />
+                    <h3 className="text-3xl font-black mb-4">Always Evolving</h3>
+                    <p className="text-white/90 text-lg leading-relaxed">
+                      We keep your social media presence fresh, relevant, and engaging with continuous updates and trend adaptation.
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Right Side - Feature List */}
+              <div className="p-12 flex flex-col justify-center">
+                <div className="space-y-6">
+                  {[
+                    { icon: <FaSyncAlt className="w-6 h-6" />, title: "Regular content updates", color: "from-blue-500 to-cyan-500" },
+                    { icon: <FaChartLine className="w-6 h-6" />, title: "Trend adaptation", color: "from-purple-500 to-violet-500" },
+                    { icon: <FaUsers className="w-6 h-6" />, title: "24/7 monitoring and quick response strategy", color: "from-orange-500 to-amber-500" },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      viewport={{ once: false }}
+                      whileHover={{ x: 5 }}
+                      className="group flex items-start gap-4 p-5 rounded-2xl border-2 border-gray-100 hover:border-violet-300 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-white to-gray-50"
+                    >
+                      <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 bg-gradient-to-br ${item.color}`}>
+                        <div className="text-white">
+                          {item.icon}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-gray-800 group-hover:text-purple-700 transition-colors">
+                          {item.title}
+                        </h4>
+                      </div>
+                      <div className="flex-shrink-0 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <FaArrowRight className="w-5 h-5" />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* FAQ Section */}
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#F9FAFB' }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.1 }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-block mb-6"
+            >
+              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                ❓ COMMON QUESTIONS
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+              Frequently Asked{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Questions
+              </motion.span>
+            </h2>
+          </div>
+
           <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-            <FAQItem key={idx} faq={faq} index={idx} />
+            {[
+              {
+                q: "Which social platforms do you manage?",
+                a: "We handle Facebook, Instagram, LinkedIn, YouTube, and X (Twitter), among others."
+              },
+              {
+                q: "Can I run both organic and paid campaigns together?",
+                a: "Yes, we recommend combining organic growth with targeted paid campaigns for maximum impact."
+              },
+              {
+                q: "How often will you post on my social accounts?",
+                a: "Posting frequency depends on your business goals, but we generally maintain 3–5 high-quality posts per week per platform."
+              },
+              {
+                q: "How do you measure SMM success?",
+                a: "We track KPIs like engagement rate, reach, follower growth, and conversions through detailed analytics reports."
+              },
+              {
+                q: "Is SMM suitable for B2B businesses?",
+                a: "Absolutely. Platforms like LinkedIn and YouTube work exceptionally well for B2B marketing, lead generation, and brand authority."
+              },
+            ].map((faq, i) => (
+              <FAQItem key={i} faq={faq} index={i} sectionVariant={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }} />
             ))}
+          </div>
         </div>
       </motion.section>
 
       {/* Final CTA */}
-      <motion.div
-        className="px-6 md:px-12 max-w-6xl mx-auto pb-20 relative z-10"
+      <motion.section
+        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
+        viewport={{ once: false }}
       >
-        <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
-          <div className="absolute inset-0">
-            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+            <div className="absolute top-0 left-0 w-full h-full">
+              <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+              <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            </div>
 
-          <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
-            >
-              <FaRocket className="w-10 h-10 text-white" />
-            </motion.div>
+            <div className="relative z-10">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: false }}
+                className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
+              >
+                <FaRocket className="w-10 h-10 text-white" />
+              </motion.div>
 
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
-              Ready to amplify your social media presence and connect with your audience?
-            </h3>
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
+                Ready to Amplify Your Social Media Presence?
+              </h3>
 
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Let's create engaging content that connects with your audience and drives real results.
-            </p>
+              <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+                Let's create engaging content that connects with your audience and drives real results across all social platforms.
+              </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
-                Start Your Project <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
-                Schedule a Call
-              </button>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
+                  Launch Your Campaign <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
+                  Request Free Consultation
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </motion.div>
+      </motion.section>
     </div>
   );
 }
