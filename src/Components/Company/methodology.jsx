@@ -168,455 +168,526 @@ export default function App() {
         </div>
       </div>
 
-      {/* ======================================================
-          DEVELOPMENT & METHODOLOGY INTRO
-      ====================================================== */}
-      <motion.section
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
-        className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center"
-        style={{ backgroundColor: '#F9FAFB' }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.8 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-          viewport={{ once: true }}
-          className="inline-block mb-4"
-        >
-          <motion.span 
-            className="px-6 py-2 rounded-full font-bold text-sm shadow-lg inline-block" 
-            style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)', color: '#FFFFFF' }}
-            animate={{
-              boxShadow: [
-                '0 4px 15px rgba(76, 29, 149, 0.3)',
-                '0 4px 25px rgba(76, 29, 149, 0.5)',
-                '0 4px 15px rgba(76, 29, 149, 0.3)'
-              ]
-            }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            OUR APPROACH
-          </motion.span>
-        </motion.div>
+      {/* ⚡ DEVELOPMENT & METHODOLOGY INTRO – SUPER ANIMATED EDITION ⚡ */}
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 1.2 }}
+  viewport={{ once: false, amount: 0.25 }}
+  className="py-28 px-6 md:px-16 lg:px-28 text-center relative overflow-hidden"
+  style={{ backgroundColor: "#F9FAFB" }}
+>
 
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.7 }}
-          className="text-3xl md:text-5xl font-bold mb-6" 
-          style={{ color: '#000000' }}
-        >
-          Our Development &{" "}
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Methodology
-          </motion.span>
-        </motion.h2>
-        
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-3xl mx-auto text-xl font-semibold mb-6" 
-          style={{ color: '#4C1D95' }}
-        >
-          Building with Purpose, Delivering with Precision
-        </motion.p>
-        
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed" 
-          style={{ color: '#6B7280' }}
-        >
-          Our approach to development is rooted in agility, collaboration, and continuous improvement. 
-          We understand that every client's journey is unique — that's why Intellects tailors its 
-          methodology to fit your goals, timelines, and business model. We combine deep technical 
-          knowledge with a human-centered mindset to ensure every solution we build is innovative, 
-          reliable, and scalable.
-        </motion.p>
-      </motion.section>
+  {/* 🌌 Floating Gradient Clouds */}
+  <motion.div
+    className="absolute inset-0"
+    animate={{
+      opacity: [0.3, 0.5, 0.3],
+      scale: [1, 1.1, 1]
+    }}
+    transition={{ duration: 8, repeat: Infinity }}
+    style={{
+      background:
+        "radial-gradient(circle, rgba(124,58,237,0.25) 0%, rgba(255,255,255,0) 70%)"
+    }}
+  />
 
-      {/* ======================================================
-          OUR PROVEN METHODOLOGY STEPS
-      ====================================================== */}
-      <motion.section
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
-        className="py-20 sm:py-24 px-6 md:px-16 lg:px-28"
-        style={{ backgroundColor: '#FFFFFF' }}
-      >
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.7 }}
-          className="text-3xl md:text-5xl font-bold mb-6 text-center" 
-          style={{ color: '#000000' }}
-        >
-          Our Proven{" "}
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Methodology
-          </motion.span>
-        </motion.h2>
+  {/* 🚀 Badge with Bounce */}
+  <motion.div
+    initial={{ opacity: 0, y: -50, scale: 0.4 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    transition={{ duration: 0.9, type: "spring", stiffness: 150 }}
+    viewport={{ once: false }}
+    className="inline-block mb-6 relative"
+  >
+    <motion.span
+      className="px-7 py-3 rounded-full font-bold text-sm shadow-xl inline-block tracking-wider uppercase select-none cursor-default"
+      style={{
+        background: "linear-gradient(135deg, #4C1D95, #7C3AED)",
+        color: "#FFFFFF"
+      }}
+      animate={{
+        scale: [1, 1.08, 1],
+        boxShadow: [
+          "0 0 25px rgba(124,58,237,0.9)",
+          "0 0 45px rgba(76,29,149,1)",
+          "0 0 25px rgba(124,58,237,0.9)"
+        ]
+      }}
+      transition={{ duration: 2.2, repeat: Infinity }}
+    >
+      OUR APPROACH
+    </motion.span>
+  </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-center text-lg max-w-3xl mx-auto mb-16"
-          style={{ color: '#6B7280' }}
-        >
-          A systematic approach that ensures success at every stage of your project.
-        </motion.p>
+  {/* 🎥 Hero Heading with Flicker Glow */}
+  <motion.h2
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, type: "spring", stiffness: 120, delay: 0.2 }}
+    className="text-4xl md:text-6xl font-black mb-6 leading-snug tracking-tight"
+    style={{ color: "#020617" }}
+  >
+    Our Development &{" "}
+    <motion.span
+      animate={{
+        color: ["#4C1D95", "#7C3AED", "#4C1D95"],
+        textShadow: [
+          "0 0 10px rgba(124,58,237,0)",
+          "0 0 35px rgba(124,58,237,0.9)",
+          "0 0 10px rgba(124,58,237,0)"
+        ]
+      }}
+      transition={{ duration: 2.5, repeat: Infinity }}
+      style={{ display: "inline-block" }}
+    >
+      Methodology
+    </motion.span>
+  </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {[
-            {
-              number: "01",
-              title: "Discovery & Strategy",
-              text: "We start with understanding — diving deep into your business, audience, and goals to build a solid strategic foundation.",
-              icon: "🔍"
-            },
-            {
-              number: "02",
-              title: "Planning & Design",
-              text: "Our experts design intelligent systems and user-friendly interfaces that balance creativity with functionality.",
-              icon: "📐"
-            },
-            {
-              number: "03",
-              title: "Agile Development",
-              text: "Using an agile framework, we develop in focused sprints, ensuring rapid progress, flexibility, and transparency throughout the process.",
-              icon: "⚡"
-            },
-            {
-              number: "04",
-              title: "Testing & Quality Assurance",
-              text: "Every product undergoes thorough testing to guarantee stability, security, and performance at every level.",
-              icon: "✅"
-            },
-            {
-              number: "05",
-              title: "Deployment & Support",
-              text: "We ensure seamless deployment and provide long-term support so your solutions continue performing as your business scales.",
-              icon: "🚀"
-            },
-            {
-              number: "06",
-              title: "Continuous Improvement",
-              text: "We don't stop at launch. We monitor performance and iterate, ensuring your solution evolves with market needs.",
-              icon: "🔄"
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50, y: 20 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: "easeOut" }}
-              viewport={{ once: false, amount: 0.3 }}
-              whileHover={{ 
-                y: -12,
-                scale: 1.02,
-                boxShadow: '0 25px 50px rgba(76, 29, 149, 0.25)',
-                borderColor: '#4C1D95',
-                transition: { duration: 0.3 }
-              }}
-              className="p-8 rounded-2xl shadow-lg border-2 transition-all cursor-pointer relative overflow-hidden group bg-white"
-              style={{ borderColor: '#E5E7EB' }}
-            >
-              {/* Animated Background Glow */}
-              <motion.div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
-              />
-              
-              {/* Number Badge */}
-              <motion.div 
-                className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg opacity-20 group-hover:opacity-100 transition-opacity" 
-                style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)', color: '#FFFFFF' }}
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.5 }}
-              >
-                {item.number}
-              </motion.div>
+  {/* ⚡ Subtitle Slide-Up */}
+  <motion.p
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.4 }}
+    className="max-w-3xl mx-auto text-2xl font-semibold mb-6"
+    style={{ color: "#5B21B6" }}
+  >
+    Building with Purpose, Delivering with Precision
+  </motion.p>
 
-              {/* Icon */}
-              <motion.div 
-                className="text-5xl mb-4"
-                whileHover={{ 
-                  scale: 1.2,
-                  rotate: [0, -10, 10, 0],
-                  transition: { duration: 0.5 }
-                }}
-              >
-                {item.icon}
-              </motion.div>
+  {/* 📜 Main Text with Wave Reveal */}
+  <motion.p
+    initial={{ opacity: 0 }}
+    whileInView={{
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.6,
+        staggerChildren: 0.015,
+        duration: 0.8
+      }
+    }}
+    className="max-w-4xl mx-auto text-lg leading-relaxed"
+    style={{ color: "#6B7280" }}
+  >
+    Our approach to development is rooted in agility, collaboration, and continuous improvement.
+    We understand that every client's journey is unique — that's why Intellects tailors its
+    methodology to fit your goals, timelines, and business model. We combine deep technical
+    knowledge with a human-centered mindset to ensure every solution we build is
+    innovative, reliable, and scalable.
+  </motion.p>
+</motion.section>
+{/* ✅ Internal CSS required for flip effect */}
+<style>{`
+  .perspective { perspective: 1200px; }
+  .preserve-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+`}</style>
+{/* ✅ Internal CSS for Premium Hover Effect */}
+<style>{`
+  .card-3d {
+    transform: translateZ(0);
+    transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+  }
+  .card-3d:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(124, 58, 237, 0.18);
+    border-color: rgba(124, 58, 237, 0.6);
+  }
 
-              {/* Title */}
-              <motion.h3 
-                className="text-xl sm:text-2xl font-bold mb-3 relative z-10" 
-                style={{ color: '#4C1D95' }}
-                whileHover={{ x: 5, transition: { duration: 0.3 } }}
-              >
-                {item.title}
-              </motion.h3>
+  /* Shine animation */
+  .shine-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg);
+    transition: 0.7s;
+  }
+  .shine-effect:hover::before {
+    left: 150%;
+  }
 
-              {/* Description */}
-              <p className="leading-relaxed relative z-10" style={{ color: '#6B7280' }}>
-                {item.text}
-              </p>
+  /* Floating icon animation */
+  .float-icon {
+    animation: floatIcon 2.4s ease-in-out infinite alternate;
+  }
+  @keyframes floatIcon {
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(-8px) scale(1.15); }
+  }
+`}</style>
 
-              {/* Bottom Accent Line */}
-              <motion.div 
-                className="absolute bottom-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" 
-                style={{ background: 'linear-gradient(90deg, #4C1D95, #7C3AED)' }}
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-              />
-            </motion.div>
-          ))}
+{/* 🚀 PREMIUM HOVER ANIMATION CARD SECTION */}
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto relative z-10">
+  {[
+    {
+      number: "01",
+      title: "Discovery & Strategy",
+      text: "We dive deep into your goals, market and audience to create a roadmap for success.",
+      icon: "🧭",
+      bg: "bg-gradient-to-br from-purple-100 via-white to-purple-200"
+    },
+    {
+      number: "02",
+      title: "Planning & Design",
+      text: "Crafting smart UX + UI that blends aesthetics with usability and innovation.",
+      icon: "🎨",
+      bg: "bg-gradient-to-br from-indigo-100 via-white to-indigo-200"
+    },
+    {
+      number: "03",
+      title: "Agile Development",
+      text: "Rapid iteration + transparency with continuous delivery and improvements.",
+      icon: "⚙️",
+      bg: "bg-gradient-to-br from-blue-100 via-white to-blue-200"
+    },
+    {
+      number: "04",
+      title: "Testing & QA",
+      text: "Performance, security and reliability tested to perfection before launch.",
+      icon: "✅",
+      bg: "bg-gradient-to-br from-emerald-100 via-white to-emerald-200"
+    },
+    {
+      number: "05",
+      title: "Deployment & Support",
+      text: "We launch, monitor, optimize — and stay with you as your business grows.",
+      icon: "📡",
+      bg: "bg-gradient-to-br from-rose-100 via-white to-rose-200"
+    }
+  ].map((item, i) => (
+    <motion.div
+      key={i}
+      className={`shine-effect card-3d ${item.bg} border rounded-3xl p-7 shadow-md cursor-pointer`}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { delay: i * 0.1, duration: 0.6 }
+      }}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <div className="flex flex-col items-start gap-4 relative">
+        <div className="text-5xl float-icon">{item.icon}</div>
+
+        <div className="flex justify-between w-full items-center">
+          <h3 className="text-xl font-bold text-purple-900">
+            {item.title}
+          </h3>
+          <span className="text-sm opacity-40 font-extrabold">
+            {item.number}
+          </span>
         </div>
-      </motion.section>
 
-      {/* ======================================================
-          WHY IT WORKS
-      ====================================================== */}
-      <motion.section
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
-        className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center"
-        style={{ backgroundColor: '#F9FAFB' }}
-      >
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.7 }}
-          className="text-3xl md:text-5xl font-bold mb-8" 
-          style={{ color: '#4C1D95' }}
-        >
-          Why It{" "}
-          <motion.span
-            style={{ color: '#000000' }}
-            animate={{
-              textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Works
-          </motion.span>
-        </motion.h2>
-        <ul className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-base sm:text-lg">
-          {[
-            "✅ Transparent Communication",
-            "⚙️ Agile and Adaptable Process",
-            "🏆 Quality-First Culture",
-            "🤝 Strong Partnership Mindset",
-          ].map((point, i) => (
-            <motion.li
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              whileHover={{ 
-                borderColor: '#4C1D95', 
-                boxShadow: '0 10px 30px rgba(76, 29, 149, 0.2)',
-                scale: 1.03,
-                y: -5,
-                transition: { duration: 0.3 }
-              }}
-              className="p-6 rounded-lg border-2 shadow-sm transition-all text-left font-medium cursor-pointer"
-              style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', color: COLOR_TEXT }}
-            >
-              {point}
-            </motion.li>
-          ))}
-        </ul>
-      </motion.section>
-
-      {/* ======================================================
-          OUR KEY CLIENTS
-      ====================================================== */}
-      <motion.section
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
-        className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center"
-        style={{ backgroundColor: '#FFFFFF' }}
-      >
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.7 }}
-          className="text-3xl md:text-5xl font-bold mb-6" 
-          style={{ color: '#4C1D95' }}
-        >
-          Our Key{" "}
-          <motion.span
-            style={{ color: '#000000' }}
-            animate={{
-              textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Clients
-          </motion.span>
-        </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-4xl mx-auto text-base sm:text-lg mb-8" 
-          style={{ color: COLOR_TEXT }}
-        >
-          Over the years, Intellects has had the privilege of working with a diverse range of
-          clients — from emerging startups to established enterprises across industries like
-          technology, healthcare, retail, and finance. Our clients choose us not just for our
-          skills — but for our commitment to helping them achieve lasting success.
-        </motion.p>
-        <motion.blockquote 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3, type: "spring" }}
-          className="italic text-xl font-semibold mb-10" 
-          style={{ color: '#4C1D95' }}
-        >
-          "Trusted by forward-thinking brands who believe in innovation and excellence."
-        </motion.blockquote>
-      </motion.section>
-
-      {/* ======================================================
-          PARTNERSHIP SECTION + TESTIMONIAL BUTTON
-      ====================================================== */}
-      <motion.section
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
-        className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center"
-        style={{ backgroundColor: '#F9FAFB' }}
-      >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ color: '#4C1D95' }}>
-          <motion.span
-            style={{ color: '#000000' }}
-            animate={{
-              textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Strategic
-          </motion.span>{" "}
-          Partnerships
-        </h2>
-        <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed mb-10" style={{ color: COLOR_TEXT }}>
-          Intellects partners with leading technology providers and platforms to ensure we deliver
-          world-class solutions. Our alliances help us access the best tools, frameworks, and
-          expertise — so our clients always stay ahead in an ever-evolving digital ecosystem.
+        <p className="text-gray-600 leading-relaxed text-sm sm:text-base font-medium">
+          {item.text}
         </p>
+      </div>
+    </motion.div>
+  ))}
+</div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{ 
-            scale: 1.08, 
-            boxShadow: "0 20px 50px rgba(76, 29, 149, 0.6)",
-            y: -3,
-            transition: { duration: 0.3 }
-          }}
-          whileTap={{ scale: 0.95 }}
-          animate={{
-            boxShadow: [
-              '0 10px 30px rgba(76, 29, 149, 0.3)',
-              '0 10px 40px rgba(76, 29, 149, 0.5)',
-              '0 10px 30px rgba(76, 29, 149, 0.3)'
-            ]
-          }}
-          transition={{ duration: 0.6, boxShadow: { duration: 2, repeat: Infinity } }}
-          className="inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold shadow-2xl cursor-pointer transition-transform duration-200 relative overflow-hidden group"
-          style={{ 
-            background: 'linear-gradient(135deg, #4C1D95, #7C3AED)',
-            color: "#FFFFFF",
-          }}
-        >
-          {/* Animated shine effect */}
-          <motion.div
-            className="absolute inset-0 w-full h-full"
-            style={{ 
-              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)'
-            }}
-            animate={{
-              x: ['-100%', '200%']
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatDelay: 1
-            }}
-          />
-          
-          {/* Using the locally defined Link component */}
-          <Link to="/testimonials" className="flex items-center gap-3 text-lg relative z-10">
-            Clients & Partners 
-            <motion.span 
-              className="text-2xl"
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              →
-            </motion.span>
-          </Link>
-        </motion.div>
-      </motion.section>
+
+
+{/* ✅ Internal CSS for Hover & Gradient Animation */}
+<style>{`
+  .why-section-bg {
+    background: linear-gradient(
+      135deg,
+      #F1EAFE 0%,
+      #ECE9FF 30%,
+      #EFEAFF 70%,
+      #E9E2FF 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ✨ Soft Moving Glow Overlay */
+  .why-section-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 35% 25%,
+      rgba(124, 58, 237, 0.18),
+      transparent 65%
+    );
+    animation: glowMove 9s infinite alternate ease-in-out;
+  }
+
+  /* 🌈 Extra Layer for Depth */
+  .why-section-bg::after {
+    content: "";
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 45%;
+    height: 45%;
+    background: radial-gradient(
+      circle,
+      rgba(109, 40, 217, 0.22),
+      transparent 70%
+    );
+    filter: blur(80px);
+    animation: glowPulse 10s infinite alternate ease-in-out;
+  }
+
+  @keyframes glowMove {
+    from { transform: translate(0px, 0px); }
+    to { transform: translate(70px, 50px); }
+  }
+
+  @keyframes glowPulse {
+    from { opacity: 0.35; }
+    to { opacity: 0.65; }
+  }
+
+  /* Premium Cards */
+  .why-card {
+    background: #FFFFFF;
+    border: 2px solid #E5E7EB;
+    border-radius: 18px;
+    transition: all 0.35s ease;
+  }
+
+  .why-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    border-color: #4C1D95;
+    box-shadow: 0 14px 38px rgba(76, 29, 149, 0.22);
+  }
+
+  .icon-float {
+    display: inline-block;
+    transition: transform 0.35s ease;
+  }
+
+  .why-card:hover .icon-float {
+    transform: translateY(-6px) scale(1.12);
+  }
+`}</style>
+
+
+{/* 🌟 WHY IT WORKS — SAME COLOR BACKGROUND EXTENDED */}
+<motion.section
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: false, amount: 0.2 }}
+  className="why-section-bg py-28 px-6 md:px-16 lg:px-32 text-center relative"
+>
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7 }}
+    className="text-3xl md:text-5xl font-extrabold mb-10"
+    style={{ color: '#4C1D95' }}
+  >
+    Why It{" "}
+    <motion.span
+      style={{ color: '#000000' }}
+      animate={{
+        textShadow: [
+          '0 0 10px rgba(76,29,149,0)',
+          '0 0 12px rgba(76,29,149,0.4)',
+          '0 0 10px rgba(76,29,149,0)'
+        ]
+      }}
+      transition={{ duration: 3, repeat: Infinity }}
+    >
+      Works
+    </motion.span>
+  </motion.h2>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    {[
+      { icon: "💬", title: "Transparent Communication" },
+      { icon: "⚙️", title: "Agile & Adaptable Process" },
+      { icon: "🏆", title: "Quality-First Culture" },
+      { icon: "🤝", title: "Strong Partnership Mindset" }
+    ].map((item, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: i * 0.12, duration: 0.55 }
+        }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="why-card p-7 flex items-center gap-4 text-left cursor-pointer"
+      >
+        <span className="text-3xl icon-float">{item.icon}</span>
+        <span className="text-lg font-semibold text-gray-800">{item.title}</span>
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
+
+
+{/* ======================================================
+    OUR KEY CLIENTS
+====================================================== */}
+<motion.section
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: false, amount: 0.2 }}
+  className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center relative"
+  style={{ 
+    background: "linear-gradient(135deg, #EDE9FE, #F5F3FF)" 
+  }}
+>
+  {/* Light glow overlay */}
+  <motion.div
+    className="absolute inset-0 opacity-50"
+    style={{
+      background:
+        "radial-gradient(circle at top left, rgba(124,58,237,0.3), transparent 50%)"
+    }}
+    animate={{ opacity: [0.4, 0.8, 0.4] }}
+    transition={{ duration: 4, repeat: Infinity }}
+  />
+
+  <motion.h2 
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7 }}
+    className="text-3xl md:text-5xl font-bold mb-6 relative z-10"
+    style={{ color: "#4C1D95" }}
+  >
+    Our Key{" "}
+    <motion.span
+      style={{ color: "#000000" }}
+      animate={{
+        textShadow: [
+          `0 0 20px #4C1D9500`,
+          `0 0 20px #4C1D9550`,
+          `0 0 20px #4C1D9500`
+        ]
+      }}
+      transition={{ duration: 3, repeat: Infinity }}
+    >
+      Clients
+    </motion.span>
+  </motion.h2>
+
+  <motion.p 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.2 }}
+    className="max-w-4xl mx-auto text-base sm:text-lg mb-8 relative z-10"
+    style={{ color: "#4B5563" }}
+  >
+    Over the years, Intellects has had the privilege of working with a diverse range of clients —
+from emerging startups to established enterprises across industries like technology,
+healthcare, retail, and finance. Our clients choose us not just for our skills — but for our
+commitment to helping them achieve lasting success
+  </motion.p>
+  <motion.blockquote 
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.7, delay: 0.3, type: "spring" }}
+    className="italic text-xl font-semibold mb-10 relative z-10"
+    style={{ color: "#4C1D95" }}
+  >
+    "Trusted by forward-thinking brands who believe in innovation and excellence."
+  </motion.blockquote>
+</motion.section>
+
+{/* ======================================================
+    PARTNERSHIP SECTION + TESTIMONIAL BUTTON
+====================================================== */}
+<motion.section
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: false, amount: 0.2 }}
+  className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center relative"
+  style={{
+    background: "linear-gradient(135deg, #4C1D95, #1F0C40)",
+    color: "white"
+  }}
+>
+  {/* purple glow waves */}
+  <motion.div
+    className="absolute inset-0"
+    style={{
+      background:
+        "radial-gradient(circle at bottom right, rgba(255,255,255,0.15), transparent 70%)"
+    }}
+    animate={{ opacity: [0.4, 0.8, 0.4] }}
+    transition={{ duration: 5, repeat: Infinity }}
+  />
+
+  <h2 className="text-3xl md:text-5xl font-bold mb-4 relative z-10">
+    <motion.span
+      style={{ color: "#FFFFFF" }}
+      animate={{
+        textShadow: [
+          `0 0 15px #FFFFFF00`,
+          `0 0 15px #FFFFFF77`,
+          `0 0 15px #FFFFFF00`
+        ]
+      }}
+      transition={{ duration: 3, repeat: Infinity }}
+    >
+      Strategic
+    </motion.span>{" "}
+    Partnerships
+  </h2>
+
+  <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed mb-10 relative z-10 text-gray-200">
+    Intellects partners with leading technology providers and platforms to ensure we deliver
+world-class solutions. Our alliances help us access the best tools, frameworks, and
+expertise — so our clients always stay ahead in an ever-evolving digital ecosystem
+  </p>
+
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{ scale: 1.08 }}
+    className="inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold shadow-2xl cursor-pointer relative overflow-hidden group z-10"
+    style={{
+      background: "linear-gradient(135deg, #7C3AED, #C084FC)"
+    }}
+  >
+    <motion.div
+      className="absolute inset-0"
+      style={{
+        background:
+          "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)"
+      }}
+      animate={{ x: ['-100%', '200%'] }}
+      transition={{ duration: 2, repeat: Infinity }}
+    />
+   <Link 
+  to="/testimonials"
+  className="flex items-center gap-3 text-lg relative z-10 text-white"
+>
+  Clients & Partners 
+  <motion.span 
+    className="text-2xl"
+    animate={{ x: [0, 5, 0] }}
+    transition={{ duration: 1.5, repeat: Infinity }}
+  >
+    →
+  </motion.span>
+</Link>
+
+  </motion.div>
+</motion.section>
+
 
       {/* ======================================================
           LET'S GROW TOGETHER (CTA)
