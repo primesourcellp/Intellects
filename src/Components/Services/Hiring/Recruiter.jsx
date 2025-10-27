@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { 
   FaGlobe, 
   FaUserTie, 
@@ -9,14 +10,12 @@ import {
   FaPlus, 
   FaMinus, 
   FaSearch, 
-  FaRocket, 
   FaExchangeAlt, 
   FaBalanceScale,
   FaCheckCircle,
   FaUsers,
-  FaArrowRight,
 } from "react-icons/fa";
-import sky8Image from '../../../assets/sky8.jpg';
+import gif2 from '../../../assets/gif_2.gif';
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -50,26 +49,53 @@ const FAQItem = ({ faq, index }) => {
 
   return (
     <motion.div
-      key={index}
-      className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-l-4"
-      style={{ borderColor: '#4C1D95' }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, amount: 0.1 }}
+      className="rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer overflow-hidden border-2 group"
+      style={{ 
+        borderColor: isOpen ? '#4C1D95' : '#E5E7EB',
+        backgroundColor: '#FFFFFF'
+      }}
+      whileHover={{ scale: 1.01 }}
+      transition={{ duration: 0.2 }}
     >
       <div 
-        className="p-6 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
+        className="p-6 flex items-start gap-4 transition-colors"
+        style={{ backgroundColor: '#FFFFFF' }}
         onClick={() => setIsOpen(!isOpen)}
+        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F3EFF9'}
+        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
       >
-        <h4 className="font-bold text-lg text-gray-900">{faq.q}</h4>
+        {/* Icon */}
+        <motion.div 
+          className="text-3xl flex-shrink-0"
+          animate={{ rotate: isOpen ? 360 : 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {faq.icon}
+        </motion.div>
+
+        {/* Question */}
+        <div className="flex-1">
+          <h4 className="font-bold text-lg text-gray-900 group-hover:text-purple-700 transition-colors">
+            {faq.q}
+          </h4>
+        </div>
+
+        {/* Toggle Button */}
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="w-8 h-8 rounded-full flex items-center justify-center"
-          style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+          style={{ 
+            background: isOpen 
+              ? 'linear-gradient(135deg, #4C1D95, #7C3AED)' 
+              : '#F3F4F6'
+          }}
         >
-          {isOpen ? <FaMinus className="text-white text-xs" /> : <FaPlus className="text-white text-xs" />}
+          {isOpen ? (
+            <FaMinus className="text-white text-sm" />
+          ) : (
+            <FaPlus className="text-gray-600 text-sm" />
+          )}
         </motion.div>
       </div>
 
@@ -80,9 +106,18 @@ const FAQItem = ({ faq, index }) => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="px-6 pb-6 pt-2"
+            className="overflow-hidden"
           >
-            <p className="text-gray-700 border-t-2 pt-4 leading-relaxed" style={{ borderColor: '#4C1D95' }}>{faq.a}</p>
+            <div className="px-6 pb-6 pt-2 pl-20">
+              <div 
+                className="pt-4 border-t-2" 
+                style={{ borderColor: '#E5E7EB' }}
+              >
+                <p className="text-gray-700 leading-relaxed">
+                  {faq.a}
+                </p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -135,23 +170,28 @@ export default function GlobalRecruitments() {
   const faqs = [
     {
       q: "What regions do you recruit from?",
-      a: "We source candidates globally, focusing on regions like Asia, Europe, the Middle East, and North America based on client requirements."
+      a: "We source candidates globally, focusing on regions like Asia, Europe, the Middle East, and North America based on client requirements.",
+      icon: "🌍"
     },
     {
       q: "Can you handle remote and hybrid roles?",
-      a: "Yes, we recruit for onsite, remote, and hybrid positions across multiple industries."
+      a: "Yes, we recruit for onsite, remote, and hybrid positions across multiple industries.",
+      icon: "💼"
     },
     {
       q: "How do you ensure quality in hiring?",
-      a: "Through a structured screening process, skill validation, and thorough background checks before presenting candidates."
+      a: "Through a structured screening process, skill validation, and thorough background checks before presenting candidates.",
+      icon: "✅"
     },
     {
       q: "What industries do you specialize in?",
-      a: "We have expertise across IT, Engineering, Healthcare, Finance, and Administrative roles."
+      a: "We have expertise across IT, Engineering, Healthcare, Finance, and Administrative roles.",
+      icon: "🏢"
     },
     {
       q: "Do you assist with relocation or visa processing?",
-      a: "Yes, we offer complete support for global mobility, including visa documentation and relocation assistance."
+      a: "Yes, we offer complete support for global mobility, including visa documentation and relocation assistance.",
+      icon: "🚀"
     }
   ];
 
@@ -167,7 +207,7 @@ export default function GlobalRecruitments() {
 
 
   return (
-    <div className="min-h-screen text-gray-800" style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)' }}>
+    <div className="min-h-screen text-gray-800" style={{ backgroundColor: '#F3EFF9' }}>
       {/* Animated Background Particles */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute w-96 h-96 rounded-full blur-3xl -top-48 -left-48 animate-pulse" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
@@ -176,25 +216,9 @@ export default function GlobalRecruitments() {
 
       {/* Header Section - Home Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
-        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
+        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-24 shadow-lg overflow-hidden"
+        style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={sky8Image}
-            alt="Hero Background"
-            className="w-full h-full object-cover"
-            style={{ opacity: 1 }}
-          />
-          <div 
-            className="absolute inset-0" 
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
-            }}
-          />
-        </div>
-
         {/* Floating Icons */}
         <motion.div
           animate={{ 
@@ -238,38 +262,62 @@ export default function GlobalRecruitments() {
           />
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight relative z-10"
-          style={{ color: '#000000' }}
-        >
-          <TypingText text="Finding Top Talent " />
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px rgba(76, 29, 149, 0)`,
-                `0 0 20px rgba(76, 29, 149, 0.5)`,
-                `0 0 20px rgba(76, 29, 149, 0)`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
+        {/* Two Column Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto relative z-10">
+          
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <TypingText text="Globally" />
-          </motion.span>
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
-          style={{ color: '#6B7280' }}
-        >
-          Building with Purpose. Delivering with Precision.
-        </motion.p>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
+              style={{ color: '#000000' }}
+            >
+              <TypingText text="Global Recruitments" />
+            </motion.h1>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-2xl md:text-3xl font-semibold mb-6"
+              style={{ color: '#4C1D95' }}
+            >
+              Connecting Global Talent with the Right Opportunities
+            </motion.h2>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl leading-relaxed mb-8"
+              style={{ color: '#6B7280' }}
+            >
+              At Intellects, we bridge the gap between businesses and world-class talent. Our Global Recruitment services are designed to help organizations source, screen, and onboard skilled professionals from across the globe — ensuring the perfect fit for every role.
+            </motion.p>
+          </motion.div>
+
+          {/* Right Column - GIF */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <img 
+              src={gif2} 
+              alt="Global Recruitment Animation" 
+              className="w-full h-auto"
+            />
+          </motion.div>
+
+        </div>
       </section>
 
       <motion.section
@@ -306,166 +354,599 @@ export default function GlobalRecruitments() {
         viewport={{ once: true, amount: 0.2 }}
         variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
-        <div className="text-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-49 items-center">
+          
+          {/* Left Column - Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <span className="px-6 py-2 bg-gradient-to-r from-purple-500 to-teal-500 text-white text-sm font-bold rounded-full shadow-lg">
-              OUR PROCESS
-            </span>
-          </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold" style={{ color: '#000000' }}>
-            Strategic Talent Acquisition{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Pipeline
-            </motion.span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-          {strategyPoints.map((item, idx) => (
             <motion.div
-              key={idx}
-              className="group p-8 bg-white rounded-3xl shadow-xl border-2 border-purple-100 hover:shadow-2xl transition-all flex items-start space-x-4"
-              variants={cardVariant}
-              whileHover={{ y: -5 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-4"
             >
-              <FaSearch className="text-gray-500 text-3xl flex-shrink-0 mt-1" />
-              <p className="text-lg font-medium text-gray-700 group-hover:text-gray-600 transition-colors">{item}</p>
+              <span className="px-7 py-2 bg-gradient-to-r from-purple-500 to-teal-500 text-white text-sm font-bold rounded-full shadow-lg">
+                OUR APPROACH
+              </span>
             </motion.div>
-          ))}
+            
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+              Strategic Talent{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Acquisition
+              </motion.span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
+              Finding the Right Talent, Not Just Any Talent
+            </p>
+            
+            <p className="text-base md:text-lg leading-relaxed" style={{ color: '#6B7280' }}>
+              We believe recruitment is more than just filling positions — it's about building teams that drive success. Our global recruitment strategy focuses on understanding your needs, company culture, and role requirements to find the most qualified professionals.
+            </p>
+          </motion.div>
+
+          {/* Right Column - Points List */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            {strategyPoints.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-start space-x-4 group"
+              >
+                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                  <FaCheckCircle className="text-white text-sm" />
+                </div>
+                <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
         </div>
       </motion.section>
 
       {/* Benefits */}
       <motion.section 
-        className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10" 
+        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
         initial="hidden" 
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
-        <div className="bg-gradient-to-br from-purple-50 to-teal-50 rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-100 p-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center" style={{ color: '#000000' }}>
-            Key Benefits of Global{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
+        <motion.h3 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-3xl font-bold mb-8 text-center"
+          style={{ color: '#4C1D95' }}
+        >
+          Key Benefits:
+        </motion.h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {benefits.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="flex items-start space-x-4 group"
             >
-              Partnership
-            </motion.span>
-          </h2>
-          <div className="space-y-4">
-            {benefits.map((item, idx) => (
-              <motion.div
-                key={idx} 
-                className="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all group"
-                variants={itemVariant}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <FaHandsHelping className="w-6 h-6 text-white" />
-        </div>
-                <span className="text-gray-700 font-semibold text-lg group-hover:text-gray-600 transition-colors">{item}</span>
-              </motion.div>
-            ))}
-        </div>
-        </div>
-      </motion.section>
-
-      {/* FAQs */}
-      <motion.section 
-        className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
-        initial="hidden" 
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-            Frequently Asked{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Questions
-            </motion.span>
-          </h2>
-        </div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => (
-            <FAQItem key={idx} faq={faq} index={idx} />
+              <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                <FaCheckCircle className="text-white text-sm" />
+              </div>
+              <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
+            </motion.div>
           ))}
         </div>
       </motion.section>
 
+      {/* Industry-Specific Recruitment Expertise */}
+      <motion.section 
+        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        initial="hidden" 
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+          
+          {/* Left Column - Content and Points */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-4"
+            >
+              <span className="px-7  bg-gradient-to-r from-purple-500 to-teal-500 text-white text-sm py-2 font-bold rounded-full shadow-lg">
+                INDUSTRY EXPERTISE
+              </span>
+            </motion.div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+              Industry-Specific{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Recruitment
+              </motion.span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
+              Specialized Hiring Across Diverse Sectors
+            </p>
+            
+            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+              Our recruitment experts have extensive experience in multiple industries, allowing us to match the right professionals to the right roles.
+            </p>
+
+            {/* Industry Points */}
+            <div className="space-y-4 mt-8">
+              {industryExpertise.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-4 group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                    <FaCheckCircle className="text-white text-sm" />
+                  </div>
+                  <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img 
+              src={gif2} 
+              alt="Industry Expertise" 
+              className="w-full h-auto rounded-2xl shadow-xl"
+            />
+          </motion.div>
+
+        </div>
+      </motion.section>
+
+      {/* End-to-End Recruitment Support */}
+      <motion.section 
+        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        initial="hidden" 
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+          
+          {/* Left Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img 
+              src={gif2} 
+              alt="End-to-End Recruitment Support" 
+              className="w-full h-auto rounded-2xl shadow-xl"
+            />
+          </motion.div>
+
+          {/* Right Column - Content and Points */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-4"
+            >
+              <span className="px-7 bg-gradient-to-r from-purple-500 to-teal-500 text-white text-sm py-2 font-bold rounded-full shadow-lg">
+                FULL SUPPORT
+              </span>
+            </motion.div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+              End-to-End{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Recruitment Support
+              </motion.span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
+              From Candidate Search to Final Selection
+            </p>
+            
+            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+              We manage the entire recruitment cycle, ensuring a smooth and transparent hiring process for both clients and candidates.
+            </p>
+
+            {/* Recruitment Process Points */}
+            <div className="space-y-4 mt-8">
+              {recruitmentProcess.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-4 group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                    <FaCheckCircle className="text-white text-sm" />
+                  </div>
+                  <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+        </div>
+      </motion.section>
+
+      {/* Data-Driven Hiring Decisions */}
+      <motion.section 
+        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        initial="hidden" 
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+          
+          {/* Left Column - Content and Points */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-4"
+            >
+              <span className="px-7 bg-gradient-to-r from-teal-500 to-purple-500 text-white text-sm py-2 font-bold rounded-full shadow-lg">
+                ANALYTICS POWERED
+              </span>
+            </motion.div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+              Data-Driven{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Hiring Decisions
+              </motion.span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
+              Recruitment Backed by Insights and Analytics
+            </p>
+            
+            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+              We use advanced tools and analytics to improve hiring accuracy and efficiency. Every recruitment decision is supported by measurable data and performance tracking.
+            </p>
+
+            {/* Data-Driven Points */}
+            <div className="space-y-4 mt-8">
+              {dataDriven.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-4 group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                    <FaCheckCircle className="text-white text-sm" />
+                  </div>
+                  <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img 
+              src={gif2} 
+              alt="Data-Driven Hiring" 
+              className="w-full h-auto rounded-2xl shadow-xl"
+            />
+          </motion.div>
+
+        </div>
+      </motion.section>
+
+      {/* Continuous Support & Global Compliance */}
+      <motion.section 
+        className="py-20 px-6 md:px-12 max-w-7xl mx-auto relative z-10" 
+        initial="hidden" 
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+          
+          {/* Left Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img 
+              src={gif2} 
+              alt="Continuous Support & Global Compliance" 
+              className="w-full h-auto rounded-2xl shadow-xl"
+            />
+          </motion.div>
+
+          {/* Right Column - Content and Points */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-4"
+            >
+              <span className="px-7 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm py-2 font-bold rounded-full shadow-lg">
+                LONG-TERM PARTNERSHIP
+              </span>
+            </motion.div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
+              Continuous Support &{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Global Compliance
+              </motion.span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
+              Your Long-Term Recruitment Partner
+            </p>
+            
+            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+              Intellects stays committed beyond placement. We ensure compliance with international employment regulations and provide ongoing consultation to support your global workforce strategy.
+            </p>
+
+            {/* Continuous Support Points */}
+            <div className="space-y-4 mt-8">
+              {continuousSupport.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-4 group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                    <FaCheckCircle className="text-white text-sm" />
+                  </div>
+                  <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+        </div>
+      </motion.section>
+
+      {/* FAQs */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden" style={{ backgroundColor: '#F3EFF9' }}>
+        {/* Background Decoration */}
+        <div className="absolute top-20 right-10 w-64 h-64 rounded-full opacity-5" style={{ background: 'radial-gradient(circle, #4C1D95, transparent)' }} />
+        <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full opacity-5" style={{ background: 'radial-gradient(circle, #7C3AED, transparent)' }} />
+        
+        <div className="max-w-5xl mx-auto relative z-10">
+          {/* Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <motion.h2 
+              className="text-3xl md:text-5xl font-bold mb-6" 
+              style={{ color: '#000000' }}
+            >
+              Frequently Asked{" "}
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Questions
+              </motion.span>
+            </motion.h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
+              Get answers to common questions about our global recruitment services.
+            </p>
+          </motion.div>
+
+          {/* FAQ Items */}
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+          >
+            {faqs.map((faq, i) => (
+              <motion.div
+                key={i}
+                className={i === 4 ? "lg:col-span-2" : ""}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <FAQItem faq={faq} index={i} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <motion.div
-        className="px-6 md:px-12 max-w-6xl mx-auto pb-20 relative z-10"
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
+        viewport={{ once: true }}
       >
-        <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
           <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
             <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
+          </div>
 
           <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight"
             >
-              <FaRocket className="w-10 h-10 text-white" />
+              Ready to Transform Your Business?
+            </motion.h3>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
+            >
+              Let's connect you with world-class talent to drive your business forward.
+            </motion.p>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="flex items-center justify-center"
+            >
+              <Link
+                to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="group px-10 py-4 bg-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                style={{ color: '#4C1D95' }}
+              >
+                Start Your Project
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </motion.div>
-
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
-              Ready to find world-class talent to drive your business forward?
-            </h3>
-
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Let's connect you with the perfect candidates to drive your business forward.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
-                Start Your Project <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
-                Schedule a Call
-              </button>
-            </div>
           </div>
         </div>
       </motion.div>
