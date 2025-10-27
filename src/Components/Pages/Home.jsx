@@ -48,7 +48,7 @@ const FlipCard = ({ service, index }) => {
   return (
     <motion.div
       variants={fadeInUp}
-      className="relative w-full h-[400px] max-w-[450px] mx-auto"
+      className="relative w-full h-[320px] max-w-[350px] mx-auto"
       style={{ perspective: '1200px' }}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
@@ -78,15 +78,15 @@ const FlipCard = ({ service, index }) => {
             />
             {/* Gradient Overlay */}
             <div
-              className="absolute inset-0 opacity-85"
+              className="absolute inset-0 opacity-30"
               style={{ background: service.gradient }}
             />
             {/* Title on Front */}
             <div
-              className="absolute bottom-0 left-0 right-0 p-10 text-white"
+              className="absolute bottom-0 left-0 right-0 p-6 text-white"
               style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3))' }}
             >
-              <h3 className="text-3xl font-semibold m-0 leading-tight">
+              <h3 className="text-2xl font-semibold m-0 leading-tight">
                 {service.title}
               </h3>
             </div>
@@ -95,18 +95,18 @@ const FlipCard = ({ service, index }) => {
 
         {/* Back Side - Content */}
         <div
-          className="absolute w-full h-full rounded-2xl bg-white border-2 shadow-2xl p-12 flex flex-col justify-center items-center text-center"
+          className="absolute w-full h-full rounded-2xl bg-white border-2 shadow-2xl p-8 flex flex-col justify-center items-center text-center"
           style={{ 
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
-            borderColor: '#6CB28E',
-            boxShadow: '0 10px 30px rgba(108, 178, 142, 0.25)'
+            borderColor: '#4C1D95',
+            boxShadow: '0 10px 30px rgba(76, 29, 149, 0.25)'
           }}
         >
-          <h3 className="text-3xl font-semibold mb-5 leading-tight" style={{ color: '#6CB28E' }}>
+          <h3 className="text-2xl font-semibold mb-4 leading-tight" style={{ color: '#4C1D95' }}>
             {service.title}
           </h3>
-          <p className="text-gray-600 text-base leading-relaxed m-0">
+          <p className="text-gray-600 text-sm leading-relaxed m-0">
             {service.desc}
           </p>
         </div>
@@ -143,26 +143,53 @@ export default function Home() {
 
     return (
       <motion.div
-        key={index}
-        className="rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden bg-white border-l-4"
-        style={{ borderColor: '#4C1D95' }}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        viewport={{ once: true, amount: 0.1 }}
+        className="rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer overflow-hidden border-2 group"
+        style={{ 
+          borderColor: isOpen ? '#4C1D95' : '#E5E7EB',
+          backgroundColor: '#FFFFFF'
+        }}
+        whileHover={{ scale: 1.01 }}
+        transition={{ duration: 0.2 }}
       >
         <div 
-          className="p-6 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
+          className="p-6 flex items-start gap-4 transition-colors"
+          style={{ backgroundColor: '#FFFFFF' }}
           onClick={() => setIsOpen(!isOpen)}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F3EFF9'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
         >
-          <h4 className="font-bold text-lg text-gray-900">{faq.q}</h4>
+          {/* Icon */}
+          <motion.div 
+            className="text-3xl flex-shrink-0"
+            animate={{ rotate: isOpen ? 360 : 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {faq.icon}
+          </motion.div>
+
+          {/* Question */}
+          <div className="flex-1">
+            <h4 className="font-bold text-lg text-gray-900 group-hover:text-purple-700 transition-colors">
+              {faq.q}
+            </h4>
+          </div>
+
+          {/* Toggle Button */}
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
-            className="w-8 h-8 rounded-full flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+            style={{ 
+              background: isOpen 
+                ? 'linear-gradient(135deg, #4C1D95, #7C3AED)' 
+                : '#F3F4F6'
+            }}
           >
-            {isOpen ? <FaMinus className="text-white text-xs" /> : <FaPlus className="text-white text-xs" />}
+            {isOpen ? (
+              <FaMinus className="text-white text-sm" />
+            ) : (
+              <FaPlus className="text-gray-600 text-sm" />
+            )}
           </motion.div>
         </div>
 
@@ -173,9 +200,18 @@ export default function Home() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="px-6 pb-6 pt-2"
+              className="overflow-hidden"
             >
-              <p className="text-gray-700 border-t-2 pt-4 leading-relaxed" style={{ borderColor: '#4C1D95' }}>{faq.a}</p>
+              <div className="px-6 pb-6 pt-2 pl-20">
+                <div 
+                  className="pt-4 border-t-2" 
+                  style={{ borderColor: '#E5E7EB' }}
+                >
+                  <p className="text-gray-700 leading-relaxed">
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -184,7 +220,7 @@ export default function Home() {
   };
 
   return (
-    <div className="overflow-x-hidden" style={{ backgroundColor: '#F9FAFB', color: '#1F2937' }}>
+    <div className="overflow-x-hidden" style={{ backgroundColor: '#F3EFF9', color: '#1F2937' }}>
       {/* Luxury Elegant Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -223,7 +259,7 @@ export default function Home() {
       ======================================== */}
       <section
         className="relative py-20 md:py-32 px-6 md:px-12 lg:px-24 shadow-lg overflow-hidden"
-        style={{ backgroundColor: '#FFFFFF', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
+        style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
         <motion.div
@@ -278,7 +314,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-left"
           >
-            <motion.h1 
+        <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -286,61 +322,61 @@ export default function Home() {
               style={{ color: '#000000' }}
             >
               <TypingText text="Turning Ambitious Ideas into " />
-              <motion.span
-                style={{ color: '#4C1D95' }}
-                animate={{
-                  textShadow: [
+          <motion.span 
+            style={{ color: '#4C1D95' }}
+            animate={{ 
+              textShadow: [
                     `0 0 20px rgba(76, 29, 149, 0)`,
                     `0 0 20px rgba(76, 29, 149, 0.5)`,
                     `0 0 20px rgba(76, 29, 149, 0)`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
                 <TypingText text="Real-World Impact" />
-              </motion.span>
-            </motion.h1>
-            
-            <motion.p 
+          </motion.span>
+        </motion.h1>
+        
+        <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg md:text-xl font-light leading-relaxed mb-8" 
-              style={{ color: '#6B7280' }}
-            >
+          style={{ color: '#6B7280' }}
+        >
               Welcome to <span className="font-semibold" style={{ color: '#4C1D95' }}>Intellects</span>, where technology, creativity, and strategy come together to move your business forward.
-            </motion.p>
-            
-            <motion.div 
+        </motion.p>
+        
+        <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex gap-4"
-            >
-              <motion.div
-                whileHover={{ scale: 1.1, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to="/contact"
+        >
+          <motion.div
+            whileHover={{ scale: 1.1, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link
+              to="/contact"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                   className="font-bold px-8 py-4 rounded-full shadow-xl transition inline-flex items-center gap-3"
-                  style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)', color: '#FFFFFF', boxShadow: '0 25px 50px -12px rgba(30, 58, 138, 0.25)' }}
-                >
-                  <span>Schedule Your Free Consultation</span>
-                  <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    →
-                  </motion.span>
-                </Link>
+              style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)', color: '#FFFFFF', boxShadow: '0 25px 50px -12px rgba(30, 58, 138, 0.25)' }}
+            >
+              <span>Schedule Your Free Consultation</span>
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                →
+              </motion.span>
+            </Link>
               </motion.div>
-            </motion.div>
           </motion.div>
+        </motion.div>
 
           {/* Right Column - GIF */}
-          <motion.div
+        <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -351,7 +387,7 @@ export default function Home() {
               alt="Header Animation" 
               className="w-full h-auto"
             />
-          </motion.div>
+            </motion.div>
 
         </div>
 
@@ -366,7 +402,7 @@ export default function Home() {
         viewport={{ once: true, amount: 0.3 }}
         variants={scaleIn}
         className="py-24 px-6 md:px-12 lg:px-24 border-b"
-        style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB' }}
+        style={{ backgroundColor: '#F8F5FC', borderColor: '#E5E7EB' }}
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text */}
@@ -421,7 +457,7 @@ export default function Home() {
       {/* ========================================
         SERVICES SECTION 
       ======================================== */}
-      <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFFFF' }}>
+      <section className="py-24 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#F8F5FC' }}>
         <motion.h2 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp} className="text-3xl md:text-5xl font-bold text-center mb-6" style={{ color: '#000000' }}>
           Our{" "}
           <motion.span
@@ -449,26 +485,26 @@ export default function Home() {
               icon: '💻',
               desc: 'We build secure, scalable, and future-ready software that transforms ideas into powerful digital solutions. From web and mobile applications to enterprise systems, Intellects develops custom solutions tailored to your needs — ensuring seamless performance and real business impact.',
               image: aboutImage,
-              bgColor: '#E8F4F0',
-              gradient: 'linear-gradient(135deg, #6CB28E 0%, #7BA9E1 100%)'
+              bgColor: '#E8E4F3',
+              gradient: 'linear-gradient(135deg, #4C1D95 0%)'
             },
             { 
               title: 'Digital Marketing',
               icon: '📈',
               desc: 'Our marketing team at Intellects helps brands connect, convert, and grow through smart digital strategy. In the rapidly evolving digital landscape, standing out is crucial for success. Our digital marketing experts at Intellects create data-driven strategies that boost brand presence, engage your audience, and generate measurable results across all platforms — SEO, PPC, social media, and beyond.',
               image: sky8Image,
-              bgColor: '#FFF4E6',
-              gradient: 'linear-gradient(135deg, #F7B267 0%, #6CB28E 100%)'
+              bgColor: '#EDE9F7',
+              gradient: 'linear-gradient(135deg, #4C1D95 0%)'
             },
             { 
               title: 'HR Consulting', 
               icon: '👥',
               desc: 'People are the foundation of every great business. With Intellects, you gain strategic HR solutions that help you attract top talent, strengthen your workforce, and build a culture that drives performance and growth.',
               image: aboutImage,
-              bgColor: '#E8F3FB',
-              gradient: 'linear-gradient(135deg, #7BA9E1 0%, #A8D5BA 100%)'
+              bgColor: '#F3EEFA',
+              gradient: 'linear-gradient(135deg, #4C1D95 0%)'
             }
-          ].map((service, i) => (
+            ].map((service, i) => (
             <FlipCard key={i} service={service} index={i} />
           ))}
         </motion.div>
@@ -477,7 +513,7 @@ export default function Home() {
       {/* ========================================
         WHY CHOOSE SECTION
       ======================================== */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 border-t" style={{ backgroundColor: '#F9FAFB', borderColor: '#E5E7EB' }}>
+      <section className="py-24 px-6 md:px-12 lg:px-24 border-t" style={{ backgroundColor: '#F3EFF9', borderColor: '#E5E7EB' }}>
         <motion.h2 
           initial="hidden" 
           whileInView="show" 
@@ -556,75 +592,46 @@ export default function Home() {
               key={i}
               variants={fadeInUp}
               whileHover={{ 
-                y: -8, 
-                boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)',
+                y: -12, 
+                scale: 1.03,
+                boxShadow: '0 25px 50px rgba(76, 29, 149, 0.3)',
                 borderColor: '#4C1D95'
               }}
-              className="p-8 rounded-2xl shadow-lg border-2 transition-all cursor-pointer group"
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="p-8 rounded-2xl shadow-lg border-2 cursor-pointer group relative overflow-hidden"
               style={{
-                backgroundColor: '#FFFFFF',
+                backgroundColor: '#F8F5FC',
                 borderColor: '#E5E7EB'
               }}
             >
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
+              {/* Animated background gradient on hover */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)'
+                }}
+              />
+              
+              <div className="relative z-10">
+                <motion.div 
+                  className="text-5xl mb-4"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {item.icon}
+                </motion.div>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-[#7C3AED] transition-colors duration-300" style={{ color: '#4C1D95' }}>
+                  {item.title}
+                </h3>
+                <p className="leading-relaxed" style={{ color: '#6B7280' }}>
+                  {item.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: '#4C1D95' }}>
-                {item.title}
-              </h3>
-              <p className="leading-relaxed" style={{ color: '#6B7280' }}>
-                {item.description}
-              </p>
             </motion.div>
           ))}
         </motion.div>
       </section>
-
-      {/* ========================================
-        CAREERS SECTION 
-      ======================================== */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={fadeInUp}
-        className="py-24 px-6 md:px-12 lg:px-24 text-center"
-        style={{ backgroundColor: '#FFFFFF' }}
-      >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
-          Careers at{" "}
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Intellects
-          </motion.span>
-        </h2>
-        <p className="max-w-3xl mx-auto leading-relaxed mb-8 text-lg" style={{ color: '#6B7280' }}>
-          Grow Your Future with a Team That Values You. We're always searching for curious minds — developers, strategists, creatives, and
-          consultants — who want to shape the future of IT consulting.
-        </p>
-        <Link
-          to="/career"
-          className="inline-block border-2 font-bold px-8 py-3 rounded-full shadow-md transition transform hover:scale-105"
-          style={{
-            borderColor: '#4C1D95',
-            color: '#4C1D95',
-            boxShadow: '0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06)',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#4C1D95'; e.currentTarget.style.color = '#FFFFFF'; }}
-          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#4C1D95'; }}
-        >
-          Join Our Team
-        </Link>
-      </motion.section>
 
       {/* ========================================
         VISION SECTION 
@@ -632,75 +639,167 @@ export default function Home() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={fadeInUp}
-        className="py-24 px-6 md:px-12 lg:px-24 text-center border-t"
-        style={{ backgroundColor: '#FFFFFF', borderColor: '#E5E7EB' }}
+        viewport={{ once: true, amount: 0.3 }}
+        variants={scaleIn}
+        className="py-24 px-6 md:px-12 lg:px-24 border-t"
+        style={{ backgroundColor: '#F8F5FC', borderColor: '#E5E7EB' }}
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
-          Your Vision, Our{" "}
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px ${'#4C1D95'}00`,
-                `0 0 20px ${'#4C1D95'}50`,
-                `0 0 20px ${'#4C1D95'}00`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            Engineering Expertise
-          </motion.span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+              Your Vision, Our{" "}
+              <motion.span
+                style={{ color: '#4C1D95' }}
+                animate={{
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Engineering Expertise
+              </motion.span>
         </h2>
-        <p className="max-w-3xl mx-auto leading-relaxed text-lg" style={{ color: '#6B7280' }}>
+            <p className="text-lg md:text-xl leading-relaxed mb-4" style={{ color: '#6B7280' }}>
           Our team combines creativity with technical excellence to
-          turn your ideas into scalable, high-performing solutions. Your vision
-          is our blueprint — and innovation is our craft.
-        </p>
+              turn your ideas into scalable, high-performing solutions.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+              Your vision is our blueprint — and innovation is our craft.
+            </p>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={sky8Image} 
+                alt="Vision and Engineering" 
+                className="w-full h-auto object-cover"
+                style={{ 
+                  borderRadius: '1rem',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                }}
+              />
+              {/* Decorative overlay */}
+              <div 
+                className="absolute inset-0 rounded-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%)',
+                  pointerEvents: 'none'
+                }}
+              />
+            </div>
+          </motion.div>
+
+        </div>
       </motion.section>
 
       {/* ========================================
         FAQ SECTION (+ / - toggle)
       ======================================== */}
-      <motion.section
-        className="py-20 px-6 md:px-12 max-w-6xl mx-auto relative z-10"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
-            Frequently Asked{" "}
-            <motion.span 
-              style={{ color: '#4C1D95' }}
-              animate={{ 
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
+      <section className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden" style={{ backgroundColor: '#F3EFF9' }}>
+        {/* Background Decoration */}
+        <div className="absolute top-20 right-10 w-64 h-64 rounded-full opacity-5" style={{ background: 'radial-gradient(circle, #4C1D95, transparent)' }} />
+        <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full opacity-5" style={{ background: 'radial-gradient(circle, #7C3AED, transparent)' }} />
+        
+        <div className="max-w-5xl mx-auto relative z-10">
+          {/* Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <motion.h2 
+              className="text-3xl md:text-5xl font-bold mb-6" 
+              style={{ color: '#000000' }}
             >
-              Questions
-            </motion.span>
-          </h2>
-        </div>
+              Frequently Asked{" "}
+                <motion.span
+                  style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Questions
+                </motion.span>
+            </motion.h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
+              Get answers to common questions about our services, process, and approach.
+            </p>
+          </motion.div>
 
-        <div className="space-y-4">
-          {[
-            { q: "What services does Intellects provide?", a: "Intellects offers IT consulting services including Software Development, Digital Marketing, and HR Consulting — helping businesses grow smarter and perform better." },
-            { q: "How does Intellects ensure quality in its projects?", a: "Every project follows our agile development methodology, with continuous testing, clear communication, and client feedback loops to maintain the highest quality standards." },
-            { q: "Which industries does Intellects work with?", a: "We work across technology, retail, healthcare, education, and finance industries — customizing every solution to fit each client's unique needs." },
-            { q: "Why should I choose Intellects for my business?", a: "We combine technical excellence, creative strategy, and transparent collaboration to deliver long-term results. At Intellects, we measure success by your satisfaction and growth." },
-            { q: "How can I start working with Intellects?", a: "Simply reach out to us through our contact form or email. Our consulting team will connect with you to understand your goals and craft a solution tailored to your business vision." },
-          ].map((item, i) => (
-            <FAQItem key={i} faq={item} index={i} />
+          {/* FAQ Items */}
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+          >
+            {[
+              { 
+                q: "What services does Intellects provide?", 
+                a: "Intellects offers comprehensive IT consulting services including Software Development, Digital Marketing, and HR Consulting — helping businesses grow smarter and perform better.",
+                icon: "🎯"
+              },
+              { 
+                q: "How does Intellects ensure quality in its projects?", 
+                a: "Every project follows our agile development methodology, with continuous testing, clear communication, and client feedback loops to maintain the highest quality standards.",
+                icon: "✅"
+              },
+              { 
+                q: "Which industries does Intellects work with?", 
+                a: "We work across technology, retail, healthcare, education, and finance industries — customizing every solution to fit each client's unique needs.",
+                icon: "🏢"
+              },
+              { 
+                q: "Why should I choose Intellects for my business?", 
+                a: "We combine technical excellence, creative strategy, and transparent collaboration to deliver long-term results. At Intellects, we measure success by your satisfaction and growth.",
+                icon: "⭐"
+              },
+              { 
+                q: "How can I start working with Intellects?", 
+                a: "Simply reach out to us through our contact form or email. Our consulting team will connect with you to understand your goals and craft a solution tailored to your business vision.",
+                icon: "🚀"
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className={i === 4 ? "lg:col-span-2" : ""}
+                  initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <FAQItem faq={item} index={i} />
+            </motion.div>
           ))}
+        </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       {/* ========================================
         CALL TO ACTION SECTION
@@ -742,34 +841,24 @@ export default function Home() {
               Let's create something extraordinary together. We're here to make it happen.
             </motion.p>
 
-            {/* Action Buttons */}
+            {/* Action Button */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="flex flex-wrap items-center justify-center gap-4"
+              className="flex items-center justify-center"
             >
               <Link
                 to="/contact"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="group px-8 py-3 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                className="group px-10 py-4 bg-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2"
                 style={{ color: '#4C1D95' }}
               >
                 Start Your Project
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </Link>
-              
-              <Link
-                to="/contact"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white transition-all duration-300 hover:scale-105"
-                onMouseEnter={e => { e.currentTarget.style.color = '#4C1D95'; e.currentTarget.style.backgroundColor = '#FFFFFF'; }}
-                onMouseLeave={e => { e.currentTarget.style.color = '#FFFFFF'; e.currentTarget.style.backgroundColor = 'transparent'; }}
-              >
-                Schedule a Call
               </Link>
             </motion.div>
           </div>

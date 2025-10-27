@@ -84,7 +84,6 @@ export default function Navbar() {
                 <div>
                   <span className="mb-2 block text-sm font-semibold text-slate-900">Resources</span>
                   <div className="flex flex-col">
-                    {dropdownItem('/blog', 'Blog & Insights')}
                     {dropdownItem('/testimonials', 'Client & Testimonials')}
                   </div>
                 </div>
@@ -203,7 +202,6 @@ export default function Navbar() {
                           exit={{ height: 0, opacity: 0 }}
                           className="ml-4 flex flex-col gap-1 overflow-hidden"
                         >
-                          {dropdownItem('/blog', 'Blog & Insights')}
                           {dropdownItem('/testimonials', 'Client & Testimonials')}
                         </motion.div>
                       )}
