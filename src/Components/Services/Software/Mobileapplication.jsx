@@ -547,17 +547,17 @@ export default function Mobileapplication() {
                   transition={{ duration: 0.3 }}
                 >
                   {/* Glowing Effect on Hover */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-purple-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
                   
                   {/* Content Box */}
-                  <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-gray-100 group-hover:border-cyan-300 transition-all duration-300 overflow-hidden">
+                  <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-gray-100 group-hover:border-purple-300 transition-all duration-300 overflow-hidden">
                     {/* Animated Background Shimmer */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-cyan-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-purple-100/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     {/* Step Number Badge */}
                     <motion.div
                       className="absolute -top-5 -left-5 w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl z-10"
-                      style={{ background: 'linear-gradient(135deg, #3B82F6, #06B6D4)' }}
+                      style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                       initial={{ scale: 0, rotate: -90 }}
                       whileInView={{ scale: 1, rotate: 0 }}
                       transition={{ duration: 0.5, delay: i * 0.12 + 0.2, type: "spring", stiffness: 200 }}
@@ -570,7 +570,7 @@ export default function Mobileapplication() {
                     {/* Content */}
                     <div className="relative z-10">
                       <motion.h4 
-                        className="text-2xl md:text-3xl font-black mb-4 text-gray-800 group-hover:text-cyan-600 transition-colors"
+                        className="text-2xl md:text-3xl font-black mb-4 text-gray-800 group-hover:text-purple-600 transition-colors"
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.12 + 0.3, duration: 0.5 }}
@@ -582,7 +582,7 @@ export default function Mobileapplication() {
                       {/* Animated Progress Bar */}
                       <motion.div
                         className="h-1.5 rounded-full mb-5"
-                        style={{ background: 'linear-gradient(90deg, #3B82F6, #06B6D4, #8B5CF6)' }}
+                        style={{ background: 'linear-gradient(90deg, #4C1D95, #7C3AED, #8B5CF6)' }}
                         initial={{ width: 60 }}
                         whileInView={{ width: '100%' }}
                         transition={{ delay: i * 0.12 + 0.4, duration: 0.6 }}
@@ -601,7 +601,7 @@ export default function Mobileapplication() {
                     </div>
 
                     {/* Corner Decorative Element */}
-                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-cyan-200/30 to-blue-200/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-purple-200/30 to-purple-300/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
 
                   {/* Connecting Line to Next Step */}
@@ -611,7 +611,7 @@ export default function Mobileapplication() {
                         step.align === 'center' ? 'left-1/2 -translate-x-1/2' : 
                         step.align === 'left' ? 'left-1/3' : 'right-1/3'
                       } top-full w-0.5 h-16 z-0`}
-                      style={{ background: 'linear-gradient(180deg, #3B82F6, #06B6D4)' }}
+                      style={{ background: 'linear-gradient(180deg, #4C1D95, #7C3AED)' }}
                       initial={{ scaleY: 0, opacity: 0 }}
                       whileInView={{ scaleY: 1, opacity: 0.4 }}
                       transition={{ delay: i * 0.12 + 0.6, duration: 0.4 }}
@@ -619,7 +619,7 @@ export default function Mobileapplication() {
                     >
                       {/* Animated Dot Traveling Down */}
                       <motion.div
-                        className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-lg"
+                        className="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-purple-500 shadow-lg"
                         animate={{ y: [0, 64, 0], opacity: [1, 0.3, 1] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
                       />
