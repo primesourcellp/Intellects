@@ -833,7 +833,7 @@ const CustomSoftwareDevelopment = () => {
             </div>
 
             {/* Process Steps */}
-            <div className="space-y-20 md:space-y-32">
+            <div className="space-y-12 md:space-y-16">
               {process.map(({ step, desc }, i) => {
                 const isLeft = i % 2 === 0;
                 
@@ -1041,7 +1041,7 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Final CTA Section */}
       <motion.section
-        className="py-20 px-6 md:px-12 relative z-10"
+        className="py-12 px-6 md:px-12 relative z-10"
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -1049,7 +1049,7 @@ const CustomSoftwareDevelopment = () => {
         viewport={{ once: false, amount: 0.2 }}
       >
         <div className="max-w-6xl mx-auto">
-        <div className="rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+        <div className="rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
             <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
