@@ -801,22 +801,6 @@ export default function WebAppDevelopment() {
                         <span className="text-3xl">{pillar.icon}</span>
                       </motion.div>
 
-                      {/* Number Badge */}
-                      <motion.div
-                        className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${pillar.color} text-white font-black text-xl rounded-xl mb-4 shadow-lg relative z-10`}
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        transition={{ 
-                          delay: i * 0.12 + 0.2, 
-                          type: "spring",
-                          bounce: 0.6
-                        }}
-                        viewport={{ once: false }}
-                        whileHover={{ scale: 1.2, rotate: 360 }}
-                      >
-                        {i + 1}
-                      </motion.div>
-
                       {/* Content */}
                       <div className="relative z-10">
                         <motion.h3 
@@ -975,7 +959,7 @@ export default function WebAppDevelopment() {
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative h-full min-h-[400px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-600 to-violet-600"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-700"></div>
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <div className="text-center text-white">
                   <FaRocket className="w-20 h-20 mx-auto mb-6" />
@@ -1002,7 +986,7 @@ export default function WebAppDevelopment() {
                     viewport={{ once: false }}
                     className="flex items-start gap-3 group"
                   >
-                    <div className="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                    <div className="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                       <FaCheck className="w-4 h-4 text-white" />
                     </div>
                     <p className="text-gray-700 text-lg leading-relaxed flex-1 group-hover:text-gray-600 transition-colors">
@@ -1688,33 +1672,21 @@ export default function WebAppDevelopment() {
       </motion.section>
 
       {/* Final CTA */}
-      <motion.section
-        className="py-12 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#FFFFFF' }}
+      <motion.div
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-6xl mx-auto">
-        <div className="rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
-          <div className="absolute top-0 left-0 w-full h-full">
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
 
           <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: false }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
-            >
-              <FaRocket className="w-10 h-10 text-white" />
-            </motion.div>
-
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Ready to Transform Your Business with Powerful Web Apps?
             </h3>
 
@@ -1732,8 +1704,7 @@ export default function WebAppDevelopment() {
             </div>
           </div>
         </div>
-        </div>
-      </motion.section>
+      </motion.div>
     </div>
   );
 }

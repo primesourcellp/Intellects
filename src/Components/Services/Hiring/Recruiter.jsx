@@ -272,15 +272,15 @@ export default function GlobalRecruitments() {
             transition={{ duration: 0.8 }}
             className="text-left"
           >
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
-              style={{ color: '#000000' }}
-            >
+          style={{ color: '#000000' }}
+        >
               <TypingText text="Global Recruitments" />
-            </motion.h1>
+        </motion.h1>
             
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -291,16 +291,16 @@ export default function GlobalRecruitments() {
             >
               Connecting Global Talent with the Right Opportunities
             </motion.h2>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl leading-relaxed mb-8"
-              style={{ color: '#6B7280' }}
-            >
+          style={{ color: '#6B7280' }}
+        >
               At Intellects, we bridge the gap between businesses and world-class talent. Our Global Recruitment services are designed to help organizations source, screen, and onboard skilled professionals from across the globe — ensuring the perfect fit for every role.
-            </motion.p>
+        </motion.p>
           </motion.div>
 
           {/* Right Column - GIF */}
@@ -363,33 +363,33 @@ export default function GlobalRecruitments() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-block mb-4"
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block mb-4"
+          >
               <span className="px-7 py-2 bg-gradient-to-r  from-purple-500 to-teal-500 text-white text-sm font-bold rounded-full shadow-lg">
                 OUR APPROACH
-              </span>
-            </motion.div>
+            </span>
+          </motion.div>
             
             <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               Strategic Talent{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
                 Acquisition
-              </motion.span>
-            </h2>
+            </motion.span>
+          </h2>
             
             <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
               Finding the Right Talent, Not Just Any Talent
@@ -408,9 +408,9 @@ export default function GlobalRecruitments() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            {strategyPoints.map((item, idx) => (
-              <motion.div
-                key={idx}
+          {strategyPoints.map((item, idx) => (
+            <motion.div
+              key={idx}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
@@ -421,8 +421,8 @@ export default function GlobalRecruitments() {
                   <FaCheckCircle className="text-white text-sm" />
                 </div>
                 <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
-              </motion.div>
-            ))}
+            </motion.div>
+          ))}
           </motion.div>
 
         </div>
@@ -496,20 +496,20 @@ export default function GlobalRecruitments() {
             
             <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               Industry-Specific{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
                 Recruitment
-              </motion.span>
-            </h2>
+            </motion.span>
+          </h2>
             
             <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
               Specialized Hiring Across Diverse Sectors
@@ -522,8 +522,8 @@ export default function GlobalRecruitments() {
             {/* Industry Points */}
             <div className="space-y-4 mt-8">
               {industryExpertise.map((item, idx) => (
-                <motion.div
-                  key={idx}
+              <motion.div
+                key={idx} 
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
@@ -638,11 +638,11 @@ export default function GlobalRecruitments() {
                 >
                   <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
                     <FaCheckCircle className="text-white text-sm" />
-                  </div>
+        </div>
                   <p className="text-lg font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{item}</p>
-                </motion.div>
-              ))}
-            </div>
+              </motion.div>
+            ))}
+        </div>
           </motion.div>
 
         </div>
@@ -678,20 +678,20 @@ export default function GlobalRecruitments() {
             
             <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               Data-Driven{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
                 Hiring Decisions
-              </motion.span>
-            </h2>
+            </motion.span>
+          </h2>
             
             <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
               Recruitment Backed by Insights and Analytics
@@ -905,7 +905,7 @@ export default function GlobalRecruitments() {
           <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
             <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          </div>
+        </div>
 
           <div className="relative z-10">
             <motion.h3 
@@ -928,7 +928,7 @@ export default function GlobalRecruitments() {
               Let's connect you with world-class talent to drive your business forward.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}

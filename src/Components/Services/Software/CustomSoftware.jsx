@@ -502,18 +502,6 @@ const CustomSoftwareDevelopment = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Number Badge */}
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 + 0.3 }}
-                viewport={{ once: false }}
-                className="absolute -top-4 -right-4 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300 bg-gradient-to-br from-purple-800 to-gray-900"
-              >
-                <span className="text-white font-black text-xl">
-                  {i + 1}
-                </span>
-              </motion.div>
-
               <div className="relative z-10 p-8">
                 {/* Title */}
                 <motion.h4
@@ -1040,32 +1028,21 @@ const CustomSoftwareDevelopment = () => {
       </motion.section>
 
       {/* Final CTA Section */}
-      <motion.section
-        className="py-12 px-6 md:px-12 relative z-10"
-        style={{ backgroundColor: '#F9FAFB' }}
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
+      <motion.div
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 1 }}
+        viewport={{ once: false }}
       >
-        <div className="max-w-6xl mx-auto">
-        <div className="rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
-          <div className="absolute top-0 left-0 w-full h-full">
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
           
           <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
-            >
-              <Rocket className="w-10 h-10 text-white" />
-            </motion.div>
-            
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               At Intellects, we don't offer templates — we engineer tailored software that grows with your business.
             </h3>
             
@@ -1083,8 +1060,7 @@ const CustomSoftwareDevelopment = () => {
             </div>
           </div>
         </div>
-        </div>
-      </motion.section>
+      </motion.div>
     </div>
   );
 };

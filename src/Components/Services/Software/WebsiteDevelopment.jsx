@@ -421,9 +421,6 @@ export default function WebsiteDevelopment() {
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 text-white font-bold text-xl rounded-xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                  {i + 1}
-                </div>
                 <h3 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
                   {pillar.title}
                 </h3>
@@ -525,7 +522,7 @@ export default function WebsiteDevelopment() {
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative h-full min-h-[400px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-600 to-violet-600"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-700"></div>
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <div className="text-center text-white">
                   <FaHandshake className="w-20 h-20 mx-auto mb-6" />
@@ -553,7 +550,7 @@ export default function WebsiteDevelopment() {
                     viewport={{ once: false }}
                     className="flex items-start gap-3 group"
                   >
-                    <div className="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                    <div className="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                       <FaCheck className="w-4 h-4 text-white" />
                     </div>
                     <p className="text-gray-700 text-lg leading-relaxed flex-1 group-hover:text-gray-600 transition-colors">
@@ -708,25 +705,30 @@ export default function WebsiteDevelopment() {
               {[
                 {
                   step: "Discovery & Strategy",
-                  desc: "Understanding your business objectives and target audience."
+                  desc: "Understanding your business objectives and target audience.",
+                  icon: <FaClipboardCheck className="w-7 h-7" />
                 },
                 {
                   step: "Design & Prototyping",
-                  desc: "Visualizing your website's flow and style."
+                  desc: "Visualizing your website's flow and style.",
+                  icon: <FaCogs className="w-7 h-7" />
                 },
                 {
                   step: "Development",
-                  desc: "Coding with performance, scalability, and security in mind."
+                  desc: "Coding with performance, scalability, and security in mind.",
+                  icon: <FaLaptopCode className="w-7 h-7" />
                 },
                 {
                   step: "Testing & QA",
-                  desc: "Ensuring seamless user experience and speed."
+                  desc: "Ensuring seamless user experience and speed.",
+                  icon: <FaCheck className="w-7 h-7" />
                 },
                 {
                   step: "Deployment & Maintenance",
-                  desc: "Launching your site and providing ongoing support."
+                  desc: "Launching your site and providing ongoing support.",
+                  icon: <FaRocket className="w-7 h-7" />
                 }
-              ].map(({ step, desc }, i) => {
+              ].map(({ step, desc, icon }, i) => {
                 const isLeft = i % 2 === 0;
                 
                 return (
@@ -745,7 +747,7 @@ export default function WebsiteDevelopment() {
                   >
                     {/* Timeline Node - Center Circle */}
                     <motion.div
-                      className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full items-center justify-center z-20 shadow-2xl"
+                      className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full items-center justify-center z-20 shadow-2xl text-white"
                       style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                       initial={{ scale: 0, rotate: -180 }}
                       whileInView={{ scale: 1, rotate: 0 }}
@@ -762,19 +764,7 @@ export default function WebsiteDevelopment() {
                         transition: { duration: 0.6 }
                       }}
                     >
-                      <motion.span 
-                        className="text-white font-black text-2xl"
-                        animate={{
-                          textShadow: [
-                            '0 0 0px rgba(255,255,255,0)',
-                            '0 0 20px rgba(255,255,255,1)',
-                            '0 0 0px rgba(255,255,255,0)'
-                          ]
-                        }}
-                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
-                      >
-                        {i + 1}
-                      </motion.span>
+                      {icon}
                       
                       {/* Pulse Rings */}
                       <motion.div
@@ -843,16 +833,16 @@ export default function WebsiteDevelopment() {
                             }}
                           />
 
-                          {/* Mobile Number Badge */}
+                          {/* Mobile Icon Badge */}
                           <motion.div
-                            className="md:hidden absolute -top-4 left-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10"
+                            className="md:hidden absolute -top-4 left-8 w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white"
                             style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.5, type: "spring" }}
                             viewport={{ once: false }}
                           >
-                            <span className="text-white font-black text-lg">{i + 1}</span>
+                            {icon}
                           </motion.div>
 
                           {/* Text Content */}
@@ -1400,33 +1390,21 @@ export default function WebsiteDevelopment() {
       </motion.section>
 
       {/* Final CTA */}
-      <motion.section
-        className="py-12 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#FFFFFF' }}
+      <motion.div
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-6xl mx-auto">
-        <div className="rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
-          <div className="absolute top-0 left-0 w-full h-full">
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
 
           <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: false }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
-            >
-              <FaRocket className="w-10 h-10 text-white" />
-            </motion.div>
-
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Ready to Transform Your Online Presence?
             </h3>
 
@@ -1444,8 +1422,7 @@ export default function WebsiteDevelopment() {
             </div>
           </div>
         </div>
-        </div>
-      </motion.section>
+      </motion.div>
     </div>
   );
 }

@@ -1016,33 +1016,21 @@ export default function Seo() {
       </motion.section>
 
       {/* Final CTA */}
-      <motion.section
-        className="py-12 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#F9FAFB' }}
+      <motion.div
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-6xl mx-auto">
-        <div className="rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
-          <div className="absolute top-0 left-0 w-full h-full">
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
 
           <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: false }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
-            >
-              <FaSearch className="w-10 h-10 text-white" />
-            </motion.div>
-
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Ready to Dominate Search Rankings and Drive Real Results?
             </h3>
 
@@ -1060,8 +1048,7 @@ export default function Seo() {
             </div>
           </div>
         </div>
-        </div>
-      </motion.section>
+      </motion.div>
     </div>
   );
 }

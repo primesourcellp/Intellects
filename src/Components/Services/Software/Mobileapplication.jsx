@@ -195,7 +195,7 @@ export default function Mobileapplication() {
       {/* Transforming Businesses Section */}
       <motion.section
         className="pt-16 pb-20 px-6 md:px-12 lg:px-24 relative z-10" 
-        style={{ backgroundColor: '#F9FAFB' }}
+        style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -254,25 +254,25 @@ export default function Mobileapplication() {
                 title: "Enhancing User Engagement",
                 desc: "Apps designed to delight users and boost interaction.",
               icon: <FaUsers className="w-8 h-8" />,
-              color: "from-blue-500 to-cyan-500"
+              color: "from-purple-600 to-purple-700"
               },
               {
                 title: "Optimizing Operations",
                 desc: "Streamlining workflows and automating repetitive tasks.",
               icon: <FaCogs className="w-8 h-8" />,
-              color: "from-purple-500 to-violet-500"
+              color: "from-indigo-600 to-indigo-700"
               },
               {
                 title: "Driving Revenue Growth",
                 desc: "E-commerce and service apps that increase conversions.",
               icon: <FaChartLine className="w-8 h-8" />,
-              color: "from-green-500 to-emerald-500"
+              color: "from-violet-600 to-violet-700"
               },
               {
                 title: "Ensuring Scalability",
                 desc: "Flexible solutions that evolve as your business grows.",
               icon: <FaRocket className="w-8 h-8" />,
-              color: "from-orange-500 to-amber-500"
+              color: "from-fuchsia-600 to-fuchsia-700"
               },
             ].map((item, i) => (
               <motion.div
@@ -522,11 +522,11 @@ export default function Mobileapplication() {
           {/* Vertical Stepped Path Design */}
           <div className="relative max-w-5xl mx-auto space-y-16">
             {[
-              { title: "Requirement Analysis", desc: "Understanding business goals and user needs.", align: "left" },
-              { title: "UI/UX Design", desc: "Designing intuitive, interactive, and visually appealing interfaces.", align: "right" },
-              { title: "Development", desc: "Building secure, scalable, and feature-rich mobile apps.", align: "left" },
-              { title: "Testing & QA", desc: "Rigorous testing to ensure functionality, performance, and security.", align: "right" },
-              { title: "Deployment & Support", desc: "Launching your app with continuous improvements and maintenance.", align: "center" },
+              { title: "Requirement Analysis", desc: "Understanding business goals and user needs.", align: "left", icon: <FaClipboardCheck className="w-8 h-8" /> },
+              { title: "UI/UX Design", desc: "Designing intuitive, interactive, and visually appealing interfaces.", align: "right", icon: <FaCogs className="w-8 h-8" /> },
+              { title: "Development", desc: "Building secure, scalable, and feature-rich mobile apps.", align: "left", icon: <FaLaptopCode className="w-8 h-8" /> },
+              { title: "Testing & QA", desc: "Rigorous testing to ensure functionality, performance, and security.", align: "right", icon: <FaCheck className="w-8 h-8" /> },
+              { title: "Deployment & Support", desc: "Launching your app with continuous improvements and maintenance.", align: "center", icon: <FaRocket className="w-8 h-8" /> },
             ].map((step, i) => (
               <motion.div
                 key={i}
@@ -554,19 +554,6 @@ export default function Mobileapplication() {
                     {/* Animated Background Shimmer */}
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-purple-100/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
-                    {/* Step Number Badge */}
-                    <motion.div
-                      className="absolute -top-5 -left-5 w-14 h-14 rounded-2xl flex items-center justify-center shadow-2xl z-10"
-                      style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
-                      initial={{ scale: 0, rotate: -90 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      transition={{ duration: 0.5, delay: i * 0.12 + 0.2, type: "spring", stiffness: 200 }}
-                      viewport={{ once: false }}
-                      whileHover={{ rotate: 360, scale: 1.1, transition: { duration: 0.5 } }}
-                    >
-                      <span className="text-white font-black text-xl">{i + 1}</span>
-                    </motion.div>
-
                     {/* Content */}
                     <div className="relative z-10">
                       <motion.h4 
@@ -747,12 +734,6 @@ export default function Mobileapplication() {
                 whileHover={{ y: -12, scale: 1.02 }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300" style={{ background: `linear-gradient(135deg, var(--tw-gradient-stops))` }}>
-                <span className={`text-white font-black text-2xl bg-gradient-to-r ${model.color} bg-clip-text text-transparent`} style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  {model.number}
-                </span>
-              </div>
 
               <div className="relative z-10">
                 <motion.div
@@ -968,33 +949,21 @@ export default function Mobileapplication() {
       </motion.section>
 
       {/* Final CTA */}
-      <motion.section
-        className="py-12 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#FFFFFF' }}
+      <motion.div
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-6xl mx-auto">
-        <div className="rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
-          <div className="absolute top-0 left-0 w-full h-full">
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
 
           <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: false }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
-            >
-              <FaMobileAlt className="w-10 h-10 text-white" />
-            </motion.div>
-
-            <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Ready to Transform Your Business with a Powerful Mobile App?
             </h3>
 
@@ -1012,8 +981,7 @@ export default function Mobileapplication() {
             </div>
           </div>
         </div>
-        </div>
-      </motion.section>
+      </motion.div>
     </div>
   );
 }

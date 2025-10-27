@@ -507,10 +507,6 @@ export default function Smm() {
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                {/* Number badge on image */}
-                <div className="absolute top-4 left-4 w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 text-white font-bold text-xl rounded-xl flex items-center justify-center shadow-lg">
-                  {i + 1}
-                </div>
               </div>
               
               {/* Content */}
@@ -731,18 +727,6 @@ export default function Smm() {
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: false }}
-              className="inline-block mb-6"
-            >
-              <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
-                ❓ COMMON QUESTIONS
-              </span>
-            </motion.div>
-
             <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
               Frequently Asked <span style={{ color: '#4C1D95' }}>Questions</span>
             </h2>
@@ -792,52 +776,39 @@ export default function Smm() {
       </motion.section>
 
       {/* Final CTA */}
-      <motion.section
-        className="py-12 px-6 md:px-12 lg:px-24 relative z-10"
-        style={{ backgroundColor: '#FFFFFF' }}
+      <motion.div
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
-            <div className="absolute top-0 left-0 w-full h-full">
-              <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-              <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
-            </div>
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+          <div className="absolute inset-0">
+            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          </div>
 
-            <div className="relative z-10">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: false }}
-                className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/40"
-              >
-                <FaRocket className="w-10 h-10 text-white" />
-              </motion.div>
+          <div className="relative z-10">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+              Ready to Amplify Your Social Media Presence?
+            </h3>
 
-              <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight max-w-5xl mx-auto">
-                Ready to Amplify Your Social Media Presence?
-              </h3>
+            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+              Let's create engaging content that connects with your audience and drives real results across all social platforms.
+            </p>
 
-              <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-                Let's create engaging content that connects with your audience and drives real results across all social platforms.
-              </p>
-
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
-                  Launch Your Campaign <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
-                  Request Free Consultation
-                </button>
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
+                Launch Your Campaign <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
+                Request Free Consultation
+              </button>
             </div>
           </div>
         </div>
-      </motion.section>
+      </motion.div>
     </div>
   );
 }
