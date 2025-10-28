@@ -428,646 +428,707 @@ export default function CareerCulture() {
         </div>
       </div>
 
-      {/* Introduction */}
-      <AnimatedSection>
-        <div className="py-20 px-6 md:px-20 text-center" style={{ backgroundColor: '#FFFFFF' }}>
-          <div className="max-w-4xl mx-auto">
-            {/* Animated Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
-              viewport={{ once: true }}
-              className="inline-block mb-6"
-            >
-              <motion.span
-                animate={{
-                  boxShadow: [
-                    '0 0 20px rgba(76, 29, 149, 0.3)',
-                    '0 0 30px rgba(76, 29, 149, 0.5)',
-                    '0 0 20px rgba(76, 29, 149, 0.3)'
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="px-6 py-2 rounded-full text-sm font-bold border-2"
-                style={{ 
-                  color: '#4C1D95', 
-                  borderColor: '#4C1D95',
-                  background: 'rgba(76, 29, 149, 0.05)'
-                }}
-              >
-                WHO WE ARE
-              </motion.span>
-            </motion.div>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-lg md:text-xl leading-relaxed" 
-              style={{ color: '#6B7280' }}
-            >
-              Join Intellects — where ideas turn into impact, and innovation meets
-              opportunity. We're more than a team of developers, strategists, and
-              consultants — we're a community of thinkers, creators, and
-              problem-solvers who believe in using technology and intellect to
-              shape a smarter future.
-            </motion.p>
-          </div>
-        </div>
-      </AnimatedSection>
+     {/* Introduction */}
+<AnimatedSection>
+  <div 
+    className="relative overflow-hidden py-24 px-6 md:px-20"
+    style={{
+      background: "radial-gradient(circle at top left, #EDE9FE, #FFFFFF)"
+    }}
+  >
 
-      {/* Life at Intellects */}
-      <AnimatedSection delay={0.2}>
-        <div className="py-16 px-6 md:px-20" style={{ backgroundColor: '#F9FAFB' }}>
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: false, amount: 0.5 }}
-              className="text-3xl md:text-5xl font-bold mb-8" 
-              style={{ color: '#4C1D95' }}
-            >
-              Life at{" "}
-              <motion.span
-                style={{ color: '#000000' }}
-                animate={{
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Intellects
-              </motion.span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-lg leading-relaxed" 
-              style={{ color: '#6B7280' }}
-            >
-              Working at Intellects means being part of a company that values
-              creativity, integrity, and collaboration. We believe in open
-              communication, mutual respect, and a positive work environment that
-              encourages everyone to bring their best ideas forward.
-            </motion.p>
-          </div>
-        </div>
-      </AnimatedSection>
+    {/* Background Blobs */}
+    <motion.div
+      className="absolute top-0 -left-20 w-96 h-96 rounded-full blur-3xl opacity-40"
+      style={{ background: "#C4B5FD" }}
+      animate={{ scale: [1, 1.1, 1] }}
+      transition={{ duration: 6, repeat: Infinity }}
+    />
+    <motion.div
+      className="absolute bottom-0 -right-20 w-96 h-96 rounded-full blur-3xl opacity-40"
+      style={{ background: "#A78BFA" }}
+      animate={{ scale: [1.1, 1, 1.1] }}
+      transition={{ duration: 6, repeat: Infinity }}
+    />
 
-      {/* Our Work Culture */}
-      <AnimatedSection delay={0.3}>
-        <div className="py-16 px-6 md:px-20" style={{ backgroundColor: '#FFFFFF' }}>
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: false, amount: 0.5 }}
-              className="text-3xl md:text-5xl font-bold mb-8" 
-              style={{ color: '#4C1D95' }}
-            >
-              Our Work{" "}
-              <motion.span
-                style={{ color: '#000000' }}
-                animate={{
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Culture
-              </motion.span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-lg leading-relaxed" 
-              style={{ color: '#6B7280' }}
-            >
-              We've built a culture that balances excellence and empathy — where
-              performance matters, but people matter more. <br />
-              Our culture thrives on teamwork, continuous learning, and the
-              freedom to innovate.
-            </motion.p>
-          </div>
-        </div>
-      </AnimatedSection>
+    <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
 
-      {/* What Defines Our Culture */}
-      <AnimatedSection delay={0.4}>
-        <div className="py-16 px-6 md:px-20" style={{ backgroundColor: '#F9FAFB' }}>
-          <div className="max-w-6xl mx-auto">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: false, amount: 0.5 }}
-              className="text-3xl md:text-5xl font-bold text-center mb-12" 
-              style={{ color: '#4C1D95' }}
-            >
-              What Defines Our{" "}
-              <motion.span
-                style={{ color: '#000000' }}
-                animate={{
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Culture
-              </motion.span>
-            </motion.h2>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <CultureCard
-                icon={Users}
-                title="Collaboration"
-                description="We believe in shared success — every win is a team win."
-                delay={0}
-                gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-                index={0}
-              />
-              <CultureCard
-                icon={Clock}
-                title="Flexibility"
-                description="Work in ways that empower you to perform your best."
-                delay={0.1}
-                gradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
-                index={1}
-              />
-              <CultureCard
-                icon={Lightbulb}
-                title="Innovation"
-                description="We encourage new ideas, bold thinking, and creative problem-solving."
-                delay={0.2}
-                gradient="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
-                index={2}
-              />
-              <CultureCard
-                icon={TrendingUp}
-                title="Growth Mindset"
-                description="Every challenge is an opportunity to learn and improve."
-                delay={0.3}
-                gradient="linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
-                index={3}
-              />
-              <CultureCard
-                icon={HeartHandshake}
-                title="Respect & Inclusion"
-                description="We welcome diverse voices and perspectives."
-                delay={0.4}
-                gradient="linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
-                index={4}
-              />
-            </div>
-          </div>
-        </div>
-      </AnimatedSection>
+      {/* Left Content */}
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-center md:text-left"
+      >
+        
+        {/* Glowing Badge */}
+        <motion.span
+          animate={{ opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="inline-block mb-6 px-6 py-2 rounded-full text-sm font-bold border-2 shadow-lg"
+          style={{
+            color: "#4C1D95",
+            borderColor: "#4C1D95",
+            background: "rgba(76, 29, 149, 0.1)"
+          }}
+        >
+          WHO WE ARE
+        </motion.span>
 
-      {/* Career Growth & Learning */}
-      <AnimatedSection delay={0.5}>
-        <div className="py-20 md:py-28 px-6 md:px-20" style={{ backgroundColor: '#F9FAFB' }}>
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: false, amount: 0.5 }}
-              className="text-3xl md:text-5xl font-bold mb-8" 
-              style={{ color: '#4C1D95' }}
-            >
-              Career Growth &{" "}
-              <motion.span
-                style={{ color: '#000000' }}
-                animate={{
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Learning
-              </motion.span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto" 
-              style={{ color: '#6B7280' }}
-            >
-              At Intellects, your career path is built around your strengths and
-              ambitions. We offer continuous learning programs, hands-on training,
-              mentorship, and certifications to help you stay ahead in the
-              ever-changing world of technology and consulting. <br /><br />
-              Our employees are encouraged to explore new roles, master new tools,
-              and expand their expertise — because your growth fuels our success.
-            </motion.p>
-          </div>
-        </div>
-      </AnimatedSection>
+        {/* Updated Typography */}
+        <h2 
+          className="text-3xl md:text-5xl font-black mb-6"
+          style={{ color: "#3B0764" }}
+        >
+          We Build Intelligent&nbsp;
+          <span style={{ color: "#7C3AED" }}>Innovation</span>
+        </h2>
 
-      {/* Learning Opportunities Include */}
-      <AnimatedSection delay={0.6}>
-        <div className="py-20 md:py-28 px-6 md:px-20" style={{ backgroundColor: '#FFFFFF' }}>
-          <div className="max-w-6xl mx-auto">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: false, amount: 0.5 }}
-              className="text-3xl md:text-5xl font-bold mb-16 text-center" 
-              style={{ color: '#4C1D95' }}
-            >
-              Learning Opportunities{" "}
-              <motion.span
-                style={{ color: '#000000' }}
-                animate={{
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Include
-              </motion.span>
-            </motion.h2>
-            
-            {/* Learning Opportunity 1 */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
-              className="py-8 mb-12"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Text Column */}
-                <div>
-                  <h4 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 leading-tight" style={{ color: '#4C1D95' }}>
-                    Professional Skill Development Programs
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Technical skill workshops and hands-on training",
-                      "Soft skills and interpersonal development",
-                      "Industry best practices and standards",
-                      "Career advancement and leadership courses"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: '#4C1D95' }} />
-                        <span style={{ color: '#374151' }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        <p 
+          className="text-lg md:text-xl leading-relaxed tracking-wide"
+          style={{ color: "#4B5563" }}
+        >
+          Join Intellects — where ideas turn into impact, and innovation meets opportunity.
+          We're more than a team of developers, strategists, and consultants —
+          we’re a community of thinkers, creators, and problem-solvers shaping a smarter future.
+        </p>
+      </motion.div>
 
-                {/* Image Column */}
-                <div className="relative">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 group">
-                    <img 
-                      src={sky8Image} 
-                      alt="Professional Skill Development" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.section>
+     {/* Floating Image */}
+<motion.div
+  initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="flex justify-center"
+>
+  <motion.img
+    src="https://savechildlife.org/uploads/who-we-are-1.png"
+    alt="Who We Are"
+    className="w-full max-w-sm drop-shadow-2xl"
+    animate={{
+      y: [0, -20, 0],
+      rotate: [0, 1.5, 0],
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+</motion.div>
 
-            {/* Learning Opportunity 2 */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
-              className="py-8 mb-12"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:grid-flow-dense">
-                {/* Text Column */}
-                <div className="lg:col-start-2">
-                  <h4 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 leading-tight" style={{ color: '#4C1D95' }}>
-                    Technology Workshops & Certifications
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Cloud platforms: AWS, Azure, Google Cloud",
-                      "Modern frameworks and development tools",
-                      "Security and compliance certifications",
-                      "DevOps, Agile, and CI/CD training"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: '#4C1D95' }} />
-                        <span style={{ color: '#374151' }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                {/* Image Column */}
-                <div className="lg:col-start-1">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 group">
-                    <img 
-                      src={aboutImage} 
-                      alt="Technology Workshops & Certifications" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.section>
+    </div>
 
-            {/* Learning Opportunity 3 */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
-              className="py-8 mb-12"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Text Column */}
-                <div>
-                  <h4 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 leading-tight" style={{ color: '#4C1D95' }}>
-                    Mentorship from Industry Experts
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Personalized one-on-one mentoring sessions",
-                      "Strategic career guidance and planning",
-                      "Technical expertise and knowledge sharing",
-                      "Professional networking opportunities"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: '#4C1D95' }} />
-                        <span style={{ color: '#374151' }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+  </div>
+</AnimatedSection>
 
-                {/* Image Column */}
-                <div className="relative">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 group">
-                    <img 
-                      src={soft9Image} 
-                      alt="Mentorship from Industry Experts" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.section>
+{/* Our Work Culture */}
+<AnimatedSection delay={0.3}>
+  <div 
+    className="relative overflow-hidden py-24 px-6 md:px-20"
+    style={{
+      background: "linear-gradient(135deg, #FFFFFF 30%, #F3E8FF 100%)"
+    }}
+  >
 
-            {/* Learning Opportunity 4 */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
-              className="py-8"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:grid-flow-dense">
-                {/* Text Column */}
-                <div className="lg:col-start-2">
-                  <h4 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 leading-tight" style={{ color: '#4C1D95' }}>
-                    Leadership & Communication Training
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Leadership development and management programs",
-                      "Presentation and public speaking workshops",
-                      "Team building and collaboration skills",
-                      "Conflict resolution and negotiation training"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: '#4C1D95' }} />
-                        <span style={{ color: '#374151' }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+    {/* Background Decorative Blobs */}
+    <motion.div
+      className="absolute -top-20 left-0 w-80 h-80 rounded-full blur-3xl opacity-40"
+      style={{ background: "#D8B4FE" }}
+      animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
+      transition={{ duration: 8, repeat: Infinity }}
+    />
+    <motion.div
+      className="absolute bottom-0 -right-20 w-96 h-96 rounded-full blur-3xl opacity-40"
+      style={{ background: "#A78BFA" }}
+      animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+      transition={{ duration: 8, repeat: Infinity }}
+    />
 
-                {/* Image Column */}
-                <div className="lg:col-start-1">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 group">
-                    <img 
-                      src={sky8Image} 
-                      alt="Leadership & Communication Training" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
-            </div>
-            </motion.section>
+    <div className="relative max-w-5xl mx-auto text-center">
 
-            {/* Learning Opportunity 5 */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6 }}
-              className="py-8 mb-12"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Text Column */}
-                <div>
-                  <h4 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 leading-tight" style={{ color: '#4C1D95' }}>
-                    Cross-Department Collaboration
-                  </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Cross-functional project assignments",
-                      "Department rotation and exchange programs",
-                      "Collaborative team workshops and brainstorming",
-                      "Knowledge sharing across different teams"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: '#4C1D95' }} />
-                        <span style={{ color: '#374151' }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+      {/* Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-4xl md:text-5xl font-black mb-8"
+        style={{ color: "#3B0764" }}
+      >
+        Our Work&nbsp;
+        <motion.span
+          style={{ color: "#7C3AED" }}
+          animate={{
+            textShadow: [
+              "0 0 10px rgba(124, 58, 237, 0.3)",
+              "0 0 25px rgba(124, 58, 237, 0.6)",
+              "0 0 10px rgba(124, 58, 237, 0.3)",
+            ]
+          }}
+          transition={{ duration: 3, repeat: Infinity }}
+        >
+          Culture
+        </motion.span>
+      </motion.h2>
 
-                {/* Image Column */}
-                <div className="relative">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl h-80 group">
-                    <img 
-                      src={aboutImage} 
-                      alt="Cross-Department Collaboration" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-                </div>
-              </div>
-            </motion.section>
-          </div>
-        </div>
-      </AnimatedSection>
+      {/* Subtitle Paragraph */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
+        style={{ color: "#4B5563" }}
+      >
+        We’ve built a culture that balances excellence and empathy —
+        where performance matters, but people matter more.
+        <br />
+        Our culture thrives on teamwork, continuous learning,
+        and the freedom to innovate boldly.
+      </motion.p>
 
-      {/* Why Work With Intellects */}
-      <AnimatedSection delay={0.7}>
-        <div className="py-24 md:py-32 px-6 md:px-20" style={{ backgroundColor: '#F9FAFB' }}>
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: false, amount: 0.5 }}
-              className="text-3xl md:text-5xl font-bold mb-8" 
-              style={{ color: '#4C1D95' }}
-            >
-              Why Work With{" "}
-              <motion.span
-                style={{ color: '#000000' }}
-                animate={{
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Intellects
-              </motion.span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: false, amount: 0.3 }}
-              className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto" 
-              style={{ color: '#6B7280' }}
-            >
-              Joining Intellects means being part of something bigger — a team
-              that's shaping the digital future for businesses across industries.
-              You'll work on real projects, solve real problems, and create real
-              impact.
-            </motion.p>
-          </div>
-        </div>
-      </AnimatedSection>
+    {/* Floating Decorative Dots */}
+<motion.div
+  className="absolute top-10 left-10 w-4 h-4 bg-purple-400 rounded-full opacity-70"
+  animate={{ y: [0, -10, 0] }}
+  transition={{ duration: 2, repeat: Infinity }}
+/>
 
-      {/* Here's Why Professionals Love Working With Us */}
-      <AnimatedSection delay={0.8}>
-        <div className="py-24 md:py-32 px-6 md:px-20" style={{ backgroundColor: '#FFFFFF' }}>
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-bold mb-8 text-center" 
-              style={{ color: '#4C1D95' }}
-            >
-              Here's Why Professionals{" "}
-              <motion.span
-                style={{ color: '#000000' }}
-                animate={{
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Love Working With Us
-              </motion.span>
-            </motion.h2>
-            
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-12">
-              {[
-                {
-                  icon: Briefcase,
-                  title: "Global Client Opportunities",
-                  description: "Work with diverse international clients and expand your professional network across industries and markets.",
-                  gradient: "from-blue-500 to-purple-600"
-                },
-                {
-                  icon: HeartHandshake,
-                  title: "Supportive Management",
-                  description: "Experience transparent leadership and a management team that values your input and career growth.",
-                  gradient: "from-purple-500 to-pink-600"
-                },
-                {
-                  icon: Lightbulb,
-                  title: "Latest Technologies",
-                  description: "Stay ahead of the curve with access to cutting-edge tools, frameworks, and development platforms.",
-                  gradient: "from-yellow-500 to-orange-600"
-                },
-                {
-                  icon: Users,
-                  title: "Trust & Innovation",
-                  description: "Thrive in a culture built on mutual respect, creative thinking, and collaborative problem-solving.",
-                  gradient: "from-green-500 to-teal-600"
-                },
-                {
-                  icon: DollarSign,
-                  title: "Competitive Compensation",
-                  description: "Receive market-leading salary packages with performance bonuses and comprehensive benefits.",
-                  gradient: "from-indigo-500 to-purple-600"
-                }
-              ].map((item, idx) => (
-                <motion.div
+<motion.div
+  className="absolute bottom-10 right-10 w-3 h-3 bg-purple-300 rounded-full opacity-70"
+  animate={{ y: [0, 10, 0] }}
+  transition={{ duration: 3, repeat: Infinity }}
+/>
+
+
+    </div>
+
+  </div>
+</AnimatedSection>
+
+
+  {/* ✅ What Defines Our Culture */}
+<AnimatedSection delay={0.4}>
+  <div
+    className="relative overflow-hidden py-24 px-6 md:px-20"
+    style={{
+      background: "radial-gradient(circle at top left, #F5F3FF 0%, #FFFFFF 100%)"
+    }}
+  >
+
+    {/* Decorative Floating Blobs */}
+    <motion.div
+      className="absolute -top-14 -left-24 w-[360px] h-[360px] bg-purple-300 opacity-30 rounded-full blur-[120px]"
+      animate={{ scale: [1, 1.1, 1] }}
+      transition={{ duration: 9, repeat: Infinity }}
+    />
+
+    <motion.div
+      className="absolute bottom-0 -right-32 w-[420px] h-[420px] bg-violet-400 opacity-30 rounded-full blur-[130px]"
+      animate={{ scale: [1.1, 1, 1.1] }}
+      transition={{ duration: 10, repeat: Infinity }}
+    />
+
+    {/* Content Wrapper */}
+    <div className="relative max-w-6xl mx-auto z-10">
+
+      {/* Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-5xl font-extrabold text-center mb-14"
+        style={{ color: "#3B0764" }}
+      >
+        What Defines Our{" "}
+        <motion.span
+          style={{ color: "#7C3AED" }}
+          animate={{
+            textShadow: [
+              "0 0 10px rgba(124, 58, 237, 0.2)",
+              "0 0 25px rgba(124, 58, 237, 0.5)",
+              "0 0 10px rgba(124, 58, 237, 0.2)"
+            ]
+          }}
+          transition={{ duration: 3, repeat: Infinity }}
+        >
+          Culture
+        </motion.span>
+      </motion.h2>
+
+      {/* Cards Grid */}
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+        <CultureCard
+          icon={Users}
+          title="Collaboration"
+          description="We believe in shared success — every win is a team win."
+          delay={0}
+          gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        />
+
+        <CultureCard
+          icon={Clock}
+          title="Flexibility"
+          description="Work in ways that empower you to perform your best."
+          delay={0.1}
+          gradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+        />
+
+        <CultureCard
+          icon={Lightbulb}
+          title="Innovation"
+          description="We encourage new ideas, bold thinking, and creative problem-solving."
+          delay={0.2}
+          gradient="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        />
+
+        <CultureCard
+          icon={TrendingUp}
+          title="Growth Mindset"
+          description="Every challenge is an opportunity to learn and improve."
+          delay={0.3}
+          gradient="linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+        />
+
+        <CultureCard
+          icon={HeartHandshake}
+          title="Respect & Inclusion"
+          description="We welcome diverse voices and perspectives."
+          delay={0.4}
+          gradient="linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+        />
+        
+      </div>
+
+    </div>
+
+  </div>
+</AnimatedSection>
+
+
+
+    {/* 🚀 Career Growth & Learning */}
+<AnimatedSection delay={0.5}>
+  <div
+    className="relative overflow-hidden py-28 px-6 md:px-20"
+    style={{
+      background: "radial-gradient(circle at bottom right, #ede9fe 0%, #ffffff 70%)"
+    }}
+  >
+
+    {/* Decorative Floating Blobs (Left & Right) */}
+    <motion.div
+      className="absolute -top-24 -left-32 w-[380px] h-[380px] bg-purple-200 opacity-30 rounded-full blur-[120px]"
+      animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
+      transition={{ duration: 10, repeat: Infinity }}
+    />
+
+    <motion.div
+      className="absolute bottom-[-80px] -right-[120px] w-[450px] h-[450px] bg-indigo-300 opacity-30 rounded-full blur-[130px]"
+      animate={{ x: [0, -25, 0], y: [0, 25, 0] }}
+      transition={{ duration: 12, repeat: Infinity }}
+    />
+
+    {/* Decorative Side Floating Dots */}
+    <motion.div
+      className="absolute top-[20%] left-6 w-4 h-4 bg-purple-400 rounded-full opacity-70"
+      animate={{ y: [0, -12, 0] }}
+      transition={{ duration: 3, repeat: Infinity }}
+    />
+    <motion.div
+      className="absolute bottom-[20%] right-10 w-3 h-3 bg-indigo-400 rounded-full opacity-80"
+      animate={{ y: [0, 12, 0] }}
+      transition={{ duration: 3.5, repeat: Infinity }}
+    />
+
+    <div className="relative max-w-5xl mx-auto text-center z-10">
+      
+      {/* Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-5xl font-extrabold mb-10"
+        style={{ color: "#3B0764" }}
+      >
+        Career Growth &{" "}
+        <motion.span
+          style={{ color: "#7C3AED" }}
+          animate={{
+            textShadow: [
+              "0 0 10px rgba(124, 58, 237, 0.2)",
+              "0 0 25px rgba(124, 58, 237, 0.5)",
+              "0 0 10px rgba(124, 58, 237, 0.2)"
+            ]
+          }}
+          transition={{ duration: 3, repeat: Infinity }}
+        >
+          Learning
+        </motion.span>
+      </motion.h2>
+
+      {/* Paragraph */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto"
+        style={{ color: "#4B5563" }}
+      >
+        At Intellects, your career path is built around your strengths and ambitions.
+        We offer continuous learning programs, hands-on training,
+        mentorship, and certifications to help you stay ahead in the
+        ever-evolving world of technology and consulting.
+        <br /><br />
+        We encourage our people to explore new domains, master emerging tools,
+        and grow their expertise — because your success fuels our innovation.
+      </motion.p>
+
+    </div>
+
+  </div>
+</AnimatedSection>
+
+
+    {/* Learning Opportunities Include */}
+<AnimatedSection delay={0.1}>
+  <div 
+    className="py-24 md:py-32 px-6 md:px-20 relative overflow-hidden"
+    style={{ background: "linear-gradient(120deg, #F3E8FF 0%, #E0EAFC 100%)" }}
+  >
+    {/* Soft floating lights */}
+    <div className="absolute top-10 right-10 w-40 h-40 bg-purple-300 opacity-30 blur-[120px] animate-pulse" />
+    <div className="absolute bottom-10 left-10 w-48 h-48 bg-blue-300 opacity-30 blur-[140px] animate-pulse" />
+
+    <div className="max-w-6xl mx-auto relative z-10">
+      
+      {/* Title */}
+      <motion.h2
+        className="text-4xl md:text-6xl font-extrabold text-center mb-20"
+        style={{ color: '#4C1D95' }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        Learning Opportunities{" "}
+        <motion.span
+          style={{ color: "#000000" }}
+          animate={{
+            textShadow: [
+              `0 0 20px #4C1D95`,
+              `0 0 40px #4C1D95`,
+              `0 0 20px #4C1D95`
+            ]
+          }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          Include
+        </motion.span>
+      </motion.h2>
+
+      {/* All Opportunity Sections */}
+      {[
+        {
+          title: "Professional Skill Development Programs",
+          points: [
+            "Technical skill workshops and hands-on training",
+            "Soft skills and interpersonal development",
+            "Industry best practices and standards",
+            "Career advancement and leadership courses"
+          ],
+          img: sky8Image,
+        },
+        {
+          title: "Technology Workshops & Certifications",
+          points: [
+            "Cloud platforms: AWS, Azure, Google Cloud",
+            "Modern frameworks and development tools",
+            "Security and compliance certifications",
+            "DevOps, Agile, and CI/CD training"
+          ],
+          img: aboutImage,
+          reverse: true
+        },
+        {
+          title: "Mentorship from Industry Experts",
+          points: [
+            "One-on-one mentoring sessions",
+            "Career guidance and planning",
+            "Tech knowledge sharing",
+            "Professional networking opportunities"
+          ],
+          img: soft9Image,
+        },
+        {
+          title: "Leadership & Communication Training",
+          points: [
+            "Leadership development programs",
+            "Presentation & public speaking",
+            "Team building & collaboration",
+            "Negotiation & conflict resolution"
+          ],
+          img: sky8Image,
+          reverse: true
+        },
+        {
+          title: "Cross-Department Collaboration",
+          points: [
+            "Cross-functional project assignments",
+            "Team rotation & exchange programs",
+            "Collaborative workshops",
+            "Shared knowledge & innovations"
+          ],
+          img: aboutImage,
+        }
+      ].map((item, index) => (
+        <motion.section
+          key={index}
+          initial={{ opacity: 0, x: item.reverse ? 100 : -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24`}
+        >
+          {/* Text */}
+          <div className={`${item.reverse ? "lg:order-2" : ""}`}>
+            <h4 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+              {item.title}
+            </h4>
+            <ul className="space-y-4">
+              {item.points.map((point, idx) => (
+                <motion.li
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="relative group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  {/* Gradient Header */}
-                  <div className={`h-2 bg-gradient-to-r ${item.gradient}`}></div>
-                  
-                  <div className="p-6">
-                    {/* Icon */}
-                    <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${item.gradient} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <item.icon className="w-7 h-7 text-white" />
-                    </div>
-                    
-                    {/* Title */}
-                    <h4 className="text-xl font-bold mb-3 group-hover:text-purple-800 transition-colors" style={{ color: '#000000' }}>
-                      {item.title}
-                    </h4>
-                    
-                    {/* Description */}
-                    <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-                      {item.description}
-                    </p>
-                  </div>
-                  
-                  {/* Hover Effect Border */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-800 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                </motion.div>
+                  <CheckCircle className="w-6 h-6 mt-1" style={{ color: '#4C1D95' }} />
+                  <span className="text-gray-700 text-lg">{point}</span>
+                </motion.li>
               ))}
-            </div>
+            </ul>
           </div>
-        </div>
-      </AnimatedSection>
+
+          {/* Image */}
+          <motion.div
+            className="rounded-3xl overflow-hidden shadow-2xl h-80 group lg:hover:scale-105 transition-transform duration-700"
+            whileHover={{ y: -10, rotate: -1 }}
+          >
+            <img 
+              src={item.img} 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt={item.title}
+            />
+          </motion.div>
+        </motion.section>
+      ))}
+
+    </div>
+  </div>
+</AnimatedSection>
+
+
+     {/* Why Work With Intellects */}
+<AnimatedSection delay={0.2}>
+  <div 
+    className="py-28 md:py-36 px-6 md:px-20 relative overflow-hidden"
+    style={{
+      background: "linear-gradient(135deg, #EEF2FF 0%, #E3F0FF 40%, #F3E8FF 100%)"
+    }}
+  >
+    {/* Soft floating hover lights */}
+    <motion.div
+      className="absolute top-10 left-16 w-48 h-48 bg-purple-300 opacity-[0.25] blur-[120px] rounded-full"
+      animate={{ y: [0, -25, 0], x: [0, 15, 0] }}
+      transition={{ duration: 6, repeat: Infinity }}
+    />
+    <motion.div
+      className="absolute bottom-16 right-16 w-56 h-56 bg-blue-300 opacity-[0.25] blur-[140px] rounded-full"
+      animate={{ y: [0, 20, 0], x: [0, -20, 0] }}
+      transition={{ duration: 7, repeat: Infinity }}
+    />
+
+    <div className="max-w-6xl mx-auto text-center relative z-10">
+      <motion.h2 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-6xl font-extrabold mb-10 tracking-wide"
+        style={{ color: "#4C1D95" }}
+      >
+        Why Work With{" "}
+        <motion.span
+          style={{ color: '#000000' }}
+          animate={{
+            textShadow: [
+              "0 0 20px #4C1D95",
+              "0 0 35px #4C1D95",
+              "0 0 20px #4C1D95"
+            ]
+          }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          Intellects
+        </motion.span>
+      </motion.h2>
+
+      <motion.p 
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="text-lg md:text-2xl font-medium leading-relaxed max-w-4xl mx-auto"
+        style={{ color: '#4B5563' }}
+      >
+        Join a team where innovation thrives and creativity leads the way.  
+        Be a part of a digital revolution — solving real problems, creating real value,
+        and building a future that inspires.
+      </motion.p>
+
+      {/* Subtle Divider animation */}
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: "120px" }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="h-1 mx-auto mt-10 rounded-full"
+        style={{ backgroundColor: "#4C1D95" }}
+      />
+    </div>
+  </div>
+</AnimatedSection>
+
+     {/* Here's Why Professionals Love Working With Us */}
+<AnimatedSection delay={0.8}>
+  <div
+    className="relative py-28 md:py-36 px-6 md:px-20 overflow-hidden"
+    style={{
+      background: "linear-gradient(135deg, #2E1065 0%, #4C1D95 40%, #7C3AED 100%)"
+    }}
+  >
+    {/* Floating Glow Orbs */}
+    <div className="absolute w-full h-full top-0 left-0 overflow-hidden pointer-events-none">
+      {[...Array(10)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute bg-white rounded-full opacity-10"
+          style={{
+            width: Math.random() * 80 + 30,
+            height: Math.random() * 80 + 30,
+            top: Math.random() * 100 + "%",
+            left: Math.random() * 100 + "%"
+          }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 30, 0]
+          }}
+          transition={{
+            duration: Math.random() * 5 + 3,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut"
+          }}
+        />
+      ))}
+    </div>
+
+    <div className="relative max-w-6xl mx-auto text-center">
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-5xl font-bold mb-6 text-white"
+      >
+        Here’s Why Professionals Love Working With Us
+      </motion.h2>
+
+      {/* Animated Underline */}
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: "200px" }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="h-1 bg-white mx-auto rounded-lg shadow-lg"
+      />
+
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 mt-16">
+        {[
+          {
+            icon: Briefcase,
+            title: "Global Client Opportunities",
+            desc: "Work with diverse international clients and expand your professional network.",
+            gradient: "from-blue-500 to-purple-500"
+          },
+          {
+            icon: HeartHandshake,
+            title: "Supportive Management",
+            desc: "Transparent leadership that values your ideas and career growth.",
+            gradient: "from-purple-500 to-pink-500"
+          },
+          {
+            icon: Lightbulb,
+            title: "Latest Technologies",
+            desc: "Access cutting-edge development platforms & tools.",
+            gradient: "from-yellow-400 to-orange-500"
+          },
+          {
+            icon: Users,
+            title: "Trust & Innovation",
+            desc: "A culture built on respect, creativity & collaboration.",
+            gradient: "from-green-500 to-teal-500"
+          },
+          {
+            icon: DollarSign,
+            title: "Competitive Compensation",
+            desc: "Market-leading salary with performance bonuses.",
+            gradient: "from-indigo-500 to-purple-600"
+          }
+        ].map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{
+              scale: 1.07,
+              boxShadow: "0 0 30px rgba(255,255,255,0.3)",
+              transition: { duration: 0.3 }
+            }}
+            className="relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/20"
+          >
+            {/* Icon */}
+            <div
+              className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} mb-5 shadow-lg`}
+            >
+              <item.icon className="w-8 h-8 text-white" />
+            </div>
+
+            <h4 className="text-xl font-bold text-gray-900 mb-3">
+              {item.title}
+            </h4>
+            <p className="text-gray-700 text-base leading-relaxed">
+              {item.desc}
+            </p>
+
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </div>
+</AnimatedSection>
 
       {/* Join the Intellects Family - CTA */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto py-20 relative z-10">
