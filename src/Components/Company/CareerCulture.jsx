@@ -1285,7 +1285,7 @@ export default function CareerCulture() {
               "Start your journey with Intellects — where your ideas inspire innovation."
             </motion.p>
           </div>
-        </motion.div>
+        </motion.div> 
         </div>
     </div>
   );
