@@ -69,23 +69,10 @@ export default function App() {
         {/* Background Image with Overlay */}
         <motion.div 
           className="absolute inset-0"
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        >
-          <img
-            src={sky8Image}
-            alt="Methodology"
-            className="w-full h-full object-cover"
-            style={{ opacity: 1 }}
-          />
-          <div 
-            className="absolute inset-0" 
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
-            }}
-          />
-        </motion.div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        />
 
         {/* Floating Shapes - Enhanced */}
         <motion.div
@@ -328,6 +315,29 @@ export default function App() {
 `}</style>
 
 {/* 🚀 PREMIUM HOVER ANIMATION CARD SECTION */}
+<motion.h2
+  initial={{ opacity: 0, y: 80 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
+  className="text-4xl md:text-6xl font-black mb-8 leading-snug tracking-tight text-center max-w-7xl mx-auto"
+  style={{ color: "#020617" }}
+>
+  Our Proven {" "}
+  <motion.span
+    animate={{
+      color: ["#4C1D95", "#7C3AED", "#4C1D95"],
+      textShadow: [
+        "0 0 10px rgba(124,58,237,0)",
+        "0 0 35px rgba(124,58,237,0.9)",
+        "0 0 10px rgba(124,58,237,0)"
+      ]
+    }}
+    transition={{ duration: 2.5, repeat: Infinity }}
+    style={{ display: "inline-block" }}
+  >
+    Methodology
+  </motion.span>
+</motion.h2>
 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto relative z-10">
   {[
     {
@@ -693,13 +703,13 @@ expertise — so our clients always stay ahead in an ever-evolving digital ecosy
           LET'S GROW TOGETHER (CTA)
       ====================================================== */}
       <motion.div
-        className="px-6 md:px-12 max-w-7xl mx-auto py-16 relative z-10"
+        className="px-6 md:px-12 max-w-6xl mx-auto py-10 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
         viewport={{ once: true }}
       >
-        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+        <div className="rounded-3xl p-8 md:p-10 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
           {/* Animated Background Elements */}
           <div className="absolute inset-0">
             <motion.div
@@ -728,28 +738,6 @@ expertise — so our clients always stay ahead in an ever-evolving digital ecosy
           </div>
 
           <div className="relative z-10">
-            {/* Icon */}
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              whileInView={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full mb-4 border-2 border-white/40"
-            >
-              <motion.svg 
-                className="w-8 h-8 text-white" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </motion.svg>
-            </motion.div>
-
             {/* Main Heading */}
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
@@ -850,40 +838,7 @@ expertise — so our clients always stay ahead in an ever-evolving digital ecosy
               </Link>
             </motion.div>
 
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="mt-8 pt-6 border-t border-white/20"
-            >
-              <p className="text-white/70 text-sm mb-2">
-                Or reach out directly
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-6 text-white/90">
-                <motion.a 
-                  href="mailto:info@intellects.com" 
-                  className="flex items-center gap-2 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span className="font-medium">info@intellects.com</span>
-                </motion.a>
-                <motion.a 
-                  href="tel:+1234567890" 
-                  className="flex items-center gap-2 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span className="font-medium">+1 (234) 567-890</span>
-                </motion.a>
-              </div>
-            </motion.div>
+            
           </div>
         </div>
       </motion.div>

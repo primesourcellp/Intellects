@@ -199,9 +199,9 @@ export default function Sem() {
         <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
       </div>
 
-      {/* Header Section */}
+      {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
+        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -247,48 +247,75 @@ export default function Sem() {
           />
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
-          style={{ color: '#000000' }}
-        >
-          <TypingText text="Search Engine Marketing " />
-          <motion.span 
-            style={{ color: '#4C1D95' }}
-            animate={{ 
-              textShadow: [
-                `0 0 20px rgba(76, 29, 149, 0)`,
-                `0 0 20px rgba(76, 29, 149, 0.5)`,
-                `0 0 20px rgba(76, 29, 149, 0)`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
+        {/* Two Column Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
+          
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <TypingText text="(SEM)" />
-          </motion.span>
-        </motion.h1>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight"
+              style={{ color: '#000000' }}
+            >
+              <TypingText text="Search Engine " />
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <TypingText text="Marketing" />
+              </motion.span>
+            </motion.h1>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-2xl md:text-3xl font-semibold mb-6"
+              style={{ color: '#4C1D95' }}
+            >
+              Reach the Right Audience Instantly with Smart Paid Campaigns
+            </motion.h2>
         
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-2xl md:text-3xl font-bold max-w-4xl mx-auto mb-4 relative z-10"
-          style={{ color: '#4C1D95' }}
-        >
-          Reach the Right Audience Instantly with Smart Paid Campaigns
-        </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
-          style={{ color: '#6B7280' }}
-        >
-          Search Engine Marketing (SEM) is one of the fastest ways to get your business noticed online. At Intellects, we craft high-performing SEM campaigns that deliver qualified traffic, stronger conversions, and visible growth.
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl leading-relaxed mb-8"
+              style={{ color: '#374151' }}
+            >
+              Search Engine Marketing (SEM) is one of the fastest ways to get your business noticed online. At Intellects, we craft high-performing SEM campaigns that deliver qualified traffic, stronger conversions, and visible growth.
+            </motion.p>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <img 
+              src={sky8Image} 
+              alt="Search Engine Marketing Animation" 
+              className="w-full h-auto rounded-2xl shadow-2xl"
+            />
+          </motion.div>
+
+        </div>
       </section>
 
       {/* Our SEM Process Section - Vertical Timeline */}
@@ -677,7 +704,14 @@ export default function Sem() {
               </span>
             </motion.div>
 
-            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+            <motion.h3 
+              className="text-4xl md:text-5xl font-bold mb-6" 
+              style={{ color: '#4C1D95' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Key{" "}
               <motion.span 
                 style={{ color: '#000000' }}
@@ -692,7 +726,7 @@ export default function Sem() {
               >
                 Benefits
               </motion.span>
-            </h3>
+            </motion.h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -768,9 +802,16 @@ export default function Sem() {
             </span>
           </motion.div>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h2 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Data-Driven Marketing <span style={{ color: '#4C1D95' }}>Strategy</span>
-          </h2>
+          </motion.h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-2" style={{ color: '#6B7280' }}>
             Decisions Powered by Insights, Not Assumptions
           </p>
@@ -829,9 +870,16 @@ export default function Sem() {
             </span>
           </motion.div>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h2 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Precision Audience <span style={{ color: '#4C1D95' }}>Targeting</span>
-          </h2>
+          </motion.h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-2" style={{ color: '#6B7280' }}>
             Reaching the Right People at the Right Time
           </p>
@@ -908,9 +956,16 @@ export default function Sem() {
             </span>
           </motion.div>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h2 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Creative Ad <span style={{ color: '#4C1D95' }}>Development</span>
-          </h2>
+          </motion.h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-2" style={{ color: '#6B7280' }}>
             Where Strategy Meets Design
           </p>
@@ -1002,9 +1057,16 @@ export default function Sem() {
               </span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+            <motion.h2 
+              className="text-3xl md:text-5xl font-bold mb-6" 
+              style={{ color: '#000000' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Continuous Optimization & <span style={{ color: '#4C1D95' }}>Growth</span>
-            </h2>
+            </motion.h2>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-2" style={{ color: '#6B7280' }}>
               Your Campaign Never Stops Improving
             </p>
@@ -1128,9 +1190,16 @@ export default function Sem() {
       >
         <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h2 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Frequently Asked <span style={{ color: '#4C1D95' }}>Questions</span>
-          </h2>
+          </motion.h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -1191,9 +1260,15 @@ export default function Sem() {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+            <motion.h3 
+              className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Ready to Drive Instant Results with Smart SEM Campaigns?
-            </h3>
+            </motion.h3>
 
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               Let's create high-performing paid campaigns that deliver qualified traffic and measurable growth.

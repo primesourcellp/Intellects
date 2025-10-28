@@ -103,9 +103,9 @@ export default function Mobileapplication() {
         />
       </div>
 
-      {/* Header Section */}
+      {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
+        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -151,48 +151,75 @@ export default function Mobileapplication() {
           />
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
-          style={{ color: '#000000' }}
-        >
-          <TypingText text="Mobile Application " />
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px rgba(76, 29, 149, 0)`,
-                `0 0 20px rgba(76, 29, 149, 0.5)`,
-                `0 0 20px rgba(76, 29, 149, 0)`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
+        {/* Two Column Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
+          
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <TypingText text="Development" />
-          </motion.span>
-        </motion.h1>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight"
+              style={{ color: '#000000' }}
+            >
+              <TypingText text="Mobile Application " />
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <TypingText text="Development" />
+              </motion.span>
+            </motion.h1>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-2xl md:text-3xl font-semibold mb-6"
+              style={{ color: '#4C1D95' }}
+            >
+              Empowering Businesses Through Innovative Mobile Apps
+            </motion.h2>
         
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 100, damping: 20 }}
-          className="text-2xl md:text-3xl font-bold max-w-4xl mx-auto mb-4 relative z-10"
-          style={{ color: '#4C1D95' }}
-        >
-          Empowering Businesses Through Innovative Mobile Apps
-        </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 100, damping: 20 }}
-          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
-          style={{ color: '#6B7280' }}
-        >
-          At Intellects, we create user-friendly, secure, and high-performing mobile applications that connect businesses with their customers anytime, anywhere. Our mobile apps are designed to enhance engagement, streamline processes, and deliver measurable results.
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl leading-relaxed mb-8"
+              style={{ color: '#374151' }}
+            >
+              At Intellects, we create user-friendly, secure, and high-performing mobile applications that connect businesses with their customers anytime, anywhere. Our mobile apps are designed to enhance engagement, streamline processes, and deliver measurable results.
+            </motion.p>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <img 
+              src={sky8Image} 
+              alt="Mobile Application Development Animation" 
+              className="w-full h-auto rounded-2xl shadow-2xl"
+            />
+          </motion.div>
+
+        </div>
       </section>
 
       {/* Transforming Businesses Section */}
@@ -345,7 +372,14 @@ export default function Mobileapplication() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+            <motion.h3 
+              className="text-4xl md:text-5xl font-bold mb-6" 
+              style={{ color: '#4C1D95' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Services We{" "}
               <motion.span 
                 style={{ color: '#000000' }}
@@ -360,7 +394,7 @@ export default function Mobileapplication() {
               >
                 Offer
               </motion.span>
-            </h3>
+            </motion.h3>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
               Our end-to-end mobile application development services cater to businesses of all sizes:
             </p>
@@ -966,9 +1000,15 @@ export default function Mobileapplication() {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+            <motion.h3 
+              className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Ready to Transform Your Business with a Powerful Mobile App?
-            </h3>
+            </motion.h3>
 
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               With Intellects, your mobile app becomes a powerful tool to transform your business and elevate user experiences.

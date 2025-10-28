@@ -135,9 +135,9 @@ const CustomSoftwareDevelopment = () => {
         <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
       </div>
 
-      {/* Header Section - Home Page Style */}
+      {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
+        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -183,48 +183,75 @@ const CustomSoftwareDevelopment = () => {
           />
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
-          style={{ color: '#000000' }}
-        >
-          <TypingText text="Custom Software Development " />
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px rgba(76, 29, 149, 0)`,
-                `0 0 20px rgba(76, 29, 149, 0.5)`,
-                `0 0 20px rgba(76, 29, 149, 0)`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
+        {/* Two Column Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
+          
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <TypingText text="Services" />
-          </motion.span>
-        </motion.h1>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight"
+              style={{ color: '#000000' }}
+            >
+              <TypingText text="Custom " />
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <TypingText text="Software Development" />
+              </motion.span>
+            </motion.h1>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-2xl md:text-3xl font-semibold mb-6"
+              style={{ color: '#4C1D95' }}
+            >
+              Building Tomorrow's Digital Solutions Today
+            </motion.h2>
         
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-2xl md:text-3xl font-bold max-w-4xl mx-auto mb-4 relative z-10"
-          style={{ color: '#4C1D95' }}
-        >
-          Custom Software, Crafted Around Your Vision
-        </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
-          style={{ color: '#6B7280' }}
-        >
-          At Intellects, we create fully customized software solutions built to match your business goals, workflow, and growth plans. Our team transforms your ideas into intelligent, scalable, and high-performing systems that drive results.
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl leading-relaxed mb-8"
+              style={{ color: '#374151' }}
+            >
+              At Intellects, we transform your ideas into powerful, scalable software solutions. Our expert development team combines cutting-edge technologies with industry best practices to deliver custom software that drives business growth and innovation.
+            </motion.p>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <img 
+              src={sky8Image} 
+              alt="Software Development Animation" 
+              className="w-full h-auto rounded-2xl shadow-2xl"
+            />
+          </motion.div>
+
+        </div>
       </section>
 
       {/* Services Section */}
@@ -239,7 +266,14 @@ const CustomSoftwareDevelopment = () => {
       <div className="max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+            <motion.h2 
+              className="text-3xl md:text-5xl font-bold mb-6" 
+              style={{ color: '#000000' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Services We{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
@@ -254,7 +288,7 @@ const CustomSoftwareDevelopment = () => {
               >
                 Offer
               </motion.span>
-            </h2>
+            </motion.h2>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
               Our custom software development services help organizations simplify operations, enhance productivity, and deliver value through smart technology.
             </p>
@@ -336,7 +370,14 @@ const CustomSoftwareDevelopment = () => {
       >
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h3 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h3 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Technologies We{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -351,7 +392,7 @@ const CustomSoftwareDevelopment = () => {
             >
               Rely On
             </motion.span>
-          </h3>
+          </motion.h3>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
             We rely on robust and proven technologies to ensure your software is future-ready and reliable.
           </p>
@@ -571,7 +612,14 @@ const CustomSoftwareDevelopment = () => {
               </span>
             </motion.div>
             
-            <h3 className="text-3xl md:text-5xl font-bold mb-8" style={{ color: '#000000' }}>
+            <motion.h3 
+              className="text-3xl md:text-5xl font-bold mb-8" 
+              style={{ color: '#000000' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Tailored Tech for All{" "}
               <motion.span 
                 style={{ color: '#4C1D95' }}
@@ -586,7 +634,7 @@ const CustomSoftwareDevelopment = () => {
               >
                 Business Types
               </motion.span>
-            </h3>
+            </motion.h3>
             
             <p className="max-w-4xl mx-auto text-gray-700 text-lg leading-relaxed">
               Whether you run a startup, SME, or enterprise, our custom-built software adapts to your specific needs. We design every feature to align with your operations, branding, and user expectations — ensuring your software feels like it was made just for you.
@@ -608,7 +656,14 @@ const CustomSoftwareDevelopment = () => {
         <div className="max-w-7xl mx-auto">
         {/* Centered Heading */}
         <div className="text-center mb-12">
-          <h3 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h3 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Why Clients Choose{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -623,7 +678,7 @@ const CustomSoftwareDevelopment = () => {
             >
               Intellects
             </motion.span>
-          </h3>
+          </motion.h3>
         </div>
 
         {/* Content Grid */}
@@ -1026,9 +1081,15 @@ const CustomSoftwareDevelopment = () => {
           </div>
           
           <div className="relative z-10">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+            <motion.h3 
+              className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               At Intellects, we don't offer templates — we engineer tailored software that grows with your business.
-            </h3>
+            </motion.h3>
             
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               Ready to transform your business with custom software solutions?

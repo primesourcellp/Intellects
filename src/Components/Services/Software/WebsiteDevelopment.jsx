@@ -129,17 +129,36 @@ const FAQItem = ({ faq, index }) => {
 };
 
 export default function WebsiteDevelopment() {
+  // Add smooth scroll behavior and optimize for mobile
+  React.useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    // Add momentum scrolling for iOS
+    document.body.style.webkitOverflowScrolling = 'touch';
+    // Improve scroll performance
+    document.body.style.overflowY = 'auto';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen text-gray-800" style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)' }}>
+    <motion.div 
+      className="min-h-screen text-gray-800" 
+      style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)', WebkitOverflowScrolling: 'touch' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+    >
       {/* Animated Background Particles */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute w-96 h-96 rounded-full blur-3xl -top-48 -left-48 animate-pulse" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
         <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
       </div>
 
-      {/* Header Section - Home Page Style */}
+      {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 text-center shadow-lg overflow-hidden"
+        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -185,48 +204,75 @@ export default function WebsiteDevelopment() {
           />
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight relative z-10"
-          style={{ color: '#000000' }}
-        >
-          <TypingText text="Website Development " />
-          <motion.span
-            style={{ color: '#4C1D95' }}
-            animate={{
-              textShadow: [
-                `0 0 20px rgba(76, 29, 149, 0)`,
-                `0 0 20px rgba(76, 29, 149, 0.5)`,
-                `0 0 20px rgba(76, 29, 149, 0)`
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
+        {/* Two Column Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
+          
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <TypingText text="Services" />
-          </motion.span>
-        </motion.h1>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight"
+              style={{ color: '#000000' }}
+            >
+              <TypingText text="Website " />
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <TypingText text="Development" />
+              </motion.span>
+            </motion.h1>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-2xl md:text-3xl font-semibold mb-6"
+              style={{ color: '#4C1D95' }}
+            >
+              Transform Your Online Presence with Modern Web Solutions
+            </motion.h2>
         
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-2xl md:text-3xl font-bold max-w-4xl mx-auto mb-4 relative z-10"
-          style={{ color: '#4C1D95' }}
-        >
-          Transform Your Online Presence with Intellects Website Development Services
-        </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed relative z-10"
-          style={{ color: '#6B7280' }}
-        >
-          At Intellects, we design and develop modern, responsive, and business-driven websites that help brands make a lasting digital impression. Whether you need a corporate website, e-commerce platform, or a personal portfolio, we deliver technology that performs and design that inspires.
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl leading-relaxed mb-8"
+              style={{ color: '#374151' }}
+            >
+              At Intellects, we design and develop modern, responsive, and business-driven websites that help brands make a lasting digital impression. Whether you need a corporate website, e-commerce platform, or a personal portfolio, we deliver technology that performs and design that inspires.
+            </motion.p>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <img 
+              src={sky8Image} 
+              alt="Website Development Animation" 
+              className="w-full h-auto rounded-2xl shadow-2xl"
+            />
+          </motion.div>
+
+        </div>
       </section>
 
       {/* Services Section */}
@@ -240,7 +286,14 @@ export default function WebsiteDevelopment() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+            <motion.h3 
+              className="text-4xl md:text-5xl font-bold mb-6" 
+              style={{ color: '#4C1D95' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Services We{" "}
               <motion.span 
                 style={{ color: '#000000' }}
@@ -255,7 +308,7 @@ export default function WebsiteDevelopment() {
               >
                 Offer
               </motion.span>
-            </h3>
+            </motion.h3>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
               Our website development services are tailored to meet your business goals and engage your audience effectively.
             </p>
@@ -362,7 +415,14 @@ export default function WebsiteDevelopment() {
       >
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h2 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Our Formula for Web Development{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -377,7 +437,7 @@ export default function WebsiteDevelopment() {
             >
               Success
             </motion.span>
-          </h2>
+          </motion.h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
             We follow a proven formula that ensures quality and results for every client.
           </p>
@@ -430,7 +490,14 @@ export default function WebsiteDevelopment() {
         <div className="max-w-7xl mx-auto">
         {/* Centered Heading */}
         <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h3 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Your Trusted Custom Web Development{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -445,7 +512,7 @@ export default function WebsiteDevelopment() {
             >
               Partner
             </motion.span>
-          </h3>
+          </motion.h3>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-8" style={{ color: '#6B7280' }}>
             Choosing Intellects means partnering with a team that prioritizes innovation, transparency, and long-term value.
           </p>
@@ -1312,7 +1379,14 @@ export default function WebsiteDevelopment() {
       >
         <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#000000' }}>
+          <motion.h2 
+            className="text-3xl md:text-5xl font-bold mb-6" 
+            style={{ color: '#000000' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}
+          >
             Frequently Asked{" "}
             <motion.span 
               style={{ color: '#4C1D95' }}
@@ -1327,7 +1401,7 @@ export default function WebsiteDevelopment() {
             >
               Questions
             </motion.span>
-          </h2>
+          </motion.h2>
         </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -1388,9 +1462,15 @@ export default function WebsiteDevelopment() {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+            <motion.h3 
+              className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+            >
               Ready to Transform Your Online Presence?
-            </h3>
+            </motion.h3>
 
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               Let's create a stunning website that drives real results and grows your business.
@@ -1407,6 +1487,6 @@ export default function WebsiteDevelopment() {
           </div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
