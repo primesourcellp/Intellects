@@ -487,14 +487,14 @@ export default function App() {
   }
 `}</style>
 
-
-{/* 🌟 WHY IT WORKS — SAME COLOR BACKGROUND EXTENDED */}
+{/* 🌟 WHY IT WORKS — BACKGROUND REMOVED */}
 <motion.section
   initial={{ opacity: 0, y: 60 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
   viewport={{ once: false, amount: 0.2 }}
   className="why-section-bg py-28 px-6 md:px-16 lg:px-32 text-center relative"
+  style={{ background: "transparent" }} // ✅ BG removed
 >
   <motion.h2
     initial={{ opacity: 0, y: 40 }}
@@ -509,7 +509,7 @@ export default function App() {
       animate={{
         textShadow: [
           '0 0 10px rgba(76,29,149,0)',
-          '0 0 12px rgba(76,29,149,0.4)',
+          '0 0 12px rgba(76,29,149,0.35)',
           '0 0 10px rgba(76,29,149,0)'
         ]
       }}
@@ -535,40 +535,42 @@ export default function App() {
           transition: { delay: i * 0.12, duration: 0.55 }
         }}
         viewport={{ once: true, amount: 0.2 }}
-        className="why-card p-7 flex items-center gap-4 text-left cursor-pointer"
+        className="why-card p-7 flex items-center gap-4 text-left cursor-pointer 
+          rounded-xl bg-white shadow-md hover:shadow-lg transition-all"
       >
         <span className="text-3xl icon-float">{item.icon}</span>
-        <span className="text-lg font-semibold text-gray-800">{item.title}</span>
+        <span className="text-lg font-semibold text-gray-800">
+          {item.title}
+        </span>
       </motion.div>
     ))}
   </div>
 </motion.section>
-
-
 {/* ======================================================
-    OUR KEY CLIENTS
+    OUR KEY CLIENTS (ULTRA LIGHT BACKGROUND)
 ====================================================== */}
 <motion.section
   initial={{ opacity: 0, y: 60 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
   viewport={{ once: false, amount: 0.2 }}
-  className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center relative"
+  className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center relative overflow-hidden"
   style={{ 
-    background: "linear-gradient(135deg, #EDE9FE, #F5F3FF)" 
+    background: "linear-gradient(135deg, #FFFFFF, #F7F5FF)" 
   }}
 >
-  {/* Light glow overlay */}
+  {/* Soft Glow Overlay */}
   <motion.div
-    className="absolute inset-0 opacity-50"
+    className="absolute inset-0 opacity-35"
     style={{
       background:
-        "radial-gradient(circle at top left, rgba(124,58,237,0.3), transparent 50%)"
+        "radial-gradient(circle at top left, rgba(124,58,237,0.10), transparent 65%)"
     }}
-    animate={{ opacity: [0.4, 0.8, 0.4] }}
-    transition={{ duration: 4, repeat: Infinity }}
+    animate={{ opacity: [0.2, 0.4, 0.2] }}
+    transition={{ duration: 5, repeat: Infinity }}
   />
 
+  {/* Heading */}
   <motion.h2 
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -581,9 +583,9 @@ export default function App() {
       style={{ color: "#000000" }}
       animate={{
         textShadow: [
-          `0 0 20px #4C1D9500`,
-          `0 0 20px #4C1D9550`,
-          `0 0 20px #4C1D9500`
+          `0 0 14px rgba(76,29,149,0)`,
+          `0 0 14px rgba(76,29,149,0.35)`,
+          `0 0 14px rgba(76,29,149,0)`
         ]
       }}
       transition={{ duration: 3, repeat: Infinity }}
@@ -592,6 +594,7 @@ export default function App() {
     </motion.span>
   </motion.h2>
 
+  {/* Subtext */}
   <motion.p 
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -599,55 +602,65 @@ export default function App() {
     className="max-w-4xl mx-auto text-base sm:text-lg mb-8 relative z-10"
     style={{ color: "#4B5563" }}
   >
-    Over the years, Intellects has had the privilege of working with a diverse range of clients —
-from emerging startups to established enterprises across industries like technology,
-healthcare, retail, and finance. Our clients choose us not just for our skills — but for our
-commitment to helping them achieve lasting success
+    Over the years, Intellects has had the privilege of working with a diverse 
+    range of clients — from emerging startups to established enterprises across 
+    industries like technology, healthcare, retail, and finance. We are committed 
+    to innovation, quality, and results.
   </motion.p>
+
+  {/* Highlight Quote */}
   <motion.blockquote 
-    initial={{ opacity: 0, scale: 0.9 }}
+    initial={{ opacity: 0, scale: 0.95 }}
     whileInView={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.7, delay: 0.3, type: "spring" }}
     className="italic text-xl font-semibold mb-10 relative z-10"
     style={{ color: "#4C1D95" }}
   >
-    "Trusted by forward-thinking brands who believe in innovation and excellence."
+    "Trusted by visionary brands shaping the future."
   </motion.blockquote>
+
 </motion.section>
 
+
 {/* ======================================================
-    PARTNERSHIP SECTION + TESTIMONIAL BUTTON
+    PARTNERSHIP SECTION + TESTIMONIAL BUTTON (ULTRA LIGHT BG)
 ====================================================== */}
 <motion.section
   initial={{ opacity: 0, y: 60 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
   viewport={{ once: false, amount: 0.2 }}
-  className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center relative"
+  className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center relative overflow-hidden"
   style={{
-    background: "linear-gradient(135deg, #4C1D95, #1F0C40)",
-    color: "white"
+    background: "linear-gradient(135deg, #FFFFFF, #F7F3FF)", 
+    color: "#2D0F73"
   }}
 >
-  {/* purple glow waves */}
+
+  {/* Soft Glow Overlay */}
   <motion.div
     className="absolute inset-0"
     style={{
       background:
-        "radial-gradient(circle at bottom right, rgba(255,255,255,0.15), transparent 70%)"
+        "radial-gradient(circle at bottom right, rgba(124,58,237,0.12), transparent 70%)"
     }}
-    animate={{ opacity: [0.4, 0.8, 0.4] }}
-    transition={{ duration: 5, repeat: Infinity }}
+    animate={{ opacity: [0.18, 0.28, 0.18] }}
+    transition={{ duration: 6, repeat: Infinity }}
   />
 
+  {/* Decorative Blur Elements */}
+  <div className="absolute -top-12 -left-12 w-36 h-36 bg-purple-200 opacity-20 blur-3xl rounded-full"></div>
+  <div className="absolute -bottom-24 right-0 w-48 h-48 bg-purple-100 opacity-25 blur-3xl rounded-full"></div>
+
+  {/* Title */}
   <h2 className="text-3xl md:text-5xl font-bold mb-4 relative z-10">
     <motion.span
-      style={{ color: "#FFFFFF" }}
+      style={{ color: "#4C1D95" }}
       animate={{
         textShadow: [
-          `0 0 15px #FFFFFF00`,
-          `0 0 15px #FFFFFF77`,
-          `0 0 15px #FFFFFF00`
+          `0 0 14px rgba(76,29,149,0)`,
+          `0 0 14px rgba(76,29,149,0.45)`,
+          `0 0 14px rgba(76,29,149,0)`
         ]
       }}
       transition={{ duration: 3, repeat: Infinity }}
@@ -657,17 +670,19 @@ commitment to helping them achieve lasting success
     Partnerships
   </h2>
 
-  <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed mb-10 relative z-10 text-gray-200">
-    Intellects partners with leading technology providers and platforms to ensure we deliver
-world-class solutions. Our alliances help us access the best tools, frameworks, and
-expertise — so our clients always stay ahead in an ever-evolving digital ecosystem
+  {/* Subtext */}
+  <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed mb-10 relative z-10 text-gray-700">
+    Intellects partners with leading technology providers and platforms to ensure 
+    world-class digital solutions. Our alliances help us deliver the best 
+    technologies so our clients stay future-ready in a fast-changing landscape.
   </p>
 
+  {/* Button */}
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
-    whileHover={{ scale: 1.08 }}
-    className="inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold shadow-2xl cursor-pointer relative overflow-hidden group z-10"
+    whileHover={{ scale: 1.1 }}
+    className="inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold shadow-xl cursor-pointer relative overflow-hidden group z-10"
     style={{
       background: "linear-gradient(135deg, #7C3AED, #C084FC)"
     }}
@@ -676,27 +691,30 @@ expertise — so our clients always stay ahead in an ever-evolving digital ecosy
       className="absolute inset-0"
       style={{
         background:
-          "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)"
+          "linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)"
       }}
-      animate={{ x: ['-100%', '200%'] }}
+      animate={{ x: ['-120%', '200%'] }}
       transition={{ duration: 2, repeat: Infinity }}
     />
-   <Link 
-  to="/testimonials"
-  className="flex items-center gap-3 text-lg relative z-10 text-white"
->
-  Clients & Partners 
-  <motion.span 
-    className="text-2xl"
-    animate={{ x: [0, 5, 0] }}
-    transition={{ duration: 1.5, repeat: Infinity }}
-  >
-    →
-  </motion.span>
-</Link>
 
+    <Link 
+      to="/testimonials"
+      className="flex items-center gap-3 text-lg relative z-10 text-white"
+    >
+      Clients & Partners 
+      <motion.span 
+        className="text-2xl"
+        animate={{ x: [0, 6, 0] }}
+        transition={{ duration: 1.4, repeat: Infinity }}
+      >
+        →
+      </motion.span>
+    </Link>
   </motion.div>
+
 </motion.section>
+
+
 
 
       {/* ======================================================
