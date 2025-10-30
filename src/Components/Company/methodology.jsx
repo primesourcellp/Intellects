@@ -192,10 +192,10 @@ export default function Methodology() {
       </div>
 
       {/* About Us Section */}
-      <motion.section 
+<motion.section
         className="relative py-32 px-6 md:px-12 bg-white"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false, amount: 0.2 }}
       >
@@ -204,27 +204,27 @@ export default function Methodology() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Column - Content */}
-            <motion.div
+  <motion.div
               initial={{ opacity: 0, y: -50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
               className="text-left"
             >
-              <motion.div
+  <motion.div
                 initial={{ opacity: 0, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                viewport={{ once: false }}
+    viewport={{ once: false }}
                 className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
               >
                 <Target className="w-4 h-4" />
                 ABOUT US
-              </motion.div>
+  </motion.div>
 
-              <motion.h2
+  <motion.h2
                 initial={{ opacity: 0, y: -30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+    whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
                 viewport={{ once: false }}
                 className="text-4xl md:text-5xl font-black mb-6 leading-tight"
@@ -232,11 +232,11 @@ export default function Methodology() {
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   About Us
                 </span>
-              </motion.h2>
+  </motion.h2>
 
-              <motion.p
+  <motion.p
                 initial={{ opacity: 0, y: -30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+    whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: false }}
                 className="text-lg text-gray-700 leading-relaxed mb-6"
@@ -244,9 +244,9 @@ export default function Methodology() {
                 At Intellects, we bridge technology, creativity, and human insight to help organizations 
                 grow smarter, faster, and stronger in a digital world. We believe that innovation begins with 
                 intellect — the power to think differently, solve challenges, and create progress.
-              </motion.p>
+  </motion.p>
 
-              <motion.p
+  <motion.p
                 initial={{ opacity: 0, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -299,7 +299,7 @@ export default function Methodology() {
       {/* Our Development & Methodology Section */}
       <motion.section 
         className="relative py-32 px-6 md:px-12 bg-white"
-        initial={{ opacity: 0 }}
+    initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false, amount: 0.2 }}
@@ -341,11 +341,11 @@ export default function Methodology() {
               improvement. We understand that every client's journey is unique — that's why Intellects 
               tailors its methodology to fit your goals, timelines, and business model. We combine deep 
               technical knowledge with a human-centered mindset to ensure every solution we build is 
-              innovative, reliable, and scalable.
-            </motion.p>
+    innovative, reliable, and scalable.
+  </motion.p>
           </div>
         </div>
-      </motion.section>
+</motion.section>
 
       {/* Our Proven Methodology Section */}
       <motion.section 
@@ -368,18 +368,18 @@ export default function Methodology() {
               METHODOLOGY
             </motion.div>
 
-            <motion.h2
+<motion.h2
               initial={{ opacity: 0, y: -30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+  whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: false }}
               className="text-4xl md:text-6xl font-black mb-6"
             >
               <span className="text-gray-900">Our Proven </span>
               <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                Methodology
+    Methodology
               </span>
-            </motion.h2>
+</motion.h2>
           </div>
 
           {/* Methodology Steps */}
@@ -475,7 +475,7 @@ export default function Methodology() {
       </div>
     </motion.div>
   ))}
-          </div>
+</div>
         </div>
       </motion.section>
 
@@ -484,8 +484,8 @@ export default function Methodology() {
         className="relative py-32 px-6 md:px-12 bg-gradient-to-b from-white to-purple-50/50"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: false, amount: 0.2 }}
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -573,35 +573,8 @@ export default function Methodology() {
       </motion.div>
     ))}
           </div>
-        </div>
+  </div>
 </motion.section>
-<<<<<<< Updated upstream
-{/* ======================================================
-    OUR KEY CLIENTS (ULTRA LIGHT BACKGROUND)
-====================================================== */}
-<motion.section
-        className="relative py-32 px-6 md:px-12 bg-white"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: false, amount: 0.2 }}
-  className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center relative overflow-hidden"
-  style={{ 
-    background: "linear-gradient(135deg, #FFFFFF, #F7F5FF)" 
-  }}
->
-  {/* Soft Glow Overlay */}
-  <motion.div
-    className="absolute inset-0 opacity-35"
-    style={{
-      background:
-        "radial-gradient(circle at top left, rgba(124,58,237,0.10), transparent 65%)"
-    }}
-    animate={{ opacity: [0.2, 0.4, 0.2] }}
-    transition={{ duration: 5, repeat: Infinity }}
-  />
-=======
->>>>>>> Stashed changes
 
       {/* Key Clients Section */}
 <motion.section
@@ -609,8 +582,8 @@ export default function Methodology() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
   transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
-      >
+  viewport={{ once: false, amount: 0.2 }}
+>
         <div className="max-w-7xl mx-auto text-center">
   <motion.div
             initial={{ opacity: 0, y: -30 }}
@@ -661,22 +634,14 @@ export default function Methodology() {
         </div>
 </motion.section>
 
-<<<<<<< Updated upstream
-
-
-{/* ======================================================
-    PARTNERSHIP SECTION + TESTIMONIAL BUTTON (ULTRA LIGHT BG)
-====================================================== */}
-=======
       {/* Strategic Partnerships Section */}
->>>>>>> Stashed changes
 <motion.section
         className="relative py-32 px-6 md:px-12 bg-gradient-to-b from-purple-50/50 to-white"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
   transition={{ duration: 0.8 }}
-        viewport={{ once: false, amount: 0.2 }}
-      >
+  viewport={{ once: false, amount: 0.2 }}
+>
         <div className="max-w-7xl mx-auto text-center">
   <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -754,9 +719,9 @@ export default function Methodology() {
             >
               Ready to Transform Your Business?
             </motion.h3>
-            
+
             {/* Description */}
-            <motion.p
+            <motion.p 
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
