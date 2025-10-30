@@ -329,104 +329,117 @@ const CultureCard = ({ icon: Icon, title, description, delay = 0, gradient, inde
 export default function CareerCulture() {
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
-      {/* Header Section */}
-      <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img
-            src={sky8Image}
-            alt="Career Culture"
-            className="w-full h-full object-cover"
-            style={{ opacity: 1 }}
-          />
-          <div 
-            className="absolute inset-0" 
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
-            }}
-          />
-        </div>
+    {/* ======================================================
+    HEADER SECTION (CAREER & COMPANY CULTURE)
+====================================================== */}
+<div 
+  className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-between overflow-hidden"
+  style={{ backgroundColor: '#FFFFFF' }}
+>
+  {/* Background Image with Overlay */}
+  <div className="absolute inset-0">
+    <img
+      src={sky8Image}
+      alt="Career Culture"
+      className="w-full h-full object-cover"
+      style={{ opacity: 1 }}
+    />
+    <div
+      className="absolute inset-0"
+      style={{
+        background:
+          'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
+      }}
+    />
+  </div>
 
-        {/* Enhanced Floating Shapes */}
-        <motion.div
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-20"
-          style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
-        />
-        <motion.div
-          animate={{ 
-            y: [0, 20, 0],
-            rotate: [0, -5, 0],
-            scale: [1, 1.15, 1]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-10 w-32 h-32 rounded-full opacity-20"
-          style={{ background: 'linear-gradient(135deg, #7C3AED, #4C1D95)' }}
-        />
-        
-        {/* Additional Floating Elements */}
-        <motion.div
-          animate={{ 
-            x: [0, 30, 0],
-            y: [0, -15, 0],
-            rotate: [0, 15, 0]
-          }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-40 right-20 w-16 h-16 rounded-lg opacity-15"
-          style={{ background: 'linear-gradient(135deg, #F59E0B, #4C1D95)' }}
-        />
-        <motion.div
-          animate={{ 
-            x: [0, -20, 0],
-            y: [0, 20, 0],
-            rotate: [0, -12, 0]
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute bottom-32 left-20 w-12 h-12 rounded-full opacity-15"
-          style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
-        />
+  {/* Floating Decorative Shapes */}
+  <motion.div
+    animate={{
+      y: [0, -20, 0],
+      rotate: [0, 5, 0],
+      scale: [1, 1.1, 1],
+    }}
+    transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+    className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-20"
+    style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+  />
+  <motion.div
+    animate={{
+      y: [0, 20, 0],
+      rotate: [0, -5, 0],
+      scale: [1, 1.15, 1],
+    }}
+    transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+    className="absolute bottom-20 right-10 w-32 h-32 rounded-full opacity-20"
+    style={{ background: 'linear-gradient(135deg, #7C3AED, #4C1D95)' }}
+  />
 
-        {/* Content */}
-        <div className="relative z-10 text-center px-6 md:px-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
-            style={{ color: '#000000' }}
-          >
-            <TypingText text="Career & " />
-            <motion.span
-              style={{ color: '#4C1D95' }}
-              animate={{
-                textShadow: [
-                  `0 0 20px ${'#4C1D95'}00`,
-                  `0 0 20px ${'#4C1D95'}50`,
-                  `0 0 20px ${'#4C1D95'}00`
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              <TypingText text="Company Culture" />
-            </motion.span>
-          </motion.h1>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed"
-            style={{ color: '#6B7280' }}
-          >
-            Grow With Purpose. Work With Intellect.
-          </motion.p>
-        </div>
-      </div>
+  {/* LEFT CONTENT (TEXT SECTION) */}
+  <div className="relative z-10 flex-1 text-center md:text-left px-8 md:px-16 py-12">
+    <motion.h1
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, ease: 'easeOut' }}
+      className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+      style={{
+        color: '#000000',
+        textShadow: '0 2px 8px rgba(0,0,0,0.1)',
+      }}
+    >
+      <motion.span
+        animate={{
+          opacity: [0.7, 1, 0.7],
+        }}
+        transition={{ duration: 3, repeat: Infinity }}
+      >
+        Career &
+      </motion.span>{' '}
+      <motion.span
+        style={{ color: '#4C1D95' }}
+        animate={{
+          textShadow: [
+            `0 0 20px rgba(76,29,149,0)`,
+            `0 0 20px rgba(76,29,149,0.5)`,
+            `0 0 20px rgba(76,29,149,0)`,
+          ],
+        }}
+        transition={{ duration: 3, repeat: Infinity }}
+      >
+        Company Culture
+      </motion.span>
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      className="text-lg md:text-xl max-w-xl mx-auto md:mx-0 font-light leading-relaxed"
+      style={{ color: '#6B7280' }}
+    >
+      Grow With Purpose. Work With Intellect.
+    </motion.p>
+  </div>
+
+  {/* RIGHT SIDE IMAGE WITH ANIMATION */}
+  <motion.div
+    initial={{ opacity: 0, x: 100, scale: 0.9 }}
+    animate={{ opacity: 1, x: 0, scale: 1 }}
+    transition={{ duration: 1.2, ease: 'easeOut' }}
+    className="relative z-10 flex-1 flex justify-center items-center px-6"
+  >
+    <motion.img
+      src="https://media.istockphoto.com/id/1271291959/vector/business-line-or-development-process.jpg?s=612x612&w=0&k=20&c=g0OQGANYKu_CfnPHjgAPVqboJXe35HJHc1I5v4ot14A="
+      alt="Business Development Illustration"
+      className="max-w-md md:max-w-lg w-full rounded-2xl shadow-2xl"
+      animate={{
+        y: [0, -15, 0],
+        scale: [1, 1.02, 1],
+      }}
+      transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+    />
+  </motion.div>
+</div>
 
      {/* Introduction */}
 <AnimatedSection>
@@ -716,13 +729,12 @@ export default function CareerCulture() {
     {/* 🚀 Career Growth & Learning */}
 <AnimatedSection delay={0.5}>
   <div
-    className="relative overflow-hidden py-28 px-6 md:px-20"
+    className="relative overflow-hidden py-28 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between gap-12"
     style={{
-      background: "radial-gradient(circle at bottom right, #ede9fe 0%, #ffffff 70%)"
+      background: "radial-gradient(circle at bottom right, #ede9fe 0%, #ffffff 70%)",
     }}
   >
-
-    {/* Decorative Floating Blobs (Left & Right) */}
+    {/* ===== Decorative Floating Blobs (Left & Right) ===== */}
     <motion.div
       className="absolute -top-24 -left-32 w-[380px] h-[380px] bg-purple-200 opacity-30 rounded-full blur-[120px]"
       animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
@@ -735,7 +747,7 @@ export default function CareerCulture() {
       transition={{ duration: 12, repeat: Infinity }}
     />
 
-    {/* Decorative Side Floating Dots */}
+    {/* ===== Decorative Side Floating Dots ===== */}
     <motion.div
       className="absolute top-[20%] left-6 w-4 h-4 bg-purple-400 rounded-full opacity-70"
       animate={{ y: [0, -12, 0] }}
@@ -747,8 +759,32 @@ export default function CareerCulture() {
       transition={{ duration: 3.5, repeat: Infinity }}
     />
 
-    <div className="relative max-w-5xl mx-auto text-center z-10">
-      
+    {/* ===== LEFT SIDE: IMAGE ===== */}
+    <motion.div
+      initial={{ opacity: 0, x: -80, scale: 0.9 }}
+      whileInView={{ opacity: 1, x: 0, scale: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="relative z-10 md:w-1/2 flex justify-center"
+    >
+      <motion.img
+        src="https://img.freepik.com/premium-vector/career-education-with-growth-concept-learning-model-associate-activity-hand-drawn-illustration_2175-10323.jpg"
+        alt="Career Growth Illustration"
+        className="w-[85%] max-w-md rounded-2xl shadow-2xl"
+        animate={{
+          y: [0, -10, 0],
+          rotate: [0, 1.5, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+    </motion.div>
+
+    {/* ===== RIGHT SIDE: TEXT CONTENT ===== */}
+    <div className="relative z-10 text-center md:text-left md:w-1/2">
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
@@ -765,8 +801,8 @@ export default function CareerCulture() {
             textShadow: [
               "0 0 10px rgba(124, 58, 237, 0.2)",
               "0 0 25px rgba(124, 58, 237, 0.5)",
-              "0 0 10px rgba(124, 58, 237, 0.2)"
-            ]
+              "0 0 10px rgba(124, 58, 237, 0.2)",
+            ],
           }}
           transition={{ duration: 3, repeat: Infinity }}
         >
@@ -780,7 +816,7 @@ export default function CareerCulture() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto"
+        className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto md:mx-0"
         style={{ color: "#4B5563" }}
       >
         At Intellects, your career path is built around your strengths and ambitions.
@@ -791,12 +827,9 @@ export default function CareerCulture() {
         We encourage our people to explore new domains, master emerging tools,
         and grow their expertise — because your success fuels our innovation.
       </motion.p>
-
     </div>
-
   </div>
 </AnimatedSection>
-
 
     {/* Learning Opportunities Include */}
 <AnimatedSection delay={0.1}>
