@@ -16,9 +16,12 @@ import {
   FaWater,
   FaRocket,
 } from "react-icons/fa";
-import sky8Image from "../../../assets/sky8.jpg";
-import aboutImage from "../../../assets/about.jpg";
-import soft9Image from "../../../assets/soft9.png";
+import website1Image from "../../../assets/website1.jpg";
+import website2Image from "../../../assets/website2.jpg";
+import website3Image from "../../../assets/website_3.png";
+import website4Image from "../../../assets/website4.png";
+import website5Image from "../../../assets/website5.png";
+
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -266,7 +269,7 @@ export default function WebsiteDevelopment() {
             className="relative"
           >
             <img 
-              src={sky8Image} 
+              src={website1Image} 
               alt="Website Development Animation" 
               className="w-full h-auto rounded-2xl shadow-2xl"
             />
@@ -321,27 +324,27 @@ export default function WebsiteDevelopment() {
             {
               title: "Corporate & Business Websites",
               desc: "Build trust with sleek, professional designs.",
-              img: sky8Image,
+              img: website1Image,
             },
             {
               title: "E-commerce Platforms",
               desc: "Secure, scalable, and conversion-focused online stores.",
-              img: aboutImage,
+              img: website2Image,
             },
             {
               title: "CMS Development",
               desc: "Empower your team with easy content management.",
-              img: soft9Image,
+              img: website3Image,
             },
             {
               title: "Landing Pages",
               desc: "Optimize campaigns with high-impact designs.",
-              img: sky8Image,
+              img: website4Image,
             },
             {
               title: "Custom Web Portals",
               desc: "Designed to improve internal operations and user experience.",
-              img: aboutImage,
+              img: website5Image,
             },
           ].map((s, i) => (
             <motion.section

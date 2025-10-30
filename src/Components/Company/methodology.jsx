@@ -1,34 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import sky8Image from "../../assets/sky8.jpg";
-
-// NOTE: Since this is a single, self-contained file, we define a simple 
-// placeholder component for 'Link' from 'react-router-dom' to ensure 
-// the code is runnable without a full routing setup.
-const Link = ({ to, children, className }) => (
-  <a 
-    href={to} 
-    onClick={(e) => {
-      e.preventDefault();
-      console.log(`Navigation attempt to: ${to}`);
-      // In a real application, this would use a router navigation function.
-    }} 
-    className={className}
-  >
-    {children}
-  </a>
-);
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  Compass,
+  Palette,
+  Cog,
+  CheckCircle,
+  Rocket,
+  Users,
+  Target,
+  TrendingUp,
+  Shield,
+  Zap,
+  MessageCircle,
+  Award,
+  Sparkles,
+  ArrowRight,
+  Globe,
+  Lightbulb,
+} from "lucide-react";
+import aboutImage from "../../assets/sky8.jpg";
 
 // Typing Animation Component
-const TypingText = ({ text, className = "" }) => {
+const TypingText = ({ text, delay = 0, speed = 50, className = "" }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setStarted(true), 200);
+    const timer = setTimeout(() => setStarted(true), delay);
     return () => clearTimeout(timer);
-  }, []);
+  }, [delay]);
 
   useEffect(() => {
     if (!started) return;
@@ -36,88 +37,84 @@ const TypingText = ({ text, className = "" }) => {
       const timeout = setTimeout(() => {
         setDisplayedText((prev) => prev + text[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
-      }, 50);
+      }, speed);
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, text, started]);
-
-  return <span className={className}>{displayedText}</span>;
-};
-
-
-export default function App() {
-  // ===== Intellects Color Palette =====
-  const COLOR_PRIMARY = "#4C1D95"; // Purple Dark - Primary
-  const COLOR_PURPLE_DARK = "#4C1D95"; // Dark Purple
-  const COLOR_PINK = "#4C1D95"; // Purple - Accent
-  const COLOR_PINK_LIGHT = "#7C3AED"; // Purple Violet
-  const COLOR_BG = "#FFFFFF"; // Clean White - Base
-  const COLOR_SECTION = "#F9FAFB"; // Light Gray
-  const COLOR_TEXT = "#000000"; // Black Text
-  const COLOR_MUTED = "#6B7280"; // Medium Gray
-
-  // ===== Animation Presets =====
-  // Animations are now defined inline for better performance and flexibility
+  }, [currentIndex, text, started, speed]);
 
   return (
-    <div className="min-h-screen font-sans relative overflow-hidden" style={{ backgroundColor: COLOR_BG, color: COLOR_TEXT }}>
-      
-      {/* ======================================================
-          HERO SECTION WITH BACKGROUND IMAGE
-      ====================================================== */}
-      <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
-        {/* Background Image with Overlay */}
+    <span className={`${className} inline-block`}>
+      {displayedText}
+    </span>
+  );
+};
+
+export default function Methodology() {
+  const { scrollYProgress } = useScroll();
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 1, 0.8, 0.6]);
+
+  return (
+    <div className="bg-gradient-to-b from-white via-purple-50/30 to-white overflow-hidden">
+      {/* Hero Section */}
+      <div className="relative py-20 md:py-32 flex items-center justify-center overflow-hidden">
+        {/* Animated Gradient Background */}
         <motion.div 
           className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          animate={{
+            background: [
+              'radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)',
+              'radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)',
+            ]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         />
 
-        {/* Floating Shapes - Enhanced */}
+        {/* Floating Decorative Shapes - Top to Bottom */}
         <motion.div
           animate={{ 
-            y: [0, -25, 0],
-            rotate: [0, 10, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-20"
-          style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
-        />
-        <motion.div
-          animate={{ 
-            y: [0, 25, 0],
-            rotate: [0, -10, 0],
-            scale: [1, 1.15, 1]
+            y: [0, 200, 0],
+            rotate: [0, 10, 0]
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-10 w-32 h-32 rounded-full opacity-20"
-          style={{ background: 'linear-gradient(135deg, #7C3AED, #4C1D95)' }}
+          className="absolute top-20 left-10 md:left-20 opacity-20 z-0"
+        >
+          <div 
+            className="w-20 h-20 rounded-2xl transform rotate-12" 
+          style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
         />
-        
-        {/* Additional Floating Elements */}
+        </motion.div>
+
         <motion.div
           animate={{ 
-            x: [0, 30, 0],
-            y: [0, -15, 0],
-            rotate: [0, 15, 0]
+            y: [0, -150, 0],
+            rotate: [0, -10, 0]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="absolute top-40 right-10 md:right-32 opacity-20 z-0"
+        >
+          <div 
+            className="w-16 h-16 rounded-full" 
+            style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
+          />
+        </motion.div>
+
+        <motion.div
+          animate={{ 
+            y: [0, 180, 0],
+            x: [0, 10, 0]
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-40 right-20 w-16 h-16 rounded-lg opacity-15"
+          className="absolute bottom-20 left-20 opacity-20 z-0"
+        >
+          <div 
+            className="w-12 h-12 rounded-lg transform -rotate-12" 
           style={{ background: 'linear-gradient(135deg, #F59E0B, #4C1D95)' }}
         />
-        <motion.div
-          animate={{ 
-            x: [0, -20, 0],
-            y: [0, 20, 0],
-            rotate: [0, -12, 0]
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute bottom-32 left-20 w-12 h-12 rounded-full opacity-15"
-          style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
-        />
+        </motion.div>
 
+<<<<<<< Updated upstream
         {/* Content */}
         <div className="relative z-10 text-center px-6 md:px-16 lg:px-28">
                     
@@ -348,130 +345,374 @@ export default function App() {
     box-shadow: 0 20px 50px rgba(124, 58, 237, 0.18);
     border-color: rgba(124, 58, 237, 0.6);
   }
+=======
+        {/* Particles Effect - Top to Bottom and Bottom to Top */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(30)].map((_, i) => {
+            const isTopToBottom = i % 2 === 0;
+            return (
+        <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-purple-400 rounded-full opacity-20"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: isTopToBottom ? '0%' : '100%',
+                }}
+          animate={{ 
+                  y: isTopToBottom ? [0, 600, 0] : [0, -600, 0],
+                  x: [0, (Math.random() - 0.5) * 100, 0],
+                  opacity: [0, 0.5, 0],
+                  scale: [0.5, 1.5, 0.5],
+                }}
+                transition={{
+                  duration: 8 + Math.random() * 4,
+                  repeat: Infinity,
+                  delay: Math.random() * 5,
+                  ease: "easeInOut"
+                }}
+              />
+            );
+          })}
+        </div>
 
-  /* Shine animation */
-  .shine-effect {
-    position: relative;
-    overflow: hidden;
-  }
-  .shine-effect::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 50%;
-    background: linear-gradient(115deg, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-20deg);
-    transition: 0.7s;
-  }
-  .shine-effect:hover::before {
-    left: 150%;
-  }
+        {/* Main Content */}
+        <motion.div 
+          className="relative z-10 text-center px-6 md:px-12 max-w-6xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          style={{ y: y1, opacity }}
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight"
+          >
+            <span style={{ color: '#000000' }}>
+              <TypingText text="Our Development  " delay={500} speed={70} />
+            </span>
+            <span style={{ color: '#4C1D95' }}>
+              <TypingText text=" & Methodology" delay={1700} speed={70} />
+            </span>
+          </motion.h1>
 
-  /* Floating icon animation */
-  .float-icon {
-    animation: floatIcon 2.4s ease-in-out infinite alternate;
-  }
-  @keyframes floatIcon {
-    0% { transform: translateY(0px) scale(1); }
-    100% { transform: translateY(-8px) scale(1.15); }
-  }
-`}</style>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.8 }}
+            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+          >
+            Empowering Businesses Through Intelligence and Innovation.
+          </motion.p>
+        </motion.div>
 
-{/* 🚀 PREMIUM HOVER ANIMATION CARD SECTION */}
-<motion.h2
-  initial={{ opacity: 0, y: 80 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
-  className="text-4xl md:text-6xl font-black mb-8 leading-snug tracking-tight text-center max-w-7xl mx-auto"
-  style={{ color: "#020617" }}
->
-  Our Proven {" "}
-  <motion.span
-    animate={{
-      color: ["#4C1D95", "#7C3AED", "#4C1D95"],
-      textShadow: [
-        "0 0 10px rgba(124,58,237,0)",
-        "0 0 35px rgba(124,58,237,0.9)",
-        "0 0 10px rgba(124,58,237,0)"
-      ]
-    }}
-    transition={{ duration: 2.5, repeat: Infinity }}
-    style={{ display: "inline-block" }}
-  >
-    Methodology
-  </motion.span>
-</motion.h2>
-<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto relative z-10">
+        {/* Scroll Indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="w-6 h-10 border-2 border-purple-400 rounded-full flex items-start justify-center p-2">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1.5 h-1.5 bg-purple-600 rounded-full"
+            />
+        </div>
+        </motion.div>
+      </div>
+
+      {/* About Us Section */}
+      <motion.section 
+        className="relative py-32 px-6 md:px-12 bg-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Two Column Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Left Column - Content */}
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: false }}
+              className="text-left"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: false }}
+                className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
+              >
+                <Target className="w-4 h-4" />
+                ABOUT US
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                viewport={{ once: false }}
+                className="text-4xl md:text-5xl font-black mb-6 leading-tight"
+              >
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  About Us
+                </span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: false }}
+                className="text-lg text-gray-700 leading-relaxed mb-6"
+              >
+                At Intellects, we bridge technology, creativity, and human insight to help organizations 
+                grow smarter, faster, and stronger in a digital world. We believe that innovation begins with 
+                intellect — the power to think differently, solve challenges, and create progress.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: false }}
+                className="text-lg text-gray-600 leading-relaxed"
+              >
+                At Intellects, we don't just provide consulting services; we deliver meaningful transformation. 
+                Our mission is to make technology and talent work together to drive measurable business success.
+              </motion.p>
+            </motion.div>
+
+            {/* Right Column - Image */}
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: false }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src={aboutImage}
+                  alt="About Intellects"
+                  className="w-full h-auto object-cover"
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-transparent"></div>
+              </div>
+              
+              {/* Floating Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4, type: "spring" }}
+                viewport={{ once: false }}
+                className="absolute -bottom-6 -right-6 bg-white px-6 py-4 rounded-2xl shadow-xl"
+              >
+                <div className="text-center">
+                  <div className="text-3xl font-black bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                    Innovation
+                  </div>
+                  <div className="text-sm text-gray-600 font-semibold">Driven by Intellect</div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Our Development & Methodology Section */}
+      <motion.section 
+        className="relative py-32 px-6 md:px-12 bg-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
+            >
+              <Cog className="w-4 h-4" />
+              OUR DEVELOPMENT & METHODOLOGY
+            </motion.div>
+>>>>>>> Stashed changes
+
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: false }}
+              className="text-4xl md:text-6xl font-black mb-6"
+            >
+              <span className="text-gray-900">Building with Purpose, </span>
+              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                Delivering with Precision
+              </span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: false }}
+              className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            >
+              Our approach to development is rooted in agility, collaboration, and continuous 
+              improvement. We understand that every client's journey is unique — that's why Intellects 
+              tailors its methodology to fit your goals, timelines, and business model. We combine deep 
+              technical knowledge with a human-centered mindset to ensure every solution we build is 
+              innovative, reliable, and scalable.
+            </motion.p>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Our Proven Methodology Section */}
+      <motion.section 
+        className="relative py-32 px-6 md:px-12 bg-gradient-to-b from-purple-50/50 to-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
+            >
+              <Sparkles className="w-4 h-4" />
+              METHODOLOGY
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: false }}
+              className="text-4xl md:text-6xl font-black mb-6"
+            >
+              <span className="text-gray-900">Our Proven </span>
+              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                Methodology
+              </span>
+            </motion.h2>
+          </div>
+
+          {/* Methodology Steps */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
   {[
     {
       number: "01",
+                icon: Compass,
       title: "Discovery & Strategy",
-      text: "We start with understanding — diving deep into your business, audience, and goals to build a solid strategic foundation.",
-      icon: "🧭",
-      bg: "bg-gradient-to-br from-purple-100 via-white to-purple-200"
+                description: "We start with understanding — diving deep into your business, audience, and goals to build a solid strategic foundation.",
+                gradient: "from-blue-500 to-cyan-500",
+                bgGradient: "from-blue-50 to-cyan-50"
     },
     {
       number: "02",
+                icon: Palette,
       title: "Planning & Design",
-      text: "Our experts design intelligent systems and user-friendly interfaces that balance creativity with functionality.",
-      icon: "🎨",
-      bg: "bg-gradient-to-br from-indigo-100 via-white to-indigo-200"
+                description: "Our experts design intelligent systems and user-friendly interfaces that balance creativity with functionality.",
+                gradient: "from-purple-500 to-pink-500",
+                bgGradient: "from-purple-50 to-pink-50"
     },
     {
       number: "03",
+                icon: Cog,
       title: "Agile Development",
-      text: "Using an agile framework, we develop in focused sprints, ensuring rapid progress, flexibility,and transparency throughout the process.",
-      icon: "⚙️",
-      bg: "bg-gradient-to-br from-blue-100 via-white to-blue-200"
+                description: "Using an agile framework, we develop in focused sprints, ensuring rapid progress, flexibility, and transparency throughout the process.",
+                gradient: "from-indigo-500 to-purple-500",
+                bgGradient: "from-indigo-50 to-purple-50"
     },
     {
       number: "04",
+                icon: CheckCircle,
       title: "Testing & Quality Assurance",
-      text: "Every product undergoes thorough testing to guarantee stability, security, and performance at every level.",
-      icon: "✅",
-      bg: "bg-gradient-to-br from-emerald-100 via-white to-emerald-200"
+                description: "Every product undergoes thorough testing to guarantee stability, security, and performance at every level.",
+                gradient: "from-green-500 to-emerald-500",
+                bgGradient: "from-green-50 to-emerald-50"
     },
     {
       number: "05",
+                icon: Rocket,
       title: "Deployment & Support",
-      text: "We ensure seamless deployment and provide long-term support so your solutions continue performing as your business scales.",
-      icon: "📡",
-      bg: "bg-gradient-to-br from-rose-100 via-white to-rose-200"
-    }
-  ].map((item, i) => (
+                description: "We ensure seamless deployment and provide long-term support so your solutions continue performing as your business scales.",
+                gradient: "from-orange-500 to-red-500",
+                bgGradient: "from-orange-50 to-red-50"
+              },
+            ].map((step, i) => (
     <motion.div
       key={i}
-      className={`shine-effect card-3d ${item.bg} border rounded-3xl p-7 shadow-md cursor-pointer`}
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.1, duration: 0.6 }
-      }}
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      <div className="flex flex-col items-start gap-4 relative">
-        <div className="text-5xl float-icon">{item.icon}</div>
-
-        <div className="flex justify-between w-full items-center">
-          <h3 className="text-xl font-bold text-purple-900">
-            {item.title}
-          </h3>
-          <span className="text-sm opacity-40 font-extrabold">
-            {item.number}
-          </span>
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: false }}
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.03,
+                  transition: { duration: 0.3 }
+                }}
+                className={`relative group bg-gradient-to-br ${step.bgGradient} p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden`}
+              >
+                {/* Gradient overlay on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                
+                <div className="relative z-10">
+                  {/* Number Badge */}
+                  <div className="absolute top-0 right-0 text-6xl font-black opacity-10">
+                    {step.number}
         </div>
 
-        <p className="text-gray-600 leading-relaxed text-sm sm:text-base font-medium">
-          {item.text}
-        </p>
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                    className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} text-white mb-6 shadow-lg`}
+                  >
+                    <step.icon className="w-8 h-8" />
+                  </motion.div>
+
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-gray-600 leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  {/* Decorative element */}
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "60px" }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    viewport={{ once: true }}
+                    className={`h-1 bg-gradient-to-r ${step.gradient} rounded-full mt-6`}
+                  />
       </div>
     </motion.div>
   ))}
-</div>
+          </div>
+        </div>
+      </motion.section>
 
+<<<<<<< Updated upstream
 
 
 {/* ✅ Internal CSS for Hover & Gradient Animation */}
@@ -553,64 +794,105 @@ export default function App() {
 `}</style>
 
 {/* 🌟 WHY IT WORKS — */}
+=======
+      {/* Why It Works Section */}
+>>>>>>> Stashed changes
 <motion.section
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: false, amount: 0.2 }}
-  className="why-section-bg py-28 px-6 md:px-16 lg:px-32 text-center relative"
-  style={{ background: "transparent" }} // ✅ BG removed
->
-  <motion.h2
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.7 }}
-    className="text-3xl md:text-5xl font-extrabold mb-10"
-    style={{ color: '#4C1D95' }}
-  >
-    Why It{" "}
-    <motion.span
-      style={{ color: '#000000' }}
-      animate={{
-        textShadow: [
-          '0 0 10px rgba(76,29,149,0)',
-          '0 0 12px rgba(76,29,149,0.35)',
-          '0 0 10px rgba(76,29,149,0)'
-        ]
-      }}
-      transition={{ duration: 3, repeat: Infinity }}
-    >
-      Works
-    </motion.span>
-  </motion.h2>
+        className="relative py-32 px-6 md:px-12 bg-gradient-to-b from-white to-purple-50/50"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
+            >
+              <Lightbulb className="w-4 h-4" />
+              WHY IT WORKS
+            </motion.div>
 
-  <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-    {[
-      { icon: "💬", title: "Transparent Communication" },
-      { icon: "⚙️", title: "Agile & Adaptable Process" },
-      { icon: "🏆", title: "Quality-First Culture" },
-      { icon: "🤝", title: "Strong Partnership Mindset" }
-    ].map((item, i) => (
+  <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: false }}
+              className="text-4xl md:text-6xl font-black mb-6"
+            >
+              <span className="text-gray-900">Why It </span>
+              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+      Works
+              </span>
+  </motion.h2>
+          </div>
+
+          {/* Success Principles Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: MessageCircle,
+                title: "Transparent Communication",
+                color: "from-blue-500 to-cyan-500"
+              },
+              {
+                icon: Zap,
+                title: "Agile and Adaptable Process",
+                color: "from-purple-500 to-pink-500"
+              },
+              {
+                icon: Award,
+                title: "Quality-First Culture",
+                color: "from-green-500 to-emerald-500"
+              },
+              {
+                icon: Users,
+                title: "Strong Partnership Mindset",
+                color: "from-orange-500 to-red-500"
+              },
+            ].map((principle, i) => (
       <motion.div
         key={i}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-          transition: { delay: i * 0.12, duration: 0.55 }
-        }}
-        viewport={{ once: true, amount: 0.2 }}
-        className="why-card p-7 flex items-center gap-4 text-left cursor-pointer 
-          rounded-xl bg-white shadow-md hover:shadow-lg transition-all"
-      >
-        <span className="text-3xl icon-float">{item.icon}</span>
-        <span className="text-lg font-semibold text-gray-800">
-          {item.title}
-        </span>
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: false }}
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+                className="relative group bg-white p-8 rounded-3xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all"
+              >
+                <motion.div
+                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${principle.color} text-white mb-6 shadow-lg`}
+                >
+                  <principle.icon className="w-8 h-8" />
+                </motion.div>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {principle.title}
+                </h3>
+
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "60px" }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  viewport={{ once: false }}
+                  className={`h-1 bg-gradient-to-r ${principle.color} rounded-full mt-6`}
+                />
       </motion.div>
     ))}
-  </div>
+          </div>
+        </div>
 </motion.section>
+<<<<<<< Updated upstream
 
 {/* ======================================================
     OUR KEY CLIENTS (ULTRA LIGHT BACKGROUND)
@@ -709,238 +991,182 @@ export default function App() {
 {/* ======================================================
     PARTNERSHIP SECTION + TESTIMONIAL BUTTON (ULTRA LIGHT BG)
 ====================================================== */}
+=======
+
+      {/* Key Clients Section */}
 <motion.section
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
+        className="relative py-32 px-6 md:px-12 bg-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
   transition={{ duration: 0.8 }}
-  viewport={{ once: false, amount: 0.2 }}
-  className="py-20 sm:py-24 px-6 md:px-16 lg:px-28 text-center relative overflow-hidden"
-  style={{
-    background: "linear-gradient(135deg, #FFFFFF, #F7F3FF)", 
-    color: "#2D0F73"
-  }}
->
-
-  {/* Soft Glow Overlay */}
-  <motion.div
-    className="absolute inset-0"
-    style={{
-      background:
-        "radial-gradient(circle at bottom right, rgba(124,58,237,0.12), transparent 70%)"
-    }}
-    animate={{ opacity: [0.18, 0.28, 0.18] }}
-    transition={{ duration: 6, repeat: Infinity }}
-  />
-
-  {/* Decorative Blur Elements */}
-  <div className="absolute -top-12 -left-12 w-36 h-36 bg-purple-200 opacity-20 blur-3xl rounded-full"></div>
-  <div className="absolute -bottom-24 right-0 w-48 h-48 bg-purple-100 opacity-25 blur-3xl rounded-full"></div>
-
-  {/* Title */}
-  <h2 className="text-3xl md:text-5xl font-bold mb-4 relative z-10">
-    <motion.span
-      style={{ color: "#4C1D95" }}
-      animate={{
-        textShadow: [
-          `0 0 14px rgba(76,29,149,0)`,
-          `0 0 14px rgba(76,29,149,0.45)`,
-          `0 0 14px rgba(76,29,149,0)`
-        ]
-      }}
-      transition={{ duration: 3, repeat: Infinity }}
-    >
-      Strategic
-    </motion.span>{" "}
-    Partnerships
-  </h2>
-
-  {/* Subtext */}
-  <p className="max-w-4xl mx-auto text-base sm:text-lg leading-relaxed mb-10 relative z-10 text-gray-700">
-    Intellects partners with leading technology providers and platforms to ensure 
-    world-class digital solutions. Our alliances help us deliver the best 
-    technologies so our clients stay future-ready in a fast-changing landscape.
-  </p>
-
-  {/* Button */}
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    whileHover={{ scale: 1.1 }}
-    className="inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold shadow-xl cursor-pointer relative overflow-hidden group z-10"
-    style={{
-      background: "linear-gradient(135deg, #7C3AED, #C084FC)"
-    }}
-  >
-    <motion.div
-      className="absolute inset-0"
-      style={{
-        background:
-          "linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)"
-      }}
-      animate={{ x: ['-120%', '200%'] }}
-      transition={{ duration: 2, repeat: Infinity }}
-    />
-
-    <Link 
-      to="/testimonials"
-      className="flex items-center gap-3 text-lg relative z-10 text-white"
-    >
-      Clients & Partners 
-      <motion.span 
-        className="text-2xl"
-        animate={{ x: [0, 6, 0] }}
-        transition={{ duration: 1.4, repeat: Infinity }}
+        viewport={{ once: false, amount: 0.2 }}
       >
-        →
-      </motion.span>
-    </Link>
-  </motion.div>
+        <div className="max-w-7xl mx-auto text-center">
+  <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
+          >
+            <Globe className="w-4 h-4" />
+            OUR CLIENTS
+          </motion.div>
 
+  <motion.h2 
+    initial={{ opacity: 0, y: -30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: false }}
+            className="text-4xl md:text-6xl font-black mb-6"
+          >
+            <span className="text-gray-900">Our Key </span>
+            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+      Clients
+            </span>
+  </motion.h2>
+
+  <motion.p 
+    initial={{ opacity: 0, y: -30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: false }}
+            className="text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed"
+          >
+            Over the years, Intellects has had the privilege of working with a diverse range of clients — 
+            from emerging startups to established enterprises across industries like technology, 
+            healthcare, retail, and finance. Our clients choose us not just for our skills — but for our 
+            commitment to helping them achieve lasting success.
+  </motion.p>
+
+  <motion.blockquote 
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            viewport={{ once: false }}
+            className="text-2xl font-bold text-purple-600 italic mb-12"
+          >
+            "Trusted by forward-thinking brands who believe in innovation and excellence."
+  </motion.blockquote>
+        </div>
 </motion.section>
 
+      {/* Strategic Partnerships Section */}
+>>>>>>> Stashed changes
+<motion.section
+        className="relative py-32 px-6 md:px-12 bg-gradient-to-b from-purple-50/50 to-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <div className="max-w-7xl mx-auto text-center">
+  <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
+          >
+            <TrendingUp className="w-4 h-4" />
+            PARTNERSHIPS
+          </motion.div>
 
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: false }}
+            className="text-4xl md:text-6xl font-black mb-6"
+          >
+            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+    Partnerships
+            </span>
+          </motion.h2>
 
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: false }}
+            className="text-xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed"
+          >
+            Intellects partners with leading technology providers and platforms to ensure we deliver 
+            world-class solutions. Our alliances help us access the best tools, frameworks, and 
+            expertise — so our clients always stay ahead in an ever-evolving digital ecosystem.
+          </motion.p>
 
-      {/* ======================================================
-          LET'S GROW TOGETHER (CTA)
-      ====================================================== */}
+          <motion.button
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: false }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="group px-10 py-5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all flex items-center gap-3 mx-auto"
+    >
+      Clients & Partners 
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+        </div>
+</motion.section>
+
+      {/* Final CTA Section */}
       <motion.div
-        className="px-6 md:px-12 max-w-6xl mx-auto py-10 relative z-10"
+        className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
       >
-        <div className="rounded-3xl p-8 md:p-10 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-800">
           {/* Animated Background Elements */}
           <div className="absolute inset-0">
-            <motion.div
-              className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"
-              animate={{ 
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3]
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"
-              animate={{ 
-                scale: [1, 1.3, 1],
-                opacity: [0.2, 0.4, 0.2]
-              }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            />
-            <motion.div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl"
-              animate={{ 
-                rotate: [0, 360]
-              }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            />
+            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
 
           <div className="relative z-10">
             {/* Main Heading */}
             <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-black text-white mb-3 leading-tight"
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false }}
+              className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight"
             >
-          Ready to{" "}
-          <motion.span
-            animate={{
-              textShadow: [
-                    `0 0 20px rgba(255,255,255,0)`,
-                    `0 0 30px rgba(255,255,255,0.5)`,
-                    `0 0 20px rgba(255,255,255,0)`
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-          >
-            Grow?
-              </motion.span>
+              Ready to Transform Your Business?
             </motion.h3>
             
+            {/* Description */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: false }}
+              className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
+            >
+              Let's create something extraordinary together. We're here to make it happen.
+            </motion.p>
+
+            {/* Action Button */}
+            <motion.div 
+              initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-xl md:text-2xl font-bold text-white mb-4"
+              viewport={{ once: false }}
+              className="flex items-center justify-center"
             >
-          Let's Connect.
-            </motion.p>
-
-            {/* Description */}
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-white/90 text-base mb-8 max-w-2xl mx-auto leading-relaxed"
-            >
-              Intellects is more than a consulting firm — we're a growth partner that combines
-              technology, creativity, and strategy to shape the future of business.
-            </motion.p>
-
-            {/* Action Buttons */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="flex flex-wrap items-center justify-center gap-4"
-            >
-              <Link
-                to="/contact"
-                className="group px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-3 relative overflow-hidden"
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="group px-10 py-4 bg-white font-bold text-lg rounded-xl shadow-2xl hover:shadow-white/20 transition-all duration-300 flex items-center gap-2"
                 style={{ color: '#4C1D95' }}
               >
-                {/* Button shine effect */}
-                <motion.div
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  animate={{
-                    x: ['-200%', '200%']
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatDelay: 2
-                  }}
-                />
-                <span className="relative z-10">Start Your Project</span>
-                <motion.svg 
-                  className="w-5 h-5 relative z-10" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  animate={{ x: [0, 3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </motion.svg>
-              </Link>
-              
-              <Link
-                to="/contact"
-                className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group"
-                style={{ color: '#FFFFFF' }}
-                onMouseEnter={e => { 
-                  e.currentTarget.style.color = '#4C1D95'; 
-                  e.currentTarget.style.backgroundColor = '#FFFFFF'; 
-                }}
-                onMouseLeave={e => { 
-                  e.currentTarget.style.color = '#FFFFFF'; 
-                  e.currentTarget.style.backgroundColor = 'transparent'; 
-                }}
-              >
-                <span className="relative z-10 transition-colors duration-300">Schedule a Call</span>
-              </Link>
+                Start Your Project
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
             </motion.div>
-
-            
           </div>
         </div>
       </motion.div>

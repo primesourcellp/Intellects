@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import sky8Image from "../../assets/sky8.jpg";
-import aboutImage from "../../assets/about.jpg";
-import logoImage from "../../assets/logo.png";
+import home1Image from "../../assets/home_1.jpg";
+import home2Image from "../../assets/home2.png";
+import home3Image from "../../assets/home3.png";     
+import home4Image from "../../assets/home4.jpg";
+import home5Image from "../../assets/home5.png";
 import gifHeader from "../../assets/gif_header.gif";
 
 // Typing Animation Component
@@ -431,14 +433,15 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ maxHeight: '400px' }}>
               <img 
-                src={sky8Image} 
+                src={home1Image} 
                 alt="About Intellects" 
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
                 style={{ 
                   borderRadius: '1rem',
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                  maxHeight: '400px'
                 }}
               />
               {/* Decorative overlay */}
@@ -484,7 +487,7 @@ export default function Home() {
               title: 'Software Development',
               icon: '💻',
               desc: 'We build secure, scalable, and future-ready software that transforms ideas into powerful digital solutions. From web and mobile applications to enterprise systems, Intellects develops custom solutions tailored to your needs — ensuring seamless performance and real business impact.',
-              image: aboutImage,
+              image: home2Image,
               bgColor: '#E8E4F3',
               gradient: 'linear-gradient(135deg, #4C1D95 0%)'
             },
@@ -492,7 +495,7 @@ export default function Home() {
               title: 'Digital Marketing',
               icon: '📈',
               desc: 'Our marketing team at Intellects helps brands connect, convert, and grow through smart digital strategy. In the rapidly evolving digital landscape, standing out is crucial for success. Our digital marketing experts at Intellects create data-driven strategies that boost brand presence, engage your audience, and generate measurable results across all platforms — SEO, PPC, social media, and beyond.',
-              image: sky8Image,
+              image: home3Image,
               bgColor: '#EDE9F7',
               gradient: 'linear-gradient(135deg, #4C1D95 0%)'
             },
@@ -500,7 +503,7 @@ export default function Home() {
               title: 'HR Consulting', 
               icon: '👥',
               desc: 'People are the foundation of every great business. With Intellects, you gain strategic HR solutions that help you attract top talent, strengthen your workforce, and build a culture that drives performance and growth.',
-              image: aboutImage,
+              image: home4Image,
               bgColor: '#F3EEFA',
               gradient: 'linear-gradient(135deg, #4C1D95 0%)'
             }
@@ -686,14 +689,15 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ maxHeight: '400px' }}>
               <img 
-                src={sky8Image} 
+                src={home5Image} 
                 alt="Vision and Engineering" 
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
                 style={{ 
                   borderRadius: '1rem',
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                  maxHeight: '400px'
                 }}
               />
               {/* Decorative overlay */}

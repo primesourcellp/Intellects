@@ -18,9 +18,11 @@ import {
   FaTools,
   FaHandshake,
 } from "react-icons/fa";
-import sky8Image from "../../../assets/sky8.jpg";
-import aboutImage from "../../../assets/about.jpg";
-import soft9Image from "../../../assets/soft9.png";
+import mobile1Image from "../../../assets/mobile1.jpg";
+import mobile3Image from "../../../assets/mobile3.jpg";
+import mobile4Image from "../../../assets/mobile4.jpg";
+import mobile5Image from "../../../assets/mobile5.jpg";
+import mobile6Image from "../../../assets/mobile6.jpg";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -213,7 +215,7 @@ export default function Mobileapplication() {
             className="relative"
           >
             <img 
-              src={sky8Image} 
+              src={mobile1Image} 
               alt="Mobile Application Development Animation" 
               className="w-full h-auto rounded-2xl shadow-2xl"
             />
@@ -404,27 +406,27 @@ export default function Mobileapplication() {
             {
               title: "Native Apps",
               desc: "High-performance apps for iOS and Android platforms.",
-              img: sky8Image,
+              img: mobile1Image,
             },
             {
               title: "Cross-Platform Apps",
               desc: "Built with Flutter or React Native for multiple devices.",
-              img: aboutImage,
+              img: mobile3Image,
             },
             {
               title: "Enterprise Mobility Solutions",
               desc: "Secure apps to manage operations efficiently.",
-              img: soft9Image,
+              img: mobile4Image,
             },
             {
               title: "E-commerce & Service Apps",
               desc: "Engaging platforms for customers and clients.",
-              img: sky8Image,
+              img: mobile5Image,
             },
             {
               title: "App Maintenance & Support",
               desc: "Ongoing updates, monitoring, and optimization.",
-              img: aboutImage,
+              img: mobile6Image,
             },
           ].map((s, i) => (
             <motion.section

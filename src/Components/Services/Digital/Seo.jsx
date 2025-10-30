@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import { 
   FaSearch, 
   FaChartLine, 
@@ -21,6 +21,7 @@ import {
   FaShareAlt,
   FaAward,
 } from "react-icons/fa";
+import gif3Image from "../../../assets/gif4.gif";
 import sky8Image from "../../../assets/sky8.jpg";
 import aboutImage from "../../../assets/about.jpg";
 import soft9Image from "../../../assets/soft9.png";
@@ -56,7 +57,7 @@ const AnalyticsFlipCard = ({ item, index }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   
   return (
-    <motion.div
+    <Motion.div
       className="relative w-full h-[350px]"
       style={{ perspective: '1200px' }}
       initial={{ opacity: 0, y: 30 }}
@@ -66,7 +67,7 @@ const AnalyticsFlipCard = ({ item, index }) => {
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
     >
-      <motion.div
+      <Motion.div
         className="relative w-full h-full cursor-pointer"
         style={{ transformStyle: 'preserve-3d' }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
@@ -110,17 +111,17 @@ const AnalyticsFlipCard = ({ item, index }) => {
             />
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </Motion.div>
+    </Motion.div>
   );
 };
 
 // FAQ Item Component with Toggle
-const FAQItem = ({ faq, index }) => {
+const FAQItem = ({ faq }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div
+    <Motion.div
       className="rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer overflow-hidden border-2 group"
       style={{ 
         borderColor: isOpen ? '#4C1D95' : '#E5E7EB',
@@ -137,13 +138,13 @@ const FAQItem = ({ faq, index }) => {
         onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
       >
         {/* Icon */}
-        <motion.div 
+        <Motion.div 
           className="text-3xl flex-shrink-0"
           animate={{ rotate: isOpen ? 360 : 0 }}
           transition={{ duration: 0.5 }}
         >
           {faq.icon}
-        </motion.div>
+        </Motion.div>
 
         {/* Question */}
         <div className="flex-1">
@@ -153,7 +154,7 @@ const FAQItem = ({ faq, index }) => {
         </div>
 
         {/* Toggle Button */}
-        <motion.div
+        <Motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
           className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
@@ -168,12 +169,12 @@ const FAQItem = ({ faq, index }) => {
           ) : (
             <FaPlus className="text-gray-600 text-sm" />
           )}
-        </motion.div>
+        </Motion.div>
       </div>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <Motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -190,19 +191,19 @@ const FAQItem = ({ faq, index }) => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </Motion.div>
   );
 };
 
 export default function Seo() {
   return (
-    <div className="overflow-x-hidden" style={{ backgroundColor: '#F9FAFB', color: '#1F2937' }}>
+    <div className="overflow-x-hidden" style={{ backgroundColor: '#F3EFF9', color: '#1F2937' }}>
       {/* Luxury Elegant Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <motion.div
+        <Motion.div
           animate={{ 
             scale: [1, 1.15, 1],
             rotate: [0, 180, 360],
@@ -212,7 +213,7 @@ export default function Seo() {
           className="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl"
           style={{ background: 'radial-gradient(circle, #4C1D9520, #7C3AED15)' }}
         />
-        <motion.div
+        <Motion.div
           animate={{ 
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
@@ -222,7 +223,7 @@ export default function Seo() {
           className="absolute top-1/4 right-0 w-80 h-80 rounded-full blur-3xl"
           style={{ background: 'radial-gradient(circle, #7C3AED18, #F59E0B12)' }}
         />
-        <motion.div
+        <Motion.div
           animate={{ 
             y: [0, -100, 0],
             opacity: [0.06, 0.15, 0.06]
@@ -239,7 +240,7 @@ export default function Seo() {
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
-        <motion.div
+        <Motion.div
           animate={{ 
             y: [0, -20, 0],
             rotate: [0, 10, 0]
@@ -251,9 +252,9 @@ export default function Seo() {
             className="w-20 h-20 rounded-2xl transform rotate-12" 
             style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
           />
-        </motion.div>
+        </Motion.div>
         
-        <motion.div
+        <Motion.div
           animate={{ 
             y: [0, 15, 0],
             rotate: [0, -10, 0]
@@ -265,9 +266,9 @@ export default function Seo() {
             className="w-16 h-16 rounded-full" 
             style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
           />
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           animate={{ 
             y: [0, -15, 0],
             x: [0, 10, 0]
@@ -279,19 +280,19 @@ export default function Seo() {
             className="w-12 h-12 rounded-lg transform -rotate-12" 
             style={{ background: 'linear-gradient(135deg, #F59E0B, #4C1D95)' }}
           />
-        </motion.div>
+        </Motion.div>
 
         {/* Two Column Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
           
           {/* Left Column - Content */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="text-left"
           >
-            <motion.h1 
+            <Motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -299,7 +300,7 @@ export default function Seo() {
               style={{ color: '#000000' }}
             >
               <TypingText text="Search Engine " />
-              <motion.span 
+              <Motion.span 
                 style={{ color: '#4C1D95' }}
                 animate={{ 
                   textShadow: [
@@ -311,10 +312,10 @@ export default function Seo() {
                 transition={{ duration: 3, repeat: Infinity }}
               >
                 <TypingText text="Optimization" />
-              </motion.span>
-            </motion.h1>
+              </Motion.span>
+            </Motion.h1>
             
-            <motion.h2
+            <Motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -322,9 +323,9 @@ export default function Seo() {
               style={{ color: '#4C1D95' }}
             >
               Boost Your Online Visibility & Drive Organic Growth
-            </motion.h2>
+            </Motion.h2>
         
-            <motion.p
+            <Motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -332,28 +333,28 @@ export default function Seo() {
               style={{ color: '#374151' }}
             >
               At Intellects, our SEO services are designed to help businesses achieve higher rankings on search engines, attract quality traffic, and convert visitors into loyal customers. SEO is more than just keywords—it's a strategic approach to increase your brand visibility and generate measurable business results.
-            </motion.p>
-          </motion.div>
+            </Motion.p>
+          </Motion.div>
 
           {/* Right Column - Image */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
             <img 
-              src={sky8Image} 
+              src={gif3Image} 
               alt="SEO Services Animation" 
               className="w-full h-auto rounded-2xl shadow-2xl"
             />
-          </motion.div>
+          </Motion.div>
 
         </div>
       </section>
 
       {/* Comprehensive Keyword Strategy Section */}
-      <motion.section 
+      <Motion.section 
         className="pt-16 pb-20 px-6 md:px-12 lg:px-24 relative z-10" 
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
@@ -363,7 +364,7 @@ export default function Seo() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <motion.h3 
+            <Motion.h3 
               className="text-4xl md:text-5xl font-bold mb-6" 
               style={{ color: '#000000' }}
               initial={{ opacity: 0, y: 30 }}
@@ -372,7 +373,7 @@ export default function Seo() {
               viewport={{ once: false }}
             >
               Comprehensive{" "}
-              <motion.span 
+              <Motion.span 
                 style={{ color: '#4C1D95' }}
                 animate={{ 
                   textShadow: [
@@ -384,8 +385,8 @@ export default function Seo() {
                 transition={{ duration: 3, repeat: Infinity }}
               >
                 Keyword Strategy
-              </motion.span>
-            </motion.h3>
+              </Motion.span>
+            </Motion.h3>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
               Successful SEO starts with targeting the right keywords. At Intellects, we conduct in-depth research to identify high-impact keywords that your potential customers are actively searching for.
             </p>
@@ -418,7 +419,7 @@ export default function Seo() {
               color: "from-orange-500 to-amber-500"
             },
           ].map((item, i) => (
-            <motion.div
+            <Motion.div
               key={i}
               className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all relative overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
@@ -429,7 +430,7 @@ export default function Seo() {
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative z-10 flex items-start gap-4">
-                <motion.div
+                <Motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
@@ -439,9 +440,9 @@ export default function Seo() {
                   <div className="text-white">
                     {item.icon}
                   </div>
-                </motion.div>
+                </Motion.div>
                 <div className="flex-1">
-                  <motion.h3 
+                  <Motion.h3 
                     className="font-bold text-xl text-gray-800 mb-2 group-hover:text-gray-900 transition-colors"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -449,17 +450,17 @@ export default function Seo() {
                     viewport={{ once: false }}
                   >
                     {item.title}
-                  </motion.h3>
+                  </Motion.h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
         
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -469,12 +470,12 @@ export default function Seo() {
           <p className="text-xl md:text-2xl font-bold max-w-4xl mx-auto leading-relaxed" style={{ color: '#4C1D95' }}>
             Our keyword strategy ensures your business reaches the right audience effectively.
           </p>
-        </motion.div>
+        </Motion.div>
         </div>
-      </motion.section>
+      </Motion.section>
 
       {/* On-Page SEO Optimization Section */}
-      <motion.section 
+      <Motion.section 
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10" 
         style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
@@ -484,7 +485,7 @@ export default function Seo() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <motion.h3 
+            <Motion.h3 
               className="text-4xl md:text-5xl font-bold mb-6" 
               style={{ color: '#4C1D95' }}
               initial={{ opacity: 0, y: 30 }}
@@ -493,7 +494,7 @@ export default function Seo() {
               viewport={{ once: false }}
             >
               On-Page SEO{" "}
-              <motion.span 
+              <Motion.span 
                 style={{ color: '#000000' }}
                 animate={{ 
                   textShadow: [
@@ -505,8 +506,8 @@ export default function Seo() {
                 transition={{ duration: 3, repeat: Infinity }}
               >
                 Optimization
-              </motion.span>
-            </motion.h3>
+              </Motion.span>
+            </Motion.h3>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
               Optimizing your website content and structure is key to better rankings. Intellects focuses on enhancing every page element to improve visibility and user engagement.
             </p>
@@ -534,7 +535,7 @@ export default function Seo() {
               img: sky8Image,
             },
           ].map((s, i) => (
-            <motion.section
+            <Motion.section
               key={i}
               initial="hidden"
               whileInView="show"
@@ -544,14 +545,14 @@ export default function Seo() {
             >
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                 {/* Text Column */}
-                <motion.div
+                <Motion.div
                   initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false }}
                   transition={{ duration: 0.8 }}
                   className={i % 2 === 1 ? 'lg:col-start-2' : ''}
                 >
-                  <motion.h4 
+                  <Motion.h4 
                     className="text-3xl md:text-4xl font-bold mb-6" 
                     style={{ color: '#4C1D95' }}
                     initial={{ opacity: 0, y: 30 }}
@@ -560,14 +561,14 @@ export default function Seo() {
                     viewport={{ once: false }}
                   >
                     {s.title}
-                  </motion.h4>
+                  </Motion.h4>
                   <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
                     {s.desc}
                   </p>
-                </motion.div>
+                </Motion.div>
 
                 {/* Image Column */}
-              <motion.div
+              <Motion.div
                   initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false }}
@@ -593,15 +594,15 @@ export default function Seo() {
                       }}
                     />
                   </div>
-              </motion.div>
+              </Motion.div>
               </div>
-            </motion.section>
+            </Motion.section>
             ))}
           </div>
-      </motion.section>
+      </Motion.section>
 
       {/* Technical SEO Excellence Section */}
-      <motion.section
+      <Motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
@@ -611,7 +612,7 @@ export default function Seo() {
       >
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <motion.h2 
+          <Motion.h2 
             className="text-3xl md:text-5xl font-bold mb-6" 
             style={{ color: '#000000' }}
             initial={{ opacity: 0, y: 30 }}
@@ -620,7 +621,7 @@ export default function Seo() {
             viewport={{ once: false }}
           >
             Technical SEO <span style={{ color: '#4C1D95' }}>Excellence</span>
-          </motion.h2>
+          </Motion.h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
             A technically sound website performs better in search results. Intellects ensures your site is fast, secure, and accessible.
           </p>
@@ -633,7 +634,7 @@ export default function Seo() {
               { title: "Crawlability & Indexing", desc: "Ensuring search engines can easily navigate your site.", icon: <FaSearch className="w-6 h-6" />, color: "from-green-500 to-emerald-500" },
               { title: "Structured Data & Schema Markup", desc: "Boosts rich results in search engines.", icon: <FaCogs className="w-6 h-6" />, color: "from-orange-500 to-amber-500" },
             ].map((item, i) => (
-              <motion.div
+              <Motion.div
                 key={i}
               className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all text-center relative overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
@@ -644,7 +645,7 @@ export default function Seo() {
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative z-10">
-                <motion.div
+                <Motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 + 0.2 }}
@@ -654,8 +655,8 @@ export default function Seo() {
                   <div className="text-white">
                     {item.icon}
                   </div>
-                </motion.div>
-                <motion.h3 
+                </Motion.div>
+                <Motion.h3 
                   className="font-bold text-lg text-gray-800 mb-3 group-hover:text-gray-900 transition-colors"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -663,19 +664,19 @@ export default function Seo() {
                   viewport={{ once: false }}
                 >
                   {item.title}
-                </motion.h3>
+                </Motion.h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
-              </motion.div>
+              </Motion.div>
             ))}
         </div>
         </div>
-      </motion.section>
+      </Motion.section>
 
       {/* Off-Page SEO & Link Building Section */}
-      <motion.section
+      <Motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
         style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
@@ -685,7 +686,7 @@ export default function Seo() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
@@ -695,9 +696,9 @@ export default function Seo() {
               <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #000000)' }}>
                 🔗 LINK BUILDING
               </span>
-            </motion.div>
+            </Motion.div>
 
-            <motion.h2 
+            <Motion.h2 
               className="text-3xl md:text-5xl font-bold mb-6" 
               style={{ color: '#000000' }}
               initial={{ opacity: 0, y: 30 }}
@@ -706,7 +707,7 @@ export default function Seo() {
               viewport={{ once: false }}
             >
               Off-Page SEO & <span style={{ color: '#4C1D95' }}>Link Building</span>
-            </motion.h2>
+            </Motion.h2>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
               Building authority and trust is essential for high rankings. Our off-page SEO focuses on increasing your website's credibility.
             </p>
@@ -716,7 +717,7 @@ export default function Seo() {
           <div className="relative max-w-5xl mx-auto">
             {/* Central Animated Timeline */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 -ml-0.5">
-              <motion.div
+              <Motion.div
                 className="h-full w-full rounded-full"
                 style={{ 
                   background: 'linear-gradient(180deg, transparent 0%, #4C1D95 10%, #7C3AED 50%, #4C1D95 90%, transparent 100%)'
@@ -728,7 +729,7 @@ export default function Seo() {
               />
               
               {/* Animated Flowing Dots */}
-              <motion.div
+              <Motion.div
                 className="absolute top-0 left-1/2 -ml-2 w-4 h-4 rounded-full"
                 style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                 animate={{ 
@@ -775,7 +776,7 @@ export default function Seo() {
                 const isLeft = i % 2 === 0;
                 
                 return (
-                  <motion.div
+                  <Motion.div
                     key={i}
                     className="relative"
                     initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
@@ -789,7 +790,7 @@ export default function Seo() {
                     viewport={{ once: false, amount: 0.3 }}
                   >
                     {/* Timeline Node - Center Circle */}
-                    <motion.div
+                    <Motion.div
                       className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full items-center justify-center z-20 shadow-2xl text-white"
                       style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                       initial={{ scale: 0, rotate: -180 }}
@@ -810,7 +811,7 @@ export default function Seo() {
                       {step.icon}
                       
                       {/* Pulse Rings */}
-                      <motion.div
+                      <Motion.div
                         className="absolute inset-0 rounded-full border-4 border-purple-300"
                         animate={{
                           scale: [1, 1.5, 1.5],
@@ -823,7 +824,7 @@ export default function Seo() {
                           delay: i * 0.3
                         }}
                       />
-                    </motion.div>
+                    </Motion.div>
 
                     {/* Content Container */}
                     <div className={`flex flex-col md:flex-row items-center gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
@@ -831,13 +832,13 @@ export default function Seo() {
                       <div className="hidden md:block flex-1" />
                       
                       {/* Content Box */}
-                      <motion.div 
+                      <Motion.div 
                         className={`flex-1 relative group ${isLeft ? 'md:text-right' : 'md:text-left'}`}
                         whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                       >
                         {/* Connection Line to Center */}
-                        <motion.div
+                        <Motion.div
                           className={`hidden md:block absolute top-1/2 ${isLeft ? 'left-full' : 'right-full'} w-8 h-0.5`}
                           style={{ background: 'linear-gradient(90deg, #4C1D95, #7C3AED)' }}
                           initial={{ scaleX: 0 }}
@@ -845,7 +846,7 @@ export default function Seo() {
                           transition={{ duration: 0.5, delay: i * 0.1 + 0.5 }}
                           viewport={{ once: false }}
                         >
-                          <motion.div
+                          <Motion.div
                             className={`absolute top-1/2 ${isLeft ? 'right-0' : 'left-0'} w-3 h-3 -mt-1.5 rounded-full bg-purple-500`}
                             animate={{
                               scale: [1, 1.5, 1],
@@ -853,10 +854,10 @@ export default function Seo() {
                             }}
                             transition={{ duration: 1.5, repeat: Infinity }}
                           />
-                        </motion.div>
+                        </Motion.div>
 
                         {/* Content Card */}
-                        <motion.div
+                        <Motion.div
                           className="relative p-8 rounded-3xl shadow-xl overflow-hidden bg-white border-2 border-gray-100"
                           whileHover={{
                             boxShadow: '0 25px 50px -12px rgba(76, 29, 149, 0.25)',
@@ -864,7 +865,7 @@ export default function Seo() {
                           }}
                         >
                           {/* Animated Background Gradient */}
-                          <motion.div
+                          <Motion.div
                             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                             style={{
                               background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.05), rgba(124, 58, 237, 0.03))'
@@ -872,7 +873,7 @@ export default function Seo() {
                           />
 
                           {/* Mobile Icon Badge */}
-                          <motion.div
+                          <Motion.div
                             className={`md:hidden absolute -top-4 ${isLeft ? 'left-8' : 'left-8'} w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white bg-gradient-to-br ${step.color}`}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
@@ -880,11 +881,11 @@ export default function Seo() {
                             viewport={{ once: false }}
                           >
                             {step.icon}
-                          </motion.div>
+                          </Motion.div>
 
                           {/* Text Content */}
                           <div className="relative z-10">
-                            <motion.h4 
+                            <Motion.h4 
                               className="text-2xl md:text-3xl font-black mb-4 group-hover:text-purple-700 transition-colors"
                               style={{ 
                                 background: 'linear-gradient(135deg, #000000, #4C1D95)',
@@ -898,9 +899,9 @@ export default function Seo() {
                               viewport={{ once: false }}
                             >
                               {step.title}
-                            </motion.h4>
+                            </Motion.h4>
                             
-                            <motion.p 
+                            <Motion.p 
                               className="text-gray-600 text-lg leading-relaxed"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
@@ -908,7 +909,7 @@ export default function Seo() {
                               viewport={{ once: false }}
                             >
                               {step.desc}
-                            </motion.p>
+                            </Motion.p>
                           </div>
 
                           {/* Bottom accent line */}
@@ -920,19 +921,19 @@ export default function Seo() {
                               className={`w-full h-full rounded-full blur-2xl bg-gradient-to-br ${step.color}`}
                             />
                           </div>
-                        </motion.div>
-                      </motion.div>
+                        </Motion.div>
+                      </Motion.div>
                     </div>
-                  </motion.div>
+                  </Motion.div>
                 );
               })}
             </div>
           </div>
         </div>
-      </motion.section>
+      </Motion.section>
 
       {/* Analytics & Continuous Improvement Section */}
-      <motion.section
+      <Motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
@@ -942,7 +943,7 @@ export default function Seo() {
       >
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <motion.h2 
+          <Motion.h2 
             className="text-3xl md:text-5xl font-bold mb-6" 
             style={{ color: '#000000' }}
             initial={{ opacity: 0, y: 30 }}
@@ -951,7 +952,7 @@ export default function Seo() {
             viewport={{ once: false }}
           >
             Analytics & Continuous <span style={{ color: '#4C1D95' }}>Improvement</span>
-          </motion.h2>
+          </Motion.h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-2" style={{ color: '#6B7280' }}>
             SEO is an ongoing process. Intellects monitors performance, analyzes results, and continuously refines strategies for maximum impact.
           </p>
@@ -992,7 +993,7 @@ export default function Seo() {
             ))}
         </div>
         
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -1002,12 +1003,12 @@ export default function Seo() {
           <p className="text-xl md:text-2xl font-bold max-w-4xl mx-auto leading-relaxed" style={{ color: '#4C1D95' }}>
             With Intellects SEO services, your website becomes a powerful tool to attract, engage, and convert your audience.
           </p>
-        </motion.div>
+        </Motion.div>
         </div>
-      </motion.section>
+      </Motion.section>
 
       {/* FAQ Section */}
-      <motion.section
+      <Motion.section
         className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
         style={{ backgroundColor: '#FFFFFF' }}
         initial="hidden"
@@ -1017,7 +1018,7 @@ export default function Seo() {
       >
         <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <motion.h2 
+          <Motion.h2 
             className="text-3xl md:text-5xl font-bold mb-6" 
             style={{ color: '#000000' }}
             initial={{ opacity: 0, y: 30 }}
@@ -1026,7 +1027,7 @@ export default function Seo() {
             viewport={{ once: false }}
           >
             Frequently Asked <span style={{ color: '#4C1D95' }}>Questions</span>
-          </motion.h2>
+          </Motion.h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -1072,7 +1073,7 @@ export default function Seo() {
                 icon: "📍"
               },
             ].map((faq, i) => (
-              <motion.div
+              <Motion.div
                 key={i}
                 className={i === 6 ? "lg:col-span-2" : ""}
                 initial={{ opacity: 0, y: 20 }}
@@ -1080,15 +1081,15 @@ export default function Seo() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: false }}
               >
-                <FAQItem faq={faq} index={i} />
-              </motion.div>
+                <FAQItem faq={faq} />
+              </Motion.div>
             ))}
         </div>
         </div>
-      </motion.section>
+      </Motion.section>
 
       {/* Final CTA */}
-      <motion.div
+      <Motion.div
         className="px-6 md:px-12 max-w-7xl mx-auto py-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -1102,7 +1103,7 @@ export default function Seo() {
           </div>
 
           <div className="relative z-10">
-            <motion.h3 
+            <Motion.h3 
               className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1110,7 +1111,7 @@ export default function Seo() {
               viewport={{ once: false }}
             >
               Ready to Dominate Search Rankings and Drive Real Results?
-            </motion.h3>
+            </Motion.h3>
 
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               Let's boost your online visibility and transform your website into a powerful growth engine.
@@ -1126,7 +1127,7 @@ export default function Seo() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </Motion.div>
     </div>
   );
 }

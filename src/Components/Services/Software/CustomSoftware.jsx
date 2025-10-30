@@ -15,7 +15,13 @@ import {
   CheckCircle2,
   Sparkles,
 } from "lucide-react";
-import sky8Image from "../../../assets/sky8.jpg";
+import sky8Image from "../../../assets/gif5.gif";
+import customSoftwareImage from "../../../assets/custom2.png";
+import customSoftwareImage2 from "../../../assets/custom3.png";
+import customSoftwareImage3 from "../../../assets/custom4.png";
+import customSoftwareImage4 from "../../../assets/custom5.jpg";
+import customSoftwareImage5 from "../../../assets/custom6.jpg";
+
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -49,28 +55,28 @@ const CustomSoftwareDevelopment = () => {
       title: "Business-Specific Applications",
       desc: "Software designed to meet your unique challenges.",
       icon: <Workflow className="w-12 h-12 text-white" />,
-      img: sky8Image,
+      img: customSoftwareImage,
       gradient: "from-purple-800 to-gray-900",
     },
     {
       title: "Enterprise-Level Systems",
       desc: "Integrated solutions that streamline processes across departments.",
       icon: <Layers className="w-12 h-12 text-white" />,
-      img: sky8Image,
+      img: customSoftwareImage2,
       gradient: "from-purple-800 to-gray-900",
     },
     {
       title: "Automation Platforms",
       desc: "Tools that reduce manual work and increase accuracy.",
       icon: <Zap className="w-12 h-12 text-white" />,
-      img: sky8Image,
+      img: customSoftwareImage3,
       gradient: "from-purple-800 to-gray-900",
     },
     {
       title: "Maintenance & Upgrades",
       desc: "Continuous improvements to keep your software running efficiently.",
       icon: <Settings className="w-12 h-12 text-white" />,
-      img: sky8Image,
+        img: customSoftwareImage4,
       gradient: "from-purple-800 to-gray-900",
     },
   ];
@@ -686,13 +692,13 @@ const CustomSoftwareDevelopment = () => {
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative h-full min-h-[400px] overflow-hidden">
               <img
-                src={sky8Image}
+                src={customSoftwareImage5}
                 alt="Why Clients Choose Intellects"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.8), rgba(124, 58, 237, 0.6))' }}></div>
+              <div className="absolute inset-0" ></div>
               <div className="absolute inset-0 flex items-center justify-center p-8">
-                <div className="text-center text-white">
+                <div className="text-center text-black">
                   <Sparkles className="w-16 h-16 mx-auto mb-4" />
                   <h4 className="text-3xl font-bold">Trusted by Innovators</h4>
                 </div>

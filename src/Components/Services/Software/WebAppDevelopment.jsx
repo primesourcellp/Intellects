@@ -16,9 +16,11 @@ import {
   FaCheck,
   FaGlobe,
 } from "react-icons/fa";
-import sky8Image from "../../../assets/sky8.jpg";
-import aboutImage from "../../../assets/about.jpg";
-import soft9Image from "../../../assets/soft9.png";
+import webapplication1Image from "../../../assets/webapplication1.png";
+import webapplication2Image from "../../../assets/webapplication2.png";
+import webapplication3Image from "../../../assets/webapplication3.png";
+import webapplication4Image from "../../../assets/webapplication4.png";
+import webapplication5Image from "../../../assets/webapplication5.jpg";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -211,7 +213,7 @@ export default function WebAppDevelopment() {
             className="relative"
           >
             <img 
-              src={sky8Image} 
+              src={webapplication1Image} 
               alt="Web Application Development Animation" 
               className="w-full h-auto rounded-2xl shadow-2xl"
             />
@@ -266,27 +268,27 @@ export default function WebAppDevelopment() {
             {
               title: "Custom Web Applications",
               desc: "Built from scratch to match your specific workflows.",
-              img: sky8Image,
+              img: webapplication1Image,
             },
             {
               title: "Enterprise Portals",
               desc: "Streamlined access to data, analytics, and collaboration tools.",
-              img: aboutImage,
+              img: webapplication2Image,
             },
             {
               title: "SaaS Applications",
               desc: "Scalable cloud-based software for modern business models.",
-              img: soft9Image,
+              img: webapplication3Image,
             },
             {
               title: "Progressive Web Apps (PWA)",
               desc: "Fast, reliable, and installable web experiences.",
-              img: sky8Image,
+              img: webapplication4Image,
             },
             {
               title: "E-commerce Web Apps",
               desc: "Secure platforms to drive online sales and engagement.",
-              img: aboutImage,
+              img: webapplication5Image,
             },
           ].map((s, i) => (
             <motion.section
