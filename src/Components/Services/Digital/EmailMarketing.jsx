@@ -19,9 +19,15 @@ import {
   FaPen,
   FaEye,
 } from "react-icons/fa";
-import sky8Image from "../../../assets/sky8.jpg";
-import aboutImage from "../../../assets/about.jpg";
-import soft9Image from "../../../assets/soft9.png";
+import emailmarketing1Image from "../../../assets/emailmarketing1.jpg";
+import emailmarketing2Image from "../../../assets/emailmarketing2.jpg";
+import emailmarketing3Image from "../../../assets/emailmarketing3.jpg";
+import emailmarketing4Image from "../../../assets/emailmarketing4.jpg";
+import emailmarketing5Image from "../../../assets/emailmarketing5.jpg";
+import emailmarketing6Image from "../../../assets/emailmarketing6.jpg";
+import emailmarketing7Image from "../../../assets/emailmarketing7.jpg";
+
+
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -283,7 +289,7 @@ export default function EmailMarketing() {
             className="relative"
           >
             <img 
-              src={sky8Image} 
+              src={emailmarketing1Image} 
               alt="Email Marketing Animation" 
               className="w-full h-auto rounded-2xl shadow-2xl"
             />
@@ -689,9 +695,9 @@ export default function EmailMarketing() {
             </motion.h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
-                { title: "Eye-catching templates and responsive layouts", image: soft9Image, icon: <FaEye className="w-8 h-8" /> },
-                { title: "Compelling subject lines and call-to-actions", image: sky8Image, icon: <FaPen className="w-8 h-8" /> },
-                { title: "Personalized email sequences for better engagement", image: aboutImage, icon: <FaUsers className="w-8 h-8" /> },
+                { title: "Eye-catching templates and responsive layouts", image: emailmarketing1Image, icon: <FaEye className="w-8 h-8" /> },
+                { title: "Compelling subject lines and call-to-actions", image: emailmarketing2Image, icon: <FaPen className="w-8 h-8" /> },
+                { title: "Personalized email sequences for better engagement", image: emailmarketing3Image, icon: <FaUsers className="w-8 h-8" /> },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -798,10 +804,10 @@ export default function EmailMarketing() {
             </motion.h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { icon: <FaBell className="w-8 h-8" />, title: "Welcome and onboarding sequences", image: sky8Image },
-                { icon: <FaSyncAlt className="w-8 h-8" />, title: "Abandoned cart reminders", image: aboutImage },
-                { icon: <FaRocket className="w-8 h-8" />, title: "Lead nurturing and follow-up emails", image: soft9Image },
-                { icon: <FaLightbulb className="w-8 h-8" />, title: "Re-engagement campaigns", image: sky8Image },
+                { icon: <FaBell className="w-8 h-8" />, title: "Welcome and onboarding sequences", image: emailmarketing4Image },
+                { icon: <FaSyncAlt className="w-8 h-8" />, title: "Abandoned cart reminders", image: emailmarketing5Image },
+                { icon: <FaRocket className="w-8 h-8" />, title: "Lead nurturing and follow-up emails", image: emailmarketing6Image },
+                { icon: <FaLightbulb className="w-8 h-8" />, title: "Re-engagement campaigns", image: emailmarketing7Image },
               ].map((item, i) => (
                 <motion.div
                   key={i}

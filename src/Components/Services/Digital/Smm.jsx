@@ -27,9 +27,10 @@ import {
   FaChartBar,
   FaEye,
 } from "react-icons/fa";
-import sky8Image from "../../../assets/sky8.jpg";
-import aboutImage from "../../../assets/about.jpg";
-import soft9Image from "../../../assets/soft9.png";
+import smm1Image from "../../../assets/smm1.jpg";
+import smm2Image from "../../../assets/smm2.jpg";
+import smm3Image from "../../../assets/smm3.jpg";
+
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -258,7 +259,7 @@ export default function Smm() {
             className="relative"
           >
             <img 
-              src={sky8Image} 
+              src={smm1Image} 
               alt="Social Media Marketing Animation" 
               className="w-full h-auto rounded-2xl shadow-2xl"
             />
@@ -531,9 +532,9 @@ export default function Smm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { title: "Engaging post designs and reels", image: soft9Image },
-              { title: "Platform-specific content strategies", image: sky8Image },
-              { title: "Caption writing and storytelling tone", image: aboutImage },
+              { title: "Engaging post designs and reels", image: smm1Image },
+                { title: "Platform-specific content strategies", image: smm2Image },
+              { title: "Caption writing and storytelling tone", image: smm3Image },
             ].map((item, i) => (
               <motion.div
                 key={i}

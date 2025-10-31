@@ -29,9 +29,13 @@ import {
   FaLightbulb,
   FaCog,
 } from "react-icons/fa";
-import sky8Image from "../../../assets/sky8.jpg";
-import aboutImage from "../../../assets/about.jpg";
-import soft9Image from "../../../assets/soft9.png";
+    import contentmarketing1Image from "../../../assets/contentwriting1.jpg";
+    import contentmarketing2Image from "../../../assets/contentwriting2.jpg";
+    import contentmarketing3Image from "../../../assets/contentwriting3.jpg";
+    import contentmarketing4Image from "../../../assets/contentwriting4.jpg";
+    import contentmarketing5Image from "../../../assets/contentwriting5.jpg";
+    import contentmarketing6Image from "../../../assets/contentwriting6.jpg";
+    import contentmarketing7Image from "../../../assets/contentwriting1.jpg";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -260,7 +264,7 @@ export default function ContentMarketing() {
             className="relative"
           >
             <img 
-              src={sky8Image} 
+              src={contentmarketing1Image} 
               alt="Content Marketing Animation" 
               className="w-full h-auto rounded-2xl shadow-2xl"
             />
@@ -700,16 +704,15 @@ export default function ContentMarketing() {
             <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-2 font-semibold" style={{ color: '#000000' }}>
               Content That Captures Attention Instantly
             </p>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
+              <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#6B7280' }}>
               Words are powerful, but visuals make them unforgettable. At Intellects, we combine creativity and storytelling to deliver visually compelling content that keeps your audience engaged.
-            </p>
-          </div>
+            </p>          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { title: "Infographics and data visuals", image: soft9Image },
-              { title: "Social media creatives and carousels", image: sky8Image },
-              { title: "Video scripts and storyboards", image: aboutImage },
+              { title: "Infographics and data visuals", image: contentmarketing1Image },
+              { title: "Social media creatives and carousels", image: contentmarketing2Image },
+              { title: "Video scripts and storyboards", image: contentmarketing3Image },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -797,15 +800,15 @@ export default function ContentMarketing() {
           {[
             { 
               title: "Content performance audits", 
-              image: soft9Image
+              image: contentmarketing4Image
             },
             { 
               title: "SEO tracking and ranking analysis", 
-              image: sky8Image
+              image: contentmarketing5Image
             },
             { 
               title: "Data-driven content improvement", 
-              image: aboutImage
+              image: contentmarketing6Image
             },
           ].map((item, i) => (
             <motion.section
