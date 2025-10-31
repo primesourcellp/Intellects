@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Code,
   Server,
@@ -1102,12 +1103,14 @@ const CustomSoftwareDevelopment = () => {
             </p>
             
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <button className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group" style={{ color: '#4C1D95' }}>
+              <Link
+                to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group"
+                style={{ color: '#4C1D95' }}
+              >
                 Start Your Project <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-purple-900 transition-all duration-300 hover:scale-105">
-                Schedule a Call
-              </button>
+              </Link>
             </div>
           </div>
         </div>

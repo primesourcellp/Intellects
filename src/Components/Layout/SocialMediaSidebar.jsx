@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FaFacebook,
-  FaTwitter,
   FaLinkedin,
   FaInstagram,
   FaWhatsapp,
+  FaPhone,
 } from "react-icons/fa";
 
 const SocialMediaSidebar = () => {
@@ -13,16 +12,6 @@ const SocialMediaSidebar = () => {
 
   // Social media links - Update these with your actual social media URLs
   const socialLinks = [
-    {
-      name: "Facebook",
-      icon: FaFacebook,
-      url: "https://www.facebook.com/intellects",
-    },
-    {
-      name: "Twitter",
-      icon: FaTwitter,
-      url: "https://twitter.com/intellects",
-    },
     {
       name: "LinkedIn",
       icon: FaLinkedin,
@@ -37,6 +26,11 @@ const SocialMediaSidebar = () => {
       name: "WhatsApp",
       icon: FaWhatsapp,
       url: "https://wa.me/1234567890",
+    },
+    {
+      name: "Call Us",
+      icon: FaPhone,
+      url: "tel:+15551234567",
     },
   ];
 
