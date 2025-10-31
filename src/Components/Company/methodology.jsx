@@ -162,13 +162,22 @@ export default function Methodology() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-4xl sm:text-5xl md:text-6xl font-black mb-8 leading-tight"
+            style={{ color: '#000000' }}
           >
-            <span className="text-gray-900">
-              <TypingText text="Our Development " delay={800} speed={60} />
-            </span>
-            <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease_infinite]">
+            <TypingText text="Our Development " delay={800} speed={60} />
+            <motion.span
+              style={{ color: '#4C1D95' }}
+              animate={{
+                textShadow: [
+                  `0 0 20px rgba(76, 29, 149, 0)`,
+                  `0 0 20px rgba(76, 29, 149, 0.5)`,
+                  `0 0 20px rgba(76, 29, 149, 0)`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
               <TypingText text="& Methodology" delay={2200} speed={60} />
-            </span>
+            </motion.span>
           </motion.h1>
 
           <motion.p
@@ -289,11 +298,21 @@ export default function Methodology() {
                 ABOUT US
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
-                <span className="text-gray-900">About </span>
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight" style={{ color: '#000000' }}>
+                About{" "}
+                <motion.span
+                  style={{ color: '#4C1D95' }}
+                  animate={{
+                    textShadow: [
+                      `0 0 20px rgba(76, 29, 149, 0)`,
+                      `0 0 20px rgba(76, 29, 149, 0.5)`,
+                      `0 0 20px rgba(76, 29, 149, 0)`
+                    ]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
                   Intellects
-                </span>
+                </motion.span>
               </h2>
 
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
@@ -347,11 +366,22 @@ export default function Methodology() {
               viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
+              style={{ color: '#000000' }}
             >
-              <span className="text-gray-900">Our Development </span>
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              Our Development{" "}
+              <motion.span
+                style={{ color: '#4C1D95' }}
+                animate={{
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
                 & Methodology
-              </span>
+              </motion.span>
             </motion.h2>
 
             <motion.p
@@ -401,11 +431,22 @@ export default function Methodology() {
               viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
+              style={{ color: '#000000' }}
             >
-              <span className="text-gray-900">Our Proven </span>
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              Our Proven{" "}
+              <motion.span
+                style={{ color: '#4C1D95' }}
+                animate={{
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
                 Methodology
-              </span>
+              </motion.span>
             </motion.h2>
           </div>
 
@@ -523,7 +564,7 @@ export default function Methodology() {
                       </span>
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900">
+                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-black" style={{ color: '#000000' }}>
                       {step.title}
                     </h3>
 
@@ -569,11 +610,22 @@ export default function Methodology() {
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
+              style={{ color: '#000000' }}
             >
-              <span className="text-gray-900">Why It </span>
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              Why It{" "}
+              <motion.span
+                style={{ color: '#4C1D95' }}
+                animate={{
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
                 Works
-              </span>
+              </motion.span>
             </motion.h2>
 
             <motion.p
@@ -649,7 +701,7 @@ export default function Methodology() {
                     <principle.icon className="w-8 h-8" />
                   </motion.div>
 
-                  <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-3">
+                  <h3 className="text-xl md:text-2xl font-black mb-3" style={{ color: '#4C1D95' }}>
                     {principle.title}
                   </h3>
 
@@ -692,11 +744,22 @@ export default function Methodology() {
               viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
+              style={{ color: '#000000' }}
             >
-              <span className="text-gray-900">Our Key </span>
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              Our Key{" "}
+              <motion.span
+                style={{ color: '#4C1D95' }}
+                animate={{
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
                 Clients
-              </span>
+              </motion.span>
             </motion.h2>
 
             <motion.p
