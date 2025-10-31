@@ -23,7 +23,7 @@ import sem3Image from "../../../assets/sem3.jpg";
 import sem4Image from "../../../assets/sem4.jpg";
 import sem5Image from "../../../assets/sem5.jpg";
 import sem6Image from "../../../assets/sem6.jpg";
-import sem7Image from "../../../assets/sem1.jpg";
+import sem7Image from "../../../assets/sem2.jpg";
 import sem8Image from "../../../assets/sem1.jpg";
 
 // Typing Animation Component
