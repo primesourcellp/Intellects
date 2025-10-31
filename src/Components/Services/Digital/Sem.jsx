@@ -24,7 +24,7 @@ import sem4Image from "../../../assets/sem4.jpg";
 import sem5Image from "../../../assets/sem5.jpg";
 import sem6Image from "../../../assets/sem6.jpg";
 import sem7Image from "../../../assets/sem2.jpg";
-import sem8Image from "../../../assets/sem1.jpg";
+
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -831,19 +831,19 @@ export default function Sem() {
                 title: "Conversion Tracking", 
                 description: "Conversion tracking & performance monitoring.",
                 icon: "🎯",
-                image: sem5Image
+              
               },
               { 
                 title: "Budget Optimization", 
                 description: "Budget optimization.",
                 icon: "💵",
-                image: sem6Image
+            
               },
               { 
                 title: "Deep Analytics", 
                 description: "Deep analytics reports to measure success.",
                 icon: "📈",
-                image: sem7Image
+          
               },
             ].map((item, i) => (
               <SEMFlipCard key={i} item={item} index={i} />
