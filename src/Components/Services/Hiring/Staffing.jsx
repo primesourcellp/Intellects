@@ -16,6 +16,11 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import gif2 from '../../../assets/gif_2.gif';
+import staffing1Image from "../../../assets/staffing1.jpg";
+import staffing2Image from "../../../assets/staffing2.jpg";
+import staffing3Image from "../../../assets/staffing3.jpg";
+import staffing4Image from "../../../assets/staffing4.jpg";
+
 import { Link } from "react-router-dom";
 
 // Typing Animation Component
@@ -410,7 +415,7 @@ export default function ContractStaffing() {
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing1Image}
               alt="Industry Expertise"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -488,7 +493,7 @@ export default function ContractStaffing() {
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing1Image}
               alt="Industry Expertise"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -513,7 +518,7 @@ export default function ContractStaffing() {
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing2Image}
               alt="Staffing Management"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -601,7 +606,7 @@ export default function ContractStaffing() {
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing3Image}
               alt="Cost-Effective Process"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -679,7 +684,7 @@ export default function ContractStaffing() {
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing3Image}
               alt="Cost-Effective Process"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -704,7 +709,7 @@ export default function ContractStaffing() {
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing4Image}
               alt="Continuous Support"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />

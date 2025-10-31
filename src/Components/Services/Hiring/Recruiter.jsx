@@ -16,6 +16,11 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import gif2 from '../../../assets/gif_2.gif';
+import recruiter1Image from "../../../assets/recruiter1.jpg";
+import recruiter2Image from "../../../assets/recruiter2.jpg";
+import recruiter3Image from "../../../assets/recruiter3.jpg";
+import recruiter4Image from "../../../assets/recruiter4.jpg";
+
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -485,7 +490,7 @@ export default function GlobalRecruitments() {
             viewport={{ once: true }}
           >
             <img 
-              src={gif2} 
+              src={recruiter1Image} 
               alt="Industry Expertise" 
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -564,7 +569,7 @@ export default function GlobalRecruitments() {
             viewport={{ once: true }}
           >
             <img 
-              src={gif2} 
+              src={recruiter1Image} 
               alt="Industry Expertise" 
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -591,7 +596,7 @@ export default function GlobalRecruitments() {
             viewport={{ once: true }}
           >
             <img 
-              src={gif2} 
+              src={recruiter2Image} 
               alt="End-to-End Recruitment Support" 
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -681,7 +686,7 @@ export default function GlobalRecruitments() {
             viewport={{ once: true }}
           >
             <img 
-              src={gif2} 
+                src={recruiter3Image} 
               alt="Data-Driven Hiring" 
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -760,7 +765,7 @@ export default function GlobalRecruitments() {
             viewport={{ once: true }}
           >
             <img 
-              src={gif2} 
+              src={recruiter3Image} 
               alt="Data-Driven Hiring" 
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -787,7 +792,7 @@ export default function GlobalRecruitments() {
             viewport={{ once: true }}
           >
             <img 
-              src={gif2} 
+                src={recruiter4Image} 
               alt="Continuous Support & Global Compliance" 
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />

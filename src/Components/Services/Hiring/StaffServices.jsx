@@ -24,6 +24,11 @@ import {
   FaBriefcase,
 } from "react-icons/fa";
 import gif2 from '../../../assets/gif_2.gif';
+import staffing1Image from "../../../assets/s1.jpg";
+import staffing2Image from "../../../assets/s2.jpg";
+import staffing3Image from "../../../assets/s3.jpg";
+import staffing4Image from "../../../assets/s4.jpg";
+
 import { Link } from "react-router-dom";
 
 // Typing Animation Component
@@ -463,7 +468,7 @@ export default function StaffingServices() {
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing1Image}
               alt="Industry Expertise"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -488,7 +493,7 @@ export default function StaffingServices() {
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing2Image}
               alt="Hiring Process"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -639,7 +644,7 @@ x``        <div className="flex flex-col-reverse lg:flex-row items-center gap-20
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing3Image}
               alt="Data-Driven Recruitment"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />
@@ -664,7 +669,7 @@ x``        <div className="flex flex-col-reverse lg:flex-row items-center gap-20
             viewport={{ once: true }}
           >
             <img
-              src={gif2}
+              src={staffing4Image}
               alt="Ongoing Support"
               className="w-4/5 lg:w-3/4 rounded-2xl shadow-lg"
             />

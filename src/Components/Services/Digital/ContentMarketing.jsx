@@ -35,7 +35,7 @@ import {
     import contentmarketing4Image from "../../../assets/contentwriting4.jpg";
     import contentmarketing5Image from "../../../assets/contentwriting5.jpg";
     import contentmarketing6Image from "../../../assets/contentwriting6.jpg";
-    import contentmarketing7Image from "../../../assets/contentwriting1.jpg";
+  
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
