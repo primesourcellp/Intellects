@@ -31,8 +31,6 @@ import seo6Image from "../../../assets/seo6.jpg";
 import seo7Image from "../../../assets/seo7.jpg";
 import seo8Image from "../../../assets/seo8.jpg";
 
-
-
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
   const [displayedText, setDisplayedText] = useState("");
