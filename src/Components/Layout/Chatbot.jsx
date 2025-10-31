@@ -355,7 +355,7 @@ const Chatbot = () => {
   ];
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
       {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
@@ -365,45 +365,45 @@ const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
             transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
-            className="mb-4 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border-2 border-purple-100"
+            className="mb-4 w-[calc(100vw-2rem)] h-[calc(100vh-8rem)] sm:w-96 sm:h-[600px] max-w-full max-h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border-2 border-purple-100"
           >
             {/* Chat Header */}
             <div
-              className="bg-gradient-to-r from-purple-600 to-indigo-600 p-4 text-white flex items-center justify-between"
+              className="bg-gradient-to-r from-purple-600 to-indigo-600 p-3 sm:p-4 text-white flex items-center justify-between"
               style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)' }}
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                  <Bot className="w-6 h-6" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Bot className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div>
-                  <h3 className="font-bold text-lg">Intellects Assistant</h3>
-                  <p className="text-xs text-white/80">We're here to help!</p>
+                <div className="min-w-0">
+                  <h3 className="font-bold text-base sm:text-lg truncate">Intellects Assistant</h3>
+                  <p className="text-xs text-white/80 hidden sm:block">We're here to help!</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-shrink-0">
                 {messages.length > 1 && (
                   <button
                     onClick={clearHistory}
-                    className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 hover:bg-white/30 active:bg-white/40 flex items-center justify-center transition-colors touch-manipulation"
                     aria-label="Clear history"
                     title="Clear chat history"
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 )}
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 hover:bg-white/30 active:bg-white/40 flex items-center justify-center transition-colors touch-manipulation"
                   aria-label="Close chat"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
             </div>
 
             {/* Messages Container */}
-            <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-purple-50/30 to-white">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 bg-gradient-to-b from-purple-50/30 to-white overscroll-contain">
               <div className="space-y-4">
                 {messages.map((message) => (
                   <motion.div
@@ -413,9 +413,9 @@ const Chatbot = () => {
                     transition={{ duration: 0.3 }}
                     className={`group ${message.sender === "user" ? "flex justify-end" : "flex justify-start"}`}
                   >
-                    <div className={`relative max-w-[80%]`}>
+                    <div className={`relative max-w-[85%] sm:max-w-[80%]`}>
                       <div
-                        className={`rounded-2xl p-3 ${
+                        className={`rounded-xl sm:rounded-2xl p-2.5 sm:p-3 ${
                           message.sender === "user"
                             ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white"
                             : "bg-white text-gray-800 border-2 border-purple-100"
@@ -432,7 +432,7 @@ const Chatbot = () => {
                             <span className="text-xs font-semibold text-purple-600">Assistant</span>
                           </div>
                         )}
-                        <p className="text-sm whitespace-pre-wrap leading-relaxed">{message.text}</p>
+                        <p className="text-xs sm:text-sm whitespace-pre-wrap leading-relaxed break-words">{message.text}</p>
                         
                         {/* Links */}
                         {message.links && message.links.length > 0 && (
@@ -441,7 +441,7 @@ const Chatbot = () => {
                               <button
                                 key={idx}
                                 onClick={() => handleLinkClick(link.path)}
-                                className="w-full flex items-center justify-between px-3 py-2 text-xs bg-purple-50 hover:bg-purple-100 text-purple-700 rounded-lg transition-colors border border-purple-200"
+                                className="w-full flex items-center justify-between px-3 py-2.5 sm:py-2 text-xs bg-purple-50 hover:bg-purple-100 active:bg-purple-200 text-purple-700 rounded-lg transition-colors border border-purple-200 touch-manipulation"
                               >
                                 <span className="font-medium">{link.text}</span>
                                 <ExternalLink className="w-3 h-3" />
@@ -456,10 +456,10 @@ const Chatbot = () => {
                       </div>
 
                       {/* Message Actions */}
-                      <div className={`absolute ${message.sender === "user" ? "left-0 -ml-10" : "right-0 -mr-10"} top-2 opacity-0 group-hover:opacity-100 transition-opacity`}>
+                      <div className={`absolute ${message.sender === "user" ? "left-0 -ml-8 sm:-ml-10" : "right-0 -mr-8 sm:-mr-10"} top-2 opacity-0 group-hover:opacity-100 sm:group-hover:opacity-100 transition-opacity`}>
                         <button
                           onClick={() => copyMessage(message.text, message.id)}
-                          className="w-7 h-7 rounded-full bg-white border border-gray-200 hover:bg-purple-50 hover:border-purple-300 flex items-center justify-center transition-colors shadow-sm"
+                          className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white border border-gray-200 hover:bg-purple-50 active:bg-purple-100 hover:border-purple-300 flex items-center justify-center transition-colors shadow-sm touch-manipulation"
                           title="Copy message"
                         >
                           {copiedId === message.id ? (
@@ -521,11 +521,11 @@ const Chatbot = () => {
                   >
                     <p className="text-xs text-gray-500 font-semibold mb-2">You might also want to know:</p>
                     <div className="flex flex-wrap gap-2">
-                      {messages[messages.length - 1].followUps.map((followUp, index) => (
+                        {messages[messages.length - 1].followUps.map((followUp, index) => (
                         <button
                           key={index}
                           onClick={() => handleQuickAction(`Tell me about ${followUp.toLowerCase()}`)}
-                          className="px-3 py-1.5 text-xs bg-white border-2 border-purple-200 text-purple-700 rounded-full hover:bg-purple-50 hover:border-purple-300 transition-all font-medium"
+                          className="px-3 py-2 sm:py-1.5 text-xs bg-white border-2 border-purple-200 text-purple-700 rounded-full hover:bg-purple-50 active:bg-purple-100 hover:border-purple-300 transition-all font-medium touch-manipulation"
                         >
                           {followUp}
                         </button>
@@ -547,7 +547,7 @@ const Chatbot = () => {
                         <button
                           key={index}
                           onClick={() => handleQuickAction(action.message)}
-                          className="px-3 py-1.5 text-xs bg-white border-2 border-purple-200 text-purple-700 rounded-full hover:bg-purple-50 hover:border-purple-300 transition-all font-medium"
+                          className="px-3 py-2 sm:py-1.5 text-xs bg-white border-2 border-purple-200 text-purple-700 rounded-full hover:bg-purple-50 active:bg-purple-100 hover:border-purple-300 transition-all font-medium touch-manipulation"
                         >
                           {action.text}
                         </button>
@@ -561,7 +561,7 @@ const Chatbot = () => {
             </div>
 
             {/* Input Area */}
-            <form onSubmit={handleSendMessage} className="p-4 bg-white border-t-2 border-purple-100">
+            <form onSubmit={handleSendMessage} className="p-3 sm:p-4 bg-white border-t-2 border-purple-100">
               <div className="flex gap-2">
                 <input
                   ref={inputRef}
@@ -569,17 +569,17 @@ const Chatbot = () => {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-1 px-4 py-2 border-2 border-purple-200 rounded-full focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-sm"
+                  className="flex-1 px-3 sm:px-4 py-2.5 sm:py-2 border-2 border-purple-200 rounded-full focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-sm touch-manipulation"
                 />
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   disabled={!inputMessage.trim()}
-                  className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation flex-shrink-0"
                   style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)' }}
                 >
-                  <Send className="w-5 h-5" />
+                  <Send className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.button>
               </div>
             </form>
@@ -592,7 +592,7 @@ const Chatbot = () => {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white bg-gradient-to-r from-purple-600 to-indigo-600"
+        className="w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl flex items-center justify-center text-white bg-gradient-to-r from-purple-600 to-indigo-600 touch-manipulation"
         style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)' }}
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
@@ -605,7 +605,7 @@ const Chatbot = () => {
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <X className="w-7 h-7" />
+              <X className="w-6 h-6 sm:w-7 sm:h-7" />
             </motion.div>
           ) : (
             <motion.div
@@ -615,7 +615,7 @@ const Chatbot = () => {
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <MessageCircle className="w-7 h-7" />
+              <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
             </motion.div>
           )}
         </AnimatePresence>

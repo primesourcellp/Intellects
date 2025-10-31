@@ -140,7 +140,7 @@ export default function Home() {
   };
 
   // FAQ Item Component with Toggle
-  const FAQItem = ({ faq, index }) => {
+  const FAQItem = ({ faq }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -541,7 +541,7 @@ export default function Home() {
           </motion.span>
         </motion.h2>
         
-        <motion.p
+            <motion.p
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
@@ -549,7 +549,7 @@ export default function Home() {
           className="text-center text-lg max-w-3xl mx-auto mb-16"
           style={{ color: '#6B7280' }}
         >
-          We don't just deliver projects — we deliver results. Here's what sets Intellects apart.
+          Choosing a consulting partner is about trust, clarity, and results. Here's what sets Intellects apart.
         </motion.p>
 
         <motion.div 
@@ -637,6 +637,175 @@ export default function Home() {
       </section>
 
       {/* ========================================
+        CAREERS SECTION 
+      ======================================== */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={scaleIn}
+        className="py-24 px-6 md:px-12 lg:px-24 border-t relative overflow-hidden"
+        style={{ backgroundColor: '#F8F5FC', borderColor: '#E5E7EB' }}
+      >
+        {/* Background Decoration */}
+        <div className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-5" style={{ background: 'radial-gradient(circle, #4C1D95, transparent)' }} />
+        <div className="absolute bottom-10 left-10 w-96 h-96 rounded-full opacity-5" style={{ background: 'radial-gradient(circle, #7C3AED, transparent)' }} />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl md:text-5xl font-bold mb-6"
+              style={{ color: '#000000' }}
+            >
+              Careers at{" "}
+              <motion.span
+                style={{ color: '#4C1D95' }}
+                animate={{
+                  textShadow: [
+                    `0 0 20px ${'#4C1D95'}00`,
+                    `0 0 20px ${'#4C1D95'}50`,
+                    `0 0 20px ${'#4C1D95'}00`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Intellects
+              </motion.span>
+            </motion.h2>
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-2xl md:text-3xl font-semibold mb-6"
+              style={{ color: '#4C1D95' }}
+            >
+              Grow Your Future with a Team That Values You
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-12"
+              style={{ color: '#6B7280' }}
+            >
+              At Intellects, we believe innovation starts with people who care about what they build. We're always searching for curious minds — developers, strategists, creatives, and consultants — who want to shape the future of IT consulting.
+            </motion.p>
+          </div>
+
+          {/* Career Benefits Grid */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={container}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+          >
+            {[
+              {
+                title: "Professional Growth",
+                description: "Continuous learning opportunities and career development programs",
+                icon: "📈"
+              },
+              {
+                title: "Innovative Projects",
+                description: "Work on cutting-edge technology and challenging projects",
+                icon: "🚀"
+              },
+              {
+                title: "Collaborative Culture",
+                description: "Join a team that values creativity, diversity, and collaboration",
+                icon: "🤝"
+              },
+              {
+                title: "Competitive Benefits",
+                description: "Comprehensive benefits package and work-life balance",
+                icon: "💼"
+              },
+              {
+                title: "Impactful Work",
+                description: "Make a real difference for clients and their businesses",
+                icon: "✨"
+              },
+              {
+                title: "Supportive Environment",
+                description: "Mentorship, guidance, and support from experienced professionals",
+                icon: "🌟"
+              }
+            ].map((benefit, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  boxShadow: '0 20px 40px rgba(76, 29, 149, 0.2)',
+                  borderColor: '#4C1D95'
+                }}
+                transition={{ duration: 0.3 }}
+                className="p-6 rounded-xl bg-white border-2 shadow-lg cursor-pointer group relative overflow-hidden"
+                style={{
+                  borderColor: '#E5E7EB'
+                }}
+              >
+                {/* Hover gradient */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)'
+                  }}
+                />
+                
+                <div className="relative z-10">
+                  <div className="text-4xl mb-4">{benefit.icon}</div>
+                  <h4 className="text-xl font-bold mb-2 group-hover:text-purple-700 transition-colors" style={{ color: '#4C1D95' }}>
+                    {benefit.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-center"
+          >
+            <Link
+              to="/career"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+              className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style={{
+                background: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)',
+                color: '#FFFFFF',
+                boxShadow: '0 25px 50px -12px rgba(76, 29, 149, 0.3)'
+              }}
+            >
+              <span>Explore Open Positions</span>
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                →
+              </motion.span>
+            </Link>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* ========================================
         VISION SECTION 
       ======================================== */}
       <motion.section
@@ -645,7 +814,7 @@ export default function Home() {
         viewport={{ once: true, amount: 0.3 }}
         variants={scaleIn}
         className="py-24 px-6 md:px-12 lg:px-24 border-t"
-        style={{ backgroundColor: '#F8F5FC', borderColor: '#E5E7EB' }}
+        style={{ backgroundColor: '#F3EFF9', borderColor: '#E5E7EB' }}
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -673,8 +842,10 @@ export default function Home() {
               </motion.span>
         </h2>
             <p className="text-lg md:text-xl leading-relaxed mb-4" style={{ color: '#6B7280' }}>
-          Our team combines creativity with technical excellence to
-              turn your ideas into scalable, high-performing solutions.
+              At Intellects, we believe that every vision deserves intelligent engineering.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed mb-4" style={{ color: '#6B7280' }}>
+              Our team combines creativity with technical excellence to turn your ideas into scalable, high-performing solutions.
             </p>
             <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
               Your vision is our blueprint — and innovation is our craft.
@@ -751,7 +922,7 @@ export default function Home() {
                 </motion.span>
             </motion.h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              Get answers to common questions about our services, process, and approach.
+              Find answers to the most common questions about Intellects and our services.
             </p>
           </motion.div>
 
@@ -766,7 +937,7 @@ export default function Home() {
             {[
               { 
                 q: "What services does Intellects provide?", 
-                a: "Intellects offers comprehensive IT consulting services including Software Development, Digital Marketing, and HR Consulting — helping businesses grow smarter and perform better.",
+                a: "Intellects offers IT consulting services including Software Development, Digital Marketing, and HR Consulting — helping businesses grow smarter and perform better.",
                 icon: "🎯"
               },
               { 
@@ -868,6 +1039,31 @@ export default function Home() {
           </div>
         </div>
       </motion.div>
+
+      {/* ========================================
+        QUOTE SECTION (Above Footer)
+      ======================================== */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeIn}
+        className="py-16 px-6 md:px-12 lg:px-24 border-t"
+        style={{ backgroundColor: '#F8F5FC', borderColor: '#E5E7EB' }}
+      >
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-2xl md:text-3xl font-semibold italic leading-relaxed"
+            style={{ color: '#4C1D95' }}
+          >
+            "Intellects turns technology into possibility — and possibility into progress."
+          </motion.p>
+        </div>
+      </motion.section>
     </div>
   );
 }
