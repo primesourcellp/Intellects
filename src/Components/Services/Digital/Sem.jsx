@@ -17,9 +17,14 @@ import {
   FaCogs,
   FaPaintBrush,
 } from "react-icons/fa";
-import sky8Image from "../../../assets/sky8.jpg";
-import aboutImage from "../../../assets/about.jpg";
-import soft9Image from "../../../assets/soft9.png";
+import sem1Image from "../../../assets/sem1.jpg";
+import sem2Image from "../../../assets/sem1.jpg";
+import sem3Image from "../../../assets/sem1.jpg";
+import sem4Image from "../../../assets/sem1.jpg";
+import sem5Image from "../../../assets/sem1.jpg";
+import sem6Image from "../../../assets/sem1.jpg";
+import sem7Image from "../../../assets/sem1.jpg";
+import sem8Image from "../../../assets/sem1.jpg";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -309,7 +314,7 @@ export default function Sem() {
             className="relative"
           >
             <img 
-              src={sky8Image} 
+              src={sem1Image} 
               alt="Search Engine Marketing Animation" 
               className="w-full h-auto rounded-2xl shadow-2xl"
             />
@@ -826,19 +831,19 @@ export default function Sem() {
                 title: "Conversion Tracking", 
                 description: "Conversion tracking & performance monitoring.",
                 icon: "🎯",
-                image: sky8Image
+                image: sem5Image
               },
               { 
                 title: "Budget Optimization", 
                 description: "Budget optimization.",
                 icon: "💵",
-                image: aboutImage
+                image: sem6Image
               },
               { 
                 title: "Deep Analytics", 
                 description: "Deep analytics reports to measure success.",
                 icon: "📈",
-                image: soft9Image
+                image: sem7Image
               },
             ].map((item, i) => (
               <SEMFlipCard key={i} item={item} index={i} />
@@ -890,9 +895,9 @@ export default function Sem() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { title: "Geo-Targeted Campaigns", desc: "Geo-targeted and device-based campaigns.", image: sky8Image },
-              { title: "Retargeting Strategies", desc: "Interest-based and retargeting strategies.", image: aboutImage },
-              { title: "Lead Generation", desc: "High-quality lead generation tactics.", image: soft9Image },
+              { title: "Geo-Targeted Campaigns", desc: "Geo-targeted and device-based campaigns.", image: sem1Image },
+              { title: "Retargeting Strategies", desc: "Interest-based and retargeting strategies.", image: sem2Image },
+              { title: "Lead Generation", desc: "High-quality lead generation tactics.", image: sem3Image },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -976,9 +981,9 @@ export default function Sem() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { title: "Engaging Visuals", desc: "Engaging visuals and clear CTAs.", image: soft9Image },
-              { title: "Optimized Copy", desc: "Ad copy optimized for relevance and conversions.", image: sky8Image },
-              { title: "Consistent Branding", desc: "Consistent branding across all platforms.", image: aboutImage },
+              { title: "Engaging Visuals", desc: "Engaging visuals and clear CTAs.", image: sem4Image },
+                { title: "Optimized Copy", desc: "Ad copy optimized for relevance and conversions.", image: sem4Image },
+              { title: "Consistent Branding", desc: "Consistent branding across all platforms.", image: sem5Image },
             ].map((item, i) => (
             <motion.div
                 key={i}

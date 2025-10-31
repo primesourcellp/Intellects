@@ -22,9 +22,16 @@ import {
   FaAward,
 } from "react-icons/fa";
 import gif3Image from "../../../assets/gif4.gif";
-import sky8Image from "../../../assets/sky8.jpg";
-import aboutImage from "../../../assets/about.jpg";
-import soft9Image from "../../../assets/soft9.png";
+import seo1Image from "../../../assets/seo1.jpg";
+import seo2Image from "../../../assets/seo2.jpg";
+import seo3Image from "../../../assets/seo3.jpg";
+import seo4Image from "../../../assets/seo4.jpg";
+import seo5Image from "../../../assets/seo5.jpg";
+import seo6Image from "../../../assets/seo6.jpg";
+import seo7Image from "../../../assets/seo7.jpg";
+import seo8Image from "../../../assets/seo8.jpg";
+
+
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -517,22 +524,22 @@ export default function Seo() {
             {
               title: "Meta Tags & Headings",
               desc: "Optimized titles, descriptions, and headers for SEO and clarity.",
-              img: sky8Image,
+              img: seo1Image,
               },
               {
               title: "URL Structure",
               desc: "Clean, descriptive URLs that improve crawling and indexing.",
-              img: aboutImage,
+              img: seo2Image,
               },
               {
               title: "Content Optimization",
               desc: "Engaging, relevant, and SEO-friendly copy.",
-              img: soft9Image,
+              img: seo3Image,
               },
               {
               title: "Internal Linking",
               desc: "Structured links to guide visitors and search engines effectively.",
-              img: sky8Image,
+              img: seo4Image,
             },
           ].map((s, i) => (
             <Motion.section
@@ -964,28 +971,28 @@ export default function Seo() {
                 title: "Traffic & Engagement Analysis", 
                 description: "Understanding audience behavior.", 
                 icon: "📊",
-                image: sky8Image,
+                image: seo5Image,
                 gradient: 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)'
               },
               { 
                 title: "Ranking Reports", 
                 description: "Tracking keyword and page performance.", 
                 icon: "📈",
-                image: aboutImage,
+                image: seo6Image,
                 gradient: 'linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)'
               },
               { 
                 title: "Conversion Optimization", 
                 description: "Turning traffic into leads and sales.", 
                 icon: "🎯",
-                image: soft9Image,
+                image: seo7Image,
                 gradient: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)'
               },
               { 
                 title: "Ongoing Strategy Updates", 
                 description: "Staying ahead with algorithm changes and industry trends.", 
                 icon: "🔄",
-                image: sky8Image,
+                image: seo8Image,
                 gradient: 'linear-gradient(135deg, #4C1D95 0%, #6366F1 100%)'
               },
             ].map((item, i) => (
