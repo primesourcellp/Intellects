@@ -18,11 +18,11 @@ import {
   FaPaintBrush,
 } from "react-icons/fa";
 import sem1Image from "../../../assets/sem1.jpg";
-import sem2Image from "../../../assets/sem1.jpg";
-import sem3Image from "../../../assets/sem1.jpg";
-import sem4Image from "../../../assets/sem1.jpg";
-import sem5Image from "../../../assets/sem1.jpg";
-import sem6Image from "../../../assets/sem1.jpg";
+import sem2Image from "../../../assets/sem2.jpg";
+import sem3Image from "../../../assets/sem3.jpg";
+import sem4Image from "../../../assets/sem4.jpg";
+import sem5Image from "../../../assets/sem5.jpg";
+import sem6Image from "../../../assets/sem6.jpg";
 import sem7Image from "../../../assets/sem1.jpg";
 import sem8Image from "../../../assets/sem1.jpg";
 
@@ -982,8 +982,8 @@ export default function Sem() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
               { title: "Engaging Visuals", desc: "Engaging visuals and clear CTAs.", image: sem4Image },
-                { title: "Optimized Copy", desc: "Ad copy optimized for relevance and conversions.", image: sem4Image },
-              { title: "Consistent Branding", desc: "Consistent branding across all platforms.", image: sem5Image },
+                { title: "Optimized Copy", desc: "Ad copy optimized for relevance and conversions.", image: sem5Image },
+              { title: "Consistent Branding", desc: "Consistent branding across all platforms.", image: sem6Image },
             ].map((item, i) => (
             <motion.div
                 key={i}
