@@ -158,94 +158,72 @@ export default function ContactUsPage() {
     return (
         <div className="overflow-hidden" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
                 
-            {/* HERO SECTION WITH BACKGROUND IMAGE */}
-            <div className="relative min-h-[80vh] flex items-center justify-center px-6 md:px-12 lg:px-24 text-center overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
-                {/* Background Image with Overlay */}
-                <motion.div 
-                    className="absolute inset-0"
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
-                >
-                    <img
-                        src={sky8Image}
-                        alt="Contact Us"
-                        className="w-full h-full object-cover"
-                        style={{ opacity: 1 }}
-                    />
-                    <div 
-                        className="absolute inset-0" 
-                        style={{ 
-                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%)',
-                        }}
-                    />
-                </motion.div>
+           {/* HERO SECTION WITH BACKGROUND IMAGE (Further Reduced Height) */}
+<div
+  className="relative min-h-[25vh] flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 text-center overflow-hidden"
+  style={{ backgroundColor: '#FFFFFF' }}
+>
+  {/* Floating Shapes */}
+  <motion.div
+    animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+    className="absolute top-3 left-8 md:left-20 opacity-20"
+  >
+    <div
+      className="w-12 h-12 rounded-2xl transform rotate-12"
+      style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+    />
+  </motion.div>
 
-                {/* Floating Shapes */}
-                <motion.div
-                    animate={{ 
-                        y: [0, -25, 0],
-                        scale: [1, 1.2, 1]
-                    }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-20 left-10 md:left-20 opacity-20"
-                >
-                    <div 
-                        className="w-20 h-20 rounded-2xl transform rotate-12" 
-                        style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
-                    />
-                </motion.div>
-                
-                <motion.div
-                    animate={{ 
-                        y: [0, 15, 0],
-                        rotate: [0, 180, 360]
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-40 right-10 md:right-32 opacity-20"
-                >
-                    <div 
-                        className="w-16 h-16 rounded-full" 
-                        style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
-                    />
-                </motion.div>
+  <motion.div
+    animate={{ y: [0, 10, 0], rotate: [0, 180, 360] }}
+    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+    className="absolute top-20 right-8 md:right-32 opacity-20"
+  >
+    <div
+      className="w-10 h-10 rounded-full"
+      style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
+    />
+  </motion.div>
 
-                {/* Hero Content */}
-                <div className="relative z-10 max-w-5xl mx-auto">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                        className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
-                        style={{ color: '#000000' }}
-                >
-                        <TypingText text="Get in " />
-                        <motion.span
-                            style={{ color: '#4C1D95' }}
-                            animate={{
-                                textShadow: [
-                                    `0 0 20px rgba(76, 29, 149, 0)`,
-                                    `0 0 20px rgba(76, 29, 149, 0.5)`,
-                                    `0 0 20px rgba(76, 29, 149, 0)`
-                                ]
-                            }}
-                            transition={{ duration: 3, repeat: Infinity }}
-                        >
-                            <TypingText text="Touch" />
-                        </motion.span>
-                    </motion.h1>
-                    
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-lg md:text-xl max-w-4xl mx-auto font-light leading-relaxed"
-                        style={{ color: '#6B7280' }}
-                    >
-                        Let's Connect. Let's Build the Future Together.
-                    </motion.p>
-                </div>
-            </div>
+  {/* Hero Content */}
+  <div className="relative z-10 max-w-3xl mx-auto">
+    <motion.h1
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-4xl sm:text-5xl md:text-6xl font-bold mb-0"
+      style={{ color: '#000000' }}
+    >
+      <TypingText text="Get in " />
+      <motion.span
+        style={{ color: '#4C1D95' }}
+        animate={{
+          textShadow: [
+            `0 0 20px rgba(76, 29, 149, 0)`,
+            `0 0 20px rgba(76, 29, 149, 0.5)`,
+            `0 0 20px rgba(76, 29, 149, 0)`
+          ]
+        }}
+        transition={{ duration: 3, repeat: Infinity }}
+      >
+        <TypingText text="Touch" />
+      </motion.span>
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      className="text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed mt-1"
+      style={{ color: '#6B7280' }}
+    >
+      Let's Connect. Let's Build the Future Together.
+    </motion.p>
+  </div>
+</div>
+
+
 
             {/* MAIN CONTACT CONTENT */}
             <AnimatedSection backgroundColor="#F9FAFB">
