@@ -17,8 +17,8 @@ import {
   FaGlobe,
 } from "react-icons/fa";
 import webapplication1Image from "../../../assets/webapplication1.png";
-import webapplication2Image from "../../../assets/webapplication2.png";
-import webapplication3Image from "../../../assets/webapplication3.png";
+import webapplication2Image from "../../../assets/webapplication.png";
+import webapplication3Image from "../../../assets/webapplication6.png";
 import webapplication4Image from "../../../assets/webapplication4.png";
 import webapplication5Image from "../../../assets/webapplication5.jpg";
 

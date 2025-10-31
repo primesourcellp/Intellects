@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { FaHandshake, FaStar, FaQuoteLeft } from "react-icons/fa";
 
 // 🔹 Replace with your actual image imports
-import client1 from "../../assets/about.jpg";
-import client2 from "../../assets/about.jpg";
-import client3 from "../../assets/about.jpg";
-import sky8Image from "../../assets/sky8.jpg";
-import aboutImage from "../../assets/about.jpg";
-import soft9Image from "../../assets/soft9.png";
+import client1 from "../../assets/gif1.gif";
+import client2 from "../../assets/gif2.gif";
+import client3 from "../../assets/gif3.gif";
+import sky8Image from "../../assets/gif5.gif";
+import aboutImage from "../../assets/gif5.gif";
+import soft9Image from "../../assets/gif4.gif";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "" }) => {

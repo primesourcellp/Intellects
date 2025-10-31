@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './Components/Layout/Navbar.jsx'
 import ScrollToTop from './Components/Layout/ScrollToTop.jsx'
+import Chatbot from './Components/Layout/Chatbot.jsx'
+import SocialMediaSidebar from './Components/Layout/SocialMediaSidebar.jsx'
 import Home from './Components/Pages/Home.jsx'
 import MethodologyPage from './Components/Company/methodology.jsx'
 import CareerCulturePage from './Components/Company/CareerCulture.jsx'
@@ -45,6 +47,8 @@ export default function App() {
         <Route path="/contact" element={<ContactUsPage />} />
       </Routes>
       <Footer />
+      <SocialMediaSidebar />
+      <Chatbot />
     </BrowserRouter>
   )
 }
