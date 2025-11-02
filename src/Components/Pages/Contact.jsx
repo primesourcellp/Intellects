@@ -133,7 +133,7 @@ export default function Contact() {
                 <Phone className="w-6 h-6 text-purple-600 mt-1" />
                 <div>
                   <span className="font-medium text-gray-900">Phone:</span>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+1(919)699-1281</p>
                 </div>
               </li>
 

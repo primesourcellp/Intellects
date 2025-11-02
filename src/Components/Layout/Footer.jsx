@@ -86,7 +86,7 @@ export default function Footer() {
                             </div>
                             <div className="flex items-center gap-3">
                                 <FaPhone style={{ color: '#C4B5FD' }} />
-                                <span className="text-sm" style={{ color: '#E0E7FF' }}>+1 (555) 123-4567</span>
+                                <span className="text-sm" style={{ color: '#E0E7FF' }}>+1(919)699-1281</span>
                             </div>
                             <div className="flex items-start gap-3">
                                 <FaMapMarkerAlt className="mt-1" style={{ color: '#C4B5FD' }} />

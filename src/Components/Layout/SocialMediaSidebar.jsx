@@ -30,7 +30,7 @@ const SocialMediaSidebar = () => {
     {
       name: "Call Us",
       icon: FaPhone,
-      url: "tel:+15551234567",
+      url: "tel:+19196991281",
     },
   ];
 

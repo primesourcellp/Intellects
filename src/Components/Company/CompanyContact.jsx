@@ -297,7 +297,7 @@ export default function ContactUsPage() {
                             <ContactDetailItem
                                 icon={Phone}
                                 title="Phone"
-                                content="+1 (555) 123-4567"
+                                content="+1(919)699-1281"
                             />
                             <ContactDetailItem
                                 icon={Mail}

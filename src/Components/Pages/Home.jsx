@@ -7,7 +7,7 @@ import home2Image from "../../assets/home2.png";
 import home3Image from "../../assets/home3.png";     
 import home4Image from "../../assets/home4.jpg";
 import home5Image from "../../assets/home5.png";
-import gifHeader from "../../assets/gif_header.gif";
+import gifHeader from "../../assets/abt-img.gif";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "" }) => {
