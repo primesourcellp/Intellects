@@ -124,7 +124,7 @@ export default function Contact() {
                 <div>
                   <span className="font-medium text-gray-900">Head Office:</span>
                   <p className="text-gray-600">
-                    123 Intellect Tower, Innovation Hub, New York, NY 10001
+                  311 Melvin Jackson Drive, Cary NC 27519
                   </p>
                 </div>
               </li>

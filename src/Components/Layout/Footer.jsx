@@ -90,7 +90,7 @@ export default function Footer() {
                             </div>
                             <div className="flex items-start gap-3">
                                 <FaMapMarkerAlt className="mt-1" style={{ color: '#C4B5FD' }} />
-                                <span className="text-sm" style={{ color: '#E0E7FF' }}>123 Intellect Tower, NY</span>
+                                <span className="text-sm" style={{ color: '#E0E7FF' }}>311 Melvin Jackson Drive, Cary NC 27519</span>
                             </div>
                         </div>
                     </motion.div>

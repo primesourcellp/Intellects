@@ -292,7 +292,7 @@ export default function ContactUsPage() {
                             <ContactDetailItem
                                 icon={MapPin}
                                 title="Head Office"
-                                content="123 Intellect Tower, Innovation Hub, New York, NY 10001"
+                                content="311 Melvin Jackson Drive, Cary NC 27519"
                             />
                             <ContactDetailItem
                                 icon={Phone}
@@ -302,12 +302,12 @@ export default function ContactUsPage() {
                             <ContactDetailItem
                                 icon={Mail}
                                 title="Email"
-                                content="hello@intellects.com"
+                                content="hello@intellectsllc.com"
                             />
                             <ContactDetailItem
                                 icon={Globe}
                                 title="Website"
-                                content="www.intellects.com"
+                                content="www.intellectsllc.com"
                             />
                             <ContactDetailItem
                                 icon={Clock}
