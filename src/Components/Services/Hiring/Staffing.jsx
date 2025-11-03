@@ -224,22 +224,84 @@ export default function ContractStaffing() {
         <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
       </div>
 
-      {/* Header Section */}
+      {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
-        style={{ backgroundColor: '#F8F5FC' }}
+        className="relative py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
+        style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
-          {/* Left Content */}
-          <div className="text-left">
+        {/* Floating Icons */}
+        <motion.div
+          animate={{ 
+            y: [0, -20, 0],
+            rotate: [0, 10, 0]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 left-10 md:left-20 opacity-20"
+        >
+          <div 
+            className="w-20 h-20 rounded-2xl transform rotate-12" 
+            style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+          />
+        </motion.div>
+        
+        <motion.div
+          animate={{ 
+            y: [0, 15, 0],
+            rotate: [0, -10, 0]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="absolute top-40 right-10 md:right-32 opacity-20"
+        >
+          <div 
+            className="w-16 h-16 rounded-full" 
+            style={{ background: 'linear-gradient(135deg, #7C3AED, #F59E0B)' }}
+          />
+        </motion.div>
+
+        <motion.div
+          animate={{ 
+            y: [0, -15, 0],
+            x: [0, 10, 0]
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-20 right-20 opacity-20"
+        >
+          <div 
+            className="w-12 h-12 rounded-lg transform -rotate-12" 
+            style={{ background: 'linear-gradient(135deg, #F59E0B, #4C1D95)' }}
+          />
+        </motion.div>
+
+        {/* Two Column Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-4 sm:px-6 md:px-12 lg:px-20">
+          {/* Left Column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
+          >
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight"
               style={{ color: '#000000' }}
             >
-              <TypingText text="Contract Staffing" />
+              <TypingText text="Contract " />
+              <motion.span 
+                style={{ color: '#4C1D95' }}
+                animate={{ 
+                  textShadow: [
+                    `0 0 20px rgba(76, 29, 149, 0)`,
+                    `0 0 20px rgba(76, 29, 149, 0.5)`,
+                    `0 0 20px rgba(76, 29, 149, 0)`
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <TypingText text="Staffing" />
+              </motion.span>
             </motion.h1>
 
             <motion.h2
@@ -256,26 +318,27 @@ export default function ContractStaffing() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl font-light leading-relaxed"
+              className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8"
               style={{ color: '#374151' }}
             >
               At Intellects, we understand that business needs change rapidly — and your workforce should adapt just as fast. Our Contract Staffing services provide companies with skilled professionals on a temporary, project-based, or contract-to-hire basis, helping you stay agile and efficient without long-term commitments.
             </motion.p>
-          </div>
+          </motion.div>
 
-          {/* Right GIF */}
+          {/* Right Column - GIF */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex items-center justify-center"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
           >
-            <img
-              src={gif2}
-              alt="Contract Staffing"
-              className="w-full h-auto max-w-lg rounded-2xl"
+            <img 
+              src={gif2} 
+              alt="Contract Staffing Animation" 
+              className="w-full h-auto"
             />
           </motion.div>
+
         </div>
       </section>
 

@@ -162,7 +162,7 @@ export default function WebsiteDevelopment() {
 
       {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
+        className="relative py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -209,7 +209,7 @@ export default function WebsiteDevelopment() {
         </motion.div>
 
         {/* Two Column Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-4 sm:px-6 md:px-12 lg:px-20">
           
           {/* Left Column - Content */}
           <motion.div
@@ -255,7 +255,7 @@ export default function WebsiteDevelopment() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl leading-relaxed mb-8"
+              className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8"
               style={{ color: '#374151' }}
             >
               At Intellects, we design and develop modern, responsive, and business-driven websites that help brands make a lasting digital impression. Whether you need a corporate website, e-commerce platform, or a personal portfolio, we deliver technology that performs and design that inspires.
@@ -281,7 +281,7 @@ export default function WebsiteDevelopment() {
 
       {/* Services Section */}
       <motion.section 
-        className="pt-16 pb-20 px-6 md:px-12 lg:px-24 relative z-10" 
+        className="pt-12 sm:pt-16 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-12 lg:px-24 relative z-10" 
         style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -289,9 +289,9 @@ export default function WebsiteDevelopment() {
         viewport={{ once: false }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <motion.h3 
-              className="text-4xl md:text-5xl font-bold mb-6" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6" 
               style={{ color: '#4C1D95' }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -313,10 +313,10 @@ export default function WebsiteDevelopment() {
                 Offer
               </motion.span>
             </motion.h3>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
+            <p className="text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-3 sm:mb-4 px-4" style={{ color: '#6B7280' }}>
               Our website development services are tailored to meet your business goals and engage your audience effectively.
             </p>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed font-semibold" style={{ color: '#4C1D95' }}>
+            <p className="text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-semibold px-4" style={{ color: '#4C1D95' }}>
               We offer:
             </p>
           </div>
@@ -353,10 +353,10 @@ export default function WebsiteDevelopment() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: false, amount: 0.3 }}
-              className="py-8 border-b"
+              className="py-6 sm:py-8 border-b"
               style={{ borderColor: '#E5E7EB' }}
             >
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                 {/* Text Column */}
                 <motion.div
                   initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
@@ -365,10 +365,10 @@ export default function WebsiteDevelopment() {
                   transition={{ duration: 0.8 }}
                   className={i % 2 === 1 ? 'lg:col-start-2' : ''}
                 >
-                  <h4 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+                  <h4 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-5 md:mb-6 px-4 sm:px-0" style={{ color: '#4C1D95' }}>
                     {s.title}
                   </h4>
-                  <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+                  <p className="text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0" style={{ color: '#6B7280' }}>
                     {s.desc}
                   </p>
                 </motion.div>
@@ -450,7 +450,7 @@ export default function WebsiteDevelopment() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               { title: "Understanding Your Goals", desc: "Every project begins with strategy and purpose." },
               { title: "Creative UI/UX Design", desc: "We design experiences that engage users." },
@@ -460,7 +460,7 @@ export default function WebsiteDevelopment() {
             ].map((pillar, i) => (
               <motion.div
                 key={i}
-              className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all text-center relative overflow-hidden"
+              className="group p-5 sm:p-6 md:p-8 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-violet-300 transition-all text-center relative overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
@@ -469,10 +469,10 @@ export default function WebsiteDevelopment() {
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative z-10">
-                <h3 className="font-bold text-xl text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
+                <h3 className="font-bold text-lg sm:text-xl text-gray-800 mb-2 sm:mb-3 group-hover:text-gray-900 transition-colors">
                   {pillar.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                   {pillar.desc}
                 </p>
               </div>
@@ -767,7 +767,7 @@ export default function WebsiteDevelopment() {
             </div>
 
             {/* Process Steps */}
-            <div className="space-y-12 md:space-y-16">
+            <div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16 px-4 sm:px-0">
               {[
                 {
                   step: "Discovery & Strategy",
@@ -849,13 +849,13 @@ export default function WebsiteDevelopment() {
                     </motion.div>
 
                     {/* Content Container */}
-                    <div className={`flex flex-col md:flex-row items-center gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+                    <div className={`flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
                       {/* Spacer for desktop */}
                       <div className="hidden md:block flex-1" />
                       
                       {/* Content Box */}
                       <motion.div 
-                        className={`flex-1 relative group ${isLeft ? 'md:text-right' : 'md:text-left'}`}
+                        className={`flex-1 relative group w-full ${isLeft ? 'md:text-right' : 'md:text-left'}`}
                         whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                       >
@@ -880,7 +880,7 @@ export default function WebsiteDevelopment() {
 
                         {/* Content Card */}
                         <motion.div
-                          className="relative p-8 rounded-3xl shadow-xl overflow-hidden"
+                          className="relative p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden"
                           style={{ 
                             background: 'linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)',
                             border: '2px solid transparent',
@@ -901,20 +901,22 @@ export default function WebsiteDevelopment() {
 
                           {/* Mobile Icon Badge */}
                           <motion.div
-                            className="md:hidden absolute -top-4 left-8 w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white"
+                            className="md:hidden absolute -top-3 sm:-top-4 left-4 sm:left-6 md:left-8 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white"
                             style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.5, type: "spring" }}
                             viewport={{ once: false }}
                           >
-                            {icon}
+                            <div className="text-sm sm:text-base md:text-lg">
+                              {icon}
+                            </div>
                           </motion.div>
 
                           {/* Text Content */}
                           <div className="relative z-10">
                             <motion.h4 
-                              className="text-2xl md:text-3xl font-black mb-4 text-gray-800 group-hover:text-purple-700 transition-colors"
+                              className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-gray-800 group-hover:text-purple-700 transition-colors"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ delay: i * 0.1 + 0.4, duration: 0.5 }}
@@ -924,7 +926,7 @@ export default function WebsiteDevelopment() {
                             </motion.h4>
                             
                             <motion.p 
-                              className="text-gray-600 text-lg leading-relaxed"
+                              className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ delay: i * 0.1 + 0.5, duration: 0.5 }}

@@ -108,7 +108,7 @@ export default function Mobileapplication() {
 
       {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
+        className="relative py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -560,7 +560,7 @@ export default function Mobileapplication() {
         </div>
 
           {/* Vertical Stepped Path Design */}
-          <div className="relative max-w-5xl mx-auto space-y-16">
+          <div className="relative max-w-5xl mx-auto space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16 px-4 sm:px-0">
             {[
               { title: "Requirement Analysis", desc: "Understanding business goals and user needs.", align: "left", icon: <FaClipboardCheck className="w-8 h-8" /> },
               { title: "UI/UX Design", desc: "Designing intuitive, interactive, and visually appealing interfaces.", align: "right", icon: <FaCogs className="w-8 h-8" /> },
@@ -590,14 +590,14 @@ export default function Mobileapplication() {
                   <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
                   
                   {/* Content Box */}
-                  <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-gray-100 group-hover:border-purple-300 transition-all duration-300 overflow-hidden">
+                  <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 shadow-2xl border-2 border-gray-100 group-hover:border-purple-300 transition-all duration-300 overflow-hidden">
                     {/* Animated Background Shimmer */}
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-purple-100/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     {/* Content */}
                     <div className="relative z-10">
                       <motion.h4 
-                        className="text-2xl md:text-3xl font-black mb-4 text-gray-800 group-hover:text-purple-600 transition-colors"
+                        className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-gray-800 group-hover:text-purple-600 transition-colors"
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.12 + 0.3, duration: 0.5 }}
@@ -617,7 +617,7 @@ export default function Mobileapplication() {
                       />
                       
                       <motion.p 
-                        className="text-gray-600 text-lg leading-relaxed"
+                        className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed"
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.12 + 0.5, duration: 0.5 }}

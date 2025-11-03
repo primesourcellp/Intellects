@@ -144,7 +144,7 @@ const CustomSoftwareDevelopment = () => {
 
       {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
+        className="relative py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -867,7 +867,7 @@ const CustomSoftwareDevelopment = () => {
             </div>
 
             {/* Process Steps */}
-            <div className="space-y-12 md:space-y-16">
+            <div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16 px-4 sm:px-0">
               {process.map(({ step, desc }, i) => {
                 const isLeft = i % 2 === 0;
                 
@@ -935,13 +935,13 @@ const CustomSoftwareDevelopment = () => {
                     </motion.div>
 
                     {/* Content Container */}
-                    <div className={`flex flex-col md:flex-row items-center gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+                    <div className={`flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
                       {/* Spacer for desktop */}
                       <div className="hidden md:block flex-1" />
                       
                       {/* Content Box */}
                       <motion.div 
-                        className={`flex-1 relative group ${isLeft ? 'md:text-right' : 'md:text-left'}`}
+                        className={`flex-1 relative group w-full ${isLeft ? 'md:text-right' : 'md:text-left'}`}
                         whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                       >
@@ -966,7 +966,7 @@ const CustomSoftwareDevelopment = () => {
 
                         {/* Content Card */}
                         <motion.div
-                          className="relative p-8 rounded-3xl shadow-xl overflow-hidden"
+                          className="relative p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden"
                           style={{ 
                             background: 'linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)',
                             border: '2px solid transparent',
@@ -987,20 +987,20 @@ const CustomSoftwareDevelopment = () => {
 
                           {/* Mobile Number Badge */}
                           <motion.div
-                            className="md:hidden absolute -top-4 left-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10"
+                            className="md:hidden absolute -top-3 sm:-top-4 left-4 sm:left-6 md:left-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg z-10"
                             style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.5, type: "spring" }}
                             viewport={{ once: false }}
                           >
-                            <span className="text-white font-black text-lg">{i + 1}</span>
+                            <span className="text-white font-black text-sm sm:text-base md:text-lg">{i + 1}</span>
                           </motion.div>
 
                           {/* Text Content */}
                           <div className="relative z-10">
                             <motion.h4 
-                              className="text-2xl md:text-3xl font-black mb-4 text-gray-800 group-hover:text-purple-700 transition-colors"
+                              className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-gray-800 group-hover:text-purple-700 transition-colors"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ delay: i * 0.1 + 0.4, duration: 0.5 }}
@@ -1010,7 +1010,7 @@ const CustomSoftwareDevelopment = () => {
                             </motion.h4>
                             
                             <motion.p 
-                              className="text-gray-600 text-lg leading-relaxed"
+                              className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ delay: i * 0.1 + 0.5, duration: 0.5 }}

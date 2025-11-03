@@ -107,7 +107,7 @@ export default function WebAppDevelopment() {
 
       {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
+        className="relative py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -154,7 +154,7 @@ export default function WebAppDevelopment() {
         </motion.div>
 
         {/* Two Column Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-4 sm:px-6 md:px-12 lg:px-20">
           
           {/* Left Column - Content */}
           <motion.div
@@ -200,7 +200,7 @@ export default function WebAppDevelopment() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl leading-relaxed mb-8"
+              className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8"
               style={{ color: '#374151' }}
             >
               At Intellects, we build intelligent, high-performance web applications that simplify operations, enhance engagement, and accelerate business growth. Whether it's a custom enterprise solution or a SaaS platform, we create systems that empower your business to thrive.
@@ -226,7 +226,7 @@ export default function WebAppDevelopment() {
 
       {/* Services We Offer Section */}
       <motion.section 
-        className="pt-16 pb-20 px-6 md:px-12 lg:px-24 relative z-10" 
+        className="pt-12 sm:pt-16 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-12 lg:px-24 relative z-10" 
         style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -234,9 +234,9 @@ export default function WebAppDevelopment() {
         viewport={{ once: false }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <motion.h3 
-              className="text-4xl md:text-5xl font-bold mb-6" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6" 
               style={{ color: '#4C1D95' }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -258,10 +258,10 @@ export default function WebAppDevelopment() {
                 Offer
               </motion.span>
             </motion.h3>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed mb-4" style={{ color: '#6B7280' }}>
+            <p className="text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-3 sm:mb-4 px-4" style={{ color: '#6B7280' }}>
               We deliver tailored web application development services designed to meet your business objectives efficiently.
             </p>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed font-semibold" style={{ color: '#4C1D95' }}>
+            <p className="text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-semibold px-4" style={{ color: '#4C1D95' }}>
               We offer:
             </p>
           </div>
@@ -298,10 +298,10 @@ export default function WebAppDevelopment() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: false, amount: 0.3 }}
-              className="py-8 border-b"
+              className="py-6 sm:py-8 border-b"
               style={{ borderColor: '#E5E7EB' }}
             >
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                 {/* Text Column */}
                 <motion.div
                   initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
@@ -310,10 +310,10 @@ export default function WebAppDevelopment() {
                   transition={{ duration: 0.8 }}
                   className={i % 2 === 1 ? 'lg:col-start-2' : ''}
                 >
-                  <h4 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#4C1D95' }}>
+                  <h4 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-5 md:mb-6 px-4 sm:px-0" style={{ color: '#4C1D95' }}>
                     {s.title}
                   </h4>
-                  <p className="text-lg md:text-xl leading-relaxed" style={{ color: '#6B7280' }}>
+                  <p className="text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0" style={{ color: '#6B7280' }}>
                     {s.desc}
                   </p>
                 </motion.div>
@@ -755,7 +755,7 @@ export default function WebAppDevelopment() {
             </motion.div>
 
             {/* Items arranged in a flowing pattern */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
               {[
                 { title: "Deep Understanding", desc: "Analyzing business logic before writing a line of code.", color: "from-purple-500 to-purple-600", icon: "🧠" },
                 { title: "Agile Methodology", desc: "Flexible, fast, and transparent development cycles.", color: "from-purple-600 to-purple-700", icon: "🚀" },
@@ -816,7 +816,7 @@ export default function WebAppDevelopment() {
                     <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.color} rounded-3xl opacity-0 group-hover:opacity-40 blur-xl transition-opacity duration-500`} />
                     
                     {/* Content Card */}
-                    <div className="relative h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border-2 border-gray-100 group-hover:border-purple-300 transition-all duration-300 overflow-hidden">
+                    <div className="relative h-full bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-xl border-2 border-gray-100 group-hover:border-purple-300 transition-all duration-300 overflow-hidden">
                       {/* Background Shimmer */}
                       <motion.div
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -845,7 +845,7 @@ export default function WebAppDevelopment() {
                       {/* Content */}
                       <div className="relative z-10">
                         <motion.h3 
-                          className="font-black text-xl md:text-2xl text-gray-800 mb-4 group-hover:text-purple-700 transition-colors"
+                          className="font-black text-lg sm:text-xl md:text-2xl text-gray-800 mb-3 sm:mb-4 group-hover:text-purple-700 transition-colors"
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: i * 0.12 + 0.4, duration: 0.5 }}
@@ -1006,29 +1006,29 @@ export default function WebAppDevelopment() {
         {/* Content Grid */}
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="grid md:grid-cols-2 gap-0">
-            <div className="relative h-full min-h-[250px] md:min-h-[300px] overflow-hidden group">
+            <div className="relative h-full min-h-[250px] sm:min-h-[280px] md:min-h-[300px] overflow-hidden group">
               {/* Background Image */}
               <img
                 src={webapplication6Image}
                 alt="Trusted Partnership"
-                className="w-full h-[400px]   object-cover transform group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 flex items-center justify-center p-8 z-10">
+              <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 md:p-8 z-10">
                 <div className="text-center">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
                     transition={{ duration: 0.5 }}
-                    className="mb-6"
+                    className="mb-4 sm:mb-5 md:mb-6"
                   >
-                    <FaRocket className="w-20 h-20 mx-auto" style={{ color: '#4C1D95' }} />
+                    <FaRocket className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mx-auto" style={{ color: '#4C1D95' }} />
                   </motion.div>
-                  <h4 className="text-3xl font-bold mb-2" style={{ color: '#4C1D95' }}>Trusted Partnership</h4>
-                  <p className="text-base font-semibold" style={{ color: '#000000' }}>Building digital excellence together</p>
+                  <h4 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2" style={{ color: '#4C1D95' }}>Trusted Partnership</h4>
+                  <p className="text-sm sm:text-base font-semibold" style={{ color: '#000000' }}>Building digital excellence together</p>
                 </div>
               </div>
           </div>
 
-            <div className="p-12 flex flex-col justify-center">
+            <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center">
               <div className="space-y-4">
             {[
               "Proven expertise across multiple industries.",
@@ -1048,7 +1048,7 @@ export default function WebAppDevelopment() {
                     <div className="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                       <FaCheck className="w-4 h-4 text-white" />
                     </div>
-                    <p className="text-gray-700 text-lg leading-relaxed flex-1 group-hover:text-gray-600 transition-colors">
+                    <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed flex-1 group-hover:text-gray-600 transition-colors">
                       {point}
                     </p>
                   </motion.div>
@@ -1062,7 +1062,7 @@ export default function WebAppDevelopment() {
 
       {/* Development Process */}
       <motion.section
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10 overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-24 relative z-10 overflow-hidden"
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -1082,15 +1082,15 @@ export default function WebAppDevelopment() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: false }}
-            className="inline-block mb-6"
+            className="inline-block mb-4 sm:mb-5 md:mb-6"
           >
-            <span className="px-8 py-3 text-white text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+            <span className="px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 text-white text-xs sm:text-sm font-bold rounded-full shadow-2xl" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
               🚀 PROVEN METHODOLOGY
             </span>
           </motion.div>
@@ -1100,7 +1100,7 @@ export default function WebAppDevelopment() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: false }}
-            className="text-3xl md:text-5xl font-black mb-6" 
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-5 md:mb-6 px-4" 
             style={{ color: '#000000' }}
           >
             Our Web App Development{" "}
@@ -1123,7 +1123,7 @@ export default function WebAppDevelopment() {
                 whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: false }}
-            className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" 
+            className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4" 
             style={{ color: '#6B7280' }}
           >
             Our structured approach ensures predictable results and efficient delivery.
@@ -1163,7 +1163,7 @@ export default function WebAppDevelopment() {
             </div>
 
             {/* Timeline Steps */}
-            <div className="space-y-12 md:space-y-16">
+            <div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16 px-4 sm:px-0">
               {[
                 { 
                   title: "Requirement Gathering", 
@@ -1250,13 +1250,13 @@ export default function WebAppDevelopment() {
                     </motion.div>
 
                     {/* Content Container */}
-                    <div className={`flex flex-col md:flex-row items-center gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+                    <div className={`flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
                       {/* Spacer for desktop */}
                       <div className="hidden md:block flex-1" />
                       
                       {/* Content Box */}
                       <motion.div 
-                        className={`flex-1 relative group ${isLeft ? 'md:text-right' : 'md:text-left'}`}
+                        className={`flex-1 relative group w-full ${isLeft ? 'md:text-right' : 'md:text-left'}`}
                         whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                       >
@@ -1281,7 +1281,7 @@ export default function WebAppDevelopment() {
 
                         {/* Content Card */}
                         <motion.div
-                          className="relative p-8 rounded-3xl shadow-xl overflow-hidden bg-white border-2 border-gray-100"
+                          className="relative p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden bg-white border-2 border-gray-100"
                           whileHover={{
                             boxShadow: '0 25px 50px -12px rgba(76, 29, 149, 0.25)',
                             borderColor: '#4C1D95'
@@ -1297,19 +1297,21 @@ export default function WebAppDevelopment() {
 
                           {/* Mobile Icon Badge */}
                           <motion.div
-                            className={`md:hidden absolute -top-4 ${isLeft ? 'left-8' : 'left-8'} w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white bg-gradient-to-br ${step.color}`}
+                            className={`md:hidden absolute -top-3 sm:-top-4 ${isLeft ? 'left-4 sm:left-6 md:left-8' : 'left-4 sm:left-6 md:left-8'} w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white bg-gradient-to-br ${step.color}`}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.5, type: "spring" }}
                             viewport={{ once: false }}
                           >
-                            {step.icon}
+                            <div className="text-sm sm:text-base md:text-lg">
+                              {step.icon}
+                            </div>
                           </motion.div>
 
                           {/* Text Content */}
                           <div className="relative z-10">
                             <motion.h4 
-                              className="text-2xl md:text-3xl font-black mb-4 group-hover:text-purple-700 transition-colors"
+                              className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 group-hover:text-purple-700 transition-colors"
                               style={{ 
                                 background: 'linear-gradient(135deg, #000000, #4C1D95)',
                                 WebkitBackgroundClip: 'text',
@@ -1325,7 +1327,7 @@ export default function WebAppDevelopment() {
                             </motion.h4>
                             
                             <motion.p 
-                              className="text-gray-600 text-lg leading-relaxed"
+                              className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed"
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ delay: i * 0.1 + 0.5, duration: 0.5 }}
@@ -1436,7 +1438,7 @@ export default function WebAppDevelopment() {
           </motion.p>
         </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 number: "01",
@@ -1505,11 +1507,11 @@ export default function WebAppDevelopment() {
                   </div>
                 </motion.div>
 
-                <h3 className="font-black text-2xl mb-4 text-gray-800 group-hover:text-gray-900 transition-colors">
+                <h3 className="font-black text-xl sm:text-2xl mb-3 sm:mb-4 text-gray-800 group-hover:text-gray-900 transition-colors">
                   {model.title}
                 </h3>
                 
-                <p className="text-gray-600 leading-relaxed mb-6 text-sm">
+                <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                   {model.subtitle}
                 </p>
                 
@@ -1634,7 +1636,7 @@ export default function WebAppDevelopment() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {[
             { 
               title: "Frontend", 
@@ -1685,20 +1687,20 @@ export default function WebAppDevelopment() {
                 <div className={`w-full h-full rounded-full bg-gradient-to-br ${item.color}`}></div>
               </div>
 
-              <div className="relative z-10 p-8">
+              <div className="relative z-10 p-5 sm:p-6 md:p-8">
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
                   viewport={{ once: false }}
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300 bg-gradient-to-br ${item.color}`}
+                  className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl mb-4 sm:mb-5 md:mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300 bg-gradient-to-br ${item.color}`}
                 >
-                  <div className="text-white">
+                  <div className="text-white text-sm sm:text-base md:text-lg">
                     {item.icon}
                   </div>
                 </motion.div>
 
-                <h4 className="font-black text-2xl mb-4 text-gray-800 group-hover:text-gray-900 transition-colors">
+                <h4 className="font-black text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 text-gray-800 group-hover:text-gray-900 transition-colors">
                   {item.title}
                 </h4>
 
