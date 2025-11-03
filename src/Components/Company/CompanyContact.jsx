@@ -158,9 +158,9 @@ export default function ContactUsPage() {
     return (
         <div className="overflow-hidden" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
                 
-           {/* HERO SECTION WITH BACKGROUND IMAGE (Further Reduced Height) */}
+           {/* HERO SECTION WITH BACKGROUND IMAGE */}
 <div
-  className="relative min-h-[25vh] flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 text-center overflow-hidden"
+  className="relative min-h-[50vh] md:min-h-[60vh] flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 text-center overflow-hidden py-20"
   style={{ backgroundColor: '#FFFFFF' }}
 >
   {/* Floating Shapes */}

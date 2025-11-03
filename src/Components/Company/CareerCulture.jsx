@@ -20,6 +20,7 @@ import {
   Globe,
   Star,
 } from "lucide-react";
+import { FaCheckCircle } from "react-icons/fa";
 import careerImage1 from "../../assets/home2.png";
 import careerImage2 from "../../assets/home3.png";
 
@@ -421,48 +422,95 @@ export default function CareerCulture() {
                 gradient: "from-rose-500 to-red-500",
                 bgGradient: "from-rose-50 to-red-50"
               },
-            ].map((value, i) => (
+            ].map((value, i) => {
+              // Alternate between top-to-bottom and bottom-to-top animations
+              const isEven = i % 2 === 0;
+              
+              // Custom animation variants for enhanced fade effect
+              const cardVariants = isEven ? {
+                hidden: { opacity: 0, y: -60, scale: 0.9 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { 
+                    duration: 0.8, 
+                    delay: i * 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }
+              } : {
+                hidden: { opacity: 0, y: 60, scale: 0.9 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { 
+                    duration: 0.8, 
+                    delay: i * 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }
+              };
+              
+              return (
               <motion.div
                 key={i}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-                variants={fadeInUp}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true, amount: 0.2, margin: "-50px" }}
+                variants={cardVariants}
                 whileHover={{ 
-                  y: -10, 
-                  scale: 1.03,
+                  y: -12, 
+                  scale: 1.05,
                   transition: { duration: 0.3 }
                 }}
                 className={`relative group bg-gradient-to-br ${value.bgGradient} p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden`}
               >
                 <div className="relative z-10">
                   <motion.div
+                    initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
                     className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient} text-white mb-6 shadow-lg`}
                   >
                     <value.icon className="w-8 h-8" />
                   </motion.div>
 
-                  <h3 className="text-xl md:text-2xl font-black mb-3" style={{ color: '#4C1D95' }}>
+                  <motion.h3 
+                    className="text-xl md:text-2xl font-black mb-3" 
+                    style={{ color: '#4C1D95' }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.15 + 0.3 }}
+                  >
                     {value.title}
-                  </h3>
+                  </motion.h3>
 
-                  <p className="text-gray-600 leading-relaxed">
+                  <motion.p 
+                    className="text-gray-600 leading-relaxed"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.15 + 0.4 }}
+                  >
                     {value.description}
-                  </p>
+                  </motion.p>
 
                   <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "60px" }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
+                    initial={{ width: 0, opacity: 0 }}
+                    whileInView={{ width: "60px", opacity: 1 }}
+                    transition={{ duration: 0.8, delay: i * 0.15 + 0.5 }}
                     viewport={{ once: true }}
                     className={`h-1.5 bg-gradient-to-r ${value.gradient} rounded-full mt-6`}
                   />
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -471,7 +519,7 @@ export default function CareerCulture() {
       <section className="relative py-24 md:py-32 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -506,129 +554,156 @@ export default function CareerCulture() {
                 Learning
               </motion.span>
             </motion.h2>
-
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-              variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6"
-            >
-              At Intellects, your career path is built around your strengths and ambitions.
-            </motion.p>
-
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-              variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            >
-              We offer continuous learning programs, hands-on training, mentorship, and certifications 
-              to help you stay ahead in the ever-changing world of technology and consulting.
-            </motion.p>
-
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-              variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mt-6 mb-12"
-            >
-              Our employees are encouraged to explore new roles, master new tools, and expand their 
-              expertise — because your growth fuels our success.
-            </motion.p>
           </div>
 
-          {/* Learning Opportunities Include Heading */}
-          <motion.h3
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-            variants={fadeInDown}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-2xl md:text-3xl font-bold text-center mb-12"
-            style={{ color: '#000000' }}
-          >
-            Learning Opportunities Include:
-          </motion.h3>
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+            {/* Left Column - Description & Learning Opportunities */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              variants={fadeInLeft}
+              className="space-y-6 flex flex-col h-full"
+            >
+              {/* Description Text */}
+              <div className="space-y-4 mb-6">
+                <motion.p
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                  variants={fadeInLeft}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-xl text-gray-700 leading-relaxed font-medium"
+                >
+                  At Intellects, your career path is built around your strengths and ambitions.
+                </motion.p>
 
-          {/* Learning Opportunities Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Professional skill development programs",
-                icon: BookOpen,
-                gradient: "from-blue-500 to-cyan-500"
-              },
-              {
-                title: "Technology workshops & certifications",
-                icon: Award,
-                gradient: "from-purple-500 to-pink-500"
-              },
-              {
-                title: "Mentorship from industry experts",
-                icon: Users,
-                gradient: "from-amber-500 to-orange-500"
-              },
-              {
-                title: "Leadership & communication training",
-                icon: TrendingUp,
-                gradient: "from-green-500 to-emerald-500"
-              },
-              {
-                title: "Cross-department collaboration",
-                icon: Briefcase,
-                gradient: "from-indigo-500 to-purple-500"
-              },
-            ].map((program, i) => (
-              <motion.div
-                key={i}
+                <motion.p
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                  variants={fadeInLeft}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="text-lg text-gray-600 leading-relaxed"
+                >
+                  We offer continuous learning programs, hands-on training, mentorship, and certifications 
+                  to help you stay ahead in the ever-changing world of technology and consulting.
+                </motion.p>
+
+                <motion.p
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                  variants={fadeInLeft}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="text-lg text-gray-600 leading-relaxed"
+                >
+                  Our employees are encouraged to explore new roles, master new tools, and expand their 
+                  expertise — because your growth fuels our success.
+                </motion.p>
+              </div>
+
+              <motion.h3
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-                variants={fadeInUp}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.03,
-                  transition: { duration: 0.3 }
-                }}
-                className="relative group bg-white p-8 rounded-3xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all overflow-hidden"
+                variants={fadeInLeft}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="text-xl md:text-2xl font-bold mb-8"
+                style={{ color: '#000000' }}
               >
-                <div className="relative z-10">
-                  <motion.div
-                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                    className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${program.gradient} text-white mb-6 shadow-lg`}
-                  >
-                    <program.icon className="w-8 h-8" />
-                  </motion.div>
+                Learning Opportunities Include:
+              </motion.h3>
 
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {program.title}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
+              {/* Learning Opportunities List */}
+              <div className="space-y-4">
+                {[
+                  {
+                    title: "Professional skill development programs"
+                  },
+                  {
+                    title: "Technology workshops & certifications"
+                  },
+                  {
+                    title: "Mentorship from industry experts"
+                  },
+                  {
+                    title: "Leadership & communication training"
+                  },
+                  {
+                    title: "Cross-department collaboration"
+                  },
+                ].map((program, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 + i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-start space-x-4 group"
+                  >
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
+                      <FaCheckCircle className="text-white text-sm" />
+                    </div>
+                    <p className="text-base font-medium text-gray-700 group-hover:text-purple-700 transition-colors leading-relaxed">{program.title}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Column - Image */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              variants={fadeInRight}
+              className="relative group"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto lg:max-w-lg h-full">
+                <img
+                  src={careerImage1}
+                  alt="Career Growth & Learning"
+                  className="w-full h-full min-h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-transparent"></div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Why Choose Intellects Section */}
-      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-purple-50/30 via-white to-white overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute top-20 right-10 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-20 left-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.4, 0.2]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
-              className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-5 py-2.5 rounded-full mb-6 font-semibold shadow-sm"
             >
               <Sparkles className="w-4 h-4" />
               WHY INTELLECTS
@@ -639,7 +714,7 @@ export default function CareerCulture() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
-              className="text-3xl md:text-5xl font-bold mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight"
               style={{ color: '#000000' }}
             >
               Why Work With{" "}
@@ -664,7 +739,7 @@ export default function CareerCulture() {
               viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6"
+              className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-4 font-medium"
             >
               Joining Intellects means being part of something bigger — a team that's shaping the digital 
               future for businesses across industries.
@@ -676,99 +751,148 @@ export default function CareerCulture() {
               viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4"
+              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
               You'll work on real projects, solve real problems, and create real impact.
             </motion.p>
           </div>
 
-          {/* Benefits Grid - Enhanced Design */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Benefits Grid - Image Top, Content Bottom */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                icon: Globe,
                 title: "Opportunity to work with global clients",
                 description: "",
                 color: "from-blue-500 to-cyan-500",
-                bgColor: "from-blue-50 to-cyan-50"
+                bgColor: "from-blue-50 to-cyan-50",
+                image: careerImage1
               },
               {
-                icon: HeartHandshake,
                 title: "Transparent and supportive management",
                 description: "",
                 color: "from-purple-500 to-pink-500",
-                bgColor: "from-purple-50 to-pink-50"
+                bgColor: "from-purple-50 to-pink-50",
+                image: careerImage2
               },
               {
-                icon: Rocket,
                 title: "Exposure to the latest technologies",
                 description: "",
                 color: "from-indigo-500 to-purple-500",
-                bgColor: "from-indigo-50 to-purple-50"
+                bgColor: "from-indigo-50 to-purple-50",
+                image: careerImage1
               },
               {
-                icon: Users,
                 title: "A culture of trust, innovation, and respect",
                 description: "",
                 color: "from-amber-500 to-orange-500",
-                bgColor: "from-amber-50 to-orange-50"
+                bgColor: "from-amber-50 to-orange-50",
+                image: careerImage2
               },
               {
-                icon: DollarSign,
                 title: "Competitive salary and growth opportunities",
                 description: "",
                 color: "from-green-500 to-emerald-500",
-                bgColor: "from-green-50 to-emerald-50"
+                bgColor: "from-green-50 to-emerald-50",
+                image: careerImage1
               },
-            ].map((benefit, i) => (
+            ].map((benefit, i) => {
+              // Alternate between top-to-bottom and bottom-to-top animations
+              const isEven = i % 2 === 0;
+              
+              // Custom animation variants for better fade effect
+              const cardVariants = isEven ? {
+                hidden: { opacity: 0, y: -60, scale: 0.9 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { 
+                    duration: 0.8, 
+                    delay: i * 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }
+              } : {
+                hidden: { opacity: 0, y: 60, scale: 0.9 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { 
+                    duration: 0.8, 
+                    delay: i * 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }
+              };
+              
+              return (
               <motion.div
                 key={i}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-                variants={fadeInUp}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true, amount: 0.2, margin: "-50px" }}
+                variants={cardVariants}
                 whileHover={{ 
                   y: -12, 
                   scale: 1.05,
                   transition: { duration: 0.3 }
                 }}
-                className={`relative group bg-gradient-to-br ${benefit.bgColor} p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all overflow-hidden`}
+                className="relative group bg-white rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
               >
-                {/* Gradient overlay on hover */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                />
-
-                <div className="relative z-10">
-                  <motion.div
-                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
-                    transition={{ duration: 0.5 }}
-                    className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.color} text-white mb-6 shadow-lg`}
-                  >
-                    <benefit.icon className="w-8 h-8" />
-                  </motion.div>
-
-                  <h3 className="text-xl font-black mb-3" style={{ color: '#4C1D95' }}>
-                    {benefit.title}
-                  </h3>
-                  
-                  {benefit.description && (
-                    <p className="text-gray-600 leading-relaxed">
-                      {benefit.description}
-                    </p>
-                  )}
-
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "60px" }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    viewport={{ once: true }}
-                    className={`h-1.5 bg-gradient-to-r ${benefit.color} rounded-full mt-6`}
+                {/* Image at Top */}
+                <motion.div 
+                  className="relative h-48 overflow-hidden"
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: i * 0.15 + 0.3 }}
+                >
+                  <img
+                    src={benefit.image}
+                    alt={benefit.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
-                </div>
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${benefit.color} opacity-30 group-hover:opacity-20 transition-opacity duration-300`}></div>
+                </motion.div>
+
+                {/* Content at Bottom */}
+                <motion.div 
+                  className="relative z-10 p-6 flex-1 flex flex-col"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.15 + 0.5 }}
+                >
+                  {/* Gradient Background on Hover */}
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${benefit.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                  />
+
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-black mb-4 group-hover:text-purple-700 transition-colors duration-300 leading-tight" style={{ color: '#4C1D95' }}>
+                      {benefit.title}
+                    </h3>
+                    
+                    {benefit.description && (
+                      <p className="text-gray-600 leading-relaxed mb-4">
+                        {benefit.description}
+                      </p>
+                    )}
+
+                    {/* Progress Indicator */}
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "100%" }}
+                      transition={{ duration: 0.8, delay: 0.3 + i * 0.1 }}
+                      viewport={{ once: true }}
+                      className={`h-1.5 bg-gradient-to-r ${benefit.color} rounded-full mt-auto group-hover:h-2 transition-all duration-300`}
+                    />
+                  </div>
+                </motion.div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

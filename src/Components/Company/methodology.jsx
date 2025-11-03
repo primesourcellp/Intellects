@@ -23,12 +23,12 @@ import {
   BarChart3,
   Clock,
 } from "lucide-react";
-import aboutImage from "../../assets/sky8.jpg";
-import methodologyImage1 from "../../assets/custom1.png";
-import methodologyImage2 from "../../assets/custom2.png";
-import methodologyImage3 from "../../assets/custom3.png";
-import methodologyImage4 from "../../assets/custom4.png";
-import methodologyImage5 from "../../assets/custom5.jpg";
+import aboutImage from "../../assets/methodology1.jpg";
+import methodologyImage1 from "../../assets/methodology2.jpg";
+import methodologyImage2 from "../../assets/methodology3.jpg";
+import methodologyImage3 from "../../assets/methodology.jpg";
+import methodologyImage4 from "../../assets/methodology5.jpg";
+import methodologyImage5 from "../../assets/methodology6.jpg";
 
 // Typing Animation Component
 const TypingText = ({ text, delay = 0, speed = 50, className = "" }) => {
@@ -256,7 +256,7 @@ export default function Methodology() {
                 <img
                   src={aboutImage}
                   alt="About Intellects"
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-auto max-h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-transparent"></div>
               </div>
