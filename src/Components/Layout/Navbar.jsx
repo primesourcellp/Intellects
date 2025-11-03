@@ -55,7 +55,7 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
-          <img src={logo} alt="Intellects Logo" className="h-45 w-auto" />
+          <img src={logo} alt="Intellects Logo" className="h-65 w-auto" />
           {/* <span className="text-2xl font-bold text-slate-900">Intellects</span> */}
         </Link>
 
@@ -78,7 +78,7 @@ export default function Navbar() {
                   <div className="flex flex-col">
                     {dropdownItem('/methodology', 'Our Development & Methodology')}
                     {dropdownItem('/career', 'Career & Company Culture')}
-                    {dropdownItem('/contact', 'Contact Us')}
+                    {/* {dropdownItem('/contact', 'Contact Us')} */}
                   </div>
                 </div>
                 <div>
@@ -184,7 +184,7 @@ export default function Navbar() {
                   >
                     {dropdownItem('/methodology', 'Our Development & Methodology')}
                     {dropdownItem('/career', 'Career & Company Culture')}
-                    {dropdownItem('/contact', 'Contact Us')}
+                    {/* {dropdownItem('/contact', 'Contact Us')} */}
 
                     {/* Resources */}
                     <button

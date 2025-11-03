@@ -22,6 +22,7 @@ import webapplication2Image from "../../../assets/webapplication.png";
 import webapplication3Image from "../../../assets/webapplication6.png";
 import webapplication4Image from "../../../assets/webapplication_4.jpg";
 import webapplication5Image from "../../../assets/webapplication5.jpg";
+import webapplication6Image from "../../../assets/image.jpg";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
@@ -1005,13 +1006,24 @@ export default function WebAppDevelopment() {
         {/* Content Grid */}
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="grid md:grid-cols-2 gap-0">
-            <div className="relative h-full min-h-[400px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-700"></div>
-              <div className="absolute inset-0 flex items-center justify-center p-8">
-                <div className="text-center text-white">
-                  <FaRocket className="w-20 h-20 mx-auto mb-6" />
-                  <h4 className="text-3xl font-bold mb-2">Trusted Partnership</h4>
-                  <p className="text-gray-100">Building digital excellence together</p>
+            <div className="relative h-full min-h-[250px] md:min-h-[300px] overflow-hidden group">
+              {/* Background Image */}
+              <img
+                src={webapplication6Image}
+                alt="Trusted Partnership"
+                className="w-full h-[400px]   object-cover transform group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 flex items-center justify-center p-8 z-10">
+                <div className="text-center">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-6"
+                  >
+                    <FaRocket className="w-20 h-20 mx-auto" style={{ color: '#4C1D95' }} />
+                  </motion.div>
+                  <h4 className="text-3xl font-bold mb-2" style={{ color: '#4C1D95' }}>Trusted Partnership</h4>
+                  <p className="text-base font-semibold" style={{ color: '#000000' }}>Building digital excellence together</p>
                 </div>
               </div>
           </div>

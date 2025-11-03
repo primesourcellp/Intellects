@@ -64,6 +64,19 @@ export default function CareerCulture() {
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 1, 0.8, 0.6]);
 
+  // Add smooth scroll behavior and optimize for mobile
+  React.useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    // Add momentum scrolling for iOS
+    document.body.style.webkitOverflowScrolling = 'touch';
+    // Improve scroll performance
+    document.body.style.overflowY = 'auto';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
   // Scroll animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
@@ -102,7 +115,13 @@ export default function CareerCulture() {
   };
   
   return (
-    <div className="bg-white overflow-hidden">
+    <motion.div 
+      className="bg-white overflow-x-hidden" 
+      style={{ WebkitOverflowScrolling: 'touch' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+    >
       {/* Hero Section - Enhanced */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-indigo-50">
         {/* Animated Gradient Background */}
@@ -964,6 +983,6 @@ export default function CareerCulture() {
           </div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

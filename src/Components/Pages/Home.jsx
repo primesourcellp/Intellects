@@ -1040,30 +1040,6 @@ export default function Home() {
         </div>
       </motion.div>
 
-      {/* ========================================
-        QUOTE SECTION (Above Footer)
-      ======================================== */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeIn}
-        className="py-16 px-6 md:px-12 lg:px-24 border-t"
-        style={{ backgroundColor: '#F8F5FC', borderColor: '#E5E7EB' }}
-      >
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-2xl md:text-3xl font-semibold italic leading-relaxed"
-            style={{ color: '#4C1D95' }}
-          >
-            "Intellects turns technology into possibility — and possibility into progress."
-          </motion.p>
-        </div>
-      </motion.section>
     </div>
   );
 }

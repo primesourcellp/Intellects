@@ -98,6 +98,19 @@ const TextAreaField = ({ label, id, required = true, placeholder, value, onChang
 
 // --- Contact Us Page Component ---
 export default function ContactUsPage() {
+    // Add smooth scroll behavior and optimize for mobile
+    React.useEffect(() => {
+        document.documentElement.style.scrollBehavior = 'smooth';
+        // Add momentum scrolling for iOS
+        document.body.style.webkitOverflowScrolling = 'touch';
+        // Improve scroll performance
+        document.body.style.overflowY = 'auto';
+        
+        return () => {
+            document.documentElement.style.scrollBehavior = 'auto';
+        };
+    }, []);
+
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -156,7 +169,13 @@ export default function ContactUsPage() {
     );
 
     return (
-        <div className="overflow-hidden" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
+        <motion.div 
+            className="overflow-x-hidden" 
+            style={{ backgroundColor: '#FFFFFF', color: '#1F2937', WebkitOverflowScrolling: 'touch' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+        >
                 
            {/* HERO SECTION WITH BACKGROUND IMAGE */}
 <div
@@ -517,6 +536,6 @@ export default function ContactUsPage() {
                     </div>
                 </div>
             </AnimatedSection>
-            </div>
+        </motion.div>
     );
 }
