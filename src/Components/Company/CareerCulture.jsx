@@ -21,8 +21,14 @@ import {
   Star,
 } from "lucide-react";
 import { FaCheckCircle } from "react-icons/fa";
-import careerImage1 from "../../assets/home2.png";
-import careerImage2 from "../../assets/home3.png";
+import careerImage1 from "../../assets/company1.jpg";
+import careerImage2 from "../../assets/company2.jpg";
+import careerImage3 from "../../assets/company3.jpg";
+import careerImage4 from "../../assets/company4.jpg";
+import careerImage5 from "../../assets/company5.jpg";
+import careerImage6 from "../../assets/company6.jpg";
+import careerImage7 from "../../assets/company7.jpg";
+import careerImage8 from "../../assets/company8.jpg";
 
 // Typing Animation Component
 const TypingText = ({ text, delay = 0, speed = 50, className = "" }) => {
@@ -662,7 +668,7 @@ export default function CareerCulture() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto lg:max-w-lg h-full">
                 <img
-                  src={careerImage1}
+                  src={careerImage3}
                   alt="Career Growth & Learning"
                   className="w-full h-full min-h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
@@ -765,35 +771,35 @@ export default function CareerCulture() {
                 description: "",
                 color: "from-blue-500 to-cyan-500",
                 bgColor: "from-blue-50 to-cyan-50",
-                image: careerImage1
+                image: careerImage4
               },
               {
                 title: "Transparent and supportive management",
                 description: "",
                 color: "from-purple-500 to-pink-500",
                 bgColor: "from-purple-50 to-pink-50",
-                image: careerImage2
+                image: careerImage5
               },
               {
                 title: "Exposure to the latest technologies",
                 description: "",
                 color: "from-indigo-500 to-purple-500",
                 bgColor: "from-indigo-50 to-purple-50",
-                image: careerImage1
+                image: careerImage6
               },
               {
                 title: "A culture of trust, innovation, and respect",
                 description: "",
                 color: "from-amber-500 to-orange-500",
                 bgColor: "from-amber-50 to-orange-50",
-                image: careerImage2
+                image: careerImage7
               },
               {
                 title: "Competitive salary and growth opportunities",
                 description: "",
                 color: "from-green-500 to-emerald-500",
                 bgColor: "from-green-50 to-emerald-50",
-                image: careerImage1
+                image: careerImage8
               },
             ].map((benefit, i) => {
               // Alternate between top-to-bottom and bottom-to-top animations
