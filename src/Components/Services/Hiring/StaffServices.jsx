@@ -339,7 +339,7 @@ export default function StaffingServices() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-20 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
+        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 max-w-[1600px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
           {/* Left Content */}
           <motion.div
             className="lg:w-1/2 w-full"
