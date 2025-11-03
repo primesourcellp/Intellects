@@ -371,7 +371,7 @@ export default function GlobalRecruitments() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-20 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20">
+        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 max-w-[1600px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
           
           {/* Left Column - Content */}
           <motion.div
@@ -392,28 +392,28 @@ export default function GlobalRecruitments() {
             </span>
           </motion.div>
             
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 mt-4 sm:mt-5 leading-tight" style={{ color: '#000000' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-5" style={{ color: '#000000' }}>
               Strategic Talent{" "}
-              <motion.span 
-                style={{ color: '#4C1D95' }}
-                animate={{ 
-                  textShadow: [
-                    `0 0 20px ${'#4C1D95'}00`,
-                    `0 0 20px ${'#4C1D95'}50`,
-                    `0 0 20px ${'#4C1D95'}00`
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
+            <motion.span 
+              style={{ color: '#4C1D95' }}
+              animate={{ 
+                textShadow: [
+                  `0 0 20px ${'#4C1D95'}00`,
+                  `0 0 20px ${'#4C1D95'}50`,
+                  `0 0 20px ${'#4C1D95'}00`
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
                 Acquisition
-              </motion.span>
-            </h2>
+            </motion.span>
+          </h2>
             
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4" style={{ color: '#4C1D95' }}>
+            <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: '#4C1D95' }}>
               Finding the Right Talent, Not Just Any Talent
             </p>
             
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed" style={{ color: '#374151' }}>
+            <p className="text-base md:text-lg leading-relaxed" style={{ color: '#374151' }}>
               We believe recruitment is more than just filling positions — it's about building teams that drive success. Our global recruitment strategy focuses on understanding your needs, company culture, and role requirements to find the most qualified professionals.
             </p>
           </motion.div>
