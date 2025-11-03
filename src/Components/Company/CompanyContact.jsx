@@ -482,30 +482,36 @@ export default function ContactUsPage() {
                             easily accessible by public transportation and with ample parking.
                         </motion.p>
 
-                        {/* Map Placeholder */}
+                        {/* Google Maps Embed */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
-                            className="w-full h-96 rounded-2xl shadow-2xl overflow-hidden border-2"
+                            className="w-full h-96 rounded-2xl shadow-2xl overflow-hidden border-2 relative"
                             style={{ borderColor: '#E5E7EB' }}
                         >
-                            <div 
-                                className="w-full h-full flex items-center justify-center"
-                                style={{ 
-                                  background: 'linear-gradient(135deg, rgba(76, 29, 149, 0.05), rgba(124, 58, 237, 0.05))',
-                                }}
-                            >
-                                <div className="text-center">
-                                    <MapPin className="w-16 h-16 mx-auto mb-4" style={{ color: '#4C1D95' }} />
-                                    <p className="text-xl font-bold mb-2" style={{ color: '#4C1D95' }}>
-                                        Map Integration
-                                    </p>
-                                    <p className="text-base" style={{ color: '#6B7280' }}>
-                                        Embed your Google Maps or location service here
-                                    </p>
-                                </div>
+                            <iframe
+                                src="https://www.google.com/maps?q=311+Melvin+Jackson+Drive,+Cary+NC+27519&output=embed"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Intellects Location - 311 Melvin Jackson Drive, Cary NC 27519"
+                            ></iframe>
+                            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+                                <a
+                                    href="https://maps.app.goo.gl/rrwPrLDszLYmjR346"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition duration-300 shadow-lg font-medium"
+                                    style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                                >
+                                    <MapPin className="w-5 h-5" />
+                                    Get Directions
+                                </a>
                             </div>
                     </motion.div>
                     </div>
