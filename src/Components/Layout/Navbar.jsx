@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo2.png'
 
 export default function Navbar() {
   // Mobile main menus
@@ -55,7 +55,7 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
-          <img src={logo} alt="Intellects Logo" className="h-12 w-auto" />
+          <img src={logo} alt="Intellects Logo" className="h-45 w-auto" />
           {/* <span className="text-2xl font-bold text-slate-900">Intellects</span> */}
         </Link>
 

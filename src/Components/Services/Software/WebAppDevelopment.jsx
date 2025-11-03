@@ -20,7 +20,7 @@ import {
 import webapplication1Image from "../../../assets/webapplication1.png";
 import webapplication2Image from "../../../assets/webapplication.png";
 import webapplication3Image from "../../../assets/webapplication6.png";
-import webapplication4Image from "../../../assets/webapplication4.png";
+import webapplication4Image from "../../../assets/webapplication_4.jpg";
 import webapplication5Image from "../../../assets/webapplication5.jpg";
 
 // Typing Animation Component

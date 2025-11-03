@@ -19,11 +19,11 @@ import {
   FaTools,
   FaHandshake,
 } from "react-icons/fa";
-import mobile1Image from "../../../assets/mobile1.jpg";
-import mobile3Image from "../../../assets/mobile3.jpg";
-import mobile4Image from "../../../assets/mobile4.jpg";
-import mobile5Image from "../../../assets/mobile5.jpg";
-import mobile6Image from "../../../assets/mobile6.jpg";
+import mobile1Image from "../../../assets/mobile_1.jpg";
+import mobile3Image from "../../../assets/mobile_2.jpg";
+import mobile4Image from "../../../assets/mobile_3.jpg";
+import mobile5Image from "../../../assets/mobile_4.jpg";
+import mobile6Image from "../../../assets/mobile_5.jpg";
 
 // Typing Animation Component
 const TypingText = ({ text, className = "", delay = 0 }) => {
