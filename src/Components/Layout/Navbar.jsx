@@ -55,7 +55,7 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
-          <img src={logo} alt="Intellects Logo" className="h-65 w-auto" />
+          <img src={logo} alt="Intellects Logo" className="h-45 sm:h-30 md:h-16 lg:h-64 w-auto" />
           {/* <span className="text-2xl font-bold text-slate-900">Intellects</span> */}
         </Link>
 
