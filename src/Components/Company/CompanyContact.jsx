@@ -175,12 +175,13 @@ export default function ContactUsPage() {
 
     return (
         <div 
-            className="overflow-hidden relative w-full" 
+            className="relative w-full" 
             style={{ 
                 backgroundImage: `url(${contactBgImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed',
                 minHeight: '100vh',
                 color: '#1F2937'
             }}

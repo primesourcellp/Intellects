@@ -243,7 +243,7 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInLeft}
               className="space-y-6"
             >
@@ -281,7 +281,7 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInRight}
               className="relative group"
             >
@@ -306,9 +306,9 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInLeft}
-              className="relative group"
+              className="relative group order-2 lg:order-1"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto lg:max-w-lg">
                 <img
@@ -324,9 +324,9 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInRight}
-              className="space-y-6"
+              className="space-y-6 order-1 lg:order-2"
             >
               <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold mb-4">
                 <Star className="w-4 h-4" />
@@ -371,7 +371,7 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
             >
@@ -382,7 +382,7 @@ export default function CareerCulture() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               className="text-3xl md:text-5xl font-bold mb-6"
               style={{ color: '#000000' }}
@@ -478,7 +478,7 @@ export default function CareerCulture() {
                 key={i}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: false, amount: 0.2 }}
                 variants={cardVariants}
                 whileHover={{ 
                   y: -12, 
@@ -491,7 +491,7 @@ export default function CareerCulture() {
                     <motion.div
                     initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                     whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.8, delay: i * 0.15 + 0.2, ease: [0.22, 1, 0.36, 1] }}
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                     className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient} text-white mb-6 shadow-lg`}
@@ -504,7 +504,7 @@ export default function CareerCulture() {
                     style={{ color: '#4C1D95' }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.8, delay: i * 0.15 + 0.3, ease: [0.22, 1, 0.36, 1] }}
                   >
                     {value.title}
@@ -514,7 +514,7 @@ export default function CareerCulture() {
                     className="text-gray-600 leading-relaxed"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.8, delay: i * 0.15 + 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
                     {value.description}
@@ -524,7 +524,7 @@ export default function CareerCulture() {
                     initial={{ width: 0, opacity: 0 }}
                     whileInView={{ width: "60px", opacity: 1 }}
                     transition={{ duration: 0.8, delay: i * 0.15 + 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className={`h-1.5 bg-gradient-to-r ${value.gradient} rounded-full mt-6`}
                   />
                 </div>
@@ -543,7 +543,7 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
             >
@@ -554,7 +554,7 @@ export default function CareerCulture() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               className="text-3xl md:text-5xl font-bold mb-6"
               style={{ color: '#000000' }}
@@ -582,7 +582,7 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInLeft}
               className="space-y-6 flex flex-col h-full"
             >
@@ -591,7 +591,7 @@ export default function CareerCulture() {
                 <motion.p
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.3 }}
                   variants={fadeInLeft}
                   transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                   className="text-xl text-gray-700 leading-relaxed font-medium"
@@ -602,7 +602,7 @@ export default function CareerCulture() {
                 <motion.p
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.3 }}
                   variants={fadeInLeft}
                   transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="text-lg text-gray-600 leading-relaxed"
@@ -614,7 +614,7 @@ export default function CareerCulture() {
                 <motion.p
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.3 }}
                   variants={fadeInLeft}
                   transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="text-lg text-gray-600 leading-relaxed"
@@ -627,7 +627,7 @@ export default function CareerCulture() {
               <motion.h3
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: false, amount: 0.3 }}
                 variants={fadeInLeft}
                 transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="text-xl md:text-2xl font-bold mb-8"
@@ -660,7 +660,7 @@ export default function CareerCulture() {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="flex items-start space-x-4 group"
                   >
                     <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1" style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}>
@@ -676,7 +676,7 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInRight}
               className="relative group"
             >
@@ -721,7 +721,7 @@ export default function CareerCulture() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-5 py-2.5 rounded-full mb-6 font-semibold shadow-sm"
             >
@@ -732,7 +732,7 @@ export default function CareerCulture() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight"
               style={{ color: '#000000' }}
@@ -756,7 +756,7 @@ export default function CareerCulture() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-4 font-medium"
@@ -768,7 +768,7 @@ export default function CareerCulture() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
@@ -835,7 +835,7 @@ export default function CareerCulture() {
                 key={i}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: false, amount: 0.2 }}
                 variants={cardVariants}
                 whileHover={{ 
                   y: -12, 
@@ -849,7 +849,7 @@ export default function CareerCulture() {
                   className="relative h-48 overflow-hidden"
                   initial={{ opacity: 0, scale: 1.1 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.8, delay: i * 0.15 + 0.3 }}
                 >
                   <img
@@ -865,7 +865,7 @@ export default function CareerCulture() {
                   className="relative z-10 p-6 flex-1 flex flex-col"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.8, delay: i * 0.15 + 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
                   {/* Gradient Background on Hover */}
@@ -889,7 +889,7 @@ export default function CareerCulture() {
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
                       transition={{ duration: 0.8, delay: 0.3 + i * 0.1 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       className={`h-1.5 bg-gradient-to-r ${benefit.color} rounded-full mt-auto group-hover:h-2 transition-all duration-300`}
                     />
                   </div>
@@ -907,7 +907,7 @@ export default function CareerCulture() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
       >
         <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
           {/* Animated Background Elements */}
@@ -922,7 +922,7 @@ export default function CareerCulture() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight"
             >
               Join the Intellects Family
@@ -933,7 +933,7 @@ export default function CareerCulture() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
             >
               Start your journey with Intellects — where your ideas inspire innovation.
@@ -944,7 +944,7 @@ export default function CareerCulture() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="flex items-center justify-center"
             >
               <Link

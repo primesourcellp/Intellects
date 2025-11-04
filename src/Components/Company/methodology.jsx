@@ -291,9 +291,9 @@ export default function Methodology() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInLeft}
-              className="relative group"
+              className="relative group order-2 lg:order-1"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
@@ -308,7 +308,7 @@ export default function Methodology() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: false, amount: 0.3 }}
                 variants={fadeInUp}
                 transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ scale: 1.05, rotate: 1 }}
@@ -332,16 +332,29 @@ export default function Methodology() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInRight}
-              className="space-y-6"
+              className="space-y-6 order-1 lg:order-2"
             >
-              <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold mb-4">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={fadeInLeft}
+                className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold mb-4"
+              >
                 <Target className="w-4 h-4" />
                 ABOUT US
-              </div>
+              </motion.div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight" style={{ color: '#000000' }}>
+              <motion.h2 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={fadeInRight}
+                className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight" 
+                style={{ color: '#000000' }}
+              >
                 About{" "}
                 <motion.span
                   style={{ color: '#4C1D95' }}
@@ -356,18 +369,30 @@ export default function Methodology() {
                 >
                   Intellects
                 </motion.span>
-              </h2>
+              </motion.h2>
 
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+              <motion.p 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={fadeInLeft}
+                className="text-lg md:text-xl text-gray-700 leading-relaxed"
+              >
                 At Intellects, we bridge technology, creativity, and human insight to help organizations 
                 grow smarter, faster, and stronger in a digital world. We believe that innovation begins with 
                 intellect — the power to think differently, solve challenges, and create progress.
-              </p>
+              </motion.p>
 
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              <motion.p 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={fadeInRight}
+                className="text-lg md:text-xl text-gray-600 leading-relaxed"
+              >
                 At Intellects, we don't just provide consulting services; we deliver meaningful transformation. 
                 Our mission is to make technology and talent work together to drive measurable business success.
-              </p>
+              </motion.p>
 
               {/* Feature Points */}
               <div className="grid grid-cols-2 gap-4 pt-6">
@@ -376,13 +401,15 @@ export default function Methodology() {
                   { icon: Zap, text: "Fast Delivery" },
                   { icon: Users, text: "Expert Team" },
                   { icon: TrendingUp, text: "Proven Results" },
-                ].map((feature, i) => (
+                ].map((feature, i) => {
+                  const isEven = i % 2 === 0;
+                  return (
                   <motion.div
                     key={i}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={fadeInUp}
+                    viewport={{ once: false, amount: 0.3 }}
+                    variants={isEven ? fadeInLeft : fadeInRight}
                     transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ scale: 1.05 }}
                     className="flex items-center gap-3 bg-purple-50 rounded-xl p-4 border border-purple-100"
@@ -392,7 +419,8 @@ export default function Methodology() {
                     </div>
                     <span className="text-sm font-semibold text-gray-700">{feature.text}</span>
                   </motion.div>
-                ))}
+                  );
+                })}
               </div>
             </motion.div>
           </div>
@@ -406,7 +434,7 @@ export default function Methodology() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
               style={{ color: '#000000' }}
@@ -430,7 +458,7 @@ export default function Methodology() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed mb-6 font-semibold"
               style={{ color: '#4C1D95' }}
@@ -441,7 +469,7 @@ export default function Methodology() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed"
             >
@@ -460,7 +488,7 @@ export default function Methodology() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
             >
@@ -471,7 +499,7 @@ export default function Methodology() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
               style={{ color: '#000000' }}
@@ -553,7 +581,7 @@ export default function Methodology() {
                   key={i}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: false, amount: 0.2 }}
                   variants={isEven ? fadeInUp : fadeInDown}
                   transition={{ duration: 1, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                   className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
@@ -564,7 +592,7 @@ export default function Methodology() {
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0.3 }}
                     variants={isEven ? fadeInLeft : fadeInRight}
                     className={`relative group ${!isEven ? "lg:col-start-2" : ""}`}
                   >
@@ -589,7 +617,7 @@ export default function Methodology() {
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0.3 }}
                     variants={isEven ? fadeInRight : fadeInLeft}
                     transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className={`space-y-6 ${!isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}
@@ -620,7 +648,7 @@ export default function Methodology() {
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
                       transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       className={`h-2 bg-gradient-to-r ${step.gradient} rounded-full`}
                     />
                   </motion.div>
@@ -638,7 +666,7 @@ export default function Methodology() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
             >
@@ -649,7 +677,7 @@ export default function Methodology() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
@@ -674,7 +702,7 @@ export default function Methodology() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto"
@@ -719,7 +747,7 @@ export default function Methodology() {
                 key={i}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: false, amount: 0.3 }}
                 variants={fadeInUp}
                 transition={{ duration: 1, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ 
@@ -756,7 +784,7 @@ export default function Methodology() {
                     initial={{ width: 0 }}
                     whileInView={{ width: "60px" }}
                     transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className={`h-1.5 bg-gradient-to-r ${principle.color} rounded-full`}
                   />
                 </div>
@@ -773,7 +801,7 @@ export default function Methodology() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
             >
@@ -784,7 +812,7 @@ export default function Methodology() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
               style={{ color: '#000000' }}
@@ -808,7 +836,7 @@ export default function Methodology() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInUp}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12"
@@ -821,15 +849,13 @@ export default function Methodology() {
             <motion.blockquote
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeInDown}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-2xl md:text-3xl font-bold italic max-w-3xl mx-auto relative"
               style={{ color: '#4C1D95' }}
             >
-              <span className="text-6xl text-purple-300 absolute -left-8 -top-4 opacity-50">"</span>
               <span className="relative z-10">Trusted by forward-thinking brands who believe in innovation and excellence.</span>
-              <span className="text-6xl text-purple-300 opacity-50">"</span>
             </motion.blockquote>
           </div>
         </div>
@@ -841,7 +867,7 @@ export default function Methodology() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={fadeInDown}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
           >
@@ -852,7 +878,7 @@ export default function Methodology() {
           <motion.h2
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={fadeInDown}
             className="text-3xl md:text-5xl font-bold mb-6"
             style={{ color: '#000000' }}
@@ -876,7 +902,7 @@ export default function Methodology() {
           <motion.p
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={fadeInUp}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed"
@@ -889,7 +915,7 @@ export default function Methodology() {
           <motion.button
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             variants={fadeInDown}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ scale: 1.05, y: -2 }}
@@ -907,7 +933,7 @@ export default function Methodology() {
         className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         variants={fadeInUp}
         transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
       >
@@ -924,7 +950,7 @@ export default function Methodology() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight"
             >
               Ready to Transform Your Business?
@@ -935,7 +961,7 @@ export default function Methodology() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
             >
               Let's create something extraordinary together. We're here to make it happen.
@@ -946,7 +972,7 @@ export default function Methodology() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="flex items-center justify-center"
             >
               <Link

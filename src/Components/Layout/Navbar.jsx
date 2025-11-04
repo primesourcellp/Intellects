@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Home, Building2, Briefcase, Code, BarChart3, Users, Mail } from 'lucide-react'
 import logo from '../../assets/logo2.png'
 
 export default function Navbar() {
@@ -8,6 +9,22 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [openMobileCompany, setOpenMobileCompany] = useState(false)
   const [openMobileServices, setOpenMobileServices] = useState(false)
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      // Prevent background scrolling
+      document.body.style.overflow = 'hidden'
+    } else {
+      // Restore scrolling when menu is closed
+      document.body.style.overflow = ''
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
 
   // Mobile submenus
   // const [openMobileResources, setOpenMobileResources] = useState(false)
@@ -190,7 +207,7 @@ export default function Navbar() {
                 >
                   {({ isActive }) => (
                     <span className="flex items-center gap-2">
-                      <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-white' : 'bg-purple-600'}`}></span>
+                      <Home className={`w-5 h-5 ${isActive ? 'text-white' : 'text-purple-600'}`} />
                       Home
                     </span>
                   )}
@@ -208,7 +225,7 @@ export default function Navbar() {
                 }`}
               >
                 <span className="flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full ${openMobileCompany ? 'bg-white' : 'bg-purple-600'}`}></span>
+                  <Building2 className={`w-5 h-5 ${openMobileCompany ? 'text-white' : 'text-purple-600'}`} />
                   Company
                 </span>
                 <motion.span
@@ -267,7 +284,7 @@ export default function Navbar() {
                 }`}
               >
                 <span className="flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full ${openMobileServices ? 'bg-white' : 'bg-purple-600'}`}></span>
+                  <Briefcase className={`w-5 h-5 ${openMobileServices ? 'text-white' : 'text-purple-600'}`} />
                   Services
                 </span>
                 <motion.span
@@ -298,7 +315,7 @@ export default function Navbar() {
                       }`}
                     >
                       <span className="flex items-center gap-2">
-                        <span className={`w-1.5 h-1.5 rounded-full ${openSoftware ? 'bg-white' : 'bg-purple-600'}`}></span>
+                        <Code className={`w-4 h-4 ${openSoftware ? 'text-white' : 'text-purple-600'}`} />
                         Software Development
                       </span>
                       <motion.span
@@ -337,7 +354,7 @@ export default function Navbar() {
                       }`}
                     >
                       <span className="flex items-center gap-2">
-                        <span className={`w-1.5 h-1.5 rounded-full ${openDigital ? 'bg-white' : 'bg-purple-600'}`}></span>
+                        <BarChart3 className={`w-4 h-4 ${openDigital ? 'text-white' : 'text-purple-600'}`} />
                         Digital Marketing
                       </span>
                       <motion.span
@@ -377,7 +394,7 @@ export default function Navbar() {
                       }`}
                     >
                       <span className="flex items-center gap-2">
-                        <span className={`w-1.5 h-1.5 rounded-full ${openHR ? 'bg-white' : 'bg-purple-600'}`}></span>
+                        <Users className={`w-4 h-4 ${openHR ? 'text-white' : 'text-purple-600'}`} />
                         HR Consulting
                       </span>
                       <motion.span
@@ -429,7 +446,7 @@ export default function Navbar() {
                 >
                   {({ isActive }) => (
                     <span className="flex items-center gap-2">
-                      <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-white' : 'bg-purple-600'}`}></span>
+                      <Mail className={`w-5 h-5 ${isActive ? 'text-white' : 'text-purple-600'}`} />
                       Contact
                     </span>
                   )}
