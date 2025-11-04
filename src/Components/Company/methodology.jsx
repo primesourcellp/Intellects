@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Compass,
@@ -60,51 +60,95 @@ const TypingText = ({ text, delay = 0, speed = 50, className = "" }) => {
 };
 
 export default function Methodology() {
-  const { scrollYProgress } = useScroll();
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 1, 0.8, 0.6]);
+  // Add smooth scroll behavior and optimize for mobile
+  React.useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    // Add momentum scrolling for iOS
+    document.body.style.webkitOverflowScrolling = 'touch';
+    // Improve scroll performance
+    document.body.style.overflowY = 'auto';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
 
-  // Scroll animation variants
+  // Scroll animation variants - Ultra smooth animations
   const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 40 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   const fadeInDown = {
-    hidden: { opacity: 0, y: -50 },
+    hidden: { opacity: 0, y: -40 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   const fadeInLeft = {
-    hidden: { opacity: 0, x: -50 },
+    hidden: { opacity: 0, x: -40 },
     visible: { 
       opacity: 1, 
       x: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   const fadeInRight = {
-    hidden: { opacity: 0, x: 50 },
+    hidden: { opacity: 0, x: 40 },
     visible: { 
       opacity: 1, 
       x: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="bg-white overflow-hidden relative">
+      {/* Animated Background Particles - Global */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 w-full max-w-full">
+        <motion.div
+          animate={{ 
+            scale: [1, 1.15, 1],
+            rotate: [0, 180, 360],
+            opacity: [0.06, 0.12, 0.06]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl"
+          style={{ background: 'radial-gradient(circle, #4C1D9520, #7C3AED15)' }}
+        />
+        <motion.div
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 180, 0],
+            opacity: [0.08, 0.06, 0.08]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 right-0 w-80 h-80 rounded-full blur-3xl"
+          style={{ background: 'radial-gradient(circle, #7C3AED18, #F59E0B12)' }}
+        />
+        <motion.div
+          animate={{ 
+            y: [0, -100, 0],
+            opacity: [0.06, 0.15, 0.06]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-20 left-1/4 w-72 h-72 rounded-full blur-3xl"
+          style={{ background: 'radial-gradient(circle, #F59E0B18, #4C1D9515)' }}
+        />
+        <div className="absolute w-96 h-96 rounded-full blur-3xl -top-48 -left-48 animate-pulse" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
+        <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #4C1D9520, #1F293715)' }}></div>
+      </div>
+
       {/* Hero Section - Enhanced */}
-      <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-indigo-50 z-10">
         {/* Animated Gradient Background */}
         <motion.div 
           className="absolute inset-0"
@@ -132,7 +176,7 @@ export default function Methodology() {
               duration: 10 + Math.random() * 5, 
               repeat: Infinity, 
               delay: i * 0.5,
-              ease: "easeInOut" 
+              ease: [0.22, 1, 0.36, 1] 
             }}
             className="absolute opacity-10"
             style={{
@@ -154,13 +198,12 @@ export default function Methodology() {
           className="relative z-10 text-center px-4 sm:px-6 md:px-12 max-w-7xl mx-auto pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-12 sm:pb-16 md:pb-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          style={{ y: y1, opacity }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 md:mb-8 leading-tight"
             style={{ color: '#000000' }}
           >
@@ -183,7 +226,7 @@ export default function Methodology() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.5 }}
+            transition={{ duration: 0.8, delay: 3.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-10 md:mb-12"
           >
             Empowering Businesses Through Intelligence and Innovation
@@ -193,7 +236,7 @@ export default function Methodology() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4 }}
+            transition={{ duration: 0.8, delay: 4, ease: [0.22, 1, 0.36, 1] }}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mt-8 sm:mt-12 md:mt-16"
           >
             {[
@@ -206,7 +249,7 @@ export default function Methodology() {
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 4.2 + i * 0.1 }}
+                transition={{ duration: 0.7, delay: 4.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="bg-white/60 backdrop-blur-sm border border-purple-100 rounded-2xl p-6 shadow-lg"
               >
@@ -241,14 +284,14 @@ export default function Methodology() {
       </section>
 
       {/* About Us Section - Redesigned */}
-      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-white">
+      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-white z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left - Image with Overlay */}
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.3 }}
               variants={fadeInLeft}
               className="relative group"
             >
@@ -265,9 +308,9 @@ export default function Methodology() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                viewport={{ once: true, amount: 0.3 }}
                 variants={fadeInUp}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 className="absolute -bottom-6 -right-6 bg-white px-6 py-4 rounded-2xl shadow-2xl border border-purple-100"
               >
@@ -289,7 +332,7 @@ export default function Methodology() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.3 }}
               variants={fadeInRight}
               className="space-y-6"
             >
@@ -338,9 +381,9 @@ export default function Methodology() {
                     key={i}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.3, margin: "-50px" }}
+                    viewport={{ once: true, amount: 0.3 }}
                     variants={fadeInUp}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ scale: 1.05 }}
                     className="flex items-center gap-3 bg-purple-50 rounded-xl p-4 border border-purple-100"
                   >
@@ -357,13 +400,13 @@ export default function Methodology() {
       </section>
 
       {/* Our Development & Methodology Section - Enhanced */}
-      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-purple-50/30 to-white">
+      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-purple-50/30 to-white z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.3 }}
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
               style={{ color: '#000000' }}
@@ -387,7 +430,7 @@ export default function Methodology() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.3 }}
               variants={fadeInUp}
               className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed mb-6 font-semibold"
               style={{ color: '#4C1D95' }}
@@ -398,7 +441,7 @@ export default function Methodology() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.3 }}
               variants={fadeInUp}
               className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed"
             >
@@ -411,13 +454,13 @@ export default function Methodology() {
       </section>
 
       {/* Methodology Timeline - Redesigned with Alternating Layout */}
-      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-white">
+      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-white z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.3 }}
               variants={fadeInDown}
               className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
             >
@@ -428,7 +471,7 @@ export default function Methodology() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: false, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
               style={{ color: '#000000' }}
@@ -510,9 +553,9 @@ export default function Methodology() {
                   key={i}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.2, margin: "-100px" }}
+                  viewport={{ once: true, amount: 0.2 }}
                   variants={isEven ? fadeInUp : fadeInDown}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  transition={{ duration: 1, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                   className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
                     !isEven ? "lg:grid-flow-dense" : ""
                   }`}
@@ -521,7 +564,7 @@ export default function Methodology() {
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                    viewport={{ once: true, amount: 0.3 }}
                     variants={isEven ? fadeInLeft : fadeInRight}
                     className={`relative group ${!isEven ? "lg:col-start-2" : ""}`}
                   >
@@ -546,15 +589,15 @@ export default function Methodology() {
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                    viewport={{ once: false, amount: 0.3, margin: "-100px" }}
                     variants={isEven ? fadeInRight : fadeInLeft}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     className={`space-y-6 ${!isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}
                   >
                     <div className="flex items-center gap-4">
                       <motion.div
                         whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                         className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} text-white shadow-lg`}
                       >
                         <step.icon className="w-8 h-8" />
@@ -576,8 +619,8 @@ export default function Methodology() {
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
-                      transition={{ duration: 1, delay: 0.4 }}
-                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                      viewport={{ once: false }}
                       className={`h-2 bg-gradient-to-r ${step.gradient} rounded-full`}
                     />
                   </motion.div>
@@ -589,13 +632,13 @@ export default function Methodology() {
       </section>
 
       {/* Why It Works Section - Enhanced */}
-      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-white via-purple-50/30 to-white">
+      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-white via-purple-50/30 to-white z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: false, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
             >
@@ -606,9 +649,9 @@ export default function Methodology() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: false, amount: 0.3, margin: "-100px" }}
               variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
               style={{ color: '#000000' }}
             >
@@ -631,9 +674,9 @@ export default function Methodology() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: false, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto"
             >
               Our methodology succeeds because it's built on principles that ensure quality, speed, and client satisfaction.
@@ -676,14 +719,14 @@ export default function Methodology() {
                 key={i}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                viewport={{ once: false, amount: 0.3, margin: "-100px" }}
                 variants={fadeInUp}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ 
                   y: -12, 
                   scale: 1.05,
                   rotateY: 5,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
                 }}
                 className="relative group bg-white p-8 rounded-3xl border-2 border-gray-100 shadow-xl hover:shadow-2xl transition-all overflow-hidden"
               >
@@ -695,7 +738,7 @@ export default function Methodology() {
                 <div className="relative z-10">
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${principle.color} text-white mb-6 shadow-lg`}
                   >
                     <principle.icon className="w-8 h-8" />
@@ -712,8 +755,8 @@ export default function Methodology() {
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: "60px" }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    viewport={{ once: false }}
                     className={`h-1.5 bg-gradient-to-r ${principle.color} rounded-full`}
                   />
                 </div>
@@ -724,13 +767,13 @@ export default function Methodology() {
       </section>
 
       {/* Key Clients Section - Enhanced */}
-      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-white">
+      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-white z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: false, amount: 0.3, margin: "-100px" }}
               variants={fadeInUp}
               className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
             >
@@ -741,7 +784,7 @@ export default function Methodology() {
             <motion.h2
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: false, amount: 0.3, margin: "-100px" }}
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
               style={{ color: '#000000' }}
@@ -765,9 +808,9 @@ export default function Methodology() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: false, amount: 0.3, margin: "-100px" }}
               variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12"
             >
               Over the years, Intellects has had the privilege of working with a diverse range of clients — 
@@ -778,9 +821,9 @@ export default function Methodology() {
             <motion.blockquote
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              viewport={{ once: false, amount: 0.3, margin: "-100px" }}
               variants={fadeInDown}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="text-2xl md:text-3xl font-bold italic max-w-3xl mx-auto relative"
               style={{ color: '#4C1D95' }}
             >
@@ -793,12 +836,12 @@ export default function Methodology() {
       </section>
 
       {/* Strategic Partnerships Section - Enhanced */}
-      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-purple-50/50 via-white to-purple-50/30">
+      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-purple-50/50 via-white to-purple-50/30 z-10">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            viewport={{ once: false, amount: 0.3, margin: "-100px" }}
             variants={fadeInDown}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 px-4 py-2 rounded-full mb-6 font-semibold"
           >
@@ -809,7 +852,7 @@ export default function Methodology() {
           <motion.h2
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            viewport={{ once: false, amount: 0.3, margin: "-100px" }}
             variants={fadeInDown}
             className="text-3xl md:text-5xl font-bold mb-6"
             style={{ color: '#000000' }}
@@ -833,9 +876,9 @@ export default function Methodology() {
           <motion.p
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            viewport={{ once: false, amount: 0.3, margin: "-100px" }}
             variants={fadeInUp}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed"
           >
             Intellects partners with leading technology providers and platforms to ensure we deliver 
@@ -846,9 +889,9 @@ export default function Methodology() {
           <motion.button
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            viewport={{ once: false, amount: 0.3, margin: "-100px" }}
             variants={fadeInDown}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="group px-10 py-5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-lg rounded-full shadow-xl hover:shadow-2xl transition-all flex items-center gap-3 mx-auto"
@@ -864,9 +907,9 @@ export default function Methodology() {
         className="px-6 md:px-12 max-w-5xl mx-auto py-16 relative z-10"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+        viewport={{ once: false, amount: 0.3, margin: "-100px" }}
         variants={fadeInUp}
-        transition={{ delay: 0.3, duration: 0.8 }}
+        transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
           {/* Animated Background Elements */}
@@ -880,8 +923,8 @@ export default function Methodology() {
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: false }}
               className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight"
             >
               Ready to Transform Your Business?
@@ -891,8 +934,8 @@ export default function Methodology() {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: false }}
               className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"
             >
               Let's create something extraordinary together. We're here to make it happen.
@@ -902,8 +945,8 @@ export default function Methodology() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: false }}
               className="flex items-center justify-center"
             >
               <Link
