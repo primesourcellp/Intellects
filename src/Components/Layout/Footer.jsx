@@ -61,12 +61,12 @@ export default function Footer() {
 
                     {/* Company Info */}
                     <motion.div variants={fadeInUp} className="col-span-2 md:col-span-3 lg:col-span-2">
-                        <Link 
-                            to="/" 
+                        <Link
+                            to="/"
                             onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                             className="inline-block mb-6"
                         >
-                            <motion.img 
+                            <motion.img
                                 src={logoImage}
                                 alt="Intellects Logo"
                                 className="h-16 w-auto"
@@ -83,30 +83,30 @@ export default function Footer() {
                             <div className="flex items-center gap-3">
                                 <FaEnvelope style={{ color: '#C4B5FD' }} />
                                 <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=badhri@intellectsllc.com"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-sm transition-colors"
-  style={{ color: '#E0E7FF' }}
-  onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
-  onMouseLeave={e => e.currentTarget.style.color = '#E0E7FF'}
->
-  badhri@intellectsllc.com
-</a>
+                                    href="https://mail.google.com/mail/?view=cm&fs=1&to=badhri@intellectsllc.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm transition-colors"
+                                    style={{ color: '#E0E7FF' }}
+                                    onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
+                                    onMouseLeave={e => e.currentTarget.style.color = '#E0E7FF'}
+                                >
+                                    badhri@intellectsllc.com
+                                </a>
                                 {/* <span className="text-sm" style={{ color: '#E0E7FF' }}>badhri@intellectsllc.com</span> */}
                             </div>
                             <div className="flex items-center gap-3">
                                 <FaPhone style={{ color: '#C4B5FD' }} />
                                 <a
-    href="tel:+19196991281"
-    className="text-sm transition-colors"
-    style={{ color: '#E0E7FF' }}
-    onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
-    onMouseLeave={e => e.currentTarget.style.color = '#E0E7FF'}
-  >
-    +1 (919) 699-1281
-  </a>
-                                
+                                    href="tel:+19196991281"
+                                    className="text-sm transition-colors"
+                                    style={{ color: '#E0E7FF' }}
+                                    onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
+                                    onMouseLeave={e => e.currentTarget.style.color = '#E0E7FF'}
+                                >
+                                    +1 (919) 699-1281
+                                </a>
+
                                 {/* <span className="text-sm" style={{ color: '#E0E7FF' }}>+1(919)699-1281</span> */}
                             </div>
                             <div className="flex items-start gap-3">
@@ -171,12 +171,12 @@ export default function Footer() {
                     <p className="text-sm" style={{ color: '#E0E7FF' }}>
                         &copy; {new Date().getFullYear()} Intellects. All rights reserved.
                     </p>
-                    
+
                     {/* Center - Developed by */}
                     <p className="text-sm" style={{ color: '#E0E7FF' }}>
                         Developed by{' '}
-                        <a 
-                            href="https://primesourcellp.com/" 
+                        <a
+                            href="https://primesourcellp.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-semibold transition-colors"
@@ -187,7 +187,7 @@ export default function Footer() {
                             Primesourcellp
                         </a>
                     </p>
-                    
+
                     {/* Right - Terms & Privacy Policy */}
                     <div className="flex gap-6">
                         <span className="text-sm" style={{ color: '#E0E7FF' }}>
