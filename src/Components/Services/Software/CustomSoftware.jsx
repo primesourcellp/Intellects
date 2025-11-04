@@ -985,9 +985,9 @@ const CustomSoftwareDevelopment = () => {
                             }}
                           />
 
-                          {/* Mobile Number Badge */}
+                          {/* Mobile Number Badge - Hidden on mobile, visible on desktop/tablet via center circle */}
                           <motion.div
-                            className="md:hidden absolute -top-3 sm:-top-4 left-4 sm:left-6 md:left-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg z-10"
+                            className="hidden absolute -top-3 sm:-top-4 left-4 sm:left-6 md:left-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg z-10"
                             style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
