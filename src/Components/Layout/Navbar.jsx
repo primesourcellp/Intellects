@@ -21,9 +21,11 @@ export default function Navbar() {
       end={to === '/'}
       onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
       className={({ isActive }) =>
-        `relative px-1 pb-1 text-base font-medium transition-colors hover:text-blue-600 ${
-          isActive ? 'text-blue-600' : 'text-slate-700'
-        } after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 after:content-[''] hover:after:w-full`
+        `relative px-3 py-2 text-base font-semibold transition-all duration-200 hover:text-purple-600 hover:bg-purple-50 ${
+          isActive ? 'text-purple-600 bg-purple-50' : 'text-slate-700'
+        } after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-purple-600 after:transition-all after:duration-300 after:content-[''] ${
+          isActive ? 'after:w-full' : 'hover:after:w-full'
+        } rounded-md`
       }
     >
       {label}
@@ -38,8 +40,10 @@ export default function Navbar() {
         window.scrollTo({ top: 0, behavior: 'instant' });
       }}
       className={({ isActive }) =>
-        `block rounded px-3 py-2 text-sm transition-colors hover:bg-slate-100 ${
-          isActive ? 'text-blue-600' : 'text-slate-700'
+        `relative block rounded-lg pl-5 pr-4 py-3 text-sm font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-100 hover:to-indigo-100 hover:text-purple-700 hover:translate-x-2 hover:shadow-md ${
+          isActive ? 'text-purple-700 bg-gradient-to-r from-purple-100 to-indigo-100 shadow-md' : 'text-slate-700'
+        } before:absolute before:left-0 before:top-0 before:h-0 before:w-1 before:bg-gradient-to-b before:from-purple-600 before:to-indigo-600 before:transition-all before:duration-300 before:content-[''] before:rounded-l-lg ${
+          isActive ? 'before:h-full' : 'hover:before:h-full'
         }`
       }
     >
@@ -60,21 +64,21 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {desktopLink('/', 'Home')}
 
           {/* Desktop Company dropdown */}
           <div className="group relative">
-            <button className="relative flex items-center gap-1 px-1 pb-1 text-base font-medium text-slate-700 transition-colors hover:text-blue-600 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 after:content-[''] hover:after:w-full">
+            <button className="relative flex items-center gap-1.5 px-3 py-2 text-base font-semibold text-slate-700 transition-all duration-200 hover:text-purple-600 hover:bg-purple-50 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-purple-600 after:transition-all after:duration-300 after:content-[''] group-hover:after:w-full rounded-md">
               Company
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180">
                 <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clipRule="evenodd" />
               </svg>
             </button>
-            <div className="invisible absolute left-0 top-full mt-2 w-max min-w-[20rem] rounded-md border border-slate-200 bg-white p-4 opacity-0 shadow-xl transition-all duration-150 group-hover:visible group-hover:opacity-100">
+            <div className="invisible absolute left-0 top-full mt-2 w-max min-w-[20rem] rounded-lg border border-slate-200 bg-white p-5 opacity-0 shadow-2xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
               <div className="flex flex-col">
-                <span className="mb-2 block text-sm font-semibold text-slate-900">Company</span>
-                <div className="flex flex-col">
+                <span className="mb-3 block text-sm font-bold text-slate-900 uppercase tracking-wide">Company</span>
+                <div className="flex flex-col gap-1">
                   {dropdownItem('/methodology', 'Our Development & Methodology')}
                   {dropdownItem('/career', 'Career & Company Culture')}
                   {/* {dropdownItem('/contact', 'Contact Us')} */}
@@ -91,17 +95,17 @@ export default function Navbar() {
 
           {/* Desktop Services dropdown */}
           <div className="group relative">
-            <button className="relative flex items-center gap-1 px-1 pb-1 text-base font-medium text-slate-700 transition-colors hover:text-blue-600 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 after:content-[''] hover:after:w-full">
+            <button className="relative flex items-center gap-1.5 px-3 py-2 text-base font-semibold text-slate-700 transition-all duration-200 hover:text-purple-600 hover:bg-purple-50 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-purple-600 after:transition-all after:duration-300 after:content-[''] group-hover:after:w-full rounded-md">
               Services
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180">
                 <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clipRule="evenodd" />
               </svg>
             </button>
-            <div className="invisible absolute right-0 top-full w-[44rem] rounded-md border border-slate-200 bg-white p-4 opacity-0 shadow-xl transition-all duration-150 group-hover:visible group-hover:opacity-100">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="invisible absolute right-0 top-full w-[44rem] rounded-lg border border-slate-200 bg-white p-5 opacity-0 shadow-2xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 <div>
-                  <span className="mb-2 block text-sm font-semibold text-slate-900">Software Development</span>
-                  <div className="flex flex-col">
+                  <span className="mb-3 block text-sm font-bold text-slate-900 uppercase tracking-wide">Software Development</span>
+                  <div className="flex flex-col gap-1">
                     {dropdownItem('/services/softwaredevelopment', 'Custom Software Development')}
                     {dropdownItem('/services/mobileapplication', 'Mobile App Development')}
                     {dropdownItem('/services/webapplication', 'Web Application')}
@@ -109,8 +113,8 @@ export default function Navbar() {
                   </div>
                 </div>
                 <div>
-                  <span className="mb-2 block text-sm font-semibold text-slate-900">Digital Marketing</span>
-                  <div className="flex flex-col">
+                  <span className="mb-3 block text-sm font-bold text-slate-900 uppercase tracking-wide">Digital Marketing</span>
+                  <div className="flex flex-col gap-1">
                     {dropdownItem('/services/seo', 'SEO')}
                     {dropdownItem('/services/sem', 'SEM')}
                     {dropdownItem('/services/smm', 'SMM')}
@@ -119,8 +123,8 @@ export default function Navbar() {
                   </div>
                 </div>
                 <div>
-                  <span className="mb-2 block text-sm font-semibold text-slate-900">HR Consulting</span>
-                  <div className="flex flex-col">
+                  <span className="mb-3 block text-sm font-bold text-slate-900 uppercase tracking-wide">HR Consulting</span>
+                  <div className="flex flex-col gap-1">
                     {dropdownItem('/services/global-recruitments', 'Global Recruiter')}
                     {dropdownItem('/services/staffing-services', 'Staff Services')}
                     {dropdownItem('/services/contract-staffing', 'Contract Staffing')}
@@ -157,28 +161,72 @@ export default function Navbar() {
         {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: 'calc(100vh - 80px)', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden border-t border-slate-200 bg-white overflow-hidden"
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden border-t-2 border-purple-200 bg-gradient-to-br from-purple-50 via-white to-indigo-50 overflow-y-auto shadow-2xl"
           >
-            <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8 flex flex-col gap-1">
-              {dropdownItem('/', 'Home')}
+            <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex flex-col gap-3 min-h-full">
+              <motion.div
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
+                <NavLink
+                  to="/"
+                  end
+                  onClick={() => {
+                    setOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                  }}
+                  className={({ isActive }) =>
+                    `relative flex w-full items-center justify-between rounded-xl px-5 py-4 text-base font-bold transition-all duration-300 shadow-lg ${
+                      isActive 
+                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-purple-500/50' 
+                        : 'bg-white text-slate-800 hover:bg-gradient-to-r hover:from-purple-100 hover:to-indigo-100 hover:text-purple-700 hover:shadow-xl hover:shadow-purple-300/50'
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <span className="flex items-center gap-2">
+                      <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-white' : 'bg-purple-600'}`}></span>
+                      Home
+                    </span>
+                  )}
+                </NavLink>
+              </motion.div>
 
               {/* Mobile Company */}
-              <button
+              <motion.button
+                whileTap={{ scale: 0.98 }}
                 onClick={() => setOpenMobileCompany(v => !v)}
-                className="flex w-full items-center justify-between rounded px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                className={`relative flex w-full items-center justify-between rounded-xl px-5 py-4 text-base font-bold text-slate-800 transition-all duration-300 shadow-lg ${
+                  openMobileCompany 
+                    ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-purple-500/50' 
+                    : 'bg-white hover:bg-gradient-to-r hover:from-purple-100 hover:to-indigo-100 hover:text-purple-700 hover:shadow-xl hover:shadow-purple-300/50'
+                }`}
               >
-                Company
-                <span>{openMobileCompany ? '-' : '+'}</span>
-              </button>
+                <span className="flex items-center gap-2">
+                  <span className={`w-2 h-2 rounded-full ${openMobileCompany ? 'bg-white' : 'bg-purple-600'}`}></span>
+                  Company
+                </span>
+                <motion.span
+                  animate={{ rotate: openMobileCompany ? 45 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-2xl font-black"
+                >
+                  {openMobileCompany ? '×' : '+'}
+                </motion.span>
+              </motion.button>
               <AnimatePresence>
                 {openMobileCompany && (
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="ml-4 flex flex-col gap-1 overflow-hidden"
+                    initial={{ height: 0, opacity: 0, x: -20 }}
+                    animate={{ height: 'auto', opacity: 1, x: 0 }}
+                    exit={{ height: 0, opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="ml-6 mt-2 flex flex-col gap-2 overflow-hidden rounded-xl bg-white/80 backdrop-blur-sm p-2 shadow-lg"
                   >
                     {dropdownItem('/methodology', 'Our Development & Methodology')}
                     {dropdownItem('/career', 'Career & Company Culture')}
@@ -209,32 +257,67 @@ export default function Navbar() {
               </AnimatePresence>
 
               {/* Mobile Services */}
-              <button
+              <motion.button
+                whileTap={{ scale: 0.98 }}
                 onClick={() => setOpenMobileServices(v => !v)}
-                className="flex w-full items-center justify-between rounded px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                className={`relative flex w-full items-center justify-between rounded-xl px-5 py-4 text-base font-bold text-slate-800 transition-all duration-300 shadow-lg ${
+                  openMobileServices 
+                    ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-purple-500/50' 
+                    : 'bg-white hover:bg-gradient-to-r hover:from-purple-100 hover:to-indigo-100 hover:text-purple-700 hover:shadow-xl hover:shadow-purple-300/50'
+                }`}
               >
-                Services
-                <span>{openMobileServices ? '-' : '+'}</span>
-              </button>
+                <span className="flex items-center gap-2">
+                  <span className={`w-2 h-2 rounded-full ${openMobileServices ? 'bg-white' : 'bg-purple-600'}`}></span>
+                  Services
+                </span>
+                <motion.span
+                  animate={{ rotate: openMobileServices ? 45 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-2xl font-black"
+                >
+                  {openMobileServices ? '×' : '+'}
+                </motion.span>
+              </motion.button>
               <AnimatePresence>
                 {openMobileServices && (
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="ml-4 flex flex-col gap-1 overflow-hidden"
+                    initial={{ height: 0, opacity: 0, x: -20 }}
+                    animate={{ height: 'auto', opacity: 1, x: 0 }}
+                    exit={{ height: 0, opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="ml-6 mt-2 flex flex-col gap-2 overflow-hidden rounded-xl bg-white/80 backdrop-blur-sm p-2 shadow-lg"
                   >
                     {/* Software */}
-                    <button
+                    <motion.button
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => setOpenSoftware(v => !v)}
-                      className="flex w-full items-center justify-between rounded px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 mt-1"
+                      className={`relative flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-bold text-slate-800 transition-all duration-300 ${
+                        openSoftware 
+                          ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-md shadow-purple-400/50' 
+                          : 'bg-purple-50 hover:bg-gradient-to-r hover:from-purple-100 hover:to-indigo-100 hover:text-purple-700 hover:shadow-md'
+                      }`}
                     >
-                      Software Development
-                      <span>{openSoftware ? '-' : '+'}</span>
-                    </button>
+                      <span className="flex items-center gap-2">
+                        <span className={`w-1.5 h-1.5 rounded-full ${openSoftware ? 'bg-white' : 'bg-purple-600'}`}></span>
+                        Software Development
+                      </span>
+                      <motion.span
+                        animate={{ rotate: openSoftware ? 45 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-lg font-black"
+                      >
+                        {openSoftware ? '×' : '+'}
+                      </motion.span>
+                    </motion.button>
                     <AnimatePresence>
                       {openSoftware && (
-                        <motion.div className="ml-4 flex flex-col gap-1 overflow-hidden">
+                        <motion.div
+                          initial={{ height: 0, opacity: 0, x: -15 }}
+                          animate={{ height: 'auto', opacity: 1, x: 0 }}
+                          exit={{ height: 0, opacity: 0, x: -15 }}
+                          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                          className="ml-6 mt-2 flex flex-col gap-2 overflow-hidden rounded-lg bg-white/60 p-2"
+                        >
                           {dropdownItem('/services/softwaredevelopment', 'Custom Software Development')}
                           {dropdownItem('/services/mobileapplication', 'Mobile App Development')}
                           {dropdownItem('/services/webapplication', 'Web Application')}
@@ -244,16 +327,36 @@ export default function Navbar() {
                     </AnimatePresence>
 
                     {/* Digital */}
-                    <button
+                    <motion.button
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => setOpenDigital(v => !v)}
-                      className="flex w-full items-center justify-between rounded px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 mt-2"
+                      className={`relative flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-bold text-slate-800 transition-all duration-300 ${
+                        openDigital 
+                          ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-md shadow-purple-400/50' 
+                          : 'bg-purple-50 hover:bg-gradient-to-r hover:from-purple-100 hover:to-indigo-100 hover:text-purple-700 hover:shadow-md'
+                      }`}
                     >
-                      Digital Marketing
-                      <span>{openDigital ? '-' : '+'}</span>
-                    </button>
+                      <span className="flex items-center gap-2">
+                        <span className={`w-1.5 h-1.5 rounded-full ${openDigital ? 'bg-white' : 'bg-purple-600'}`}></span>
+                        Digital Marketing
+                      </span>
+                      <motion.span
+                        animate={{ rotate: openDigital ? 45 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-lg font-black"
+                      >
+                        {openDigital ? '×' : '+'}
+                      </motion.span>
+                    </motion.button>
                     <AnimatePresence>
                       {openDigital && (
-                        <motion.div className="ml-4 flex flex-col gap-1 overflow-hidden">
+                        <motion.div
+                          initial={{ height: 0, opacity: 0, x: -15 }}
+                          animate={{ height: 'auto', opacity: 1, x: 0 }}
+                          exit={{ height: 0, opacity: 0, x: -15 }}
+                          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                          className="ml-6 mt-2 flex flex-col gap-2 overflow-hidden rounded-lg bg-white/60 p-2"
+                        >
                           {dropdownItem('/services/seo', 'SEO')}
                           {dropdownItem('/services/sem', 'SEM')}
                           {dropdownItem('/services/smm', 'SMM')}
@@ -264,16 +367,36 @@ export default function Navbar() {
                     </AnimatePresence>
 
                     {/* HR */}
-                    <button
+                    <motion.button
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => setOpenHR(v => !v)}
-                      className="flex w-full items-center justify-between rounded px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 mt-2"
+                      className={`relative flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-bold text-slate-800 transition-all duration-300 ${
+                        openHR 
+                          ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-md shadow-purple-400/50' 
+                          : 'bg-purple-50 hover:bg-gradient-to-r hover:from-purple-100 hover:to-indigo-100 hover:text-purple-700 hover:shadow-md'
+                      }`}
                     >
-                      HR Consulting
-                      <span>{openHR ? '-' : '+'}</span>
-                    </button>
+                      <span className="flex items-center gap-2">
+                        <span className={`w-1.5 h-1.5 rounded-full ${openHR ? 'bg-white' : 'bg-purple-600'}`}></span>
+                        HR Consulting
+                      </span>
+                      <motion.span
+                        animate={{ rotate: openHR ? 45 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-lg font-black"
+                      >
+                        {openHR ? '×' : '+'}
+                      </motion.span>
+                    </motion.button>
                     <AnimatePresence>
                       {openHR && (
-                        <motion.div className="ml-4 flex flex-col gap-1 overflow-hidden">
+                        <motion.div
+                          initial={{ height: 0, opacity: 0, x: -15 }}
+                          animate={{ height: 'auto', opacity: 1, x: 0 }}
+                          exit={{ height: 0, opacity: 0, x: -15 }}
+                          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                          className="ml-6 mt-2 flex flex-col gap-2 overflow-hidden rounded-lg bg-white/60 p-2"
+                        >
                           {dropdownItem('/services/global-recruitments', 'Global Recruiter')}
                           {dropdownItem('/services/staffing-services', 'Staff Services')}
                           {dropdownItem('/services/contract-staffing', 'Contract Staffing')}
@@ -284,7 +407,34 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
 
-              {dropdownItem('/contact', 'Contact')}
+              <motion.div
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
+                <NavLink
+                  to="/contact"
+                  onClick={() => {
+                    setOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                  }}
+                  className={({ isActive }) =>
+                    `relative flex w-full items-center justify-between rounded-xl px-5 py-4 text-base font-bold transition-all duration-300 shadow-lg ${
+                      isActive 
+                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-purple-500/50' 
+                        : 'bg-white text-slate-800 hover:bg-gradient-to-r hover:from-purple-100 hover:to-indigo-100 hover:text-purple-700 hover:shadow-xl hover:shadow-purple-300/50'
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <span className="flex items-center gap-2">
+                      <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-white' : 'bg-purple-600'}`}></span>
+                      Contact
+                    </span>
+                  )}
+                </NavLink>
+              </motion.div>
             </div>
           </motion.div>
         )}

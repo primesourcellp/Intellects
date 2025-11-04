@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Mail, MapPin, Phone, Clock, Globe, Send, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import contactBgImage from '../../assets/home1.png';
 
 // Typing Animation Component
 const TypingText = ({ text, className = "" }) => {
@@ -173,9 +174,23 @@ export default function ContactUsPage() {
     };
 
     return (
-        <div className="overflow-hidden" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
+        <div 
+            className="overflow-hidden relative w-full" 
+            style={{ 
+                backgroundImage: `url(${contactBgImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '100vh',
+                color: '#1F2937'
+            }}
+        >
+            {/* Overlay for better readability */}
+            <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
+            
             {/* MAIN CONTACT CONTENT */}
-            <AnimatedSection backgroundColor="#F9FAFB">
+            <div className="relative z-10 w-full">
+            <AnimatedSection backgroundColor="transparent">
                 <div className="py-20 sm:py-24 px-6 md:px-12 lg:px-24">
                     <div className="max-w-7xl mx-auto">
                         
@@ -396,7 +411,7 @@ export default function ContactUsPage() {
             </AnimatedSection>
 
             {/* MAP OR ADDITIONAL INFO SECTION */}
-            <AnimatedSection backgroundColor="#FFFFFF">
+            <AnimatedSection backgroundColor="transparent">
                 <div className="py-20 sm:py-24 px-6 md:px-12 lg:px-24">
                     <div className="max-w-7xl mx-auto text-center">
                         <motion.h2 
@@ -470,6 +485,7 @@ export default function ContactUsPage() {
                     </div>
                 </div>
             </AnimatedSection>
+            </div>
             </div>
     );
 }
