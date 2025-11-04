@@ -173,16 +173,16 @@ export default function EmailMarketing() {
   ];
 
   return (
-    <div className="min-h-screen text-gray-800" style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)' }}>
+    <div className="min-h-screen text-gray-800 overflow-x-hidden w-full" style={{ background: 'linear-gradient(to bottom right, #F9FAFB, #F3F4F6)' }}>
       {/* Animated Background Particles */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none w-full max-w-full">
         <div className="absolute w-96 h-96 rounded-full blur-3xl -top-48 -left-48 animate-pulse" style={{ background: 'radial-gradient(circle, #4C1D9520, #00000015)' }}></div>
         <div className="absolute w-96 h-96 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" style={{ background: 'radial-gradient(circle, #00000020, #4C1D9515)' }}></div>
       </div>
 
       {/* Header Section - Recruiter Page Style */}
       <section
-        className="relative py-20 md:py-32 px-6 md:px-12 lg:px-20 shadow-lg overflow-hidden"
+        className="relative py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 shadow-lg overflow-hidden w-full max-w-full"
         style={{ backgroundColor: '#F8F5FC', boxShadow: '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)' }}
       >
         {/* Floating Icons */}
@@ -192,7 +192,7 @@ export default function EmailMarketing() {
             rotate: [0, 10, 0]
           }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 md:left-20 opacity-20"
+          className="absolute top-20 left-4 sm:left-10 md:left-20 opacity-20 hidden sm:block"
         >
           <div 
             className="w-20 h-20 rounded-2xl transform rotate-12" 
@@ -206,7 +206,7 @@ export default function EmailMarketing() {
             rotate: [0, -10, 0]
           }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute top-40 right-10 md:right-32 opacity-20"
+          className="absolute top-40 right-4 sm:right-10 md:right-32 opacity-20 hidden sm:block"
         >
           <div 
             className="w-16 h-16 rounded-full" 
@@ -220,7 +220,7 @@ export default function EmailMarketing() {
             x: [0, 10, 0]
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-20 right-20 opacity-20"
+          className="absolute bottom-20 right-4 sm:right-10 md:right-20 opacity-20 hidden sm:block"
         >
           <div 
             className="w-12 h-12 rounded-lg transform -rotate-12" 
@@ -229,7 +229,7 @@ export default function EmailMarketing() {
         </motion.div>
 
         {/* Two Column Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center max-w-[1600px] mx-auto relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 w-full">
           
           {/* Left Column - Content */}
           <motion.div
@@ -301,14 +301,14 @@ export default function EmailMarketing() {
 
       {/* Targeted Email Campaign Strategy Section */}
       <motion.section 
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10" 
+        className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 w-full overflow-x-hidden" 
         style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-20">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -489,7 +489,7 @@ export default function EmailMarketing() {
 
                         {/* Content Card */}
                         <motion.div
-                          className="relative p-8 rounded-3xl shadow-xl overflow-hidden"
+                          className="relative p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden w-full max-w-full"
                           style={{ 
                             background: 'linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)',
                             border: '2px solid transparent',
@@ -639,14 +639,14 @@ export default function EmailMarketing() {
 
       {/* Creative Email Design & Copywriting Section */}
       <motion.section
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 w-full overflow-x-hidden"
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-16">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -748,14 +748,14 @@ export default function EmailMarketing() {
 
       {/* Automation & Workflow Optimization Section */}
       <motion.section
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 w-full overflow-x-hidden"
         style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-16">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -859,14 +859,14 @@ export default function EmailMarketing() {
 
       {/* Performance Tracking & Reporting Section */}
       <motion.section
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 w-full overflow-x-hidden"
         style={{ backgroundColor: '#F9FAFB' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-16">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -1005,14 +1005,14 @@ export default function EmailMarketing() {
 
       {/* Continuous Optimization & Support Section */}
       <motion.section
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10 overflow-hidden"
+        className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 overflow-hidden w-full overflow-x-hidden"
         style={{ backgroundColor: '#FFFFFF' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
           <div className="text-center mb-16">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -1054,8 +1054,8 @@ export default function EmailMarketing() {
           </div>
 
           {/* Split Design */}
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-            <div className="grid md:grid-cols-2 gap-0">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-full">
+            <div className="grid md:grid-cols-2 gap-0 w-full">
               {/* Left Side - Gradient Panel */}
               <div className="relative h-full min-h-[400px] overflow-hidden bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-700 p-12 flex items-center">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
@@ -1121,14 +1121,14 @@ export default function EmailMarketing() {
 
       {/* FAQ Section */}
       <motion.section
-        className="py-20 px-6 md:px-12 lg:px-24 relative z-10"
+        className="py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 w-full overflow-x-hidden"
         style={{ backgroundColor: '#F9FAFB' }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.1 }}
         variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto w-full">
           <div className="text-center mb-16">
             <motion.h2 
               className="text-3xl md:text-5xl font-bold mb-6" 
@@ -1161,13 +1161,13 @@ export default function EmailMarketing() {
 
       {/* Final CTA */}
       <motion.div
-        className="px-6 md:px-12 max-w-7xl mx-auto py-16 relative z-10"
+        className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto py-16 relative z-10 w-full overflow-x-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
         viewport={{ once: false }}
       >
-        <div className="rounded-3xl p-10 md:p-12 text-center shadow-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
+        <div className="rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 text-center shadow-2xl relative overflow-hidden w-full" style={{ background: 'linear-gradient(135deg, #4C1D95, #1F2937)' }}>
           <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
             <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
