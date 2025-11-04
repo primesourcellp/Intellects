@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaLinkedin,
-  FaInstagram,
   FaWhatsapp,
   FaPhone,
 } from "react-icons/fa";
@@ -16,21 +15,21 @@ const SocialMediaSidebar = () => {
       name: "LinkedIn",
       icon: FaLinkedin,
       url: "https://www.linkedin.com/company/intellects",
-    },
-    {
-      name: "Instagram",
-      icon: FaInstagram,
-      url: "https://www.instagram.com/intellects",
+      target: "_blank",
+      rel: "noopener noreferrer",
     },
     {
       name: "WhatsApp",
       icon: FaWhatsapp,
-      url: "https://wa.me/1234567890",
+      url: "https://wa.me/19196991281",
+      target: "_blank",
+      rel: "noopener noreferrer",
     },
     {
       name: "Call Us",
       icon: FaPhone,
       url: "tel:+19196991281",
+      // No target for tel: links - they open phone dialer
     },
   ];
 
@@ -68,8 +67,8 @@ const SocialMediaSidebar = () => {
               <motion.a
                 key={social.name}
                 href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={social.target || undefined}
+                rel={social.rel || undefined}
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{
