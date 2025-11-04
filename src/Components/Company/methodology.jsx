@@ -104,7 +104,7 @@ export default function Methodology() {
   return (
     <div className="bg-white overflow-hidden">
       {/* Hero Section - Enhanced */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-indigo-50">
         {/* Animated Gradient Background */}
         <motion.div 
           className="absolute inset-0"
@@ -151,7 +151,7 @@ export default function Methodology() {
 
         {/* Main Content */}
         <motion.div 
-          className="relative z-10 text-center px-6 md:px-12 max-w-7xl mx-auto py-20"
+          className="relative z-10 text-center px-4 sm:px-6 md:px-12 max-w-7xl mx-auto pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-12 sm:pb-16 md:pb-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -161,7 +161,7 @@ export default function Methodology() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 md:mb-8 leading-tight"
             style={{ color: '#000000' }}
           >
             <TypingText text="Our Development " delay={800} speed={60} />
@@ -184,7 +184,7 @@ export default function Methodology() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 3.5 }}
-            className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12"
+            className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-10 md:mb-12"
           >
             Empowering Businesses Through Intelligence and Innovation
           </motion.p>
@@ -194,7 +194,7 @@ export default function Methodology() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-16"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mt-8 sm:mt-12 md:mt-16"
           >
             {[
               { number: "500+", label: "Projects Delivered" },
@@ -225,7 +225,7 @@ export default function Methodology() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10"
         >
           <div className="flex flex-col items-center gap-2">
             <span className="text-sm text-gray-500 font-medium">Scroll to explore</span>

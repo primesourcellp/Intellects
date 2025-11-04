@@ -129,30 +129,48 @@ export default function ContactUsPage() {
         }, 2000);
     };
 
-    const ContactDetailItem = ({ icon: Icon, title, content }) => (
-        <motion.div 
-            className="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-200 cursor-pointer group"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ x: 5 }}
-        >
-            <motion.div
-              className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
-              whileHover={{ scale: 1.1, rotate: 5 }}
+    const ContactDetailItem = ({ icon: Icon, title, content, href, target, rel }) => {
+        const contentElement = href ? (
+            <a
+                href={href}
+                target={target}
+                rel={rel}
+                className="text-base leading-relaxed transition-colors hover:text-purple-600"
+                style={{ color: '#6B7280', textDecoration: 'none' }}
+                onMouseEnter={e => e.currentTarget.style.color = '#4C1D95'}
+                onMouseLeave={e => e.currentTarget.style.color = '#6B7280'}
             >
-              <Icon className="h-6 w-6 text-white" />
+                {content}
+            </a>
+        ) : (
+            <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>{content}</p>
+        );
+
+        return (
+            <motion.div 
+                className="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-200 cursor-pointer group"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ x: 5 }}
+            >
+                <motion.div
+                  className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center"
+                  style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                >
+                  <Icon className="h-6 w-6 text-white" />
+                </motion.div>
+                <div className="flex-1">
+                    <h3 className="text-lg font-bold mb-1 group-hover:text-purple-800 transition-colors" style={{ color: '#000000' }}>
+                      {title}
+                    </h3>
+                    {contentElement}
+                </div>
             </motion.div>
-            <div className="flex-1">
-                <h3 className="text-lg font-bold mb-1 group-hover:text-purple-800 transition-colors" style={{ color: '#000000' }}>
-                  {title}
-                </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>{content}</p>
-            </div>
-        </motion.div>
-    );
+        );
+    };
 
     return (
         <div className="overflow-hidden" style={{ backgroundColor: '#FFFFFF', color: '#1F2937' }}>
@@ -228,12 +246,16 @@ export default function ContactUsPage() {
                             <ContactDetailItem
                                 icon={Phone}
                                 title="Phone"
-                                content="+1(919)699-1281"
+                                content="+1 (919) 699-1281"
+                                href="tel:+19196991281"
                             />
                             <ContactDetailItem
                                 icon={Mail}
                                 title="Email"
-                                content="hello@intellectsllc.com"
+                                content="badhri@intellectsllc.com"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=badhri@intellectsllc.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             />
                             <ContactDetailItem
                                 icon={Globe}

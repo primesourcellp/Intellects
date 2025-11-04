@@ -878,9 +878,9 @@ export default function Seo() {
                             }}
                           />
 
-                          {/* Mobile Icon Badge */}
+                          {/* Mobile Icon Badge - Hidden on mobile only */}
                           <Motion.div
-                            className={`md:hidden absolute -top-4 ${isLeft ? 'left-8' : 'left-8'} w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white bg-gradient-to-br ${step.color}`}
+                            className={`hidden absolute -top-4 ${isLeft ? 'left-8' : 'left-8'} w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white bg-gradient-to-br ${step.color}`}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.5, type: "spring" }}

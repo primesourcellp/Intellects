@@ -82,11 +82,32 @@ export default function Footer() {
                         <div className="space-y-3">
                             <div className="flex items-center gap-3">
                                 <FaEnvelope style={{ color: '#C4B5FD' }} />
-                                <span className="text-sm" style={{ color: '#E0E7FF' }}>hello@intellects.com</span>
+                                <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=badhri@intellectsllc.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-sm transition-colors"
+  style={{ color: '#E0E7FF' }}
+  onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
+  onMouseLeave={e => e.currentTarget.style.color = '#E0E7FF'}
+>
+  badhri@intellectsllc.com
+</a>
+                                {/* <span className="text-sm" style={{ color: '#E0E7FF' }}>badhri@intellectsllc.com</span> */}
                             </div>
                             <div className="flex items-center gap-3">
                                 <FaPhone style={{ color: '#C4B5FD' }} />
-                                <span className="text-sm" style={{ color: '#E0E7FF' }}>+1(919)699-1281</span>
+                                <a
+    href="tel:+19196991281"
+    className="text-sm transition-colors"
+    style={{ color: '#E0E7FF' }}
+    onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
+    onMouseLeave={e => e.currentTarget.style.color = '#E0E7FF'}
+  >
+    +1 (919) 699-1281
+  </a>
+                                
+                                {/* <span className="text-sm" style={{ color: '#E0E7FF' }}>+1(919)699-1281</span> */}
                             </div>
                             <div className="flex items-start gap-3">
                                 <FaMapMarkerAlt className="mt-1" style={{ color: '#C4B5FD' }} />

@@ -123,7 +123,7 @@ export default function CareerCulture() {
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
       {/* Hero Section - Enhanced */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-indigo-50">
         {/* Animated Gradient Background */}
         <motion.div 
           className="absolute inset-0"
@@ -170,7 +170,7 @@ export default function CareerCulture() {
 
         {/* Main Content */}
         <motion.div 
-          className="relative z-10 text-center px-6 md:px-12 max-w-7xl mx-auto py-20"
+          className="relative z-10 text-center px-4 sm:px-6 md:px-12 max-w-7xl mx-auto pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-12 sm:pb-16 md:pb-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -180,7 +180,7 @@ export default function CareerCulture() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 md:mb-8 leading-tight"
             style={{ color: '#000000' }}
           >
             <TypingText text="Career & " delay={800} speed={60} />
@@ -203,7 +203,7 @@ export default function CareerCulture() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-4 sm:mb-6 font-semibold"
           >
             Grow With Purpose. Work With Intellect.
           </motion.p>
@@ -212,7 +212,7 @@ export default function CareerCulture() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12"
+            className="text-lg sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-10 md:mb-12"
           >
             Join Intellects — where ideas turn into impact, and innovation meets opportunity. We're 
             more than a team of developers, strategists, and consultants — we're a community of 
@@ -225,7 +225,7 @@ export default function CareerCulture() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10"
         >
           <div className="flex flex-col items-center gap-2">
             <span className="text-sm text-gray-500 font-medium">Scroll to explore</span>
@@ -685,11 +685,11 @@ export default function CareerCulture() {
               variants={fadeInRight}
               className="relative group"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto lg:max-w-lg h-full">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:max-w-lg h-full">
                 <img
                   src={careerImage3}
                   alt="Career Growth & Learning"
-                  className="w-full h-full min-h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full min-h-[300px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-transparent"></div>
               </div>

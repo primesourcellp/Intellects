@@ -1295,9 +1295,9 @@ export default function WebAppDevelopment() {
                             }}
                           />
 
-                          {/* Mobile Icon Badge */}
+                          {/* Mobile Icon Badge - Hidden on mobile only */}
                           <motion.div
-                            className={`md:hidden absolute -top-3 sm:-top-4 ${isLeft ? 'left-4 sm:left-6 md:left-8' : 'left-4 sm:left-6 md:left-8'} w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white bg-gradient-to-br ${step.color}`}
+                            className={`hidden absolute -top-3 sm:-top-4 ${isLeft ? 'left-4 sm:left-6 md:left-8' : 'left-4 sm:left-6 md:left-8'} w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl z-10 text-white bg-gradient-to-br ${step.color}`}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.5, type: "spring" }}

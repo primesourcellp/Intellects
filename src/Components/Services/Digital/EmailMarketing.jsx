@@ -508,9 +508,9 @@ export default function EmailMarketing() {
                             }}
                           />
 
-                          {/* Mobile Number Badge */}
+                          {/* Mobile Number Badge - Hidden on mobile only */}
                           <motion.div
-                            className="md:hidden absolute -top-4 left-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10"
+                            className="hidden absolute -top-4 left-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10"
                             style={{ background: 'linear-gradient(135deg, #4C1D95, #7C3AED)' }}
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
