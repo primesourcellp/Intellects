@@ -268,8 +268,8 @@ export default function ContactUsPage() {
                             <ContactDetailItem
                                 icon={Mail}
                                 title="Email"
-                                content="badhri@intellectsllc.com"
-                                href="https://mail.google.com/mail/?view=cm&fs=1&to=badhri@intellectsllc.com"
+                                content="contact@intellectsllc.com"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@intellectsllc.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             />

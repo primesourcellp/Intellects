@@ -83,7 +83,7 @@ export default function Footer() {
                             <div className="flex items-center gap-3">
                                 <FaEnvelope style={{ color: '#C4B5FD' }} />
                                 <a
-                                    href="https://mail.google.com/mail/?view=cm&fs=1&to=badhri@intellectsllc.com"
+                                    href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@intellectsllc.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-sm transition-colors"
@@ -91,7 +91,7 @@ export default function Footer() {
                                     onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
                                     onMouseLeave={e => e.currentTarget.style.color = '#E0E7FF'}
                                 >
-                                    badhri@intellectsllc.com
+                                    contact@intellectsllc.com
                                 </a>
                                 {/* <span className="text-sm" style={{ color: '#E0E7FF' }}>badhri@intellectsllc.com</span> */}
                             </div>
